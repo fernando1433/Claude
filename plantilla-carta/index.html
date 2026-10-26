@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bar Manolo · Carta</title>
+<meta name="description" content="Carta, horario y contacto de Bar Manolo.">
+<meta name="theme-color" content="#b5472b">
+<style>
+  :root {
+    --color: #b5472b;          /* color principal del local */
+    --fondo: #faf6f0;
+    --tarjeta: #ffffff;
+    --texto: #2b2420;
+    --suave: #7a6f66;
+    --borde: #e8dfd3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fondo:#1c1816; --tarjeta:#262120; --texto:#f2ebe3; --suave:#a89d92; --borde:#3a322e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+         background:var(--fondo); color:var(--texto); line-height:1.45; }
+  header { background:var(--color); color:#fff; padding:28px 16px 22px; text-align:center; }
+  header h1 { margin:0 0 4px; font-size:1.8rem; }
+  header p { margin:0; opacity:.9; }
+  main { max-width:640px; margin:0 auto; padding:16px; }
+  .estado { display:inline-block; margin-top:10px; padding:4px 12px; border-radius:99px;
+            background:rgba(255,255,255,.2); font-size:.85rem; }
+  .acciones { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:16px 0; }
+  .acciones a { display:block; text-align:center; padding:12px 6px; border-radius:12px;
+                background:var(--tarjeta); border:1px solid var(--borde); color:var(--texto);
+                text-decoration:none; font-weight:600; font-size:.9rem; }
+  .acciones a.wa { background:#25d366; border-color:#25d366; color:#fff; }
+  nav { position:sticky; top:0; z-index:5; background:var(--fondo); padding:8px 0;
+        display:flex; gap:8px; overflow-x:auto; }
+  nav a { white-space:nowrap; padding:6px 14px; border-radius:99px; border:1px solid var(--borde);
+          background:var(--tarjeta); color:var(--texto); text-decoration:none; font-size:.9rem; }
+  section { margin-top:20px; scroll-margin-top:56px; }
+  h2 { color:var(--color); border-bottom:2px solid var(--color); padding-bottom:4px; margin:0 0 8px; }
+  .plato { display:flex; justify-content:space-between; gap:12px; padding:10px 0;
+           border-bottom:1px solid var(--borde); }
+  .plato:last-child { border-bottom:0; }
+  .plato h3 { margin:0; font-size:1rem; }
+  .plato p { margin:2px 0 0; color:var(--suave); font-size:.88rem; }
+  .precio { font-weight:700; white-space:nowrap; }
+  .alg { display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; }
+  .alg span { font-size:.72rem; padding:1px 7px; border-radius:6px; background:var(--borde); color:var(--texto); }
+  .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; }
+  .horario { width:100%; border-collapse:collapse; }
+  .horario td { padding:4px 0; }
+  .horario td:last-child { text-align:right; }
+  .horario tr.hoy { font-weight:700; color:var(--color); }
+  .leyenda { font-size:.82rem; color:var(--suave); }
+  .leyenda li { display:inline-block; margin:2px 10px 2px 0; }
+  iframe { width:100%; height:240px; border:0; border-radius:12px; }
+  footer { text-align:center; color:var(--suave); font-size:.8rem; padding:24px 16px 40px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="nombre"></h1>
+  <p id="lema"></p>
+  <span class="estado" id="estado"></span>
+</header>
+
+<main>
+  <div class="acciones" id="acciones"></div>
+  <nav id="menu"></nav>
+  <div id="carta"></div>
+
+  <section id="info">
+    <h2>Horario</h2>
+    <div class="caja"><table class="horario" id="horario"></table></div>
+  </section>
+
+  <section id="donde">
+    <h2>Dónde estamos</h2>
+    <p id="direccion"></p>
+    <iframe id="mapa" loading="lazy" title="Mapa"></iframe>
+  </section>
+
+  <section id="alergenos">
+    <h2>Alérgenos</h2>
+    <div class="caja leyenda">
+      <p>Si tienes alguna alergia o intolerancia, avisa al personal antes de pedir.
+         Los 14 alérgenos de declaración obligatoria:</p>
+      <ul id="leyenda" style="padding:0;list-style:none;margin:0"></ul>
+    </div>
+  </section>
+</main>
+
+<footer id="pie"></footer>
+
+<script>
+/* =====================================================================
+   CONFIGURACIÓN DEL LOCAL  ·  Lo ÚNICO que hay que editar por cliente.
+   ===================================================================== */
+const LOCAL = {
+  nombre: "Bar Manolo",
+  lema: "Cocina casera desde 1987",
+  telefono: "+34600000000",            // con prefijo, sin espacios
+  whatsapp: "34600000000",             // prefijo + número, sin + ni espacios
+  mensajeWhatsapp: "Hola, quería reservar mesa",
+  direccion: "Calle Mayor 12, 28001 Madrid",
+  mapa: "Calle Mayor 12, 28001 Madrid", // texto que busca Google Maps
+  resenasGoogle: "",                    // enlace de reseña del negocio (opcional)
+  instagram: "",                        // https://instagram.com/usuario (opcional)
+  color: "#b5472b",
+  /* Horario: 0=domingo ... 6=sábado. Cada tramo "HH:MM-HH:MM". Vacío = cerrado. */
+  horario: {
+    1: ["08:00-16:00", "20:00-23:30"],
+    2: ["08:00-16:00", "20:00-23:30"],
+    3: ["08:00-16:00", "20:00-23:30"],
+    4: ["08:00-16:00", "20:00-23:30"],
+    5: ["08:00-16:00", "20:00-00:30"],
+    6: ["10:00-17:00", "20:00-00:30"],
+    0: []
+  },
+  /* Alérgenos de cada plato: usa las claves de ALERGENOS. */
+  carta: [
+    { seccion: "Tapas", platos: [
+      { n: "Patatas bravas", d: "Con salsa brava casera", p: 5.5, a: ["huevos"] },
+      { n: "Croquetas de jamón (6 uds)", d: "Hechas en casa", p: 7, a: ["gluten", "lacteos", "huevos"] }
+    ]},
+    { seccion: "Platos", platos: [
+      { n: "Tortilla de patatas", d: "Jugosa, con o sin cebolla", p: 6.5, a: ["huevos"] },
+      { n: "Calamares a la romana", d: "Con limón y alioli", p: 11, a: ["gluten", "moluscos", "huevos"] },
+      { n: "Ensalada mixta", d: "Lechuga, tomate, atún, huevo y aceitunas", p: 8, a: ["pescado", "huevos", "sulfitos"] }
+    ]}
+  ]
+};
+
+/* Los 14 alérgenos de la UE (Reglamento 1169/2011). No tocar. */
+const ALERGENOS = {
+  gluten: "Gluten", crustaceos: "Crustáceos", huevos: "Huevos", pescado: "Pescado",
+  cacahuetes: "Cacahuetes", soja: "Soja", lacteos: "Lácteos", frutos_cascara: "Frutos de cáscara",
+  apio: "Apio", mostaza: "Mostaza", sesamo: "Sésamo", sulfitos: "Sulfitos",
+  altramuces: "Altramuces", moluscos: "Moluscos"
+};
+
+/* ============================ CÓDIGO ============================ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const eur = n => n.toLocaleString("es-ES", { style:"currency", currency:"EUR" });
+const DIAS = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const min = h => { const [a,b] = h.split(":").map(Number); return a*60+b; };
+
+document.title = `${LOCAL.nombre} · Carta`;
+document.documentElement.style.setProperty("--color", LOCAL.color);
+$("nombre").textContent = LOCAL.nombre;
+$("lema").textContent = LOCAL.lema;
+$("direccion").textContent = LOCAL.direccion;
+$("mapa").src = "https://www.google.com/maps?q=" + encodeURIComponent(LOCAL.mapa) + "&output=embed";
+
+/* Botones de acción */
+const btn = [];
+if (LOCAL.whatsapp) btn.push(`<a class="wa" href="https://wa.me/${esc(LOCAL.whatsapp)}?text=${encodeURIComponent(LOCAL.mensajeWhatsapp)}">WhatsApp</a>`);
+if (LOCAL.telefono) btn.push(`<a href="tel:${esc(LOCAL.telefono)}">Llamar</a>`);
+btn.push(`<a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(LOCAL.mapa)}">Cómo llegar</a>`);
+if (LOCAL.resenasGoogle) btn.push(`<a href="${esc(LOCAL.resenasGoogle)}">Dejar reseña</a>`);
+if (LOCAL.instagram) btn.push(`<a href="${esc(LOCAL.instagram)}">Instagram</a>`);
+$("acciones").innerHTML = btn.join("");
+
+/* Carta */
+$("menu").innerHTML = LOCAL.carta.map((s,i) => `<a href="#s${i}">${esc(s.seccion)}</a>`).join("");
+$("carta").innerHTML = LOCAL.carta.map((s,i) => `
+  <section id="s${i}"><h2>${esc(s.seccion)}</h2>
+  ${s.platos.map(p => `
+    <div class="plato">
+      <div>
+        <h3>${esc(p.n)}</h3>
+        ${p.d ? `<p>${esc(p.d)}</p>` : ""}
+        ${(p.a||[]).length ? `<div class="alg">${p.a.map(a => `<span>${esc(ALERGENOS[a] || a)}</span>`).join("")}</div>` : ""}
+      </div>
+      <div class="precio">${eur(p.p)}</div>
+    </div>`).join("")}
+  </section>`).join("");
+
+/* Leyenda de alérgenos */
+$("leyenda").innerHTML = Object.values(ALERGENOS).map(a => `<li>${a}</li>`).join("");
+
+/* Horario y estado abierto/cerrado */
+const ahora = new Date();
+const hoy = ahora.getDay();
+$("horario").innerHTML = [1,2,3,4,5,6,0].map(d => `
+  <tr class="${d===hoy?"hoy":""}"><td>${DIAS[d]}</td>
+  <td>${LOCAL.horario[d].length ? LOCAL.horario[d].join(" · ") : "Cerrado"}</td></tr>`).join("");
+
+function abierto() {
+  const m = ahora.getHours()*60 + ahora.getMinutes();
+  const chequea = (dia, minutos) => (LOCAL.horario[dia]||[]).some(t => {
+    const [a,b] = t.split("-").map(min);
+    return b > a ? minutos >= a && minutos < b : minutos >= a;   // pasa de medianoche
+  });
+  if (chequea(hoy, m)) return true;
+  // tramo de ayer que acaba pasada la medianoche
+  return (LOCAL.horario[(hoy+6)%7]||[]).some(t => {
+    const [a,b] = t.split("-").map(min);
+    return b < a && m < b;
+  });
+}
+$("estado").textContent = abierto() ? "Abierto ahora" : "Cerrado ahora";
+
+$("pie").textContent = `© ${ahora.getFullYear()} ${LOCAL.nombre} · Precios con IVA incluido`;
+</script>
+</body>
+</html>
