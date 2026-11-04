@@ -298,7 +298,10 @@
    "claude": {
     "idle": "claude_idle.png",
     "parpadeo": "claude_parpadeo.png",
-    "feliz": "claude_feliz.png"
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
    }
   },
   "monitor_espalda": {
@@ -341,6 +344,109 @@
    "humano": {},
    "claude": {
     "idle": "claude_idle.png"
+   }
+  },
+  "general": {
+   "camara": [
+    [
+     0.9,
+     -5.6,
+     1.25
+    ],
+    [
+     0.9,
+     0.8,
+     0.95
+    ],
+    40
+   ],
+   "descripcion": "Plano general: humano, monitor y Clawd en el escritorio",
+   "pantalla_quad": [
+    [
+     331.4,
+     487.0
+    ],
+    [
+     711.4,
+     462.1
+    ],
+    [
+     706.6,
+     699.2
+    ],
+    [
+     331.7,
+     682.3
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "humano": "sombra_humano.png",
+    "claude": "sombra_claude.png"
+   },
+   "humano": {
+    "neutral_cerrada": "humano_neutral_cerrada.png",
+    "neutral_media": "humano_neutral_media.png",
+    "neutral_abierta": "humano_neutral_abierta.png",
+    "feliz_cerrada": "humano_feliz_cerrada.png",
+    "feliz_media": "humano_feliz_media.png",
+    "feliz_abierta": "humano_feliz_abierta.png",
+    "neutral_parpadeo": "humano_neutral_parpadeo.png",
+    "senalar:neutral_cerrada": "humano_senalar_neutral_cerrada.png",
+    "senalar:neutral_media": "humano_senalar_neutral_media.png",
+    "senalar:neutral_abierta": "humano_senalar_neutral_abierta.png"
+   },
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png"
+   }
+  },
+  "cenital": {
+   "camara": [
+    [
+     1.2,
+     -1.9,
+     3.5
+    ],
+    [
+     1.2,
+     0.25,
+     0.1
+    ],
+    36
+   ],
+   "descripcion": "Cenital sobre el escritorio (teclado, raton, taza, libros) con Clawd",
+   "pantalla_quad": [
+    [
+     219.3,
+     105.6
+    ],
+    [
+     1096.1,
+     289.2
+    ],
+    [
+     801.9,
+     611.4
+    ],
+    [
+     266.9,
+     440.1
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
    }
   }
  }
