@@ -14,26 +14,26 @@ El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la
 
 | # | Tiempo | Quién | Texto | Plano | Emoción / pose / estado | Pantalla del monitor |
 |---|---|---|---|---|---|---|
-| 1 | 0.0–2.7 | Humano | ¡Me he metido en un grupo / VIP de señales! | `general` | ilusionado | telegram (9.26 s) |
+| 1 | 0.0–2.7 | Humano | ¡Me he metido en un grupo / VIP de señales! | `general` | ilusionado | telegram (9.31 s) |
 | 2 | 2.7–4.8 | Claude | Déjame adivinar: / 49 € al mes. | `monitor` | mira_izq |  |
 | 3 | 4.8–6.7 | Humano | ¡El admin gana un 3.000 %! | `dos` | feliz, pose senalar |  |
 | 4 | 6.7–9.3 | Claude | Casualmente, solo enseña / las que ganan. | `monitor_lateral` | idle |  |
-| 5 | 9.3–11.0 | Humano | Hoy dice: compra $PERRO. | `humano` | bobo | telegram (10.56 s) |
-| 6 | 11.0–12.9 | Claude | Un perro. Muy serio todo. | `monitor_lateral` | feliz |  |
-| 7 | 12.9–14.6 | Humano | ¡Va a subir un 1.000 %! | `dos` | ilusionado |  |
-| 8 | 14.6–18.3 | Claude | Sube porque lo dice el admin. / Cuando tú compras, él vende. | `cenital` | mira_der |  |
-| 9 | 18.3–19.7 | Humano | ¿Eso es legal? | `humano` | confundido |  |
-| 10 | 19.7–22.6 | Claude | Se llama pump & dump: / lo inflan y tú pagas. | `pantalla_completa` | idle |  |
-| 11 | 22.6–24.2 | Humano | Yo ya compré... 400 €. | `dos` | preocupado, pose hombros |  |
-| 12 | 24.2–26.4 | Claude | Vende YA. Aún recuperas 380 €. | `monitor` | feliz |  |
-| 13 | 26.4–27.7 | Humano | ¿Cómo vendo? | `humano` | confundido |  |
-| 14 | 27.7–31.2 | Claude | Botón rojo. Y adiós al VIP: / mira cómo luce tu cartera. | `pantalla_completa` | idle | cartera (3.68 s) |
-| 15 | 31.2–32.6 | Humano | ¡Me quedan 380 €! | `dos` | preocupado |  |
-| 16 | 32.6–35.5 | Claude | 380 € más de los que / habrías tenido sin mí. | `claude_ojos` | feliz, empuje de cámara |  |
-| 17 | 35.5–37.2 | Humano | ¡Eres un genio, Claude! | `humano` | ilusionado |  |
-| 18 | 37.2–40.5 | Claude | Dato real: 97 % de day traders / con +300 días pierde. | `pantalla_completa` | idle | verdad (3.38 s) |
-| 19 | 40.5–42.4 | Humano | Pero yo soy del 3 %, ¿no? | `dos` | bobo |  |
-| 20 | 42.4–45.0 | Claude | Claro. Seguro. / Yo traigo las palomitas. | `general` | feliz |  |
+| 5 | 9.3–11.1 | Humano | Hoy dice: compra $PERRO. | `humano` | bobo | telegram (10.6 s) |
+| 6 | 11.1–12.9 | Claude | Un perro. Muy serio todo. | `monitor_lateral` | feliz |  |
+| 7 | 12.9–14.7 | Humano | ¡Va a subir un 1.000 %! | `dos` | ilusionado |  |
+| 8 | 14.7–18.4 | Claude | Sube porque lo dice el admin. / Cuando tú compras, él vende. | `cenital` | mira_der |  |
+| 9 | 18.4–19.8 | Humano | ¿Eso es legal? | `humano` | confundido |  |
+| 10 | 19.8–22.7 | Claude | Se llama pump & dump: / lo inflan y tú pagas. | `pantalla_completa` | idle |  |
+| 11 | 22.7–24.4 | Humano | Yo ya compré... 400 €. | `dos` | preocupado, pose hombros |  |
+| 12 | 24.4–26.5 | Claude | Vende YA. Aún recuperas 380 €. | `monitor` | feliz |  |
+| 13 | 26.5–27.9 | Humano | ¿Cómo vendo? | `humano` | confundido |  |
+| 14 | 27.9–31.4 | Claude | Botón rojo. Y adiós al VIP: / mira cómo luce tu cartera. | `pantalla_completa` | idle | cartera (3.69 s) |
+| 15 | 31.4–32.8 | Humano | ¡Me quedan 380 €! | `dos` | preocupado |  |
+| 16 | 32.8–35.6 | Claude | 380 € más de los que / habrías tenido sin mí. | `claude_ojos` | feliz, empuje de cámara |  |
+| 17 | 35.6–37.4 | Humano | ¡Eres un genio, Claude! | `humano` | ilusionado |  |
+| 18 | 37.4–40.8 | Claude | Dato real: 97 % de day traders / con +300 días pierde. | `pantalla_completa` | idle | verdad (3.39 s) |
+| 19 | 40.8–42.6 | Humano | Pero yo soy del 3 %, ¿no? | `dos` | bobo |  |
+| 20 | 42.6–45.0 | Claude | Claro. Seguro. / En fin, eres humano. | `general` | feliz |  |
 
 ## Datos reales que aparecen o se mencionan
 

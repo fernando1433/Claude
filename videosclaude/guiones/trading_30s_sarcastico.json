@@ -19,6 +19,6 @@
     {"inicio": 23.2, "fin": 24.6, "quien": "humano", "texto": "¡Me ha saltado el stop!", "plano": "dos", "pose": "hombros", "emocion": "preocupado", "tono": "dudoso"},
     {"inicio": 24.6, "fin": 27.2, "quien": "claude", "texto": "Funcionó. Perdiste 40 €\nen vez de 4.000. Enhorabuena.", "plano": "pantalla_completa", "pantalla": {"tipo": "resultado", "duracion": 2.6}},
     {"inicio": 27.2, "fin": 28.4, "quien": "humano", "texto": "...Compro otra vez.", "plano": "humano", "emocion": "burlon", "tono": "dudoso"},
-    {"inicio": 28.4, "fin": 30.0, "quien": "claude", "texto": "Yo traigo las palomitas.", "plano": "claude_ojos", "claude_estado": "feliz", "empuje": true}
+    {"inicio": 28.4, "fin": 30.0, "quien": "claude", "texto": "En fin... eres humano.", "plano": "claude_ojos", "claude_estado": "feliz", "empuje": true}
   ]
 }

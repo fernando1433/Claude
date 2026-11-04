@@ -14,7 +14,7 @@ El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la
 
 | # | Tiempo | Quién | Texto | Plano | Emoción / pose / estado | Pantalla del monitor |
 |---|---|---|---|---|---|---|
-| 1 | 0.0–1.7 | Humano | ¡Pongo mis 500 € a x100! | `dos` | feliz, pose senalar | apalanc (13.24 s) |
+| 1 | 0.0–1.7 | Humano | ¡Pongo mis 500 € a x100! | `dos` | feliz, pose senalar | apalanc (13.26 s) |
 | 2 | 1.7–3.1 | Claude | Define «x100». | `monitor` | mira_izq |  |
 | 3 | 3.1–4.8 | Humano | Si sube 1 %, ¡gano 500 €! | `humano` | ilusionado |  |
 | 4 | 4.8–7.4 | Claude | Y si baja 1 %, / esa parte no la cuentas. | `monitor_lateral` | idle |  |
@@ -22,18 +22,18 @@ El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la
 | 6 | 8.7–11.2 | Claude | 500 €. Todos. Liquidado. / Adiós, 500 €. | `pantalla_completa` | idle |  |
 | 7 | 11.2–12.5 | Humano | ¿¡Con un 1 %!? | `dos` | preocupado, pose hombros |  |
 | 8 | 12.5–15.4 | Claude | Un 1 % es lo que se mueve / mientras parpadeas. | `claude_ojos` | feliz, empuje de cámara |  |
-| 9 | 15.4–17.0 | Humano | ¿Y quién gana entonces? | `humano` | confundido |  |
-| 10 | 17.0–19.7 | Claude | El broker. Cobra comisión / gane o pierdas. | `cenital` | mira_der |  |
+| 9 | 15.4–17.1 | Humano | ¿Y quién gana entonces? | `humano` | confundido |  |
+| 10 | 17.1–19.7 | Claude | El broker. Cobra comisión / gane o pierdas. | `cenital` | mira_der |  |
 | 11 | 19.7–21.5 | Humano | Pues pongo x50, entonces. | `dos` | bobo |  |
-| 12 | 21.5–25.1 | Claude | En la UE el máximo para minoristas / es 30:1. En cripto, 2:1. | `pantalla_completa` | idle | verdad (3.67 s) |
-| 13 | 25.1–27.1 | Humano | ¡Pues me voy fuera de la UE! | `humano` | ilusionado |  |
-| 14 | 27.1–30.6 | Claude | Donde no hay normas, tampoco / hay quien te devuelva nada. | `monitor` | mira_arriba |  |
-| 15 | 30.6–32.1 | Humano | Vale... ¿y qué hago? | `dos` | preocupado |  |
-| 16 | 32.1–35.9 | Claude | Poco apalancamiento, stop loss / y arriesga 1-2 % por operación. | `pantalla_completa` | idle | orden (3.0 s) |
-| 17 | 35.9–37.4 | Humano | Eso es... aburrido. | `humano` | feliz |  |
-| 18 | 37.4–40.9 | Claude | Aburrido es lo que funciona. / Lo emocionante es perderlo. | `monitor_lateral` | feliz |  |
-| 19 | 40.9–42.4 | Humano | ¡Pues x100 con stop! | `dos` | ilusionado |  |
-| 20 | 42.4–45.0 | Claude | Saltará al -1 %. / Yo traigo las palomitas. | `general` | feliz |  |
+| 12 | 21.5–25.2 | Claude | En la UE el máximo para minoristas / es 30:1. En cripto, 2:1. | `pantalla_completa` | idle | verdad (3.68 s) |
+| 13 | 25.2–27.1 | Humano | ¡Pues me voy fuera de la UE! | `humano` | ilusionado |  |
+| 14 | 27.1–30.7 | Claude | Donde no hay normas, tampoco / hay quien te devuelva nada. | `monitor` | mira_arriba |  |
+| 15 | 30.7–32.2 | Humano | Vale... ¿y qué hago? | `dos` | preocupado |  |
+| 16 | 32.2–36.0 | Claude | Poco apalancamiento, stop loss / y arriesga 1-2 % por operación. | `pantalla_completa` | idle | orden (3.0 s) |
+| 17 | 36.0–37.5 | Humano | Eso es... aburrido. | `humano` | feliz |  |
+| 18 | 37.5–41.0 | Claude | Aburrido es lo que funciona. / Lo emocionante es perderlo. | `monitor_lateral` | feliz |  |
+| 19 | 41.0–42.5 | Humano | ¡Pues x100 con stop! | `dos` | ilusionado |  |
+| 20 | 42.5–45.0 | Claude | Saltará al -1 %. / En fin... eres humano. | `general` | feliz |  |
 
 ## Datos reales que aparecen o se mencionan
 

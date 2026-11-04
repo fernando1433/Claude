@@ -15,7 +15,7 @@
    "pose": "senalar",
    "pantalla": {
     "tipo": "apalanc",
-    "duracion": 13.24
+    "duracion": 13.26
    }
   },
   {
@@ -28,37 +28,37 @@
   },
   {
    "inicio": 3.06,
-   "fin": 4.84,
+   "fin": 4.85,
    "quien": "humano",
    "texto": "Si sube 1 %, ¡gano 500 €!",
    "plano": "humano",
    "emocion": "ilusionado"
   },
   {
-   "inicio": 4.84,
-   "fin": 7.37,
+   "inicio": 4.85,
+   "fin": 7.38,
    "quien": "claude",
    "texto": "Y si baja 1 %,\nesa parte no la cuentas.",
    "plano": "monitor_lateral"
   },
   {
-   "inicio": 7.37,
-   "fin": 8.7,
+   "inicio": 7.38,
+   "fin": 8.72,
    "quien": "humano",
    "texto": "¿Pierdo 5 €?",
    "plano": "humano",
    "emocion": "bobo"
   },
   {
-   "inicio": 8.7,
-   "fin": 11.16,
+   "inicio": 8.72,
+   "fin": 11.19,
    "quien": "claude",
    "texto": "500 €. Todos. Liquidado.\nAdiós, 500 €.",
    "plano": "pantalla_completa"
   },
   {
-   "inicio": 11.16,
-   "fin": 12.49,
+   "inicio": 11.19,
+   "fin": 12.53,
    "quien": "humano",
    "texto": "¿¡Con un 1 %!?",
    "plano": "dos",
@@ -66,8 +66,8 @@
    "pose": "hombros"
   },
   {
-   "inicio": 12.49,
-   "fin": 15.36,
+   "inicio": 12.53,
+   "fin": 15.4,
    "quien": "claude",
    "texto": "Un 1 % es lo que se mueve\nmientras parpadeas.",
    "plano": "claude_ojos",
@@ -75,70 +75,70 @@
    "empuje": true
   },
   {
-   "inicio": 15.36,
-   "fin": 17.03,
+   "inicio": 15.4,
+   "fin": 17.08,
    "quien": "humano",
    "texto": "¿Y quién gana entonces?",
    "plano": "humano",
    "emocion": "confundido"
   },
   {
-   "inicio": 17.03,
-   "fin": 19.67,
+   "inicio": 17.08,
+   "fin": 19.72,
    "quien": "claude",
    "texto": "El broker. Cobra comisión\ngane o pierdas.",
    "plano": "cenital",
    "claude_estado": "mira_der"
   },
   {
-   "inicio": 19.67,
-   "fin": 21.46,
+   "inicio": 19.72,
+   "fin": 21.51,
    "quien": "humano",
    "texto": "Pues pongo x50, entonces.",
    "plano": "dos",
    "emocion": "bobo"
   },
   {
-   "inicio": 21.46,
-   "fin": 25.13,
+   "inicio": 21.51,
+   "fin": 25.19,
    "quien": "claude",
    "texto": "En la UE el máximo para minoristas\nes 30:1. En cripto, 2:1.",
    "plano": "pantalla_completa",
    "pantalla": {
     "tipo": "verdad",
-    "duracion": 3.67,
+    "duracion": 3.68,
     "datos": {
      "tipo": "apalanc"
     }
    }
   },
   {
-   "inicio": 25.13,
-   "fin": 27.08,
+   "inicio": 25.19,
+   "fin": 27.15,
    "quien": "humano",
    "texto": "¡Pues me voy fuera de la UE!",
    "plano": "humano",
    "emocion": "ilusionado"
   },
   {
-   "inicio": 27.08,
-   "fin": 30.58,
+   "inicio": 27.15,
+   "fin": 30.66,
    "quien": "claude",
    "texto": "Donde no hay normas, tampoco\nhay quien te devuelva nada.",
    "plano": "monitor",
    "claude_estado": "mira_arriba"
   },
   {
-   "inicio": 30.58,
-   "fin": 32.08,
+   "inicio": 30.66,
+   "fin": 32.16,
    "quien": "humano",
    "texto": "Vale... ¿y qué hago?",
    "plano": "dos",
    "emocion": "preocupado"
   },
   {
-   "inicio": 32.08,
-   "fin": 35.92,
+   "inicio": 32.16,
+   "fin": 36.01,
    "quien": "claude",
    "texto": "Poco apalancamiento, stop loss\ny arriesga 1-2 % por operación.",
    "plano": "pantalla_completa",
@@ -148,34 +148,34 @@
    }
   },
   {
-   "inicio": 35.92,
-   "fin": 37.36,
+   "inicio": 36.01,
+   "fin": 37.46,
    "quien": "humano",
    "texto": "Eso es... aburrido.",
    "plano": "humano",
    "emocion": "feliz"
   },
   {
-   "inicio": 37.36,
-   "fin": 40.86,
+   "inicio": 37.46,
+   "fin": 40.97,
    "quien": "claude",
    "texto": "Aburrido es lo que funciona.\nLo emocionante es perderlo.",
    "plano": "monitor_lateral",
    "claude_estado": "feliz"
   },
   {
-   "inicio": 40.86,
-   "fin": 42.36,
+   "inicio": 40.97,
+   "fin": 42.47,
    "quien": "humano",
    "texto": "¡Pues x100 con stop!",
    "plano": "dos",
    "emocion": "ilusionado"
   },
   {
-   "inicio": 42.36,
+   "inicio": 42.47,
    "fin": 45.0,
    "quien": "claude",
-   "texto": "Saltará al -1 %.\nYo traigo las palomitas.",
+   "texto": "Saltará al -1 %.\nEn fin... eres humano.",
    "plano": "general",
    "claude_estado": "feliz"
   }

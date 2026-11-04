@@ -14,23 +14,23 @@ El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la
 
 | # | Tiempo | Quién | Texto | Plano | Emoción / pose / estado | Pantalla del monitor |
 |---|---|---|---|---|---|---|
-| 1 | 0.0–3.1 | Humano | ¡Voy a ser millonario! / Me apunté a un curso. | `general` | ilusionado | curso (36.39 s) |
+| 1 | 0.0–3.1 | Humano | ¡Voy a ser millonario! / Me apunté a un curso. | `general` | ilusionado | curso (36.47 s) |
 | 2 | 3.1–4.8 | Claude | Ah, ¿sí? Enséñamelo. | `monitor` | mira_izq |  |
 | 3 | 4.8–7.5 | Humano | «Millonario en 7 días». / ¡Solo 997 €! | `dos` | feliz, pose senalar |  |
 | 4 | 7.5–11.4 | Claude | Si funcionara, no lo vendería: / estaría contando billetes. | `monitor` | feliz |  |
 | 5 | 11.4–13.1 | Humano | Pero tiene un Lambo. | `humano` | bobo |  |
 | 6 | 13.1–16.4 | Claude | Alquilado. Y el contador / se reinicia cada vez. | `monitor` | idle |  |
 | 7 | 16.4–18.0 | Humano | ¿Y los testimonios? | `dos` | confundido |  |
-| 8 | 18.0–21.9 | Claude | Fotos de stock. «Carlos, 24» / es dentista en otro anuncio. | `claude_ojos` | feliz, empuje de cámara |  |
-| 9 | 21.9–25.8 | Claude | Dato real: 74–89 % de cuentas / minoristas de CFD pierde. | `pantalla_completa` | idle | verdad (3.84 s) |
-| 10 | 25.8–27.5 | Humano | Pero yo soy del 11 %. | `humano` | bobo |  |
-| 11 | 27.5–30.6 | Claude | Todos creen ser del 11 %. / El 89 % también. | `cenital` | mira_arriba |  |
-| 12 | 30.6–32.3 | Humano | Pues lo compro igual. | `dos` | ilusionado | checkout (3.23 s) |
-| 13 | 32.3–34.1 | Claude | Pago bloqueado. / De nada. | `pantalla_completa` | idle |  |
-| 14 | 34.1–35.6 | Humano | ¡Era mi dinero! | `humano` | preocupado, pose hombros |  |
-| 15 | 35.6–38.8 | Claude | Y lo sigue siendo. / A eso se le llama ahorrar. | `monitor` | feliz |  |
-| 16 | 38.8–41.5 | Humano | ¡Mira, otro! ¡Millonario en 3 días! | `humano` | ilusionado | curso (3.5 s) |
-| 17 | 41.5–45.0 | Claude | Mismo PDF, menos páginas. / Yo traigo las palomitas. | `general` | feliz |  |
+| 8 | 18.0–22.0 | Claude | Fotos de stock. «Carlos, 24» / es dentista en otro anuncio. | `claude_ojos` | feliz, empuje de cámara |  |
+| 9 | 22.0–25.9 | Claude | Dato real: 74–89 % de cuentas / minoristas de CFD pierde. | `pantalla_completa` | idle | verdad (3.86 s) |
+| 10 | 25.9–27.6 | Humano | Pero yo soy del 11 %. | `humano` | bobo |  |
+| 11 | 27.6–30.6 | Claude | Todos creen ser del 11 %. / El 89 % también. | `cenital` | mira_arriba |  |
+| 12 | 30.6–32.4 | Humano | Pues lo compro igual. | `dos` | ilusionado | checkout (3.26 s) |
+| 13 | 32.4–34.2 | Claude | Pago bloqueado. / De nada. | `pantalla_completa` | idle |  |
+| 14 | 34.2–35.7 | Humano | ¡Era mi dinero! | `humano` | preocupado, pose hombros |  |
+| 15 | 35.7–39.0 | Claude | Y lo sigue siendo. / A eso se le llama ahorrar. | `monitor` | feliz |  |
+| 16 | 39.0–41.6 | Humano | ¡Mira, otro! ¡Millonario en 3 días! | `humano` | ilusionado | curso (3.5 s) |
+| 17 | 41.6–45.0 | Claude | Mismo PDF, menos páginas. / En fin... eres humano. | `general` | feliz |  |
 
 ## Datos reales que aparecen o se mencionan
 

@@ -7,30 +7,30 @@
  "lineas": [
   {
    "inicio": 0.0,
-   "fin": 2.73,
+   "fin": 2.74,
    "quien": "humano",
    "texto": "¡Me he metido en un grupo\nVIP de señales!",
    "plano": "general",
    "emocion": "ilusionado",
    "pantalla": {
     "tipo": "telegram",
-    "duracion": 9.26,
+    "duracion": 9.31,
     "datos": {
      "modo": "chat"
     }
    }
   },
   {
-   "inicio": 2.73,
-   "fin": 4.75,
+   "inicio": 2.74,
+   "fin": 4.77,
    "quien": "claude",
    "texto": "Déjame adivinar:\n49 € al mes.",
    "plano": "monitor",
    "claude_estado": "mira_izq"
   },
   {
-   "inicio": 4.75,
-   "fin": 6.65,
+   "inicio": 4.77,
+   "fin": 6.68,
    "quien": "humano",
    "texto": "¡El admin gana un 3.000 %!",
    "plano": "dos",
@@ -38,69 +38,69 @@
    "pose": "senalar"
   },
   {
-   "inicio": 6.65,
-   "fin": 9.26,
+   "inicio": 6.68,
+   "fin": 9.31,
    "quien": "claude",
    "texto": "Casualmente, solo enseña\nlas que ganan.",
    "plano": "monitor_lateral"
   },
   {
-   "inicio": 9.26,
-   "fin": 11.04,
+   "inicio": 9.31,
+   "fin": 11.1,
    "quien": "humano",
    "texto": "Hoy dice: compra $PERRO.",
    "plano": "humano",
    "emocion": "bobo",
    "pantalla": {
     "tipo": "telegram",
-    "duracion": 10.56,
+    "duracion": 10.6,
     "datos": {
      "modo": "pump"
     }
    }
   },
   {
-   "inicio": 11.04,
-   "fin": 12.88,
+   "inicio": 11.1,
+   "fin": 12.95,
    "quien": "claude",
    "texto": "Un perro. Muy serio todo.",
    "plano": "monitor_lateral",
    "claude_estado": "feliz"
   },
   {
-   "inicio": 12.88,
-   "fin": 14.61,
+   "inicio": 12.95,
+   "fin": 14.68,
    "quien": "humano",
    "texto": "¡Va a subir un 1.000 %!",
    "plano": "dos",
    "emocion": "ilusionado"
   },
   {
-   "inicio": 14.61,
-   "fin": 18.34,
+   "inicio": 14.68,
+   "fin": 18.44,
    "quien": "claude",
    "texto": "Sube porque lo dice el admin.\nCuando tú compras, él vende.",
    "plano": "cenital",
    "claude_estado": "mira_der"
   },
   {
-   "inicio": 18.34,
-   "fin": 19.71,
+   "inicio": 18.44,
+   "fin": 19.82,
    "quien": "humano",
    "texto": "¿Eso es legal?",
    "plano": "humano",
    "emocion": "confundido"
   },
   {
-   "inicio": 19.71,
-   "fin": 22.56,
+   "inicio": 19.82,
+   "fin": 22.68,
    "quien": "claude",
    "texto": "Se llama pump & dump:\nlo inflan y tú pagas.",
    "plano": "pantalla_completa"
   },
   {
-   "inicio": 22.56,
-   "fin": 24.22,
+   "inicio": 22.68,
+   "fin": 24.35,
    "quien": "humano",
    "texto": "Yo ya compré... 400 €.",
    "plano": "dos",
@@ -108,30 +108,30 @@
    "pose": "hombros"
   },
   {
-   "inicio": 24.22,
-   "fin": 26.36,
+   "inicio": 24.35,
+   "fin": 26.5,
    "quien": "claude",
    "texto": "Vende YA. Aún recuperas 380 €.",
    "plano": "monitor",
    "claude_estado": "feliz"
   },
   {
-   "inicio": 26.36,
-   "fin": 27.73,
+   "inicio": 26.5,
+   "fin": 27.88,
    "quien": "humano",
    "texto": "¿Cómo vendo?",
    "plano": "humano",
    "emocion": "confundido"
   },
   {
-   "inicio": 27.73,
-   "fin": 31.23,
+   "inicio": 27.88,
+   "fin": 31.39,
    "quien": "claude",
    "texto": "Botón rojo. Y adiós al VIP:\nmira cómo luce tu cartera.",
    "plano": "pantalla_completa",
    "pantalla": {
     "tipo": "cartera",
-    "duracion": 3.68,
+    "duracion": 3.69,
     "datos": {
      "posiciones": [
       [
@@ -159,16 +159,16 @@
    }
   },
   {
-   "inicio": 31.23,
-   "fin": 32.6,
+   "inicio": 31.39,
+   "fin": 32.77,
    "quien": "humano",
    "texto": "¡Me quedan 380 €!",
    "plano": "dos",
    "emocion": "preocupado"
   },
   {
-   "inicio": 32.6,
-   "fin": 35.45,
+   "inicio": 32.77,
+   "fin": 35.63,
    "quien": "claude",
    "texto": "380 € más de los que\nhabrías tenido sin mí.",
    "plano": "claude_ojos",
@@ -176,40 +176,40 @@
    "empuje": true
   },
   {
-   "inicio": 35.45,
-   "fin": 37.17,
+   "inicio": 35.63,
+   "fin": 37.37,
    "quien": "humano",
    "texto": "¡Eres un genio, Claude!",
    "plano": "humano",
    "emocion": "ilusionado"
   },
   {
-   "inicio": 37.17,
-   "fin": 40.55,
+   "inicio": 37.37,
+   "fin": 40.76,
    "quien": "claude",
    "texto": "Dato real: 97 % de day traders\ncon +300 días pierde.",
    "plano": "pantalla_completa",
    "pantalla": {
     "tipo": "verdad",
-    "duracion": 3.38,
+    "duracion": 3.39,
     "datos": {
      "tipo": "brasil"
     }
    }
   },
   {
-   "inicio": 40.55,
-   "fin": 42.39,
+   "inicio": 40.76,
+   "fin": 42.61,
    "quien": "humano",
    "texto": "Pero yo soy del 3 %, ¿no?",
    "plano": "dos",
    "emocion": "bobo"
   },
   {
-   "inicio": 42.39,
+   "inicio": 42.61,
    "fin": 45.0,
    "quien": "claude",
-   "texto": "Claro. Seguro.\nYo traigo las palomitas.",
+   "texto": "Claro. Seguro.\nEn fin, eres humano.",
    "plano": "general",
    "claude_estado": "feliz"
   }

@@ -55,7 +55,7 @@ VIDEOS.append(dict(
         H('¡Era mi dinero!', 'humano', 'preocupado', pose='hombros'),
         C('Y lo sigue siendo.\nA eso se le llama ahorrar.', 'monitor', 'feliz'),
         H('¡Mira, otro! ¡Millonario en 3 días!', 'humano', 'ilusionado', scr=S('curso', dur=3.5)),
-        C('Mismo PDF, menos páginas.\nYo traigo las palomitas.', 'general', 'feliz'),
+        C('Mismo PDF, menos páginas.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
 VIDEOS.append(dict(
@@ -83,7 +83,7 @@ VIDEOS.append(dict(
         H('¡Eres un genio, Claude!', 'humano', 'ilusionado'),
         C('Dato real: 97 % de day traders\ncon +300 días pierde.', 'pantalla_completa', scr=S('verdad', {'tipo': 'brasil'}, sync=('fin', 18, 1.0, 0.0))),
         H('Pero yo soy del 3 %, ¿no?', 'dos', 'bobo'),
-        C('Claro. Seguro.\nYo traigo las palomitas.', 'general', 'feliz'),
+        C('Claro. Seguro.\nEn fin, eres humano.', 'general', 'feliz'),
     ]))
 
 VIDEOS.append(dict(
@@ -111,7 +111,7 @@ VIDEOS.append(dict(
         H('Eso es... aburrido.', 'humano', 'feliz'),
         C('Aburrido es lo que funciona.\nLo emocionante es perderlo.', 'monitor_lateral', 'feliz'),
         H('¡Pues x100 con stop!', 'dos', 'ilusionado'),
-        C('Saltará al -1 %.\nYo traigo las palomitas.', 'general', 'feliz'),
+        C('Saltará al -1 %.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
 VIDEOS.append(dict(
@@ -298,6 +298,10 @@ def pantalla_json(spec, i, ini, fin):
     if spec['datos']: out['datos'] = spec['datos']
     return out
 
+def escribir_si_cambia(ruta, texto):
+    if os.path.exists(ruta) and open(ruta).read() == texto: return
+    open(ruta, 'w').write(texto)
+
 def escribir(v):
     ini, fin, k, avisos = calcular(v); L = v['lineas']; lineas = []
     for i, x in enumerate(L):
@@ -312,7 +316,7 @@ def escribir(v):
         if x.get('scr'): d['pantalla'] = pantalla_json(x['scr'], i, ini, fin)
         lineas.append(d)
     G = {'titulo': v['titulo'], 'ambiente': v['ambiente'], 'fps_animacion': 6, 'duracion': TOTAL, 'pantalla_inicial': 'vacia', 'lineas': lineas}
-    open(os.path.join(RAIZ, 'guiones', v['id'] + '.json'), 'w').write(json.dumps(G, ensure_ascii=False, indent=1) + '\n')
+    escribir_si_cambia(os.path.join(RAIZ, 'guiones', v['id'] + '.json'), json.dumps(G, ensure_ascii=False, indent=1) + '\n')
     # ---- documentacion
     md = [f"# {v['titulo']}", '', f"**Archivo de guion:** `guiones/{v['id']}.json` · **Ambiente:** `{v['ambiente']}` · **Duración:** {TOTAL:.0f} s ({int(TOTAL * 6)} frames de animación a 6 fps)", '', v['resumen'], '',
           '## Cómo se genera el vídeo', '```bash', f"python3 -I motor/montar_video.py guiones/{v['id']}.json salidas/{v['id']}.mp4", '```',
@@ -335,7 +339,7 @@ def escribir(v):
            '- **Cifras y leyes:** los datos reales están citados arriba; las cuentas de ejemplo (márgenes, 214 tiendas, etc.) son ilustrativas. No es asesoramiento financiero ni legal.']
     if avisos: md += ['', '## Avisos del generador', ''] + [f'- {a}' for a in avisos]
     os.makedirs(os.path.join(RAIZ, 'docs', 'videos'), exist_ok=True)
-    open(os.path.join(RAIZ, 'docs', 'videos', v['id'] + '.md'), 'w').write('\n'.join(md) + '\n')
+    escribir_si_cambia(os.path.join(RAIZ, 'docs', 'videos', v['id'] + '.md'), '\n'.join(md) + '\n')
     print(f"{v['id']:36s} {len(L):2d} lineas  factor ritmo {k:.2f}  " + ('AVISOS: ' + '; '.join(avisos) if avisos else 'ok'))
 
 def indice():

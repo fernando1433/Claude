@@ -7,27 +7,27 @@
  "lineas": [
   {
    "inicio": 0.0,
-   "fin": 3.14,
+   "fin": 3.15,
    "quien": "humano",
    "texto": "¡Voy a ser millonario!\nMe apunté a un curso.",
    "plano": "general",
    "emocion": "ilusionado",
    "pantalla": {
     "tipo": "curso",
-    "duracion": 36.39
+    "duracion": 36.47
    }
   },
   {
-   "inicio": 3.14,
-   "fin": 4.82,
+   "inicio": 3.15,
+   "fin": 4.83,
    "quien": "claude",
    "texto": "Ah, ¿sí? Enséñamelo.",
    "plano": "monitor",
    "claude_estado": "mira_izq"
   },
   {
-   "inicio": 4.82,
-   "fin": 7.45,
+   "inicio": 4.83,
+   "fin": 7.47,
    "quien": "humano",
    "texto": "«Millonario en 7 días».\n¡Solo 997 €!",
    "plano": "dos",
@@ -35,39 +35,39 @@
    "pose": "senalar"
   },
   {
-   "inicio": 7.45,
-   "fin": 11.42,
+   "inicio": 7.47,
+   "fin": 11.45,
    "quien": "claude",
    "texto": "Si funcionara, no lo vendería:\nestaría contando billetes.",
    "plano": "monitor",
    "claude_estado": "feliz"
   },
   {
-   "inicio": 11.42,
-   "fin": 13.1,
+   "inicio": 11.45,
+   "fin": 13.13,
    "quien": "humano",
    "texto": "Pero tiene un Lambo.",
    "plano": "humano",
    "emocion": "bobo"
   },
   {
-   "inicio": 13.1,
-   "fin": 16.37,
+   "inicio": 13.13,
+   "fin": 16.41,
    "quien": "claude",
    "texto": "Alquilado. Y el contador\nse reinicia cada vez.",
    "plano": "monitor"
   },
   {
-   "inicio": 16.37,
-   "fin": 17.98,
+   "inicio": 16.41,
+   "fin": 18.03,
    "quien": "humano",
    "texto": "¿Y los testimonios?",
    "plano": "dos",
    "emocion": "confundido"
   },
   {
-   "inicio": 17.98,
-   "fin": 21.95,
+   "inicio": 18.03,
+   "fin": 22.01,
    "quien": "claude",
    "texto": "Fotos de stock. «Carlos, 24»\nes dentista en otro anuncio.",
    "plano": "claude_ojos",
@@ -75,57 +75,57 @@
    "empuje": true
   },
   {
-   "inicio": 21.95,
-   "fin": 25.79,
+   "inicio": 22.01,
+   "fin": 25.87,
    "quien": "claude",
    "texto": "Dato real: 74–89 % de cuentas\nminoristas de CFD pierde.",
    "plano": "pantalla_completa",
    "pantalla": {
     "tipo": "verdad",
-    "duracion": 3.84,
+    "duracion": 3.86,
     "datos": {
      "tipo": "esma"
     }
    }
   },
   {
-   "inicio": 25.79,
-   "fin": 27.53,
+   "inicio": 25.87,
+   "fin": 27.61,
    "quien": "humano",
    "texto": "Pero yo soy del 11 %.",
    "plano": "humano",
    "emocion": "bobo"
   },
   {
-   "inicio": 27.53,
-   "fin": 30.55,
+   "inicio": 27.61,
+   "fin": 30.63,
    "quien": "claude",
    "texto": "Todos creen ser del 11 %.\nEl 89 % también.",
    "plano": "cenital",
    "claude_estado": "mira_arriba"
   },
   {
-   "inicio": 30.55,
-   "fin": 32.28,
+   "inicio": 30.63,
+   "fin": 32.38,
    "quien": "humano",
    "texto": "Pues lo compro igual.",
    "plano": "dos",
    "emocion": "ilusionado",
    "pantalla": {
     "tipo": "checkout",
-    "duracion": 3.23
+    "duracion": 3.26
    }
   },
   {
-   "inicio": 32.28,
-   "fin": 34.15,
+   "inicio": 32.38,
+   "fin": 34.25,
    "quien": "claude",
    "texto": "Pago bloqueado.\nDe nada.",
    "plano": "pantalla_completa"
   },
   {
-   "inicio": 34.15,
-   "fin": 35.64,
+   "inicio": 34.25,
+   "fin": 35.74,
    "quien": "humano",
    "texto": "¡Era mi dinero!",
    "plano": "humano",
@@ -133,16 +133,16 @@
    "pose": "hombros"
   },
   {
-   "inicio": 35.64,
-   "fin": 38.84,
+   "inicio": 35.74,
+   "fin": 38.95,
    "quien": "claude",
    "texto": "Y lo sigue siendo.\nA eso se le llama ahorrar.",
    "plano": "monitor",
    "claude_estado": "feliz"
   },
   {
-   "inicio": 38.84,
-   "fin": 41.47,
+   "inicio": 38.95,
+   "fin": 41.59,
    "quien": "humano",
    "texto": "¡Mira, otro! ¡Millonario en 3 días!",
    "plano": "humano",
@@ -153,10 +153,10 @@
    }
   },
   {
-   "inicio": 41.47,
+   "inicio": 41.59,
    "fin": 45.0,
    "quien": "claude",
-   "texto": "Mismo PDF, menos páginas.\nYo traigo las palomitas.",
+   "texto": "Mismo PDF, menos páginas.\nEn fin... eres humano.",
    "plano": "general",
    "claude_estado": "feliz"
   }
