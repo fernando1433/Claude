@@ -46,5 +46,11 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_24_nada_que_ponerme` | Claude, no tengo nada que ponerme | `noche_casa` | [docs](casual_24_nada_que_ponerme.md) | [json](../../guiones/casual_24_nada_que_ponerme.json) | [mp4](../../salidas/casual_24_nada_que_ponerme.mp4) |
 | `casual_21_va_a_llover` | Claude, ¿va a llover? | `dia_casa` | [docs](casual_21_va_a_llover.md) | [json](../../guiones/casual_21_va_a_llover.json) | [mp4](../../salidas/casual_21_va_a_llover.mp4) |
 | `casual_23_demasiado_cafe` | Claude, ¿cuántos cafés son demasiados? | `dia_casa` | [docs](casual_23_demasiado_cafe.md) | [json](../../guiones/casual_23_demasiado_cafe.json) | [mp4](../../salidas/casual_23_demasiado_cafe.mp4) |
+| `casual_25_ascensor` | Claude, hoy compartí ascensor 6 pisos en silencio | `noche_casa` | [docs](casual_25_ascensor.md) | [json](../../guiones/casual_25_ascensor.json) | [mp4](../../salidas/casual_25_ascensor.mp4) |
+| `casual_26_cola_del_super` | Claude, la señora de delante tiene 40 cupones | `dia_casa` | [docs](casual_26_cola_del_super.md) | [json](../../guiones/casual_26_cola_del_super.json) | [mp4](../../salidas/casual_26_cola_del_super.mp4) |
+| `casual_27_reunion_correo` | Claude, esta reunión podía ser un correo | `dia_casa` | [docs](casual_27_reunion_correo.md) | [json](../../guiones/casual_27_reunion_correo.json) | [mp4](../../salidas/casual_27_reunion_correo.mp4) |
+| `casual_28_domingo_noche` | Claude, ya es domingo por la noche | `noche_casa` | [docs](casual_28_domingo_noche.md) | [json](../../guiones/casual_28_domingo_noche.json) | [mp4](../../salidas/casual_28_domingo_noche.mp4) |
+| `casual_29_un_cumplido` | Claude, me han hecho un cumplido y no sé qué contestar | `dia_casa` | [docs](casual_29_un_cumplido.md) | [json](../../guiones/casual_29_un_cumplido.json) | [mp4](../../salidas/casual_29_un_cumplido.mp4) |
+| `casual_30_no_hacer_nada` | Claude, si no hago nada, ¿es meditar? | `noche_casa` | [docs](casual_30_no_hacer_nada.md) | [json](../../guiones/casual_30_no_hacer_nada.json) | [mp4](../../salidas/casual_30_no_hacer_nada.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

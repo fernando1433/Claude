@@ -1,0 +1,162 @@
+{
+ "titulo": "Claude, la señora de delante tiene 40 cupones",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.94,
+   "quien": "humano",
+   "texto": "Claude, la señora de delante\ntiene 40 cupones.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 36.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, la señora de delante tiene 40 cupones."
+      ],
+      [
+       "otro",
+       "¿Cuántos llevas esperando?"
+      ],
+      [
+       "yo",
+       "Doce minutos. Y me queda una manzana."
+      ],
+      [
+       "otro",
+       "Una manzana. Qué emoción."
+      ],
+      [
+       "yo",
+       "Ahora discute un cupón de hace tres meses."
+      ],
+      [
+       "otro",
+       "Es una profesional."
+      ],
+      [
+       "yo",
+       "¿Me cambio de cola?"
+      ],
+      [
+       "otro",
+       "La otra cola siempre va más lenta. Es la ley."
+      ],
+      [
+       "yo",
+       "¿Qué hago?"
+      ],
+      [
+       "otro",
+       "Respira y mira los chicles. Compra uno. Es tu premio."
+      ],
+      [
+       "yo",
+       "...Ya me toca."
+      ],
+      [
+       "otro",
+       "Y la señora no tenía el cupón. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.94,
+   "fin": 6.42,
+   "quien": "claude",
+   "texto": "¿Cuántos llevas esperando?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.42,
+   "fin": 9.67,
+   "quien": "humano",
+   "texto": "Doce minutos. Y me queda\nuna manzana.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 9.67,
+   "fin": 12.07,
+   "quien": "claude",
+   "texto": "Una manzana. Qué emoción.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 12.07,
+   "fin": 15.71,
+   "quien": "humano",
+   "texto": "Ahora discute un cupón\nde hace tres meses.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 15.71,
+   "fin": 17.65,
+   "quien": "claude",
+   "texto": "Es una profesional.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 17.65,
+   "fin": 19.59,
+   "quien": "humano",
+   "texto": "¿Me cambio de cola?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 19.59,
+   "fin": 23.46,
+   "quien": "claude",
+   "texto": "La otra cola siempre\nva más lenta. Es la ley.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 23.46,
+   "fin": 25.25,
+   "quien": "humano",
+   "texto": "¿Qué hago?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 25.25,
+   "fin": 29.73,
+   "quien": "claude",
+   "texto": "Respira y mira los chicles.\nCompra uno. Es tu premio.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_arriba",
+   "empuje": true
+  },
+  {
+   "inicio": 29.73,
+   "fin": 31.52,
+   "quien": "humano",
+   "texto": "...Ya me toca.",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 31.52,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Y la señora no tenía\nel cupón. En fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

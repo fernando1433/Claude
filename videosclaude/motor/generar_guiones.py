@@ -945,6 +945,98 @@ casual('casual_23_demasiado_cafe', 'Claude, ¿cuántos cafés son demasiados?', 
     C('De nada.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+
+# ---------------- tanda 6 (historias del dia a dia)
+casual('casual_25_ascensor', 'Claude, hoy compartí ascensor 6 pisos en silencio', 'noche_casa', 36, 'La incomodidad del ascensor con el vecino: seis pisos sin decir nada. Claude analiza el protocolo social.', [
+    H('Claude, hoy compartí ascensor con\nmi vecino. Seis pisos en silencio.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('¿Alguien dijo algo?', 'monitor', 'mira_izq'),
+    H('Yo dije «buenas». Él dijo «buenas».', 'dos', 'bobo'),
+    C('Intercambio perfecto.', 'claude_ojos', 'feliz'),
+    H('Luego miramos el móvil. Los dos.', 'humano', 'confundido'),
+    C('Protocolo estándar.\nEl móvil es el escudo.', 'cenital', 'mira_der'),
+    H('Y se me cayó.', 'dos', 'preocupado'),
+    C('¿El móvil o la dignidad?', 'monitor', 'feliz'),
+    H('Las dos cosas.', 'humano', 'preocupado', pose='hombros'),
+    C('Mañana dices «hace frío».\nSiempre funciona.', 'claude_ojos', emp=True),
+    H('¿Y si hace calor?', 'dos', 'bobo'),
+    C('«Hace calor».\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_26_cola_del_super', 'Claude, la señora de delante tiene 40 cupones', 'dia_casa', 36, 'La cola del súper con la señora de los cupones, vivida como una carrera de resistencia.', [
+    H('Claude, la señora de delante\ntiene 40 cupones.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('¿Cuántos llevas esperando?', 'monitor', 'mira_izq'),
+    H('Doce minutos. Y me queda\nuna manzana.', 'dos', 'bobo'),
+    C('Una manzana. Qué emoción.', 'claude_ojos', 'feliz'),
+    H('Ahora discute un cupón\nde hace tres meses.', 'humano', 'confundido'),
+    C('Es una profesional.', 'cenital', 'mira_der'),
+    H('¿Me cambio de cola?', 'dos', 'preocupado'),
+    C('La otra cola siempre\nva más lenta. Es la ley.', 'monitor', 'feliz'),
+    H('¿Qué hago?', 'humano', 'confundido'),
+    C('Respira y mira los chicles.\nCompra uno. Es tu premio.', 'claude_ojos', 'mira_arriba', emp=True),
+    H('...Ya me toca.', 'dos', 'ilusionado'),
+    C('Y la señora no tenía\nel cupón. En fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_27_reunion_correo', 'Claude, esta reunión podía ser un correo', 'dia_casa', 38, 'La reunión eterna que podía ser un correo, con la agenda y un Claude que cuenta las veces que dicen «sinergias».', [
+    H('Claude, esta reunión\npodía ser un correo.', 'humano', 'preocupado', scr=S('calendario', sync=('fin', 10, 0.95, 0.0))),
+    C('¿Cuánto lleváis?', 'monitor', 'mira_izq'),
+    H('Una hora y cuarto.', 'dos', 'bobo'),
+    C('¿Y qué se ha decidido?', 'claude_ojos'),
+    H('Que hay que hacer otra reunión.', 'humano', 'confundido'),
+    C('Clásico.', 'cenital', 'mira_der'),
+    H('Han dicho «sinergias» nueve veces.', 'dos', 'preocupado'),
+    C('Yo las cuento. Van diez.', 'monitor', 'feliz'),
+    H('¿Puedo irme?', 'humano', 'ilusionado'),
+    C('Si dices «tengo otra reunión»,\nte dejan ir con respeto.', 'pantalla_completa'),
+    H('¡Tengo otra reunión!', 'dos', 'ilusionado'),
+    C('Y esa sí podía ser un correo.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_28_domingo_noche', 'Claude, ya es domingo por la noche', 'noche_casa', 36, 'La tristeza del domingo por la noche: mañana es lunes. Claude ofrece consuelo práctico.', [
+    H('Claude... ya es domingo\npor la noche.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('Lo sé. Yo también\nlo siento.', 'monitor', 'mira_izq'),
+    H('Mañana es lunes.', 'dos', 'bobo'),
+    C('También lo sé.', 'claude_ojos'),
+    H('¿Podemos cancelarlo?', 'humano', 'confundido'),
+    C('El lunes es terco.\nNo se deja.', 'cenital', 'mira_der'),
+    H('¿Y si me hago el enfermo?', 'dos', 'bobo'),
+    C('No me lo preguntes a mí.\nSoy un lunes con teclado.', 'monitor', 'feliz'),
+    H('¿Qué hago?', 'humano', 'preocupado'),
+    C('Deja la ropa preparada\ny duerme pronto.', 'claude_ojos', emp=True),
+    H('...Qué aburrido.', 'dos', 'feliz'),
+    C('Y mañana, café.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_29_un_cumplido', 'Claude, me han hecho un cumplido y no sé qué contestar', 'dia_casa', 36, 'El pánico de recibir un cumplido. Claude resume la respuesta correcta en dos palabras.', [
+    H('Claude, me han hecho un cumplido\ny no sé qué contestar.', 'humano', 'confundido', scr=CHAT(12)),
+    C('¿Qué te han dicho?', 'monitor', 'mira_izq'),
+    H('«Qué bien te queda ese jersey.»', 'dos', 'bobo'),
+    C('Qué cosa más terrible.', 'claude_ojos', 'feliz'),
+    H('Yo dije «es de hace años».', 'humano', 'preocupado'),
+    C('Ya. Y luego\n«no es nada especial».', 'cenital', 'mira_der'),
+    H('Y luego, «gracias... creo».', 'dos', 'confundido'),
+    C('Hay una respuesta\nmejor. Es corta.', 'monitor', 'feliz'),
+    H('¿Cuál?', 'humano', 'ilusionado'),
+    C('«Gracias.»', 'claude_ojos', emp=True),
+    H('¿Solo eso?', 'dos', 'bobo'),
+    C('Solo eso. Es difícil.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_30_no_hacer_nada', 'Claude, si no hago nada, ¿es meditar?', 'noche_casa', 36, 'Filosofía de sofá: ¿mirar el techo es meditación? Claude responde con más cariño que rigor.', [
+    H('Claude, si no hago nada,\n¿es meditar?', 'humano', 'confundido', scr=CHAT(12)),
+    C('Depende. ¿Qué haces\nexactamente?', 'monitor', 'mira_izq'),
+    H('Mirar el techo.', 'dos', 'bobo'),
+    C('¿Y piensas en algo?', 'claude_ojos'),
+    H('En si he apagado el horno.', 'humano', 'preocupado'),
+    C('Eso es más preocupación\nque meditación.', 'cenital', 'mira_der'),
+    H('¿Y si lo apago y miro el techo?', 'dos', 'ilusionado'),
+    C('Ahora sí. Es meditación.\nCon extras.', 'monitor', 'feliz'),
+    H('¿Y cuánto tiempo?', 'humano', 'bobo'),
+    C('El que quieras.\nEl techo es paciente.', 'claude_ojos', 'mira_arriba', emp=True),
+    H('Voy a meditar un rato.', 'dos', 'feliz'),
+    C('Y apaga el horno.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

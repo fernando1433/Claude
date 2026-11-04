@@ -14,22 +14,19 @@ python3 -I motor/montar_video.py guiones/ALGO.json salidas/prueba.mp4 --solo-fra
 ```
 Dependencias del montador: `pillow numpy` + `ffmpeg`. (`pip install bpy` solo hace falta para REGENERAR la biblioteca.)
 
-## Vídeos hechos (cada uno tiene su documentación en `docs/videos/<id>.md`)
-| id | tema | ambiente |
-|----|------|----------|
-| `trading_01_curso_milagro` | el curso «millonario en 7 días»; Claude bloquea el pago | `noche_trading` |
-| `trading_02_senales_vip` | grupo VIP de señales = pump & dump; Claude le salva 380 € | `dia_trading` |
-| `trading_03_apalancamiento_x100` | x100 → liquidado; límites UE y gestión de riesgo | `dia_trading` |
-| `drop_01_que_es_dropshipping` | cómo funciona y por qué de 29,90 € quedan 3,44 € | `dia_tienda` |
-| `drop_02_producto_ganador` | «lámpara de cactus»: competencia, moda, marcado CE | `dia_tienda` |
-| `drop_03_primer_pedido` | envío de 25 días, cliente enfadado, 14 días de desistimiento, IVA | `atardecer_tienda` |
-| (anteriores) `trading_30s_sarcastico`, `ejemplo_*` | pruebas / ejemplos | `noche_trading` |
-
-Los 6 guiones grandes se generan con `python3 -I motor/generar_guiones.py` (tiempos automáticos según la longitud de cada frase, pantallas sincronizadas con el diálogo y **docs por vídeo** con tabla de planos y fuentes). **Edita el generador y vuelve a ejecutarlo** en vez de tocar los JSON a mano.
+## Vídeos hechos (índice completo en `docs/videos/README.md`; cada uno tiene su `docs/videos/<id>.md` con guion, pantallas y datos reales con fuentes)
+Familias (todos terminan con **«En fin... eres humano»** y empiezan con un **gancho** en la primera frase):
+- `trading_*` (5, ~45 s): curso milagro, señales VIP, apalancamiento x100, el cuñado, el gurú del yate (+ `trading_30s_sarcastico`).
+- `drop_*` (5, ~45 s): qué es el dropshipping, producto ganador, primer pedido, devoluciones, proveedor barato.
+- `extra_*` (5): presupuesto, un día con Claude, anuncios que no venden, pedir un aumento, entrevista de trabajo.
+- `casual_*` (~30, 28-40 s): conversaciones del día a día con gancho («Claude, ¿tú me quieres?», «¿qué ceno hoy?», «no me contesta»…).
+- `util_*` (4, ~40 s, con datos reales y fuentes): contraseñas, estafa del banco (phishing), WiFi pública, Bizum inverso.
+Los guiones se generan con `python3 -I motor/generar_guiones.py` (editar ese archivo, no los JSON) y se validan con `python3 -I motor/validar_guiones.py`.
+El demonio `motor/cola_pendientes.py` monta solo cualquier guion nuevo/modificado cuyo ambiente ya esté renderizado; `motor/autosubir.sh` sube a GitHub cada 7 min.
 
 ## Ambientes (carpetas de `biblioteca/`)
 Cada ambiente es una sala completa renderizada: `noche_trading` (noche, neón TRADE, póster BUY THE DIP), `dia_trading` (de día, mismo decorado de trading),
-`dia_tienda` y `atardecer_tienda` (decorado de **tienda online**: neón OPEN, póster de envío, cajas; **sin nada de trading**). Se elige con `"ambiente"` en el guion.
+`dia_tienda` y `atardecer_tienda` (decorado de **tienda online**: neón OPEN, póster de envío, cajas; **sin nada de trading**), `noche_casa` y `dia_casa` (decorado de **casa** para el día a día: neón «home», póster de montañas, un gato dormido en el escritorio). Se elige con `"ambiente"` en el guion.
 Cada una tiene `INDICE.md` y `_contacto.png` por plano. Las de día/atardecer son versiones «lite» (menos poses/emociones); `noche_trading` es la completa.
 
 ## Planos (cámaras fijas) y capas
@@ -43,6 +40,7 @@ Cada una tiene `INDICE.md` y `_contacto.png` por plano. Las de día/atardecer so
 ## Pantallas del monitor (`motor/pantallas.py`, se dibujan al montar, no hay que renderizar)
 `{"tipo":"dashboard","datos":{...},"duracion":4}` en el campo `pantalla` de una línea. Se animan solas durante `duracion` segundos (cifras que suben, texto que se teclea…).
 - Negocio/vida: `chat` `dashboard` `tienda` `calendario` `email` `analitica` `tareas` `hoja`
+- Día a día / útiles: `mensajes` (chat estilo móvil; `auto:true` lo escribe con el propio diálogo) `menu` `recordatorios` `contrasenas` `phishing` `wifi` `bizum` `presupuesto` `interes` `anuncios`
 - Trading: `trading` `cartera` `orden` `resultado` `curso` (curso milagro + banderas rojas de Claude) `checkout` (pago bloqueado) `telegram` (modo `chat`|`pump`) `apalanc` `verdad` (tipo `esma`|`brasil`|`apalanc`)
 - Dropshipping: `catalogo` `proveedor` `margen` (calculadora real: precio − coste − anuncio − comisión − IVA, ROAS mínimo) `producto` `pedido` `tracking` `cliente` `ley`
 - Opciones comunes: `datos.desde` (empieza la animación ya avanzada), `zoom` en la línea (`pantalla_completa`), `ZOOM_AUTO`. Imágenes de producto: iconos dibujados con PIL (sin imágenes externas).

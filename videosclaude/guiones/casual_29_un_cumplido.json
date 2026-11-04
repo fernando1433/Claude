@@ -1,0 +1,161 @@
+{
+ "titulo": "Claude, me han hecho un cumplido y no sé qué contestar",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 5.25,
+   "quien": "humano",
+   "texto": "Claude, me han hecho un cumplido\ny no sé qué contestar.",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 36.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, me han hecho un cumplido y no sé qué contestar."
+      ],
+      [
+       "otro",
+       "¿Qué te han dicho?"
+      ],
+      [
+       "yo",
+       "«Qué bien te queda ese jersey.»"
+      ],
+      [
+       "otro",
+       "Qué cosa más terrible."
+      ],
+      [
+       "yo",
+       "Yo dije «es de hace años»."
+      ],
+      [
+       "otro",
+       "Ya. Y luego «no es nada especial»."
+      ],
+      [
+       "yo",
+       "Y luego, «gracias... creo»."
+      ],
+      [
+       "otro",
+       "Hay una respuesta mejor. Es corta."
+      ],
+      [
+       "yo",
+       "¿Cuál?"
+      ],
+      [
+       "otro",
+       "«Gracias.»"
+      ],
+      [
+       "yo",
+       "¿Solo eso?"
+      ],
+      [
+       "otro",
+       "Solo eso. Es difícil. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 5.25,
+   "fin": 7.36,
+   "quien": "claude",
+   "texto": "¿Qué te han dicho?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 7.36,
+   "fin": 10.61,
+   "quien": "humano",
+   "texto": "«Qué bien te queda ese jersey.»",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 10.61,
+   "fin": 13.07,
+   "quien": "claude",
+   "texto": "Qué cosa más terrible.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 13.07,
+   "fin": 15.88,
+   "quien": "humano",
+   "texto": "Yo dije «es de hace años».",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 15.88,
+   "fin": 19.3,
+   "quien": "claude",
+   "texto": "Ya. Y luego\n«no es nada especial».",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 19.3,
+   "fin": 22.2,
+   "quien": "humano",
+   "texto": "Y luego, «gracias... creo».",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 22.2,
+   "fin": 25.62,
+   "quien": "claude",
+   "texto": "Hay una respuesta\nmejor. Es corta.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 25.62,
+   "fin": 27.65,
+   "quien": "humano",
+   "texto": "¿Cuál?",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 27.65,
+   "fin": 29.68,
+   "quien": "claude",
+   "texto": "«Gracias.»",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 29.68,
+   "fin": 31.71,
+   "quien": "humano",
+   "texto": "¿Solo eso?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 31.71,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Solo eso. Es difícil.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

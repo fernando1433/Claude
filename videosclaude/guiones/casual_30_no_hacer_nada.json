@@ -1,0 +1,161 @@
+{
+ "titulo": "Claude, si no hago nada, ¿es meditar?",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.6,
+   "quien": "humano",
+   "texto": "Claude, si no hago nada,\n¿es meditar?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 36.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, si no hago nada, ¿es meditar?"
+      ],
+      [
+       "otro",
+       "Depende. ¿Qué haces exactamente?"
+      ],
+      [
+       "yo",
+       "Mirar el techo."
+      ],
+      [
+       "otro",
+       "¿Y piensas en algo?"
+      ],
+      [
+       "yo",
+       "En si he apagado el horno."
+      ],
+      [
+       "otro",
+       "Eso es más preocupación que meditación."
+      ],
+      [
+       "yo",
+       "¿Y si lo apago y miro el techo?"
+      ],
+      [
+       "otro",
+       "Ahora sí. Es meditación. Con extras."
+      ],
+      [
+       "yo",
+       "¿Y cuánto tiempo?"
+      ],
+      [
+       "otro",
+       "El que quieras. El techo es paciente."
+      ],
+      [
+       "yo",
+       "Voy a meditar un rato."
+      ],
+      [
+       "otro",
+       "Y apaga el horno. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.6,
+   "fin": 6.78,
+   "quien": "claude",
+   "texto": "Depende. ¿Qué haces\nexactamente?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.78,
+   "fin": 8.77,
+   "quien": "humano",
+   "texto": "Mirar el techo.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.77,
+   "fin": 10.92,
+   "quien": "claude",
+   "texto": "¿Y piensas en algo?",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 10.92,
+   "fin": 13.67,
+   "quien": "humano",
+   "texto": "En si he apagado el horno.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 13.67,
+   "fin": 17.44,
+   "quien": "claude",
+   "texto": "Eso es más preocupación\nque meditación.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 17.44,
+   "fin": 20.62,
+   "quien": "humano",
+   "texto": "¿Y si lo apago y miro el techo?",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 20.62,
+   "fin": 24.14,
+   "quien": "claude",
+   "texto": "Ahora sí. Es meditación.\nCon extras.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 24.14,
+   "fin": 26.13,
+   "quien": "humano",
+   "texto": "¿Y cuánto tiempo?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 26.13,
+   "fin": 29.73,
+   "quien": "claude",
+   "texto": "El que quieras.\nEl techo es paciente.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_arriba",
+   "empuje": true
+  },
+  {
+   "inicio": 29.73,
+   "fin": 32.14,
+   "quien": "humano",
+   "texto": "Voy a meditar un rato.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 32.14,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Y apaga el horno.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

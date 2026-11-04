@@ -9,6 +9,7 @@ Guion (ver guiones/ejemplo_dip.json):
   (humano) pose: type (por defecto, manos en el teclado) | pensar | senalar | hombros | mira   (la que no exista en el plano se sustituye por type)
   (claude) claude_estado: idle | feliz | mira_izq | mira_der | mira_arriba   empuje: true (zoom lento durante la linea; opcional)
   tono (opcional): sarcastico (por defecto en claude: voz grave que arrastra hacia abajo) | dudoso (sube al final) | seguro (por defecto en humano)
+  sfx (opcional, true por defecto): whoosh en los cortes de plano y pop al cambiar la pantalla
   fps_animacion  frames de animacion por segundo (6 recomendado: poco movimiento, se duplica a 24 al exportar)
   duracion       segundos totales
   lineas[]:  inicio, fin (s) | quien: "humano"|"claude" | texto | plano: humano|dos|claude|espalda (opcional)
@@ -133,6 +134,18 @@ def generar_audio(G, ruta):
             larga = 1.7 if (tono == 'sarcastico' and i >= len(ch) - 2) else 1.0
             s = blip(f, min(0.09 * larga, paso * 1.05 * larga), who) * (0.34 if who == 'humano' else 0.2)
             k = int((a + 0.05 + i * paso) * SR); out[k:k + len(s)] += s[:len(out) - k]
+    if G.get('sfx', True):      # efectos suaves: whoosh en cada cambio de plano, pop cuando cambia la pantalla del monitor
+        rs = np.random.RandomState(3); prev = None
+        def pon(s, t0):
+            k = int(max(0, t0) * SR); out[k:k + len(s)] += s[:max(0, len(out) - k)]
+        for L_ in G['lineas']:
+            if prev is not None and L_['plano'] != prev:
+                n_ = int(SR * 0.28); tt = np.linspace(0, 1, n_); ruido = rs.randn(n_); w_ = 14
+                ruido = np.convolve(ruido, np.ones(w_) / w_, mode='same'); pon(ruido * np.sin(np.pi * tt) ** 2 * 0.22, L_['inicio'] - 0.06)
+            if L_.get('pantalla'):
+                n_ = int(SR * 0.09); tt = np.arange(n_) / SR; fr = 900 - 6000 * tt
+                pon(np.sin(2 * np.pi * np.cumsum(fr) / SR) * np.exp(-tt * 40) * 0.2, L_['inicio'] + 0.02)
+            prev = L_['plano']
     t = np.arange(len(out)) / SR; pad = np.zeros_like(out)
     acordes = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]
     seg = dur / 4
