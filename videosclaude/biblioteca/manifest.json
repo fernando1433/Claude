@@ -133,12 +133,39 @@
     "burlon_cerrada": "humano_burlon_cerrada.png",
     "burlon_media": "humano_burlon_media.png",
     "burlon_abierta": "humano_burlon_abierta.png",
-    "neutral_parpadeo": "humano_neutral_parpadeo.png"
+    "neutral_parpadeo": "humano_neutral_parpadeo.png",
+    "pensar:neutral_cerrada": "humano_pensar_neutral_cerrada.png",
+    "pensar:neutral_media": "humano_pensar_neutral_media.png",
+    "pensar:neutral_abierta": "humano_pensar_neutral_abierta.png",
+    "pensar:preocupado_cerrada": "humano_pensar_preocupado_cerrada.png",
+    "pensar:preocupado_media": "humano_pensar_preocupado_media.png",
+    "pensar:preocupado_abierta": "humano_pensar_preocupado_abierta.png",
+    "senalar:neutral_cerrada": "humano_senalar_neutral_cerrada.png",
+    "senalar:neutral_media": "humano_senalar_neutral_media.png",
+    "senalar:neutral_abierta": "humano_senalar_neutral_abierta.png",
+    "senalar:feliz_cerrada": "humano_senalar_feliz_cerrada.png",
+    "senalar:feliz_media": "humano_senalar_feliz_media.png",
+    "senalar:feliz_abierta": "humano_senalar_feliz_abierta.png",
+    "hombros:neutral_cerrada": "humano_hombros_neutral_cerrada.png",
+    "hombros:neutral_media": "humano_hombros_neutral_media.png",
+    "hombros:neutral_abierta": "humano_hombros_neutral_abierta.png",
+    "hombros:preocupado_cerrada": "humano_hombros_preocupado_cerrada.png",
+    "hombros:preocupado_media": "humano_hombros_preocupado_media.png",
+    "hombros:preocupado_abierta": "humano_hombros_preocupado_abierta.png",
+    "mira:neutral_cerrada": "humano_mira_neutral_cerrada.png",
+    "mira:neutral_media": "humano_mira_neutral_media.png",
+    "mira:neutral_abierta": "humano_mira_neutral_abierta.png",
+    "mira:feliz_cerrada": "humano_mira_feliz_cerrada.png",
+    "mira:feliz_media": "humano_mira_feliz_media.png",
+    "mira:feliz_abierta": "humano_mira_feliz_abierta.png"
    },
    "claude": {
     "idle": "claude_idle.png",
     "parpadeo": "claude_parpadeo.png",
-    "feliz": "claude_feliz.png"
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
    }
   },
   "claude": {
@@ -182,7 +209,10 @@
    "claude": {
     "idle": "claude_idle.png",
     "parpadeo": "claude_parpadeo.png",
-    "feliz": "claude_feliz.png"
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
    }
   },
   "espalda": {
