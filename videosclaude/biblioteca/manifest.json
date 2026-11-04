@@ -1,0 +1,194 @@
+{
+ "tamano": [
+  720,
+  1280
+ ],
+ "planos": {
+  "humano": {
+   "camara": [
+    [
+     -0.3,
+     -2.0,
+     1.45
+    ],
+    [
+     -0.5,
+     1.4,
+     1.2
+    ],
+    50
+   ],
+   "descripcion": "Primer plano del humano",
+   "pantalla_quad": [
+    [
+     716.4,
+     319.2
+    ],
+    [
+     2424.7,
+     134.9
+    ],
+    [
+     2295.0,
+     1022.1
+    ],
+    [
+     703.2,
+     834.8
+    ]
+   ],
+   "fondo": "fondo.png",
+   "humano": {
+    "neutral_cerrada": "humano_neutral_cerrada.png",
+    "neutral_media": "humano_neutral_media.png",
+    "neutral_abierta": "humano_neutral_abierta.png",
+    "feliz_cerrada": "humano_feliz_cerrada.png",
+    "feliz_media": "humano_feliz_media.png",
+    "feliz_abierta": "humano_feliz_abierta.png",
+    "preocupado_cerrada": "humano_preocupado_cerrada.png",
+    "preocupado_media": "humano_preocupado_media.png",
+    "preocupado_abierta": "humano_preocupado_abierta.png",
+    "burlon_cerrada": "humano_burlon_cerrada.png",
+    "burlon_media": "humano_burlon_media.png",
+    "burlon_abierta": "humano_burlon_abierta.png",
+    "neutral_parpadeo": "humano_neutral_parpadeo.png"
+   },
+   "claude": {}
+  },
+  "dos": {
+   "camara": [
+    [
+     -0.4,
+     -2.6,
+     0.9
+    ],
+    [
+     -0.7,
+     0.6,
+     0.7
+    ],
+    40
+   ],
+   "descripcion": "Plano de los dos: humano y Clawd en el escritorio",
+   "pantalla_quad": [
+    [
+     662.8,
+     302.3
+    ],
+    [
+     1777.1,
+     116.6
+    ],
+    [
+     1714.6,
+     706.3
+    ],
+    [
+     654.6,
+     662.1
+    ]
+   ],
+   "fondo": "fondo.png",
+   "humano": {
+    "neutral_cerrada": "humano_neutral_cerrada.png",
+    "neutral_media": "humano_neutral_media.png",
+    "neutral_abierta": "humano_neutral_abierta.png",
+    "feliz_cerrada": "humano_feliz_cerrada.png",
+    "feliz_media": "humano_feliz_media.png",
+    "feliz_abierta": "humano_feliz_abierta.png",
+    "preocupado_cerrada": "humano_preocupado_cerrada.png",
+    "preocupado_media": "humano_preocupado_media.png",
+    "preocupado_abierta": "humano_preocupado_abierta.png",
+    "burlon_cerrada": "humano_burlon_cerrada.png",
+    "burlon_media": "humano_burlon_media.png",
+    "burlon_abierta": "humano_burlon_abierta.png",
+    "neutral_parpadeo": "humano_neutral_parpadeo.png"
+   },
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png"
+   }
+  },
+  "claude": {
+   "camara": [
+    [
+     2.4,
+     -2.0,
+     0.8
+    ],
+    [
+     3.0,
+     0.1,
+     0.55
+    ],
+    50
+   ],
+   "descripcion": "Clawd sobre los libros, la pantalla detras",
+   "pantalla_quad": [
+    [
+     -655.7,
+     -42.6
+    ],
+    [
+     532.9,
+     -153.4
+    ],
+    [
+     518.6,
+     631.2
+    ],
+    [
+     -584.8,
+     615.1
+    ]
+   ],
+   "fondo": "fondo.png",
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png"
+   }
+  },
+  "espalda": {
+   "camara": [
+    [
+     1.2,
+     -2.8,
+     0.9
+    ],
+    [
+     1.5,
+     0.6,
+     0.9
+    ],
+    45
+   ],
+   "descripcion": "Clawd de espaldas mirando el monitor",
+   "pantalla_quad": [
+    [
+     159.7,
+     343.8
+    ],
+    [
+     917.5,
+     251.0
+    ],
+    [
+     917.5,
+     739.8
+    ],
+    [
+     159.7,
+     716.0
+    ]
+   ],
+   "fondo": "fondo.png",
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png"
+   }
+  }
+ }
+}
