@@ -1,0 +1,175 @@
+{
+ "titulo": "Tu primer pedido (y la realidad)",
+ "ambiente": "atardecer_tienda",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 1.69,
+   "quien": "humano",
+   "texto": "¡CLAUDE! ¡PRIMER PEDIDO!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "pedido",
+    "duracion": 9.04
+   }
+  },
+  {
+   "inicio": 1.69,
+   "fin": 4.27,
+   "quien": "claude",
+   "texto": "Enhorabuena. Ahora pídeselo\nal proveedor.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 4.27,
+   "fin": 5.56,
+   "quien": "humano",
+   "texto": "¿Ya soy rico?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 5.56,
+   "fin": 8.59,
+   "quien": "claude",
+   "texto": "Eres rico: 3,44 €.\nSi nada falla. Spoiler: falla.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 8.59,
+   "fin": 11.06,
+   "quien": "claude",
+   "texto": "Y tu cliente espera\n25 días. Por barco.",
+   "plano": "monitor_lateral",
+   "pantalla": {
+    "tipo": "tracking",
+    "duracion": 7.07
+   }
+  },
+  {
+   "inicio": 11.06,
+   "fin": 12.91,
+   "quien": "humano",
+   "texto": "Pero en la web puse 3 días.",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 12.91,
+   "fin": 15.66,
+   "quien": "claude",
+   "texto": "Eso tiene nombre:\nprometer lo que no puedes.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  },
+  {
+   "inicio": 15.66,
+   "fin": 17.46,
+   "quien": "humano",
+   "texto": "Uy. Ha escrito el cliente.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "cliente",
+    "duracion": 5.1
+   }
+  },
+  {
+   "inicio": 17.46,
+   "fin": 20.76,
+   "quien": "claude",
+   "texto": "En mayúsculas. Mala señal.\nResponde con calma y datos.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 20.76,
+   "fin": 22.12,
+   "quien": "humano",
+   "texto": "¿Y si no contesto?",
+   "plano": "dos",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 22.12,
+   "fin": 25.42,
+   "quien": "claude",
+   "texto": "Pedirá el dinero a su banco:\ncontracargo. Y te cuesta.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 25.42,
+   "fin": 27.39,
+   "quien": "humano",
+   "texto": "¿Puede devolverlo sin motivo?",
+   "plano": "humano",
+   "emocion": "bobo",
+   "pantalla": {
+    "tipo": "ley",
+    "duracion": 5.94
+   }
+  },
+  {
+   "inicio": 27.39,
+   "fin": 30.64,
+   "quien": "claude",
+   "texto": "Sí: 14 días naturales.\nY le devuelves hasta el envío.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 30.64,
+   "fin": 32.1,
+   "quien": "humano",
+   "texto": "¿Y el IVA que pagué?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 32.1,
+   "fin": 35.96,
+   "quien": "claude",
+   "texto": "Desde 2021, IVA desde el primer\neuro importado. Revisa márgenes.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 35.96,
+   "fin": 37.54,
+   "quien": "humano",
+   "texto": "¿Entonces me conviene?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 37.54,
+   "fin": 41.01,
+   "quien": "claude",
+   "texto": "Si cuidas envíos y atención, sí.\nSi no, es un hobby caro.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 41.01,
+   "fin": 42.48,
+   "quien": "humano",
+   "texto": "¡Voy a hacerlo bien!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 42.48,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Primera frase sensata.\nLa voy a apuntar.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

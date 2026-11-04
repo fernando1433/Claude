@@ -74,7 +74,7 @@ def sombra_de(quien, ruta, tmp0):
     o = np.zeros(d.shape + (4,), np.uint8); o[..., 3] = d
     Image.fromarray(o, 'RGBA').save(ruta); os.remove(ruta + '.tmp.png')
 
-EMO = {'neutral': 'neutral', 'feliz': 'happy', 'preocupado': 'worried', 'burlon': 'smug'}
+EMO = {'neutral': 'neutral', 'feliz': 'happy', 'preocupado': 'worried', 'burlon': 'smug', 'bobo': 'bobo', 'ilusionado': 'ilusionado', 'confundido': 'confundido'}
 BOCA = {'cerrada': None, 'media': (0.058, 0.02), 'abierta': (0.052, 0.04)}
 def humano(pose, emo, boca, parpadeo=False):
     E.set_human(pose, EMO[emo])
@@ -95,6 +95,8 @@ def claude(pos, estado, pose='stand', face=0):
 
 TODAS = list(EMO); BOCAS = list(BOCA)
 POSES_NUEVAS = {'pensar': ['neutral', 'preocupado'], 'senalar': ['neutral', 'feliz'], 'hombros': ['neutral', 'preocupado'], 'mira': ['neutral', 'feliz']}
+LITE = os.environ.get('VC_LITE') == '1'     # bibliotecas de ambientes nuevos: menos poses para renderizar mas rapido
+if LITE: POSES_NUEVAS = {'pensar': ['neutral'], 'senalar': ['neutral', 'feliz'], 'hombros': ['neutral'], 'mira': ['neutral']}
 CL_BASE = ['idle', 'parpadeo', 'feliz']; CL_MIRA = CL_BASE + list(MIRADAS)
 # humano: type_emos = emociones de la pose 'type'; poses = poses extra
 PLANOS = {
@@ -105,7 +107,7 @@ PLANOS = {
     'monitor':         dict(base='monitor',         humano=None, clawd=('monitor_frente', 'stand', -13, CL_MIRA), f=6.0),
     'monitor_espalda': dict(base='monitor_espalda', humano=None, clawd=('monitor_espalda', 'look', 16, ['idle']), f=6.0),
     # --- tomas extra
-    'general':         dict(base='general', humano=dict(type_emos=['neutral', 'feliz'], poses={'senalar': ['neutral']}), clawd=('pad', 'stand', 0, CL_BASE), f=4.0),
+    'general':         dict(base='general', humano=dict(type_emos=['neutral', 'feliz', 'bobo', 'ilusionado'], poses={'senalar': ['neutral']}), clawd=('pad', 'stand', 0, CL_BASE), f=4.0),
     'cenital':         dict(base='cenital', humano=None, clawd=('kb', 'stand', 0, CL_MIRA), f=5.6),
     'claude_ojos':     dict(base='claude_ojos', humano=None, clawd=('books', 'stand', 0, CL_MIRA), f=5.6),
     'monitor_lateral': dict(base='monitor_lateral', humano=None, clawd=('monitor_lat', 'stand', 48, CL_BASE), f=6.0),

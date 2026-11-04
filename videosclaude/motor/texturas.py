@@ -138,4 +138,40 @@ for i in range(11):
     dy = random.randint(-45, 18) if i < 6 else random.randint(-10, 50)
     col = (60, 170, 110) if dy < 0 else (210, 70, 80); d.rectangle((x, min(y, y + dy), x + 20, max(y, y + dy) + 6), fill=col); y += dy; x += 30
 im.save(f'{OUT}/poster.png')
+# ---- ventanas de dia y atardecer
+def ventana(nombre, cielo, sol, edif, ventanas, nubes):
+    w, h = 800, 920; im = Image.new('RGB', (w, h)); d = ImageDraw.Draw(im); rnd = random.Random(5)
+    for y in range(h):
+        k = y / h; d.line([(0, y), (w, y)], fill=tuple(int(cielo[0][i] + (cielo[1][i] - cielo[0][i]) * k) for i in range(3)))
+    d.ellipse((sol[0] - sol[2], sol[1] - sol[2], sol[0] + sol[2], sol[1] + sol[2]), fill=sol[3])
+    if nubes:
+        cl = Image.new('RGBA', (w, h), (0, 0, 0, 0)); cd = ImageDraw.Draw(cl)
+        for _ in range(7):
+            x, y = rnd.randint(0, w), rnd.randint(40, 420)
+            for k in range(5): cd.ellipse((x + k * 40 - 20, y - 18, x + k * 40 + 70, y + 26), fill=(255, 255, 255, 190))
+        im.paste(cl.filter(ImageFilter.GaussianBlur(5)), (0, 0), cl.filter(ImageFilter.GaussianBlur(5)))
+        d = ImageDraw.Draw(im)
+    for capa, (col, base_h) in enumerate(((edif[0], 400), (edif[1], 290))):
+        x = -20
+        while x < w:
+            bw = rnd.randint(70, 130); bh = base_h + rnd.randint(-120, 150); d.rectangle((x, h - bh, x + bw, h), fill=col)
+            for yy in range(h - bh + 16, h - 10, 26):
+                for xx in range(x + 10, x + bw - 14, 22):
+                    if rnd.random() < 0.4: d.rectangle((xx, yy, xx + 9, yy + 13), fill=ventanas)
+            x += bw + rnd.randint(-10, 8)
+    im.save(f'{OUT}/{nombre}.png')
+ventana('window_dia', ((95, 160, 232), (196, 228, 252)), (640, 130, 50, (255, 244, 190)), ((150, 165, 200), (112, 124, 160)), (205, 225, 245), True)
+ventana('window_atardecer', ((64, 44, 112), (255, 150, 84)), (400, 640, 110, (255, 214, 120)), ((120, 62, 110), (58, 30, 74)), (255, 200, 110), False)
+
+# ---- neon y poster de TIENDA
+nw, nh = 640, 220; neon = Image.new('RGB', (nw, nh), (8, 6, 16)); nd = ImageDraw.Draw(neon)
+nd.text((nw // 2, nh // 2 - 8), 'OPEN', font=F(SANSB, 130), fill=(60, 230, 215), anchor='mm'); nd.text((nw // 2, nh - 22), 'TIENDA ONLINE 24h', font=F(SANSB, 26), fill=(255, 120, 190), anchor='mm')
+glow = neon.filter(ImageFilter.GaussianBlur(14)); out = ImageChops.add(neon, glow); nd2 = ImageDraw.Draw(out)
+nd2.text((nw // 2, nh // 2 - 8), 'OPEN', font=F(SANSB, 130), fill=(190, 255, 250), anchor='mm'); out.save(f'{OUT}/neon_tienda.png')
+pw, ph = 420, 560; im = Image.new('RGB', (pw, ph), (244, 236, 216)); d = ImageDraw.Draw(im)
+d.rectangle((14, 14, pw - 14, ph - 14), outline=(60, 40, 40), width=6)
+d.text((pw // 2, 76), 'ENVÍO', font=F(SANSB, 60), fill=(200, 60, 60), anchor='mm'); d.text((pw // 2, 140), 'GRATIS*', font=F(SANSB, 60), fill=(200, 60, 60), anchor='mm')
+d.text((pw // 2, 188), '*en 15-30 días (a veces)', font=F(SANS, 22), fill=(90, 70, 70), anchor='mm')
+d.rectangle((110, 260, 310, 440), fill=(196, 150, 100), outline=(120, 84, 52), width=5); d.rectangle((195, 260, 225, 440), fill=(238, 220, 175)); d.polygon([(110, 260), (140, 225), (330, 225), (310, 260)], fill=(214, 168, 118))
+d.text((pw // 2, 500), 'dropshipping', font=F(SANSB, 30), fill=(60, 40, 40), anchor='mm'); im.save(f'{OUT}/poster_tienda.png')
 print('tex ok')

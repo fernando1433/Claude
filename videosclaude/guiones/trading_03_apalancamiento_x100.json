@@ -1,0 +1,183 @@
+{
+ "titulo": "Apalancamiento x100",
+ "ambiente": "dia_trading",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 1.73,
+   "quien": "humano",
+   "texto": "¡Pongo mis 500 € a x100!",
+   "plano": "dos",
+   "emocion": "feliz",
+   "pose": "senalar",
+   "pantalla": {
+    "tipo": "apalanc",
+    "duracion": 13.24
+   }
+  },
+  {
+   "inicio": 1.73,
+   "fin": 3.06,
+   "quien": "claude",
+   "texto": "Define «x100».",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 3.06,
+   "fin": 4.84,
+   "quien": "humano",
+   "texto": "Si sube 1 %, ¡gano 500 €!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 4.84,
+   "fin": 7.37,
+   "quien": "claude",
+   "texto": "Y si baja 1 %,\nesa parte no la cuentas.",
+   "plano": "monitor_lateral"
+  },
+  {
+   "inicio": 7.37,
+   "fin": 8.7,
+   "quien": "humano",
+   "texto": "¿Pierdo 5 €?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.7,
+   "fin": 11.16,
+   "quien": "claude",
+   "texto": "500 €. Todos. Liquidado.\nAdiós, 500 €.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 11.16,
+   "fin": 12.49,
+   "quien": "humano",
+   "texto": "¿¡Con un 1 %!?",
+   "plano": "dos",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 12.49,
+   "fin": 15.36,
+   "quien": "claude",
+   "texto": "Un 1 % es lo que se mueve\nmientras parpadeas.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 15.36,
+   "fin": 17.03,
+   "quien": "humano",
+   "texto": "¿Y quién gana entonces?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 17.03,
+   "fin": 19.67,
+   "quien": "claude",
+   "texto": "El broker. Cobra comisión\ngane o pierdas.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 19.67,
+   "fin": 21.46,
+   "quien": "humano",
+   "texto": "Pues pongo x50, entonces.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 21.46,
+   "fin": 25.13,
+   "quien": "claude",
+   "texto": "En la UE el máximo para minoristas\nes 30:1. En cripto, 2:1.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 3.67,
+    "datos": {
+     "tipo": "apalanc"
+    }
+   }
+  },
+  {
+   "inicio": 25.13,
+   "fin": 27.08,
+   "quien": "humano",
+   "texto": "¡Pues me voy fuera de la UE!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 27.08,
+   "fin": 30.58,
+   "quien": "claude",
+   "texto": "Donde no hay normas, tampoco\nhay quien te devuelva nada.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 30.58,
+   "fin": 32.08,
+   "quien": "humano",
+   "texto": "Vale... ¿y qué hago?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 32.08,
+   "fin": 35.92,
+   "quien": "claude",
+   "texto": "Poco apalancamiento, stop loss\ny arriesga 1-2 % por operación.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "orden",
+    "duracion": 3.0
+   }
+  },
+  {
+   "inicio": 35.92,
+   "fin": 37.36,
+   "quien": "humano",
+   "texto": "Eso es... aburrido.",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 37.36,
+   "fin": 40.86,
+   "quien": "claude",
+   "texto": "Aburrido es lo que funciona.\nLo emocionante es perderlo.",
+   "plano": "monitor_lateral",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 40.86,
+   "fin": 42.36,
+   "quien": "humano",
+   "texto": "¡Pues x100 con stop!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 42.36,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Saltará al -1 %.\nYo traigo las palomitas.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

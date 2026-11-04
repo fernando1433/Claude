@@ -2,10 +2,16 @@
 Uso: python3 -I motor/indice_biblioteca.py"""
 import os, json
 from PIL import Image, ImageDraw, ImageFont
-RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); BIB = os.path.join(RAIZ, 'biblioteca')
+import sys, subprocess
+RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); BIB_RAIZ = os.path.join(RAIZ, 'biblioteca')
+if len(sys.argv) < 2:     # sin argumento: indexa todos los ambientes y escribe biblioteca/INDICE.md
+    ambs = sorted(d for d in os.listdir(BIB_RAIZ) if os.path.exists(os.path.join(BIB_RAIZ, d, 'manifest.json')))
+    for a in ambs: subprocess.run([sys.executable, '-I', os.path.abspath(__file__), a], check=True)
+    open(os.path.join(BIB_RAIZ, 'INDICE.md'), 'w').write('# Bibliotecas por ambiente\n\n' + '\n'.join(f'- `{a}/` -> [indice]({a}/INDICE.md)' for a in ambs) + '\n\nPantallas del monitor (compartidas): `pantallas/`\n'); sys.exit(0)
+BIB = os.path.join(BIB_RAIZ, sys.argv[1])
 MF = json.load(open(os.path.join(BIB, 'manifest.json'))); W, H = MF['tamano']
 F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 15)
-md = ['# Indice de la biblioteca de capas\n', f'Tamano de cada capa: {W}x{H} (vertical). Todas las capas de un plano comparten camara: se apilan en este orden: '
+md = [f'# Indice de la biblioteca `{sys.argv[1]}`\n', f'Tamano de cada capa: {W}x{H} (vertical). Todas las capas de un plano comparten camara: se apilan en este orden: '
       '**fondo -> pantalla del monitor (opcional) -> humano -> claude**.\n']
 for plano, info in MF['planos'].items():
     md.append(f"\n## Plano `{plano}` - {info['descripcion']}\n")

@@ -5,6 +5,7 @@ Uso:   python3 -I motor/montar_video.py guiones/ejemplo_dip.json salidas/ejemplo
 Opciones:  --solo-frames N   (monta solo los N primeros frames, para probar)
 
 Guion (ver guiones/ejemplo_dip.json):
+  ambiente: noche_trading (por defecto) | dia_trading | dia_tienda | atardecer_tienda   (carpeta de biblioteca/ con la sala de ese ambiente)
   (humano) pose: type (por defecto, manos en el teclado) | pensar | senalar | hombros | mira   (la que no exista en el plano se sustituye por type)
   (claude) claude_estado: idle | feliz | mira_izq | mira_der | mira_arriba   empuje: true (zoom lento durante la linea; opcional)
   tono (opcional): sarcastico (por defecto en claude: voz grave que arrastra hacia abajo) | dudoso (sube al final) | seguro (por defecto en humano)
@@ -28,7 +29,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pantallas import dibujar, PANTALLAS, ZOOM_AUTO
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
-BIB = os.path.join(RAIZ, 'biblioteca')
+BIB_RAIZ = os.path.join(RAIZ, 'biblioteca'); PANT = os.path.join(BIB_RAIZ, 'pantallas'); BIB = None
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 COL = {'humano': (120, 220, 215), 'claude': (240, 125, 85)}
 SOMBRA = 0.55   # intensidad de las sombras fijas (0-1)
@@ -41,9 +42,13 @@ def args():
     return a[0], a[1], n
 
 # ---------------------------------------------------------------- biblioteca
-MF = json.load(open(os.path.join(BIB, 'manifest.json')))
-W, H = MF['tamano']
 _cache = {}
+MF = None; W = H = None
+def usar_ambiente(nombre):
+    """selecciona la biblioteca de un ambiente (carpeta biblioteca/<nombre>): noche_trading, dia_trading, dia_tienda, atardecer_tienda..."""
+    global BIB, MF, W, H
+    BIB = os.path.join(BIB_RAIZ, nombre); MF = json.load(open(os.path.join(BIB, 'manifest.json'))); W, H = MF['tamano']; _cache.clear()
+usar_ambiente('noche_trading')
 def cargar(plano, fichero):
     k = (plano, fichero)
     if k not in _cache: _cache[k] = Image.open(os.path.join(BIB, plano, fichero)).convert('RGBA')
@@ -57,7 +62,7 @@ def imagen_pantalla(spec, p=1.0):
     return dibujar(nombre, p, datos).convert('RGB') if nombre in PANTALLAS else cargar_pantalla(nombre)
 
 def cargar_pantalla(nombre):
-    ruta = nombre if os.path.exists(nombre) else os.path.join(BIB, 'pantallas', nombre + '.png')
+    ruta = nombre if os.path.exists(nombre) else os.path.join(PANT, nombre + '.png')
     return Image.open(ruta).convert('RGB')
 
 def coef_perspectiva(quad, w, h):
@@ -143,7 +148,7 @@ def generar_audio(G, ruta):
 
 # ---------------------------------------------------------------- montaje
 def montar(guion, salida, solo=None):
-    G = json.load(open(guion)); fps = G.get('fps_animacion', 6)
+    G = json.load(open(guion)); fps = G.get('fps_animacion', 6); usar_ambiente(G.get('ambiente', 'noche_trading'))
     N = int(round(G['duracion'] * fps)) if solo is None else solo
     tmp = os.path.join(os.path.dirname(os.path.abspath(salida)), '_frames_' + os.path.basename(salida).rsplit('.', 1)[0])
     os.makedirs(tmp, exist_ok=True)

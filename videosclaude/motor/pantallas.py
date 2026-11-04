@@ -305,6 +305,7 @@ def p_cartera(p, datos):
     grafica(im, (590, 80, W - 60, 320), [1 - 0.55 * (i / 40) ** 0.8 + 0.04 * math.sin(i * 1.7) for i in range(41)], p / 0.8, RD)
     d = ImageDraw.Draw(im); tarjeta(d, (40, 350, W - 40, 650), 'POSICIONES')
     pos = datos.get('posiciones') or [('Acción que me dijo mi primo', -62, RD), ('Memecoin con un perro', -81, RD), ('NFT de mono (2021)', -97, RD), ('Bitcoin', 4, GR), ('"Lo mantengo a largo plazo"', -38, RD)]
+    pos = [(q[0], q[1], (RD if q[1] < 0 else GR)) for q in pos]
     for i, (n_, v, col) in enumerate(pos):
         k = tramo(p, 0.15 + i * 0.12, 0.3 + i * 0.12)
         if k <= 0: continue
@@ -345,14 +346,252 @@ def p_resultado(p, datos):
     if p > 0.75: rr(d, (180, 500, W - 180, 600), (30, 33, 60), 16, OR, 2); d.text((W // 2, 550), 'Has perdido 3.960 € menos. Felicidades (?)', font=F(30, True), fill=OR, anchor='mm')
     return im
 
-# recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
-ZOOM_AUTO = {'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
+# ====================================================================================================== iconos de producto (dibujados, sin imagenes externas)
+def icono(d, kind, x, y, s, fondo=None):
+    """dibuja un producto sencillo (estilo plano) dentro del cuadrado (x, y, s, s)"""
+    rr(d, (x, y, x + s, y + s), fondo or (40, 44, 80), int(s * 0.12))
+    cx, cy, u = x + s / 2, y + s / 2, s / 100.0
+    if kind == 'taza':
+        rr(d, (cx - 26 * u, cy - 22 * u, cx + 20 * u, cy + 26 * u), (245, 245, 250), int(8 * u)); d.arc((cx + 8 * u, cy - 12 * u, cx + 40 * u, cy + 16 * u), 270, 90, fill=(245, 245, 250), width=int(7 * u))
+        d.rectangle((cx - 26 * u, cy - 22 * u, cx + 20 * u, cy - 12 * u), fill=OR)
+    elif kind == 'camiseta':
+        d.polygon([(cx - 30 * u, cy - 28 * u), (cx - 12 * u, cy - 32 * u), (cx + 12 * u, cy - 32 * u), (cx + 30 * u, cy - 28 * u), (cx + 42 * u, cy - 6 * u), (cx + 28 * u, cy), (cx + 24 * u, cy - 8 * u), (cx + 24 * u, cy + 32 * u), (cx - 24 * u, cy + 32 * u), (cx - 24 * u, cy - 8 * u), (cx - 28 * u, cy), (cx - 42 * u, cy - 6 * u)], fill=(90, 190, 170))
+        d.ellipse((cx - 11 * u, cy - 38 * u, cx + 11 * u, cy - 18 * u), fill=fondo or (40, 44, 80))
+    elif kind == 'cactus':
+        d.ellipse((cx - 40 * u, cy - 40 * u, cx + 40 * u, cy + 40 * u), fill=(70, 80, 40, 90) if False else (255, 230, 150))
+        rr(d, (cx - 14 * u, cy - 26 * u, cx + 14 * u, cy + 18 * u), (60, 170, 100), int(12 * u)); rr(d, (cx - 32 * u, cy - 10 * u, cx - 14 * u, cy + 2 * u), (60, 170, 100), int(6 * u)); rr(d, (cx - 32 * u, cy - 24 * u, cx - 22 * u, cy), (60, 170, 100), int(5 * u))
+        rr(d, (cx + 14 * u, cy - 14 * u, cx + 32 * u, cy - 2 * u), (60, 170, 100), int(6 * u)); rr(d, (cx + 22 * u, cy - 30 * u, cx + 32 * u, cy - 6 * u), (60, 170, 100), int(5 * u))
+        d.polygon([(cx - 18 * u, cy + 18 * u), (cx + 18 * u, cy + 18 * u), (cx + 13 * u, cy + 40 * u), (cx - 13 * u, cy + 40 * u)], fill=(200, 120, 90))
+    elif kind == 'soporte':
+        d.polygon([(cx - 28 * u, cy + 30 * u), (cx + 28 * u, cy + 30 * u), (cx + 10 * u, cy - 6 * u), (cx - 10 * u, cy - 6 * u)], fill=(170, 125, 255)); rr(d, (cx - 14 * u, cy - 36 * u, cx + 14 * u, cy + 8 * u), (30, 32, 50), int(5 * u))
+    elif kind == 'botella':
+        rr(d, (cx - 14 * u, cy - 12 * u, cx + 14 * u, cy + 36 * u), CY, int(8 * u)); rr(d, (cx - 7 * u, cy - 34 * u, cx + 7 * u, cy - 10 * u), CY, int(4 * u)); rr(d, (cx - 9 * u, cy - 40 * u, cx + 9 * u, cy - 32 * u), (240, 240, 250), int(3 * u))
+    elif kind == 'zapatilla':
+        d.polygon([(cx - 40 * u, cy + 14 * u), (cx - 36 * u, cy - 14 * u), (cx - 10 * u, cy - 18 * u), (cx + 4 * u, cy - 4 * u), (cx + 38 * u, cy + 4 * u), (cx + 40 * u, cy + 18 * u)], fill=(255, 120, 130)); d.rectangle((cx - 42 * u, cy + 14 * u, cx + 42 * u, cy + 24 * u), fill=(240, 240, 245))
+    elif kind == 'auriculares':
+        d.arc((cx - 30 * u, cy - 34 * u, cx + 30 * u, cy + 26 * u), 180, 360, fill=(230, 230, 240), width=int(7 * u)); rr(d, (cx - 38 * u, cy - 6 * u, cx - 18 * u, cy + 26 * u), YE, int(6 * u)); rr(d, (cx + 18 * u, cy - 6 * u, cx + 38 * u, cy + 26 * u), YE, int(6 * u))
+    elif kind == 'reloj':
+        d.ellipse((cx - 28 * u, cy - 28 * u, cx + 28 * u, cy + 28 * u), fill=(235, 235, 245), outline=(120, 130, 170), width=int(5 * u)); d.line([(cx, cy), (cx, cy - 18 * u)], fill=(30, 30, 40), width=int(4 * u)); d.line([(cx, cy), (cx + 13 * u, cy + 6 * u)], fill=RD, width=int(3 * u))
+    return (x, y, s, s)
+
+PRODUCTOS = [('taza', 'Taza térmica', '24,90 €', (60, 66, 120)), ('camiseta', 'Camiseta oversize', '29,90 €', (70, 60, 110)), ('cactus', 'Lámpara cactus', '27,90 €', (50, 70, 90)),
+             ('soporte', 'Soporte móvil', '14,90 €', (70, 60, 90)), ('botella', 'Botella inox', '19,90 €', (50, 74, 100)), ('zapatilla', 'Zapatillas', '49,90 €', (84, 56, 84))]
+
+# ====================================================================================================== TRADING: curso milagro, pago, señales, apalancamiento, datos reales
+def p_curso(p, datos):
+    im, d = base(datos.get('titulo', 'hazte-rico-ya.com — Chrome')); rr(d, (40, 56, W - 40, 650), (24, 22, 40), 14, LINE)
+    rr(d, (60, 70, W - 60, 106), (14, 15, 28), 18); d.text((86, 88), '🔒 hazte-rico-ya.com/oferta-secreta'.replace('🔒', '▪'), font=F(16, mono=True), fill=DIM, anchor='lm')
+    rr(d, (60, 120, W - 60, 330), (70, 50, 12), 16); d.text((W // 2, 168), datos.get('curso', 'HAZTE MILLONARIO EN 7 DÍAS'), font=F(46, True), fill=(255, 214, 80), anchor='mm')
+    d.text((W // 2, 218), 'El método secreto de un gurú de 23 años (no te lo cuentan los bancos)', font=F(21), fill=(255, 235, 190), anchor='mm')
+    seg = max(0, 599 - int(ease(p) * 40)); mm, ss = divmod(seg, 60)      # contador "falso": parece avanzar
+    rr(d, (400, 250, 880, 312), (30, 10, 10), 12, RD); d.text((W // 2, 281), f'⚠ La oferta termina en 00:{mm:02d}:{ss:02d}', font=F(26, True, True), fill=RD, anchor='mm')
+    d.text((100, 366), '1.997 €', font=F(34, True), fill=DIM); d.line([(100, 384), (222, 384)], fill=RD, width=4); d.text((250, 358), '997 €', font=F(56, True), fill=GR)
+    pulso = 1.0 + 0.04 * math.sin(p * 40); bw = int(330 * pulso)
+    rr(d, (W - 80 - bw, 352, W - 80, 420), (240, 90, 60), 18); d.text((W - 80 - bw // 2, 386), '¡QUIERO SER RICO!', font=F(24, True), fill=(255, 255, 255), anchor='mm')
+    for i, (n, t) in enumerate((('Carlos, 24', '"Pasé de pobre a rico"'), ('Marta, 31', '"¡Ahora tengo un Lambo!"'), ('Pablo, 28', '"Gané 40.000 € dormido"'))):
+        x = 80 + i * 380; rr(d, (x, 450, x + 350, 560), (34, 32, 56), 14, LINE); d.ellipse((x + 16, 470, x + 76, 530), fill=mezcla((90, 90, 130), OR, i / 3)); d.text((x + 92, 478), n, font=F(18, True), fill=TXT); d.text((x + 92, 508), t, font=F(15), fill=YE)
+    d.text((80, 590), '*Resultados no típicos. Garantizado 100 % (no preguntes cómo).', font=F(14), fill=DIM)
+    # banderas rojas de Claude: aparecen una a una
+    caj = [(400, 250, 880, 312, 'Contador falso: se reinicia'), (80, 450, 1210, 560, 'Testimonios de stock'), (200, 140, 1080, 240, '«Garantizado» = ilegal'), (60, 340, 700, 430, 'Precio inventado')]
+    for k, (x0, y0, x1, y1, t) in enumerate(caj):
+        a = tramo(p, 0.35 + k * 0.14, 0.45 + k * 0.14)
+        if a <= 0: continue
+        ov = Image.new('RGBA', im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov); od.rounded_rectangle((x0 - 6, y0 - 6, x1 + 6, y1 + 6), 14, outline=(255, 70, 80, int(255 * a)), width=5)
+        im.paste(ov, (0, 0), ov); d = ImageDraw.Draw(im); w_ = d.textlength('✖ ' + t, font=F(19, True)) + 24
+        by = y0 - 40 if y0 > 130 else y1 + 10; rr(d, (x0, by, x0 + w_, by + 34), (200, 30, 50), 8); d.text((x0 + 12, by + 17), '✖ ' + t, font=F(19, True), fill=(255, 255, 255), anchor='lm')
+    return im
+
+def p_checkout(p, datos):
+    im, d = base(datos.get('titulo', 'Pago seguro (¿seguro?)')); tarjeta(d, (330, 60, 950, 650)); d.text((360, 84), 'FINALIZAR COMPRA', font=F(22, True), fill=DIM)
+    d.text((360, 124), datos.get('curso', 'Curso: Millonario en 7 días'), font=F(24, True), fill=TXT); d.text((920, 124), '997,00 €', font=F(28, True, True), fill=GR, anchor='ra')
+    num = '4532  8821  0093  4417'; n = int(len(num) * tramo(p, 0.05, 0.5)); nom = 'TU NOMBRE (ILUSIONADO)'
+    for i, (lab, txt) in enumerate((('Número de tarjeta', num[:n]), ('Titular', nom if p > 0.5 else ''), ('Caducidad / CVV', '08/28   ···' if p > 0.55 else ''))):
+        y = 180 + i * 96; d.text((360, y), lab, font=F(17), fill=DIM); rr(d, (360, y + 28, 920, y + 72), (14, 16, 32), 10, LINE); d.text((380, y + 50), txt + ('▌' if int(p * 20) % 2 == 0 and i == 0 and p < 0.5 else ''), font=F(23, True, True), fill=TXT, anchor='lm')
+    rr(d, (360, 490, 920, 560), (240, 90, 60), 16); d.text((640, 525), 'PAGAR 997 €', font=F(30, True), fill=(255, 255, 255), anchor='mm')
+    d.text((640, 596), '¡Solo quedan 3 plazas! (siempre quedan 3 plazas)', font=F(17, True), fill=RD, anchor='mm')
+    if p > 0.6:
+        a = tramo(p, 0.6, 0.72); ov = Image.new('RGBA', im.size, (0, 0, 0, int(150 * a))); im.paste(ov, (0, 0), ov)
+        sello = Image.new('RGBA', (760, 220), (0, 0, 0, 0)); sd = ImageDraw.Draw(sello); sd.rounded_rectangle((6, 6, 754, 214), 24, outline=(255, 70, 80, 255), width=10, fill=(40, 8, 14, 235))
+        sd.text((380, 80), 'PAGO BLOQUEADO', font=F(64, True), fill=(255, 80, 90), anchor='mm'); sd.text((380, 160), 'por Claude · de nada', font=F(30, True), fill=(255, 200, 200), anchor='mm')
+        sello = sello.rotate(-6, expand=True, resample=Image.BICUBIC); es = 0.5 + 0.5 * a; sello = sello.resize((int(sello.width * es), int(sello.height * es)))
+        im.paste(sello, ((W - sello.width) // 2, 320 - sello.height // 2 + 40), sello)
+    return im
+
+def p_telegram(p, datos):
+    chat = datos.get('modo', 'pump') == 'chat'      # chat: solo mensajes y la grafica sube; pump: sube y se desploma + 'vendido'
+    im, d = base(datos.get('titulo', 'Canal "VIP SIGNALS" — 4.213 miembros')); rr(d, (40, 56, 760, 650), (20, 24, 38), 14, LINE)
+    d.text((70, 82), '★ VIP SIGNALS ★', font=F(24, True), fill=(120, 200, 255)); d.text((70, 112), '4.213 miembros · 49 €/mes', font=F(15), fill=DIM)
+    msgs = [('Admin', 'COMPRA YA $PERRO !!! ▲▲▲', (60, 120, 200)), ('Admin', '+3.400 % en 2 horas (captura)', (60, 120, 200)), ('Admin', 'Quedan 2 plazas VIP+. NO SEAS POBRE.', (60, 120, 200)),
+            ('Admin', 'Yo ya estoy dentro. Compra ahora.', (60, 120, 200)), ('Admin', 'Vendido ✔ gracias por la liquidez', (200, 60, 70))]
+    y = 150
+    for i, (a_, t, col) in enumerate(msgs[:4] if chat else msgs):
+        k = tramo(p, i * 0.15, i * 0.15 + 0.1)
+        if k <= 0: continue
+        w_ = d.textlength(t, font=F(20, True)) + 36; by = y + int((1 - k) * 30)
+        rr(d, (70, by, 70 + w_, by + 58), mezcla((20, 24, 38), col, 0.55), 14); d.text((88, by + 12), a_, font=F(13, True), fill=(200, 220, 255)); d.text((88, by + 30), t, font=F(20, True), fill=(255, 255, 255)); y += 70
+    tarjeta(d, (790, 56, W - 40, 650), '$PERRO / USDT'); serie = [0.1 + 0.04 * i for i in range(14)] + [0.7, 1.0, 0.9, 0.5, 0.2, 0.08, 0.04, 0.02]
+    if chat: serie = serie[:15]; pc = 9.0
+    else: pc = 0.62
+    grafica(im, (820, 130, W - 70, 470), serie, p / 0.95, GR if p < pc else RD); d = ImageDraw.Draw(im)
+    pr = 0.0001 * (1 + 9 * ease(p / 0.6)) if p < pc else 0.0001 * (10 - 9.9 * ease((p - 0.62) / 0.3)); d.text((820, 490), f'{pr:.5f} $'.replace('.', ','), font=F(40, True, True), fill=GR if p < pc else RD)
+    chip(d, (820, 556), 'Tú compraste aquí' if p > 0.5 else 'Esperando…', OR if p > 0.5 else DIM, 18)
+    if p > pc: rr(d, (800, 600, W - 50, 642), (70, 25, 35), 10, RD); d.text(((800 + W - 50) // 2, 621), '☠ PUMP & DUMP', font=F(20, True), fill=RD, anchor='mm')
+    return im
+
+def p_apalanc(p, datos):
+    cap = datos.get('capital', 500); lev = datos.get('apal', 100); im, d = base(datos.get('titulo', 'Futuros — calculadora de posición')); tarjeta(d, (40, 60, 620, 650))
+    d.text((70, 84), 'CAPITAL', font=F(16, True), fill=DIM); d.text((70, 108), fmt(cap, 0, '', ' €'), font=F(44, True), fill=TXT)
+    a = ease(p / 0.35); x_ = int(2 + (lev - 2) * a); d.text((70, 184), 'APALANCAMIENTO', font=F(16, True), fill=DIM); d.text((70, 208), f'x{x_}', font=F(60, True), fill=OR)
+    rr(d, (70, 290, 590, 306), (40, 44, 78), 8); rr(d, (70, 290, 70 + 520 * x_ / 100, 306), OR, 8); d.ellipse((60 + 520 * x_ / 100, 284, 80 + 520 * x_ / 100, 312), fill=(255, 255, 255))
+    d.text((70, 340), 'TAMAÑO DE LA POSICIÓN', font=F(16, True), fill=DIM); d.text((70, 364), fmt(cap * x_, 0, '', ' €'), font=F(44, True), fill=CY)
+    d.text((70, 440), 'SE LIQUIDA SI BAJA SOLO', font=F(16, True), fill=DIM); d.text((70, 464), f'-{100 / max(1, x_):.1f} %'.replace('.', ','), font=F(52, True), fill=RD)
+    rr(d, (70, 560, 590, 626), (30, 33, 60), 14, OR, 2); d.text((330, 593), 'Ganar 1 % = +500 €  ·  Perder 1 % = TODO', font=F(18, True), fill=OR, anchor='mm')
+    tarjeta(d, (650, 60, W - 40, 650), 'BTC/USDT'); bal = cap if p < 0.62 else cap * (1 - ease((p - 0.62) / 0.06))
+    serie = [0.5 + 0.015 * math.sin(i * 1.3) for i in range(20)] + [0.46, 0.44, 0.46, 0.5, 0.52]; grafica(im, (680, 130, W - 70, 400), serie, p / 0.9, CY if p < 0.62 else RD); d = ImageDraw.Draw(im)
+    d.text((680, 430), 'SALDO', font=F(16, True), fill=DIM); d.text((680, 454), fmt(max(0, bal), 0, '', ' €'), font=F(56, True), fill=GR if bal > 0 else RD)
+    if p > 0.66:
+        ov = Image.new('RGBA', im.size, (255, 0, 0, int(90 * tramo(p, 0.66, 0.72)))); im.paste(ov, (0, 0), ov); d = ImageDraw.Draw(im)
+        rr(d, (330, 250, 950, 400), (70, 10, 20), 20, RD, 6); d.text((640, 325), '☠ LIQUIDADO', font=F(70, True), fill=(255, 90, 100), anchor='mm')
+    if p > 0.85: rr(d, (670, 560, W - 60, 626), (25, 60, 45), 14, GR, 2); d.text((960, 593), 'Con x2: -1 % = -10 €. Sigues vivo.', font=F(18, True), fill=GR, anchor='mm')
+    return im
+
+VERDADES = {
+    'esma': ('74–89 %', 'de las cuentas minoristas de CFD pierden dinero', 0.82, 'Fuente: ESMA (2018) — advertencia de riesgo obligatoria de los brokers', RD),
+    'brasil': ('97 %', 'de los day traders que insistieron +300 días perdió dinero', 0.97, 'Fuente: Chague, De-Losso y Giovannetti — «Day Trading for a Living?» (2020)', RD),
+    'brasil2': ('0,5 %', 'ganó más que un sueldo básico (8 de 1.551)', 0.005, 'Fuente: Chague, De-Losso y Giovannetti — «Day Trading for a Living?» (2020)', OR),
+    'apalanc': ('30:1', 'límite UE para minoristas en divisas principales (2:1 en criptos)', 0.3, 'Fuente: ESMA (2018) — restricciones a los CFD para minoristas', CY),
+}
+def p_verdad(p, datos):
+    n, t, frac, fuente, col = VERDADES[datos.get('tipo', 'esma')]; im, d = base(datos.get('titulo', 'Datos reales (no del gurú)')); tarjeta(d, (100, 70, W - 100, 640))
+    d.text((W // 2, 150), 'DATO REAL', font=F(22, True), fill=DIM, anchor='mm'); a = ease(p / 0.5)
+    d.text((W // 2, 270), n, font=F(150, True), fill=col, anchor='mm'); d.text((W // 2, 380), t, font=F(30, True), fill=TXT, anchor='mm')
+    rr(d, (200, 440, W - 200, 474), (40, 44, 78), 17); rr(d, (200, 440, 200 + (W - 400) * frac * a, 474), col, 17)
+    if p > 0.5: d.text((W // 2, 560), fuente, font=F(17), fill=DIM, anchor='mm')
+    return im
+
+# ====================================================================================================== DROPSHIPPING
+def p_catalogo(p, datos):
+    im, d = base(datos.get('titulo', 'Mi tienda — Productos')); tarjeta(d, (40, 60, W - 40, 650)); d.text((70, 80), 'PRODUCTOS', font=F(20, True), fill=DIM)
+    n = int(len(PRODUCTOS) * ease(p / 0.85) + 0.001); d.text((W - 70, 70), f'{n}', font=F(44, True), fill=OR, anchor='ra')
+    for i, (k, nom, pr, col) in enumerate(PRODUCTOS):
+        a = tramo(p, i * 0.12, i * 0.12 + 0.12)
+        if a <= 0: continue
+        x = 70 + (i % 3) * 380; y = 124 + (i // 3) * 260 + int((1 - a) * 30); rr(d, (x, y, x + 350, y + 236), (28, 32, 58), 14, LINE)
+        icono(d, k, x + 14, y + 14, 150, col); d.text((x + 180, y + 40), nom, font=F(21, True), fill=TXT); d.text((x + 180, y + 82), pr, font=F(30, True, True), fill=GR)
+        d.text((x + 180, y + 128), 'Stock: ∞ (el proveedor)', font=F(15), fill=DIM); chip(d, (x + 180, y + 170), 'Publicado ✔' if a > 0.9 else '…', GR if a > 0.9 else DIM, 14)
+    return im
+
+def p_proveedor(p, datos):
+    k = datos.get('producto', 'taza'); nom = datos.get('nombre', 'Taza térmica 450 ml'); coste = datos.get('coste', '8,10 €'); im, d = base(datos.get('titulo', 'Proveedor — ficha de producto'))
+    tarjeta(d, (40, 60, W - 40, 650)); icono(d, k, 80, 100, 360, (50, 56, 100)); d.text((480, 110), nom, font=F(34, True), fill=TXT)
+    d.text((480, 170), '★★★★☆ 4,1 (1.203 opiniones)', font=F(20), fill=YE); d.text((480, 230), 'PRECIO PROVEEDOR', font=F(16, True), fill=DIM)
+    d.text((480, 256), coste, font=F(64, True, True), fill=GR if p < 0.2 else GR)
+    filas = [('Pedido mínimo', '1 unidad', TXT), ('Stock', '999+', TXT), ('Envío', 'Gratis (¡18–35 días!)', RD), ('Marca blanca', 'Sí (la tuya)', CY)]
+    for i, (a_, b_, c_) in enumerate(filas):
+        kk = tramo(p, 0.1 + i * 0.12, 0.2 + i * 0.12)
+        if kk <= 0: continue
+        y = 380 + i * 52; d.text((480, y), a_, font=F(19), fill=DIM); d.text((880, y), b_, font=F(21, True), fill=c_)
+    if p > 0.7: rr(d, (480, 600, W - 70, 640), (70, 25, 35), 10, RD); d.text((W // 2 + 205, 620), '⚠ Tu cliente esperará un MES (y no lo sabe)', font=F(19, True), fill=RD, anchor='mm')
+    return im
+
+def p_margen(p, datos):
+    precio = datos.get('precio', 29.90); coste = datos.get('coste', 8.10); anuncio = datos.get('anuncio', 12.00); com = round(precio * 0.029 + 0.30, 2); iva = round(precio / 1.21 * 0.21, 2)
+    ben = round(precio - coste - anuncio - com - iva, 2); roas = precio / (precio - coste - com - iva)
+    im, d = base(datos.get('titulo', 'Calculadora — ¿cuánto ganas DE VERDAD?')); tarjeta(d, (40, 60, W - 40, 650))
+    barras = [('Precio de venta', precio, GR), ('Coste del producto', -coste, RD), ('Anuncios (1 venta)', -anuncio, RD), ('Comisión de cobro', -com, RD), ('IVA (21 %)', -iva, RD), ('BENEFICIO REAL', ben, OR)]
+    acum = 0.0; escala = 520 / precio
+    for i, (n_, v, col) in enumerate(barras):
+        a = tramo(p, i * 0.13, i * 0.13 + 0.12); y = 100 + i * 80
+        d.text((70, y + 14), n_, font=F(21, True), fill=TXT)
+        if i == 0: x0, x1 = 420, 420 + v * escala * a; acum = v
+        elif i == len(barras) - 1: x0, x1 = 420, 420 + ben * escala * a
+        else: x1 = 420 + acum * escala; x0 = x1 + v * escala * a; acum += v
+        rr(d, (min(x0, x1), y, max(x0, x1) + 2, y + 54), col, 10); d.text((1190, y + 14), fmt(v * a, 2, '+' if v > 0 else '', ' €'), font=F(26, True, True), fill=col if i < 5 else OR, anchor='ra')
+    if p > 0.8: rr(d, (70, 580, W - 70, 636), (30, 33, 60), 12, OR, 2); d.text((W // 2, 608), f'ROAS mínimo para no perder: {roas:.2f}'.replace('.', ',') + '   (precio ÷ lo que te queda antes de anuncios)', font=F(19, True), fill=OR, anchor='mm')
+    return im
+
+def p_producto(p, datos):
+    k = datos.get('producto', 'cactus'); nom = datos.get('nombre', 'Lámpara cactus'); im, d = base(datos.get('titulo', 'Investigación de producto')); tarjeta(d, (40, 60, 420, 650)); icono(d, k, 70, 90, 320, (50, 62, 96))
+    d.text((70, 430), nom, font=F(28, True), fill=TXT); d.text((70, 474), 'Coste 6,50 € · Venta 27,90 €', font=F(18), fill=DIM); d.text((70, 510), 'Margen bruto', font=F(16), fill=DIM); d.text((70, 534), f'{int(76 * ease(p / 0.5))} %', font=F(46, True), fill=GR)
+    tarjeta(d, (450, 60, W - 40, 360), 'INTERÉS EN BÚSQUEDAS (12 meses)'); serie = [0.1, 0.1, 0.12, 0.14, 0.2, 0.5, 1.0, 0.8, 0.5, 0.3, 0.2, 0.15]; serie = [serie[int(i / 4)] * (0.9 + 0.1 * math.sin(i)) for i in range(48)]
+    grafica(im, (480, 120, W - 70, 340), serie, p / 0.6, PU); d = ImageDraw.Draw(im); d.text((W - 80, 100), 'moda pasajera', font=F(15, True), fill=RD, anchor='ra') if p > 0.5 else None
+    tarjeta(d, (450, 380, 830, 650), 'COMPETENCIA'); d.text((480, 430), f'{int(214 * ease(p / 0.6))}', font=F(70, True), fill=RD); d.text((480, 520), 'tiendas venden lo mismo', font=F(18, True), fill=TXT); d.text((480, 560), 'Vendedor top: 2.300 reseñas', font=F(16), fill=DIM)
+    tarjeta(d, (860, 380, W - 40, 650), 'VEREDICTO')
+    for i, (t, c) in enumerate((('Demanda: tendencia a la baja', YE), ('Competencia: ALTA', RD), ('Margen: bueno', GR))):
+        if p > 0.45 + i * 0.12: d.text((884, 430 + i * 44), '● ' + t, font=F(17, True), fill=c)
+    if p > 0.85 and not datos.get('sin_veredicto'): rr(d, (884, 574, W - 64, 630), (50, 38, 36), 12, OR, 2); d.text((W - 64 - 175, 602), 'Pruébalo con 50 €, no con 5.000 €', font=F(16, True), fill=OR, anchor='mm')
+    return im
+
+def p_pedido(p, datos):
+    im, d = base(datos.get('titulo', 'Mi tienda — Pedidos')); tarjeta(d, (40, 60, W - 40, 650)); d.text((70, 80), 'PEDIDOS', font=F(20, True), fill=DIM)
+    a = tramo(p, 0.05, 0.2); rr(d, (80, 124, W - 80, 214), (28, 32, 58), 14, GR if a > 0.5 else LINE); icono(d, 'cactus', 96, 134, 70, (50, 62, 96))
+    d.text((190, 144), '#1001 · Lámpara cactus · Ana M.', font=F(24, True), fill=TXT); d.text((190, 180), 'Hace 3 segundos', font=F(15), fill=DIM); d.text((W - 110, 156), '+27,90 €', font=F(34, True, True), fill=GR, anchor='ra')
+    if a > 0:
+        ov = Image.new('RGBA', im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov); r_ = random.Random(1)
+        for _ in range(60):
+            x = r_.randint(60, W - 60); y = int(r_.randint(0, 300) + 420 * tramo(p, 0.05, 0.5)) - 100; od.rectangle((x, y, x + 8, y + 14), fill=r_.choice([(255, 200, 80, 220), (110, 215, 235, 220), (240, 125, 85, 220), (60, 230, 150, 220)]))
+        if p < 0.55: im.paste(ov, (0, 0), ov)
+        d = ImageDraw.Draw(im)
+    if p > 0.2: d.text((W // 2, 300), '¡PRIMER PEDIDO!', font=F(70, True), fill=OR, anchor='mm')
+    if p > 0.4: rr(d, (80, 380, W - 80, 440), (30, 33, 60), 12, LINE); d.text((110, 410), 'Siguiente paso: pedírselo al proveedor', font=F(22, True), fill=TXT, anchor='lm')
+    if p > 0.6: rr(d, (W - 480, 390, W - 100, 430), OR, 10); d.text((W - 290, 410), 'Comprar al proveedor →', font=F(18, True), fill=(20, 12, 8), anchor='mm')
+    if p > 0.8: rr(d, (80, 480, W - 80, 560), (25, 60, 45), 14, GR); d.text((W // 2, 520), '✔ Pedido enviado al proveedor  ·  Ganas 3,44 € (si nada falla)', font=F(24, True), fill=GR, anchor='mm')
+    return im
+
+def p_tracking(p, datos):
+    im, d = base(datos.get('titulo', 'Seguimiento del envío')); tarjeta(d, (40, 60, W - 40, 650)); dias = int(25 * ease(p / 0.9))
+    d.text((70, 84), 'PEDIDO #1001 · Lámpara cactus', font=F(22, True), fill=TXT); d.text((W - 70, 70), f'{dias}', font=F(86, True), fill=RD if dias > 14 else OR, anchor='ra'); d.text((W - 70, 160), 'días esperando', font=F(18, True), fill=DIM, anchor='ra')
+    hitos = [(0, 'Pedido confirmado', 'Día 0'), (3, 'Sale de China', 'Día 3'), (10, 'En aduana (¿perdido?)', 'Día 10'), (21, 'Llega a tu país', 'Día 21'), (25, 'Entregado', 'Día 25')]
+    x0, x1, y = 120, 1160, 360; d.line([(x0, y), (x1, y)], fill=(50, 56, 98), width=10); xp = x0 + (x1 - x0) * dias / 25; d.line([(x0, y), (xp, y)], fill=OR, width=10)
+    for i_, (dd, t, s) in enumerate(hitos):
+        x = x0 + (x1 - x0) * dd / 25; ok = dias >= dd; d.ellipse((x - 16, y - 16, x + 16, y + 16), fill=GR if ok else (40, 44, 78), outline=(255, 255, 255) if ok else DIM, width=3); off = 44 if i_ % 2 == 0 else 112
+        d.text((x, y + off), t, font=F(16, True), fill=TXT if ok else DIM, anchor='mm'); d.text((x, y + off + 24), s, font=F(14), fill=DIM, anchor='mm')
+    rr(d, (xp - 30, y - 70, xp + 30, y - 30), YE, 10); d.text((xp, y - 50), '▣▶', font=F(20, True), fill=(30, 20, 5), anchor='mm')
+    if dias > 14: rr(d, (150, 520, W - 150, 600), (70, 25, 35), 14, RD); d.text((W // 2, 560), 'El cliente ya está escribiendo… en mayúsculas', font=F(26, True), fill=RD, anchor='mm')
+    return im
+
+def p_cliente(p, datos):
+    im, d = base(datos.get('titulo', 'Correo — Atención al cliente')); tarjeta(d, (40, 60, W - 40, 650))
+    d.text((70, 82), '¡¿DÓNDE ESTÁ MI PEDIDO?!', font=F(32, True), fill=RD); d.text((70, 128), 'De: Ana M.  ·  hace 1 min', font=F(15), fill=DIM)
+    txt = 'Pedí una lámpara hace 25 días. Nadie contesta. Si no llega YA quiero mi dinero y voy a llamar a consumo.'; n = int(len(txt) * tramo(p, 0.0, 0.3)); y = 170; ln = ''
+    for w_ in txt[:n].split(' '):
+        if d.textlength(ln + w_, font=F(21)) > W - 160: d.text((70, y), ln, font=F(21), fill=TXT); y += 32; ln = ''
+        ln += w_ + ' '
+    d.text((70, y), ln, font=F(21), fill=TXT)
+    rr(d, (70, 330, W - 70, 600), (18, 20, 38), 14, OR); chip(d, (90, 346), 'Borrador de Claude', OR, 14)
+    resp = 'Hola Ana, perdona la espera: tu pedido viene de ultramar y tarda más de lo que prometimos. Te paso el seguimiento y, si prefieres, te devuelvo el dinero hoy mismo. Gracias por avisarnos.'
+    n2 = int(len(resp) * tramo(p, 0.35, 0.85)); y = 392; ln = ''
+    for w_ in resp[:n2].split(' '):
+        if d.textlength(ln + w_, font=F(20)) > W - 200: d.text((90, y), ln, font=F(20), fill=TXT); y += 32; ln = ''
+        ln += w_ + ' '
+    d.text((90, y), ln, font=F(20), fill=TXT)
+    if p > 0.9: rr(d, (W - 320, 540, W - 90, 584), GR, 12); d.text((W - 205, 562), 'Enviado ✔', font=F(19, True), fill=(8, 20, 14), anchor='mm')
+    return im
+
+def p_ley(p, datos):
+    im, d = base(datos.get('titulo', 'Lo que dice la ley (UE)')); tarjeta(d, (40, 60, 620, 650)); a = ease(p / 0.5)
+    d.text((330, 130), 'DEVOLUCIÓN', font=F(20, True), fill=DIM, anchor='mm'); d.text((330, 260), f'{int(14 * a)}', font=F(150, True), fill=OR, anchor='mm'); d.text((330, 360), 'días naturales para desistir', font=F(24, True), fill=TXT, anchor='mm')
+    d.text((330, 410), 'sin dar motivos (compras a distancia)', font=F(18), fill=DIM, anchor='mm'); d.text((330, 470), 'Te devuelven el dinero… incluso el envío', font=F(18, True), fill=CY, anchor='mm')
+    d.text((330, 600), 'Directiva 2011/83/UE', font=F(15), fill=DIM, anchor='mm')
+    tarjeta(d, (650, 60, W - 40, 650)); d.text((945, 130), 'IVA EN IMPORTACIONES', font=F(20, True), fill=DIM, anchor='mm')
+    if p > 0.3: d.text((945, 250), 'desde 1/7/2021', font=F(40, True), fill=YE, anchor='mm'); d.text((945, 320), 'se paga IVA desde el primer euro', font=F(22, True), fill=TXT, anchor='mm')
+    if p > 0.5: d.text((945, 390), '(adiós a la exención de 22 €)', font=F(20), fill=DIM, anchor='mm'); chip(d, (845, 440), 'IOSS: ventanilla única hasta 150 €', CY, 16)
+    if p > 0.7: d.text((945, 600), 'Tu margen: revísalo con el IVA', font=F(16, True), fill=OR, anchor='mm')
+    return im
+
+# recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
+ZOOM_AUTO = {'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
+
+PANTALLAS = {'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+             'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
+             'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}
 
 def dibujar(nombre, p=1.0, datos=None):
-    return PANTALLAS[nombre](max(0.0, min(1.0, p)), datos or {})
+    datos = datos or {}; p = max(0.0, min(1.0, p))
+    if datos.get('desde') is not None: p = datos['desde'] + p * (1 - datos['desde'])      # empieza la animacion ya avanzada (p. ej. 0.6)
+    return PANTALLAS[nombre](p, datos)
 
 if __name__ == '__main__':
     import sys, os

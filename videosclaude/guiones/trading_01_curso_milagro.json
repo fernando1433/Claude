@@ -1,0 +1,164 @@
+{
+ "titulo": "El curso milagro",
+ "ambiente": "noche_trading",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.14,
+   "quien": "humano",
+   "texto": "¡Voy a ser millonario!\nMe apunté a un curso.",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "curso",
+    "duracion": 36.39
+   }
+  },
+  {
+   "inicio": 3.14,
+   "fin": 4.82,
+   "quien": "claude",
+   "texto": "Ah, ¿sí? Enséñamelo.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.82,
+   "fin": 7.45,
+   "quien": "humano",
+   "texto": "«Millonario en 7 días».\n¡Solo 997 €!",
+   "plano": "dos",
+   "emocion": "feliz",
+   "pose": "senalar"
+  },
+  {
+   "inicio": 7.45,
+   "fin": 11.42,
+   "quien": "claude",
+   "texto": "Si funcionara, no lo vendería:\nestaría contando billetes.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 11.42,
+   "fin": 13.1,
+   "quien": "humano",
+   "texto": "Pero tiene un Lambo.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 13.1,
+   "fin": 16.37,
+   "quien": "claude",
+   "texto": "Alquilado. Y el contador\nse reinicia cada vez.",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 16.37,
+   "fin": 17.98,
+   "quien": "humano",
+   "texto": "¿Y los testimonios?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 17.98,
+   "fin": 21.95,
+   "quien": "claude",
+   "texto": "Fotos de stock. «Carlos, 24»\nes dentista en otro anuncio.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 21.95,
+   "fin": 25.79,
+   "quien": "claude",
+   "texto": "Dato real: 74–89 % de cuentas\nminoristas de CFD pierde.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 3.84,
+    "datos": {
+     "tipo": "esma"
+    }
+   }
+  },
+  {
+   "inicio": 25.79,
+   "fin": 27.53,
+   "quien": "humano",
+   "texto": "Pero yo soy del 11 %.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 27.53,
+   "fin": 30.55,
+   "quien": "claude",
+   "texto": "Todos creen ser del 11 %.\nEl 89 % también.",
+   "plano": "cenital",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 30.55,
+   "fin": 32.28,
+   "quien": "humano",
+   "texto": "Pues lo compro igual.",
+   "plano": "dos",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "checkout",
+    "duracion": 3.23
+   }
+  },
+  {
+   "inicio": 32.28,
+   "fin": 34.15,
+   "quien": "claude",
+   "texto": "Pago bloqueado.\nDe nada.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 34.15,
+   "fin": 35.64,
+   "quien": "humano",
+   "texto": "¡Era mi dinero!",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 35.64,
+   "fin": 38.84,
+   "quien": "claude",
+   "texto": "Y lo sigue siendo.\nA eso se le llama ahorrar.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 38.84,
+   "fin": 41.47,
+   "quien": "humano",
+   "texto": "¡Mira, otro! ¡Millonario en 3 días!",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "curso",
+    "duracion": 3.5
+   }
+  },
+  {
+   "inicio": 41.47,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Mismo PDF, menos páginas.\nYo traigo las palomitas.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

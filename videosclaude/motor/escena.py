@@ -7,11 +7,13 @@ from mathutils import Vector
 
 TEX = os.environ.get('VC_TEX') or os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'tex')
 R = math.radians
+AMB = os.environ.get('VC_AMBIENTE', 'noche')      # noche | dia | atardecer
+DEC = os.environ.get('VC_DECOR', 'trading')        # trading | tienda
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 sc = bpy.context.scene
 sc.render.engine = 'CYCLES'; sc.cycles.samples = int(os.environ.get('VC_SAMPLES', '32')); sc.cycles.use_denoising = True; sc.cycles.device = 'CPU'
-sc.view_settings.view_transform = 'Standard'; sc.view_settings.exposure = -0.25
+sc.view_settings.view_transform = 'Standard'; sc.view_settings.exposure = {'noche': -0.25, 'dia': -0.55, 'atardecer': -0.45}.get(AMB, -0.25)
 sc.render.resolution_x, sc.render.resolution_y = 540, 960
 sc.render.image_settings.file_format = 'PNG'
 
@@ -89,8 +91,18 @@ M_wall = mat('wall', rgb(52, 38, 96), 0.9); M_wall2 = mat('wall2', rgb(40, 28, 7
 M_rug = mat('rug', rgb(120, 50, 110), 0.95); M_frame = mat('frame', rgb(18, 18, 26), 0.5)
 M_led = mat('led', rgb(255, 80, 200), 0.4, emit=rgb(255, 60, 200), strength=9); M_led2 = mat('led2', rgb(60, 220, 255), 0.4, emit=rgb(60, 200, 255), strength=9)
 M_shelf = mat('shelf', rgb(90, 58, 50), 0.7)
+def recolor(m, c): m.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (*c, 1)
+if AMB == 'dia':
+    recolor(M_wall, rgb(222, 214, 238)); recolor(M_wall2, rgb(188, 178, 214)); recolor(M_floor, rgb(128, 92, 70)); recolor(M_rug, rgb(236, 150, 120))
+    recolor(M_desk, rgb(178, 128, 92)); recolor(M_desk2, rgb(124, 88, 66)); recolor(M_chair, rgb(70, 90, 140)); recolor(M_chair2, rgb(96, 120, 176)); recolor(M_shelf, rgb(150, 105, 80))
+    for m_ in (M_led, M_led2): m_.node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 3.0
+elif AMB == 'atardecer':
+    recolor(M_wall, rgb(238, 180, 152)); recolor(M_wall2, rgb(206, 144, 124)); recolor(M_floor, rgb(92, 64, 62)); recolor(M_rug, rgb(150, 80, 100))
+    recolor(M_desk, rgb(156, 106, 80)); recolor(M_desk2, rgb(104, 70, 58)); recolor(M_chair, rgb(88, 70, 120)); recolor(M_chair2, rgb(120, 96, 156)); recolor(M_shelf, rgb(140, 96, 76))
+    for m_ in (M_led, M_led2): m_.node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 4.5
 SCREENS = {n: tex_mat('scr_' + n, f'{TEX}/screen_{n}.png', 1.15) for n in ('vacia', 'chart', 'chat', 'order')}
-M_window = tex_mat('window', f'{TEX}/window.png', 1.0); M_neon = tex_mat('neon', f'{TEX}/neon.png', 1.6); M_poster = tex_mat('poster', f'{TEX}/poster.png', 0.35)
+def _tex(nombre, respaldo): return f'{TEX}/{nombre}.png' if os.path.exists(f'{TEX}/{nombre}.png') else f'{TEX}/{respaldo}.png'
+M_window = tex_mat('window', _tex(f'window_{AMB}', 'window'), 1.0 if AMB == 'noche' else 1.6); M_neon = tex_mat('neon', _tex(f'neon_{DEC}', 'neon'), 1.6); M_poster = tex_mat('poster', _tex(f'poster_{DEC}', 'poster'), 0.35 if AMB == 'noche' else 0.9)
 
 # ------------------------------------------------------------------ decorado
 cube('floor', (0, 0, -1.9), (9, 7, 0.05), M_floor)
@@ -179,6 +191,14 @@ cube('pen', (-0.7, -0.5, 0.07), (0.015, 0.2, 0.015), M_acc, rot=(0, 0, R(30)))
 cube('phone', (0.4, -0.55, 0.02), (0.1, 0.19, 0.02), M_dark, rot=(0, 0, R(18)))
 cube('phone_s', (0.4, -0.55, 0.043), (0.085, 0.17, 0.003), mat('phs', rgb(60, 130, 255), 0.3, emit=rgb(60, 130, 255), strength=1.4), rot=(0, 0, R(18)))
 
+if DEC == 'tienda':     # decorado de tienda online: paquetes en el escritorio y pila de cajas al fondo (se quitan las cosas de trading al usar texturas *_tienda)
+    M_box = mat('box', rgb(196, 150, 100), 0.8); M_tape = mat('tape', rgb(238, 220, 175), 0.6)
+    def caja(x, y, z, sx, sy, sz, rz=0):
+        cube('caja', (x, y, z + sz), (sx, sy, sz), M_box, rot=(0, 0, R(rz))); cube('cinta', (x, y, z + 2 * sz + 0.003), (sx * 0.22, sy * 1.02, 0.005), M_tape, rot=(0, 0, R(rz)))
+    caja(3.5, -0.32, 0.0, 0.2, 0.15, 0.1, -12)
+    caja(3.1, 2.6, -1.85, 0.45, 0.35, 0.3, 8); caja(3.6, 2.55, -1.85, 0.35, 0.3, 0.22, -6); caja(3.3, 2.6, -1.25, 0.3, 0.25, 0.18, 3)
+    caja(-3.2, 2.6, -1.85, 0.4, 0.3, 0.26, -5)
+
 # ------------------------------------------------------------------ humano (cintura arriba)
 HU = empty('hum', (-0.6, 1.45, -0.28), rot=(0, 0, R(14)))
 TORSO = empty('torso', (0, 0, 0), HU)
@@ -237,6 +257,10 @@ EXPR = {
     'worried':   dict(mouth=(0.06, 0.012), brow=(0.135, 14), eye=1.0),
     'smug':      dict(mouth=(0.09, 0.012), brow=(0.13, -10), eye=0.6),
     'happy':     dict(mouth=(0.09, 0.03), brow=(0.13, 0), eye=0.55),
+    # --- expresiones de 'persona tonta' (opciones extra: eye_l/eye_r, brow_l/brow_r, mouth_rot, cross = bizco, pupil = (dx, dz))
+    'bobo':       dict(mouth=(0.05, 0.05), brow=(0.12, 0), brow_l=(0.15, -8), brow_r=(0.10, 10), eye=1.0, eye_l=1.25, eye_r=0.8, cross=0.016, pupil=(0, 0.02)),
+    'ilusionado': dict(mouth=(0.10, 0.045), brow=(0.17, 0), eye=1.3, pupil=(0, 0.012)),
+    'confundido': dict(mouth=(0.05, 0.016), mouth_rot=14, brow=(0.13, 0), brow_l=(0.18, -16), brow_r=(0.10, 14), eye=1.0, pupil=(0.012, 0.01)),
 }
 def set_human(pose, expr):
     P = HPOSE.get(pose, HPOSE['type'])
@@ -247,12 +271,15 @@ def set_human(pose, expr):
     HEAD.rotation_euler = (R(P['head'][0]), R(P['head'][1]), R(P['head'][2]))
     HEAD.location[2] = 1.4 + P.get('raise_', 0)
     E = EXPR[expr]
-    MOUTH.scale = (E['mouth'][0], 0.015, E['mouth'][1])
-    for i, br in enumerate(BROWS):
-        br.location[2] = E['brow'][0]; br.rotation_euler = (0, R((1 if i == 0 else -1) * E['brow'][1]), 0)
-    for pu, hl, hl2 in EYES:
-        pu.scale[2] = 0.062 * E['eye']; hl.scale[2] = 0.011 if E['eye'] > 0.45 else 0.002; hl.location[2] = 0.03 * E['eye']
-    for (pu, hl, hl2), (px, hx, hz) in zip(EYES, EYE_BASE): pu.location[0] = px; hl.location[0] = hx; pu.location[1] = -0.345; hl.location[1] = -0.362   # reinicia (antes se acumulaba el desplazamiento de 'mira')
+    MOUTH.scale = (E['mouth'][0], 0.015, E['mouth'][1]); MOUTH.rotation_euler = (0, 0, R(E.get('mouth_rot', 0)))
+    for i, (br, bb) in enumerate(zip(BROWS, (E.get('brow_l', E['brow']), E.get('brow_r', E['brow'])))):
+        br.location[2] = bb[0]; br.rotation_euler = (0, R((1 if i == 0 else -1) * bb[1]), 0)
+    pdx, pdz = E.get('pupil', (0.0, 0.0)); cr = E.get('cross', 0.0)
+    for k, ((pu, hl, hl2), (px, hx, hz)) in enumerate(zip(EYES, EYE_BASE)):     # posicion base restaurada en CADA llamada (si no, 'mira' se acumulaba)
+        es = E.get('eye_l' if k == 0 else 'eye_r', E['eye']); sg = 1 if k == 0 else -1
+        pu.location[0] = px + pdx + sg * cr; hl.location[0] = hx + pdx + sg * cr; pu.location[1] = -0.345; hl.location[1] = -0.362
+        pu.location[2] = pdz; hl.location[2] = 0.03 * es + pdz
+        pu.scale[2] = 0.062 * es; hl.scale[2] = 0.011 if es > 0.45 else 0.002
     if pose not in HPOSE: pose_extra(pose)
 
 # ------------------------------------------------------------------ brazos con cinematica inversa (IK de 2 huesos)
@@ -291,7 +318,7 @@ for n, sx in (('L', -1), ('R', 1)):
     p = empty('carm' + n, (sx * 0.62, 0, 0.5), CB)
     cube('carm_m', (sx * 0.2, 0, 0), (0.22, 0.2, 0.15), M_claw, p); CARM[n] = p
 CEYES = [cube('ceye', (sx * 0.26, -0.435, 0.6), (0.075, 0.02, 0.1), M_dark, CB) for sx in (-1, 1)]
-CHL = [cube('chl', (sx * 0.26 + 0.02, -0.452, 0.65), (0.022, 0.006, 0.03), M_white, CB) for sx in (-1, 1)]
+CHL = [empty('chl', (sx * 0.26 + 0.02, -0.452, 0.65), CB) for sx in (-1, 1)]   # SIN brillos: se quitaron (dejaban rayitas grises sobre los ojos en parpadeo/feliz)
 CPOSE = {   # Clawd: solo 'stand' (de pie) y 'look' (de espaldas mirando el monitor). Poses raras BORRADAS.
     'stand': dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=-10, ry=0, hop=0),
     'look':  dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=140, ry=0, hop=0),
@@ -322,14 +349,31 @@ def light(kind, loc, energy, color, tgt, size=2.0, spot=60):
     if kind == 'AREA': l.data.size = size
     if kind == 'SPOT': l.data.spot_size = R(spot); l.data.spot_blend = 0.5
     look(l, tgt); return l
-light('AREA', (1.3, -1.6, 1.6), 55, (0.45, 0.7, 1.0), (0.3, 0.9, 0.9), 2.4)                # reflejo pantalla
-light('SPOT', (3.8, 3.0, 3.6), 5200, (1.0, 0.5, 0.15), (0.0, 1.0, 1.0), spot=75)           # contorno naranja
-light('SPOT', (-3.8, 2.4, 3.4), 4200, (0.75, 0.35, 0.95), (-0.6, 1.4, 1.2), spot=70)       # contorno morado
-light('AREA', (0.0, -5.0, 1.2), 40, (0.6, 0.55, 0.95), (0.3, 0.8, 0.6), 5.0)
-light('AREA', (-1.6, -2.6, 2.4), 110, (1.0, 0.85, 0.75), (-0.6, 1.4, 1.2), 2.5)  # luz suave sobre la cara               # relleno suave
-light('SPOT', (-1.3, 0.0, 1.3), 900, (1.0, 0.75, 0.45), (-0.9, 1.0, 0.3), spot=80)         # lampara calida
+if AMB == 'noche':
+    light('AREA', (1.3, -1.6, 1.6), 55, (0.45, 0.7, 1.0), (0.3, 0.9, 0.9), 2.4)                # reflejo pantalla
+    light('SPOT', (3.8, 3.0, 3.6), 5200, (1.0, 0.5, 0.15), (0.0, 1.0, 1.0), spot=75)           # contorno naranja
+    light('SPOT', (-3.8, 2.4, 3.4), 4200, (0.75, 0.35, 0.95), (-0.6, 1.4, 1.2), spot=70)       # contorno morado
+    light('AREA', (0.0, -5.0, 1.2), 40, (0.6, 0.55, 0.95), (0.3, 0.8, 0.6), 5.0)
+    light('AREA', (-1.6, -2.6, 2.4), 110, (1.0, 0.85, 0.75), (-0.6, 1.4, 1.2), 2.5)             # luz suave sobre la cara
+    light('SPOT', (-1.3, 0.0, 1.3), 900, (1.0, 0.75, 0.45), (-0.9, 1.0, 0.3), spot=80)         # lampara calida
+    WORLD = ((0.05, 0.03, 0.12, 1), 1.0)
+elif AMB == 'dia':
+    light('AREA', (-4.5, 1.2, 3.2), 1000, (1.0, 0.96, 0.88), (0.2, 1.0, 1.0), 4.0)              # sol por la ventana (izquierda)
+    light('AREA', (0.5, -5.0, 2.2), 230, (0.92, 0.96, 1.0), (0.5, 0.8, 0.8), 6.0)               # relleno cielo
+    light('AREA', (-1.6, -2.6, 2.4), 130, (1.0, 0.95, 0.9), (-0.6, 1.4, 1.2), 2.5)              # cara
+    light('AREA', (1.3, -1.6, 1.6), 40, (0.7, 0.85, 1.0), (0.3, 0.9, 0.9), 2.4)                 # reflejo pantalla
+    light('SPOT', (-1.3, 0.0, 1.3), 250, (1.0, 0.85, 0.6), (-0.9, 1.0, 0.3), spot=80)          # lampara (apenas se nota de dia)
+    WORLD = ((0.62, 0.74, 0.95, 1), 0.8)
+else:   # atardecer
+    light('AREA', (-4.5, 1.5, 2.4), 1300, (1.0, 0.58, 0.28), (0.2, 1.0, 0.9), 4.0)              # sol bajo por la ventana
+    light('SPOT', (3.8, 3.0, 3.4), 2300, (1.0, 0.42, 0.25), (0.0, 1.0, 1.0), spot=75)           # contorno rojizo
+    light('AREA', (0.5, -5.0, 2.0), 260, (1.0, 0.72, 0.78), (0.5, 0.8, 0.8), 6.0)               # relleno rosado
+    light('AREA', (-1.6, -2.6, 2.4), 150, (1.0, 0.82, 0.68), (-0.6, 1.4, 1.2), 2.5)             # cara
+    light('AREA', (1.3, -1.6, 1.6), 45, (0.7, 0.8, 1.0), (0.3, 0.9, 0.9), 2.4)
+    light('SPOT', (-1.3, 0.0, 1.3), 700, (1.0, 0.75, 0.45), (-0.9, 1.0, 0.3), spot=80)
+    WORLD = ((0.8, 0.5, 0.45, 1), 0.7)
 world = bpy.data.worlds.new('w'); sc.world = world; world.use_nodes = True
-bg = world.node_tree.nodes['Background']; bg.inputs['Color'].default_value = (0.05, 0.03, 0.12, 1); bg.inputs['Strength'].default_value = 1.0
+bg = world.node_tree.nodes['Background']; bg.inputs['Color'].default_value = WORLD[0]; bg.inputs['Strength'].default_value = WORLD[1]
 
 bpy.ops.object.camera_add(); cam = bpy.context.object; sc.camera = cam
 cam.data.sensor_fit = 'HORIZONTAL'; cam.data.sensor_width = 36

@@ -1,0 +1,217 @@
+{
+ "titulo": "Las señales VIP de Telegram",
+ "ambiente": "dia_trading",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.73,
+   "quien": "humano",
+   "texto": "¡Me he metido en un grupo\nVIP de señales!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "telegram",
+    "duracion": 9.26,
+    "datos": {
+     "modo": "chat"
+    }
+   }
+  },
+  {
+   "inicio": 2.73,
+   "fin": 4.75,
+   "quien": "claude",
+   "texto": "Déjame adivinar:\n49 € al mes.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.75,
+   "fin": 6.65,
+   "quien": "humano",
+   "texto": "¡El admin gana un 3.000 %!",
+   "plano": "dos",
+   "emocion": "feliz",
+   "pose": "senalar"
+  },
+  {
+   "inicio": 6.65,
+   "fin": 9.26,
+   "quien": "claude",
+   "texto": "Casualmente, solo enseña\nlas que ganan.",
+   "plano": "monitor_lateral"
+  },
+  {
+   "inicio": 9.26,
+   "fin": 11.04,
+   "quien": "humano",
+   "texto": "Hoy dice: compra $PERRO.",
+   "plano": "humano",
+   "emocion": "bobo",
+   "pantalla": {
+    "tipo": "telegram",
+    "duracion": 10.56,
+    "datos": {
+     "modo": "pump"
+    }
+   }
+  },
+  {
+   "inicio": 11.04,
+   "fin": 12.88,
+   "quien": "claude",
+   "texto": "Un perro. Muy serio todo.",
+   "plano": "monitor_lateral",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 12.88,
+   "fin": 14.61,
+   "quien": "humano",
+   "texto": "¡Va a subir un 1.000 %!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 14.61,
+   "fin": 18.34,
+   "quien": "claude",
+   "texto": "Sube porque lo dice el admin.\nCuando tú compras, él vende.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 18.34,
+   "fin": 19.71,
+   "quien": "humano",
+   "texto": "¿Eso es legal?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 19.71,
+   "fin": 22.56,
+   "quien": "claude",
+   "texto": "Se llama pump & dump:\nlo inflan y tú pagas.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 22.56,
+   "fin": 24.22,
+   "quien": "humano",
+   "texto": "Yo ya compré... 400 €.",
+   "plano": "dos",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 24.22,
+   "fin": 26.36,
+   "quien": "claude",
+   "texto": "Vende YA. Aún recuperas 380 €.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 26.36,
+   "fin": 27.73,
+   "quien": "humano",
+   "texto": "¿Cómo vendo?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 27.73,
+   "fin": 31.23,
+   "quien": "claude",
+   "texto": "Botón rojo. Y adiós al VIP:\nmira cómo luce tu cartera.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "cartera",
+    "duracion": 3.68,
+    "datos": {
+     "posiciones": [
+      [
+       "$PERRO (el del admin)",
+       -95
+      ],
+      [
+       "$GATO («seguro que sube»)",
+       -71
+      ],
+      [
+       "$LAMBO",
+       -88
+      ],
+      [
+       "Curso de trading",
+       -100
+      ],
+      [
+       "Bitcoin",
+       4
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 31.23,
+   "fin": 32.6,
+   "quien": "humano",
+   "texto": "¡Me quedan 380 €!",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 32.6,
+   "fin": 35.45,
+   "quien": "claude",
+   "texto": "380 € más de los que\nhabrías tenido sin mí.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 35.45,
+   "fin": 37.17,
+   "quien": "humano",
+   "texto": "¡Eres un genio, Claude!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 37.17,
+   "fin": 40.55,
+   "quien": "claude",
+   "texto": "Dato real: 97 % de day traders\ncon +300 días pierde.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 3.38,
+    "datos": {
+     "tipo": "brasil"
+    }
+   }
+  },
+  {
+   "inicio": 40.55,
+   "fin": 42.39,
+   "quien": "humano",
+   "texto": "Pero yo soy del 3 %, ¿no?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 42.39,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Claro. Seguro.\nYo traigo las palomitas.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

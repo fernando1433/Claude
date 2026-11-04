@@ -1,0 +1,166 @@
+{
+ "titulo": "El producto ganador",
+ "ambiente": "dia_tienda",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.34,
+   "quien": "humano",
+   "texto": "¡Tengo el producto ganador!\n¡Una lámpara de cactus!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "producto",
+    "duracion": 16.72,
+    "datos": {
+     "sin_veredicto": true
+    }
+   }
+  },
+  {
+   "inicio": 3.34,
+   "fin": 5.79,
+   "quien": "claude",
+   "texto": "Una lámpara de cactus.\nClaro, claro.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.79,
+   "fin": 7.88,
+   "quien": "humano",
+   "texto": "Lo vi en TikTok. ¡Será viral!",
+   "plano": "dos",
+   "emocion": "ilusionado",
+   "pose": "mira"
+  },
+  {
+   "inicio": 7.88,
+   "fin": 12.06,
+   "quien": "claude",
+   "texto": "Vamos a mirar datos, no TikToks:\nbúsquedas, competencia y margen.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 12.06,
+   "fin": 13.5,
+   "quien": "humano",
+   "texto": "Yo sé lo que digo.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 13.5,
+   "fin": 16.72,
+   "quien": "claude",
+   "texto": "Yo sé lo que veo:\n214 tiendas vendiendo lo mismo.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 16.72,
+   "fin": 18.1,
+   "quien": "humano",
+   "texto": "¿Y eso es malo?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 18.1,
+   "fin": 21.27,
+   "quien": "claude",
+   "texto": "Si compites por precio, gana\nel que menos cobra.",
+   "plano": "monitor_lateral"
+  },
+  {
+   "inicio": 21.27,
+   "fin": 22.65,
+   "quien": "humano",
+   "texto": "¿Y la tendencia?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 22.65,
+   "fin": 25.63,
+   "quien": "claude",
+   "texto": "Pico en verano y luego nada.\nSe llama «moda».",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 25.63,
+   "fin": 27.79,
+   "quien": "humano",
+   "texto": "Pues vendo cargadores baratos.",
+   "plano": "dos",
+   "emocion": "bobo",
+   "pose": "pensar"
+  },
+  {
+   "inicio": 27.79,
+   "fin": 31.6,
+   "quien": "claude",
+   "texto": "Electrónica en la UE: marcado CE.\nSin él, multa y retirada.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 31.6,
+   "fin": 32.99,
+   "quien": "humano",
+   "texto": "¿Multa? ¿A mí?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 32.99,
+   "fin": 36.39,
+   "quien": "claude",
+   "texto": "A ti. El vendedor responde\naunque no fabriques nada.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 36.39,
+   "fin": 37.89,
+   "quien": "humano",
+   "texto": "¿Entonces qué hago?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 37.89,
+   "fin": 41.52,
+   "quien": "claude",
+   "texto": "Pruébalo con 50 €, no con 5.000 €.\nSi funciona, escalas.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "producto",
+    "duracion": 2.0,
+    "datos": {
+     "desde": 0.6
+    }
+   }
+  },
+  {
+   "inicio": 41.52,
+   "fin": 42.91,
+   "quien": "humano",
+   "texto": "¡Pruebo con 50 €!",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 42.91,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Qué madurez.\nEstoy emocionado.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}
