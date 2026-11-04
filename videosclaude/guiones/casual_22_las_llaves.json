@@ -1,0 +1,136 @@
+{
+ "titulo": "Claude, ¡no encuentro las llaves!",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 28,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.74,
+   "quien": "humano",
+   "texto": "¡Claude! ¡No encuentro las llaves!",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 28.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "¡Claude! ¡No encuentro las llaves!"
+      ],
+      [
+       "otro",
+       "¿Dónde las viste por última vez?"
+      ],
+      [
+       "yo",
+       "En mis manos."
+      ],
+      [
+       "otro",
+       "¿Has mirado en tus manos?"
+      ],
+      [
+       "yo",
+       "Sí. Están vacías."
+      ],
+      [
+       "otro",
+       "¿Las dos?"
+      ],
+      [
+       "yo",
+       "...En la derecha hay algo."
+      ],
+      [
+       "otro",
+       "¿Y qué es?"
+      ],
+      [
+       "yo",
+       "Mis llaves."
+      ],
+      [
+       "otro",
+       "Qué casualidad. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.74,
+   "fin": 7.29,
+   "quien": "claude",
+   "texto": "¿Dónde las viste por última vez?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 7.29,
+   "fin": 9.45,
+   "quien": "humano",
+   "texto": "En mis manos.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 9.45,
+   "fin": 12.35,
+   "quien": "claude",
+   "texto": "¿Has mirado en tus manos?",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 12.35,
+   "fin": 14.51,
+   "quien": "humano",
+   "texto": "Sí. Están vacías.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 14.51,
+   "fin": 16.67,
+   "quien": "claude",
+   "texto": "¿Las dos?",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.67,
+   "fin": 19.66,
+   "quien": "humano",
+   "texto": "...En la derecha hay algo.",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 19.66,
+   "fin": 21.82,
+   "quien": "claude",
+   "texto": "¿Y qué es?",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 21.82,
+   "fin": 23.98,
+   "quien": "humano",
+   "texto": "Mis llaves.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 23.98,
+   "fin": 28,
+   "quien": "claude",
+   "texto": "Qué casualidad.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

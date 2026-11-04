@@ -854,6 +854,97 @@ VIDEOS.append(dict(
         C('Con calma. Y con camisa.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
+
+# ---------------- tanda 5 (dia a dia)
+def casual(id_, titulo, amb, total, resumen, lineas, datos=None):
+    VIDEOS.append(dict(id=id_, titulo=titulo, ambiente=amb, total=total, resumen=resumen, datos=datos or [('Vídeo de humor, sin datos reales.', [])], lineas=lineas))
+
+casual('casual_18_mi_perro', 'Claude, mi perro me mira raro', 'dia_casa', 36, 'El perro que te mira «como si supiera algo». Claude interpreta la mirada con cero rigor y mucho cariño.', [
+    H('Claude, mi perro me mira raro.', 'humano', 'confundido', scr=CHAT(12)),
+    C('¿Raro cómo?', 'monitor', 'mira_izq'),
+    H('Como si supiera algo.', 'dos', 'bobo'),
+    C('Sabe cuántas veces\nabres la nevera.', 'claude_ojos', 'feliz'),
+    H('¿Y por qué no dice nada?', 'humano', 'confundido'),
+    C('Porque está esperando\nque abras otra vez.', 'cenital', 'mira_der'),
+    H('¿Me juzga?', 'dos', 'preocupado'),
+    C('No. Te quiere. Pero tiene\nhambre. Es compatible.', 'monitor', 'feliz'),
+    H('¿Y si quiere pasear?', 'humano', 'ilusionado'),
+    C('Entonces la mirada es\nmás larga. Y más triste.', 'claude_ojos', 'mira_arriba', emp=True),
+    H('Voy a sacarlo.', 'dos', 'feliz'),
+    C('Buena idea. Y llévate\nbolsas. En fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_20_lista_compra', 'Claude, ¿hago la lista de la compra?', 'noche_casa', 38, 'La lista de la compra y el consejo clásico: no vayas con hambre. Resultado: 14 helados y sin pan.', [
+    H('Claude, ¿hago la lista\nde la compra?', 'humano', 'confundido', scr=S('tareas', {'titulo': 'Lista de la compra', 'tareas': ['Leche', 'Pan', 'Huevos', 'Fruta', '14 helados (no estaba en la lista)', 'Pan (otra vez)']}, sync=('fin', 12, 0.95, 0.0))),
+    C('Sí. Y no vayas con hambre.', 'monitor', 'mira_izq'),
+    H('¿Por qué?', 'dos', 'bobo'),
+    C('Volverás con 14 helados\ny sin pan.', 'claude_ojos', 'feliz'),
+    H('Eso me ha pasado.', 'humano', 'preocupado'),
+    C('Lo sé. Estaba en tu historial.', 'cenital', 'mira_der'),
+    H('¿Y si lo apunto todo?', 'dos', 'ilusionado'),
+    C('Perfecto. Y compra solo\nlo que apuntaste.', 'monitor', 'feliz'),
+    H('¿Y los helados?', 'humano', 'bobo'),
+    C('Un helado. Uno.\nNo catorce.', 'claude_ojos', emp=True),
+    H('Trato hecho.', 'dos', 'feliz'),
+    C('Y vuelve con pan.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_22_las_llaves', 'Claude, ¡no encuentro las llaves!', 'dia_casa', 28, 'La búsqueda desesperada de las llaves… que están en la mano.', [
+    H('¡Claude! ¡No encuentro las llaves!', 'humano', 'preocupado', scr=CHAT(10)),
+    C('¿Dónde las viste por última vez?', 'monitor', 'mira_izq'),
+    H('En mis manos.', 'dos', 'bobo'),
+    C('¿Has mirado en tus manos?', 'claude_ojos'),
+    H('Sí. Están vacías.', 'humano', 'confundido'),
+    C('¿Las dos?', 'cenital', 'mira_der'),
+    H('...En la derecha hay algo.', 'dos', 'confundido'),
+    C('¿Y qué es?', 'monitor', 'feliz'),
+    H('Mis llaves.', 'humano', 'ilusionado'),
+    C('Qué casualidad.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_24_nada_que_ponerme', 'Claude, no tengo nada que ponerme', 'noche_casa', 36, 'El armario lleno y la ropa que «no combina con pereza».', [
+    H('Claude, no tengo nada\nque ponerme.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('Tu armario tiene 83 prendas.', 'monitor', 'mira_izq'),
+    H('Ninguna combina.', 'dos', 'bobo'),
+    C('¿Con qué?', 'claude_ojos'),
+    H('Con «me da pereza».', 'humano', 'confundido'),
+    C('Pues ponte la sudadera verde.\nCombina con todo.', 'cenital', 'mira_der'),
+    H('Es la que llevo siempre.', 'dos', 'ilusionado'),
+    C('Y por eso te sale bien.', 'monitor', 'feliz'),
+    H('¿Y si hace calor?', 'humano', 'preocupado'),
+    C('Entonces sudadera, pero\ncon más dignidad.', 'claude_ojos', 'mira_arriba', emp=True),
+    H('Vale. La verde.', 'dos', 'feliz'),
+    C('Siempre la verde.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_21_va_a_llover', 'Claude, ¿va a llover?', 'dia_casa', 28, 'Preguntarle a Claude por la lluvia cuando tienes ventana. Un clásico.', [
+    H('Claude, ¿va a llover?', 'humano', 'confundido', scr=CHAT(10)),
+    C('No tengo ventana.', 'monitor', 'mira_izq'),
+    H('Yo sí.', 'dos', 'bobo'),
+    C('Pues mira por ella.', 'claude_ojos'),
+    H('Está nublado.', 'humano', 'confundido'),
+    C('Entonces, quizás.', 'cenital', 'mira_der'),
+    H('¿Cojo paraguas?', 'dos', 'preocupado'),
+    C('Si dudas, cógelo. Si no llueve,\nes un bastón elegante.', 'monitor', 'feliz'),
+    H('Muy sabio.', 'humano', 'ilusionado'),
+    C('Lo sé. Y sin ventana.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_23_demasiado_cafe', 'Claude, ¿cuántos cafés son demasiados?', 'dia_casa', 36, 'La pregunta que nadie quiere responder: ya vas por el sexto café.', [
+    H('Claude, ¿cuántos cafés\nson demasiados?', 'humano', 'confundido', scr=S('recordatorios', {'items': [['Café 1 (con tostada)', 1], ['Café 2 (con ganas)', 2], ['Café 3 (sin ganas)', 3], ['Café 6 (con vibración)', 6]]}, sync=('fin', 8, 0.95, 0.0))),
+    C('¿Cuántos llevas hoy?', 'monitor', 'mira_izq'),
+    H('Seis.', 'dos', 'bobo'),
+    C('Pues ya lo sabes.', 'claude_ojos', 'feliz'),
+    H('Pero no tengo sueño.', 'humano', 'ilusionado'),
+    C('Tampoco tienes calma.\nTe tiembla la mano.', 'cenital', 'mira_der'),
+    H('Es la emoción.', 'dos', 'preocupado'),
+    C('Es el café. Bebe agua.\nY siéntate.', 'pantalla_completa'),
+    H('¿Un descafeinado?', 'humano', 'bobo'),
+    C('Eso. Con mucha dignidad.', 'monitor', 'feliz'),
+    H('Gracias, Claude.', 'dos', 'feliz'),
+    C('De nada.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

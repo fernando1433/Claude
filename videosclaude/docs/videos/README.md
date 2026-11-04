@@ -40,5 +40,11 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `trading_05_el_guru_del_yate` | Este tío tiene un yate y dice que me hace rico | `noche_trading` | [docs](trading_05_el_guru_del_yate.md) | [json](../../guiones/trading_05_el_guru_del_yate.json) | [mp4](../../salidas/trading_05_el_guru_del_yate.mp4) |
 | `extra_04_pedir_aumento` | Claude, ¿me pido un aumento? | `atardecer_tienda` | [docs](extra_04_pedir_aumento.md) | [json](../../guiones/extra_04_pedir_aumento.json) | [mp4](../../salidas/extra_04_pedir_aumento.mp4) |
 | `extra_05_entrevista` | Claude, mañana tengo una entrevista de trabajo | `dia_casa` | [docs](extra_05_entrevista.md) | [json](../../guiones/extra_05_entrevista.json) | [mp4](../../salidas/extra_05_entrevista.mp4) |
+| `casual_18_mi_perro` | Claude, mi perro me mira raro | `dia_casa` | [docs](casual_18_mi_perro.md) | [json](../../guiones/casual_18_mi_perro.json) | [mp4](../../salidas/casual_18_mi_perro.mp4) |
+| `casual_20_lista_compra` | Claude, ¿hago la lista de la compra? | `noche_casa` | [docs](casual_20_lista_compra.md) | [json](../../guiones/casual_20_lista_compra.json) | [mp4](../../salidas/casual_20_lista_compra.mp4) |
+| `casual_22_las_llaves` | Claude, ¡no encuentro las llaves! | `dia_casa` | [docs](casual_22_las_llaves.md) | [json](../../guiones/casual_22_las_llaves.json) | [mp4](../../salidas/casual_22_las_llaves.mp4) |
+| `casual_24_nada_que_ponerme` | Claude, no tengo nada que ponerme | `noche_casa` | [docs](casual_24_nada_que_ponerme.md) | [json](../../guiones/casual_24_nada_que_ponerme.json) | [mp4](../../salidas/casual_24_nada_que_ponerme.mp4) |
+| `casual_21_va_a_llover` | Claude, ¿va a llover? | `dia_casa` | [docs](casual_21_va_a_llover.md) | [json](../../guiones/casual_21_va_a_llover.json) | [mp4](../../salidas/casual_21_va_a_llover.mp4) |
+| `casual_23_demasiado_cafe` | Claude, ¿cuántos cafés son demasiados? | `dia_casa` | [docs](casual_23_demasiado_cafe.md) | [json](../../guiones/casual_23_demasiado_cafe.json) | [mp4](../../salidas/casual_23_demasiado_cafe.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

@@ -1,0 +1,162 @@
+{
+ "titulo": "Claude, mi perro me mira raro",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.98,
+   "quien": "humano",
+   "texto": "Claude, mi perro me mira raro.",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 36.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, mi perro me mira raro."
+      ],
+      [
+       "otro",
+       "¿Raro cómo?"
+      ],
+      [
+       "yo",
+       "Como si supiera algo."
+      ],
+      [
+       "otro",
+       "Sabe cuántas veces abres la nevera."
+      ],
+      [
+       "yo",
+       "¿Y por qué no dice nada?"
+      ],
+      [
+       "otro",
+       "Porque está esperando que abras otra vez."
+      ],
+      [
+       "yo",
+       "¿Me juzga?"
+      ],
+      [
+       "otro",
+       "No. Te quiere. Pero tiene hambre. Es compatible."
+      ],
+      [
+       "yo",
+       "¿Y si quiere pasear?"
+      ],
+      [
+       "otro",
+       "Entonces la mirada es más larga. Y más triste."
+      ],
+      [
+       "yo",
+       "Voy a sacarlo."
+      ],
+      [
+       "otro",
+       "Buena idea. Y llévate bolsas. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 2.98,
+   "fin": 4.89,
+   "quien": "claude",
+   "texto": "¿Raro cómo?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.89,
+   "fin": 7.13,
+   "quien": "humano",
+   "texto": "Como si supiera algo.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.13,
+   "fin": 10.44,
+   "quien": "claude",
+   "texto": "Sabe cuántas veces\nabres la nevera.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 10.44,
+   "fin": 12.92,
+   "quien": "humano",
+   "texto": "¿Y por qué no dice nada?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 12.92,
+   "fin": 16.72,
+   "quien": "claude",
+   "texto": "Porque está esperando\nque abras otra vez.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.72,
+   "fin": 18.64,
+   "quien": "humano",
+   "texto": "¿Me juzga?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 18.64,
+   "fin": 23.01,
+   "quien": "claude",
+   "texto": "No. Te quiere. Pero tiene\nhambre. Es compatible.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 23.01,
+   "fin": 25.17,
+   "quien": "humano",
+   "texto": "¿Y si quiere pasear?",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 25.17,
+   "fin": 29.38,
+   "quien": "claude",
+   "texto": "Entonces la mirada es\nmás larga. Y más triste.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_arriba",
+   "empuje": true
+  },
+  {
+   "inicio": 29.38,
+   "fin": 31.29,
+   "quien": "humano",
+   "texto": "Voy a sacarlo.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 31.29,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Buena idea. Y llévate\nbolsas. En fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}
