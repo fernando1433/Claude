@@ -1,0 +1,157 @@
+{
+ "titulo": "Anuncios que no venden",
+ "ambiente": "dia_tienda",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.31,
+   "quien": "humano",
+   "texto": "Gasté 124 € en anuncios.\n¡Ahora lloverán ventas!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "anuncios",
+    "duracion": 22.6
+   }
+  },
+  {
+   "inicio": 3.31,
+   "fin": 4.76,
+   "quien": "claude",
+   "texto": "Llovieron. Tres.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.76,
+   "fin": 6.83,
+   "quien": "humano",
+   "texto": "¿Tres? ¿De 15.800 personas?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 6.83,
+   "fin": 9.89,
+   "quien": "claude",
+   "texto": "Eso es un embudo. Mira\nqué estrecho se pone.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 9.89,
+   "fin": 11.34,
+   "quien": "humano",
+   "texto": "¿Qué es el ROAS?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 11.34,
+   "fin": 14.84,
+   "quien": "claude",
+   "texto": "Lo que ingresas por cada euro\nde anuncio. Tú: 0,75.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 14.84,
+   "fin": 16.28,
+   "quien": "humano",
+   "texto": "¿Entonces pierdo?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 16.28,
+   "fin": 20.34,
+   "quien": "claude",
+   "texto": "Por debajo de 1 pierdes. Y por\ndebajo de tu margen, también.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 20.34,
+   "fin": 22.03,
+   "quien": "humano",
+   "texto": "¿Subo el presupuesto?",
+   "plano": "humano",
+   "emocion": "bobo",
+   "pose": "pensar"
+  },
+  {
+   "inicio": 22.03,
+   "fin": 25.66,
+   "quien": "claude",
+   "texto": "Claro: si algo no funciona,\nmultiplícalo. Qué lógica.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 25.66,
+   "fin": 27.11,
+   "quien": "humano",
+   "texto": "¿Y entonces?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 27.11,
+   "fin": 30.79,
+   "quien": "claude",
+   "texto": "Cambia la imagen, prueba otro\npúblico y revisa la web.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 30.79,
+   "fin": 32.3,
+   "quien": "humano",
+   "texto": "¿Y la web importa?",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 32.3,
+   "fin": 36.36,
+   "quien": "claude",
+   "texto": "Si no da confianza, nadie compra,\naunque el anuncio sea oro.",
+   "plano": "monitor_lateral"
+  },
+  {
+   "inicio": 36.36,
+   "fin": 38.24,
+   "quien": "humano",
+   "texto": "Probaré con 20 € al día.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 38.24,
+   "fin": 41.49,
+   "quien": "claude",
+   "texto": "Mejor 5 €. Aprende barato\nantes de gastar caro.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 41.49,
+   "fin": 42.93,
+   "quien": "humano",
+   "texto": "¡Con 5 € al día!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 42.93,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "Qué madurez.\nAnoto la fecha.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

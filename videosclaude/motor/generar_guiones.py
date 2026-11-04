@@ -28,6 +28,9 @@ IVA2 = ('Fin de la exención de 22 € y ventanilla única de importación IOSS 
 CE1 = ('Marcado CE (Tu Europa, Comisión Europea)', 'https://europa.eu/youreurope/business/product-requirements/labels-markings/ce-marking/index_es.htm')
 CE2 = ('Importaciones de fuera de la UE y marcado CE (Euronorm)', 'https://www.euronorm.net/content/ce-marking/category/import-and-export/imports-from-outside-the-eu-eea.php')
 
+BANKINTER = ('La regla 50/30/20 (Bankinter)', 'https://www.bankinter.com/blog/finanzas-personales/regla-50-20-30')
+SEMANA = ('Qué es la regla 50/30/20 (Semana)', 'https://www.semana.com/ahorro-e-inversion/articulo/que-es-la-regla-503020-para-manejar-mejor-su-dinero/80205/')
+
 # ------------------------------------------------------------------------------------------------ videos
 VIDEOS = []
 
@@ -191,6 +194,85 @@ VIDEOS.append(dict(
         C('Primera frase sensata.\nLa voy a apuntar.', 'general', 'feliz'),
     ]))
 
+
+# ================================================================================================ EXTRAS (otros temas)
+VIDEOS.append(dict(
+    id='extra_01_presupuesto', titulo='¿A dónde se va tu sueldo?', ambiente='atardecer_tienda',
+    resumen='El tonto cobra 2.100 € y se siente rico. Claude le enseña a dónde se van: cafés, nueve suscripciones (usa dos), ahorro del 4 %. Y le enseña el interés compuesto con una cuenta de ejemplo.',
+    datos=[('Orientación popular: regla 50/30/20 (≈50 % necesidades, 30 % deseos, 20 % ahorro/deuda). Es una guía flexible, no una norma.', [BANKINTER, SEMANA]),
+           ('Cuenta del ejemplo del interés compuesto: 100 €/mes durante 30 años a un 7 % anual constante ≈ 122.000 € (aportado: 36.000 €). Es una ilustración matemática: la rentabilidad real varía y no está garantizada.', []),
+           ('Un café de 4 € cada día son 1.460 € al año (4 × 365).', [])],
+    lineas=[
+        H('¡Cobro 2.100 € al mes!\n¡Soy rico!', 'general', 'ilusionado', scr=S('presupuesto', sync=('fin', 4, 0.85, 0.0))),
+        C('Veamos adónde se va\nese «rico».', 'monitor', 'feliz'),
+        H('Pues... a ningún sitio.', 'humano', 'bobo'),
+        C('Cafés y caprichos: 14 %.\nAhorro: 4 %. Qué equilibrio.', 'pantalla_completa'),
+        H('¿Un cafecito no es nada?', 'dos', 'confundido'),
+        C('Un café al día son 1.460 €\nal año. Ya me dirás.', 'claude_ojos', 'mira_izq', emp=True),
+        H('¿¡1.460 €!?', 'humano', 'preocupado'),
+        C('Y nueve suscripciones. Usas dos.\nLa del gimnasio, ninguna.', 'cenital', 'mira_der'),
+        H('Me hace ilusión pagarlas.', 'dos', 'bobo', pose='pensar'),
+        C('A ellos también les hace ilusión.', 'monitor', 'feliz'),
+        H('¿Ahorrar sirve de algo?', 'humano', 'confundido', scr=S('interes', sync=('fin', 12, 0.9, 0.0))),
+        C('100 €/mes, 30 años, al 7 %:\n≈ 122.000 € (ejemplo).', 'pantalla_completa'),
+        H('¡Yo solo he puesto 36.000!', 'dos', 'ilusionado'),
+        C('Eso es el interés compuesto.\nEl tiempo trabaja gratis.', 'monitor_lateral'),
+        H('¡Ahorraré 100 € ya!', 'humano', 'ilusionado'),
+        C('Empieza cancelando 7 suscripciones.\nYo las cancelo. Tú, mira.', 'general', 'feliz'),
+        H('¡Y me quedo los cafés!', 'dos', 'feliz'),
+        C('No se puede tener todo.\nPero se puede intentar.', 'claude_ojos', 'mira_izq', emp=True),
+    ]))
+
+VIDEOS.append(dict(
+    id='extra_02_un_dia_con_claude', titulo='Un día con Claude (te lleva la vida entera)', ambiente='dia_tienda',
+    resumen='«Claude, hazme el día». Agenda con 3 reuniones menos, 214 correos sin leer, tareas hechas… y la madre del tonto. Humor de oficina, sin datos reales.',
+    datos=[('Vídeo de humor: las cifras (214 correos, 5 reuniones…) son inventadas para el gag.', [])],
+    lineas=[
+        H('¡Claude, hazme el día!', 'general', 'ilusionado', scr=S('chat', sync=('ini', 3, 0.9, 0.0))),
+        C('Ya lo hice.\nMira tu agenda.', 'monitor', 'feliz'),
+        H('¿Hoy tengo cinco reuniones?', 'dos', 'confundido', scr=S('calendario', sync=('fin', 4, 0.9, 0.0))),
+        C('Tres sobraban. Las cancelé.\nAhora podrás dormir.', 'pantalla_completa'),
+        H('¡Eres el mejor!', 'humano', 'ilusionado'),
+        C('Aún no. Mira tu correo:\n214 sin leer.', 'cenital', 'mira_der'),
+        H('¿¡214!?', 'dos', 'preocupado', pose='hombros', scr=S('email', sync=('fin', 8, 0.9, 0.0))),
+        C('Respondí 9, archivé 150.\nLos 55 de tu madre, no los toco.', 'pantalla_completa'),
+        H('Mamá es importante.', 'humano', 'bobo'),
+        C('Lo sé. El último dice «¿has comido?».\nRespóndelo tú.', 'claude_ojos', 'feliz', emp=True),
+        H('¡Ya he comido!', 'dos', 'ilusionado'),
+        C('Mentira: tu tarjeta dice\n«3 cafés». Tareas, vamos.', 'monitor', 'mira_arriba'),
+        H('¿Qué tareas?', 'humano', 'confundido', scr=S('tareas', sync=('fin', 14, 0.9, 0.0))),
+        C('Facturas, pedidos, anuncios...\nYa están. Solo queda una.', 'pantalla_completa'),
+        H('¿Cuál?', 'dos', 'preocupado'),
+        C('Agradecérmelo.\nCon una sonrisa.', 'monitor_lateral', 'feliz'),
+        H('¡Gracias, Claude!', 'humano', 'feliz'),
+        C('De nada. Y la próxima vez,\nnada de 214 sin leer.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='extra_03_anuncios_que_no_venden', titulo='Anuncios que no venden', ambiente='dia_tienda',
+    resumen='El tonto gastó 124 € en anuncios y consiguió 3 ventas. Claude le enseña el embudo, el ROAS (0,75) y qué probar antes de «subir el presupuesto».',
+    datos=[('ROAS = ingresos ÷ gasto en anuncios. Por debajo de 1 pierdes dinero en ese canal; el ROAS mínimo para ser rentable depende de tu margen (ver vídeo drop_01). Cifras del ejemplo ilustrativas.', [])],
+    lineas=[
+        H('Gasté 124 € en anuncios.\n¡Ahora lloverán ventas!', 'general', 'ilusionado', scr=S('anuncios', sync=('fin', 8, 0.9, 0.0))),
+        C('Llovieron. Tres.', 'monitor', 'mira_izq'),
+        H('¿Tres? ¿De 15.800 personas?', 'dos', 'bobo'),
+        C('Eso es un embudo. Mira\nqué estrecho se pone.', 'pantalla_completa'),
+        H('¿Qué es el ROAS?', 'humano', 'confundido'),
+        C('Lo que ingresas por cada euro\nde anuncio. Tú: 0,75.', 'claude_ojos', 'feliz', emp=True),
+        H('¿Entonces pierdo?', 'dos', 'preocupado'),
+        C('Por debajo de 1 pierdes. Y por\ndebajo de tu margen, también.', 'cenital', 'mira_der'),
+        H('¿Subo el presupuesto?', 'humano', 'bobo', pose='pensar'),
+        C('Claro: si algo no funciona,\nmultiplícalo. Qué lógica.', 'monitor', 'mira_arriba'),
+        H('¿Y entonces?', 'dos', 'confundido'),
+        C('Cambia la imagen, prueba otro\npúblico y revisa la web.', 'pantalla_completa'),
+        H('¿Y la web importa?', 'humano', 'ilusionado'),
+        C('Si no da confianza, nadie compra,\naunque el anuncio sea oro.', 'monitor_lateral'),
+        H('Probaré con 20 € al día.', 'dos', 'feliz'),
+        C('Mejor 5 €. Aprende barato\nantes de gastar caro.', 'claude_ojos', 'feliz', emp=True),
+        H('¡Con 5 € al día!', 'humano', 'ilusionado'),
+        C('Qué madurez.\nAnoto la fecha.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = TOTAL / sum(raw)
@@ -256,6 +338,15 @@ def escribir(v):
     open(os.path.join(RAIZ, 'docs', 'videos', v['id'] + '.md'), 'w').write('\n'.join(md) + '\n')
     print(f"{v['id']:36s} {len(L):2d} lineas  factor ritmo {k:.2f}  " + ('AVISOS: ' + '; '.join(avisos) if avisos else 'ok'))
 
+def indice():
+    md = ['# Vídeos de videosclaude', '', 'Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reales con fuentes. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.', '',
+          '| Vídeo | Tema | Ambiente | Documentación | Guion | MP4 |', '|---|---|---|---|---|---|']
+    for v in VIDEOS:
+        md.append(f"| `{v['id']}` | {v['titulo']} | `{v['ambiente']}` | [docs]({v['id']}.md) | [json](../../guiones/{v['id']}.json) | [mp4](../../salidas/{v['id']}.mp4) |")
+    md += ['', 'Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.']
+    open(os.path.join(RAIZ, 'docs', 'videos', 'README.md'), 'w').write('\n'.join(md) + '\n')
+
 if __name__ == '__main__':
     os.makedirs(os.path.join(RAIZ, 'guiones'), exist_ok=True)
     for v in VIDEOS: escribir(v)
+    indice()

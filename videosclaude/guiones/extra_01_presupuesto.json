@@ -1,0 +1,161 @@
+{
+ "titulo": "¿A dónde se va tu sueldo?",
+ "ambiente": "atardecer_tienda",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.3,
+   "quien": "humano",
+   "texto": "¡Cobro 2.100 € al mes!\n¡Soy rico!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "presupuesto",
+    "duracion": 11.45
+   }
+  },
+  {
+   "inicio": 2.3,
+   "fin": 4.47,
+   "quien": "claude",
+   "texto": "Veamos adónde se va\nese «rico».",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 4.47,
+   "fin": 6.23,
+   "quien": "humano",
+   "texto": "Pues... a ningún sitio.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 6.23,
+   "fin": 9.73,
+   "quien": "claude",
+   "texto": "Cafés y caprichos: 14 %.\nAhorro: 4 %. Qué equilibrio.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 9.73,
+   "fin": 11.54,
+   "quien": "humano",
+   "texto": "¿Un cafecito no es nada?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 11.54,
+   "fin": 14.68,
+   "quien": "claude",
+   "texto": "Un café al día son 1.460 €\nal año. Ya me dirás.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  },
+  {
+   "inicio": 14.68,
+   "fin": 16.08,
+   "quien": "humano",
+   "texto": "¿¡1.460 €!?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 16.08,
+   "fin": 19.87,
+   "quien": "claude",
+   "texto": "Y nueve suscripciones. Usas dos.\nLa del gimnasio, ninguna.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 19.87,
+   "fin": 21.75,
+   "quien": "humano",
+   "texto": "Me hace ilusión pagarlas.",
+   "plano": "dos",
+   "emocion": "bobo",
+   "pose": "pensar"
+  },
+  {
+   "inicio": 21.75,
+   "fin": 24.11,
+   "quien": "claude",
+   "texto": "A ellos también les hace ilusión.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 24.11,
+   "fin": 25.86,
+   "quien": "humano",
+   "texto": "¿Ahorrar sirve de algo?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "interes",
+    "duracion": 5.63
+   }
+  },
+  {
+   "inicio": 25.86,
+   "fin": 29.18,
+   "quien": "claude",
+   "texto": "100 €/mes, 30 años, al 7 %:\n≈ 122.000 € (ejemplo).",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 29.18,
+   "fin": 31.12,
+   "quien": "humano",
+   "texto": "¡Yo solo he puesto 36.000!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 31.12,
+   "fin": 34.67,
+   "quien": "claude",
+   "texto": "Eso es el interés compuesto.\nEl tiempo trabaja gratis.",
+   "plano": "monitor_lateral"
+  },
+  {
+   "inicio": 34.67,
+   "fin": 36.19,
+   "quien": "humano",
+   "texto": "¡Ahorraré 100 € ya!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 36.19,
+   "fin": 40.17,
+   "quien": "claude",
+   "texto": "Empieza cancelando 7 suscripciones.\nYo las cancelo. Tú, mira.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 40.17,
+   "fin": 41.86,
+   "quien": "humano",
+   "texto": "¡Y me quedo los cafés!",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 41.86,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "No se puede tener todo.\nPero se puede intentar.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  }
+ ]
+}

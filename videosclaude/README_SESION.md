@@ -1,86 +1,81 @@
-# videosclaude — LEEME PRIMERO (para cualquier sesion futura)
+# videosclaude — LÉEME PRIMERO (para cualquier sesión futura)
 
-Proyecto de videos cortos verticales (TikTok/Reels, 9:16) con **Clawd** (la mascota pixel naranja de Claude Code, pequeña, sin boca)
-y un **humano low-poly** sentado tras un escritorio (se ve de cintura arriba), estilo 3D low-poly nocturno.
-Usuario: "Jefe", español informal y directo. Prefiere ver resultados y ajustar despues; no preguntar de mas.
+Proyecto de vídeos cortos verticales (TikTok/Reels, 9:16) con **Clawd** (la mascota pixel naranja de Claude Code: pequeña, sin boca, ojos cuadrados)
+y un **humano low-poly** (gorro rojo, auriculares, sudadera verde) sentado tras un escritorio, visto de cintura arriba. Estilo 3D low-poly.
+Usuario: **"Jefe"**, español informal y directo; prefiere ver resultados y ajustar después (no preguntar de más).
+Tono de los vídeos: **Claude = sarcástico, pícaro, el que le salva el culo al humano; el humano = ingenuo, medio tonto.** Siempre con humor, y a veces con datos reales citados.
 
-## REGLA DE ORO: NO renderizar frames nuevos por video
-Todo lo que se ve ya esta renderizado en **`biblioteca/`** como **capas PNG con transparencia**. Un video nuevo se crea SOLO
-escribiendo un guion (`guiones/*.json`) y ejecutando el montador (PIL + ffmpeg, segundos, sin Blender):
+## REGLA DE ORO: no se renderiza nada nuevo por vídeo
+Todo lo visual ya está renderizado en `biblioteca/<ambiente>/` como **capas PNG con transparencia**. Un vídeo nuevo = escribir un guion + ejecutar el montador (PIL + ffmpeg, ~5 min, sin Blender):
 
 ```bash
-python3 -I motor/montar_video.py guiones/ejemplo_dip.json salidas/ejemplo_dip.mp4
-python3 -I motor/montar_video.py guiones/ejemplo_dip.json salidas/prueba.mp4 --solo-frames 12   # prueba rapida
+python3 -I motor/montar_video.py guiones/trading_01_curso_milagro.json salidas/trading_01_curso_milagro.mp4
+python3 -I motor/montar_video.py guiones/ALGO.json salidas/prueba.mp4 --solo-frames 12     # prueba rápida
 ```
-Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy` solo hace falta para REGENERAR la biblioteca.)
+Dependencias del montador: `pillow numpy` + `ffmpeg`. (`pip install bpy` solo hace falta para REGENERAR la biblioteca.)
 
-## Que hay en la biblioteca (ver `biblioteca/INDICE.md` y `biblioteca/<plano>/_contacto.png`)
-4 planos (camaras fijas). Cada plano = `fondo.png` + capas de personajes (RGBA, mismo tamaño 720x1280):
+## Vídeos hechos (cada uno tiene su documentación en `docs/videos/<id>.md`)
+| id | tema | ambiente |
+|----|------|----------|
+| `trading_01_curso_milagro` | el curso «millonario en 7 días»; Claude bloquea el pago | `noche_trading` |
+| `trading_02_senales_vip` | grupo VIP de señales = pump & dump; Claude le salva 380 € | `dia_trading` |
+| `trading_03_apalancamiento_x100` | x100 → liquidado; límites UE y gestión de riesgo | `dia_trading` |
+| `drop_01_que_es_dropshipping` | cómo funciona y por qué de 29,90 € quedan 3,44 € | `dia_tienda` |
+| `drop_02_producto_ganador` | «lámpara de cactus»: competencia, moda, marcado CE | `dia_tienda` |
+| `drop_03_primer_pedido` | envío de 25 días, cliente enfadado, 14 días de desistimiento, IVA | `atardecer_tienda` |
+| (anteriores) `trading_30s_sarcastico`, `ejemplo_*` | pruebas / ejemplos | `noche_trading` |
 
-| plano     | encuadre                                   | capas |
-|-----------|--------------------------------------------|-------|
-| `humano`  | primer plano del humano (cintura arriba)   | humano_<emocion>_<boca>.png |
-| `claude`  | Clawd pequeño sobre una pila de libros     | claude_idle / parpadeo / feliz |
-| `dos`     | humano + Clawd en el escritorio            | humano_* y claude_* |
-| `espalda` | Clawd de espaldas mirando el monitor       | claude_idle |
-| `monitor` | **MONITOR centrado y de frente** (para enseñar pantallas), Clawd pequeño al pie | claude_idle / parpadeo / feliz |
-| `monitor_espalda` | monitor centrado, Clawd de espaldas en primer plano | claude_idle |
-| `general` | plano general de la sala: humano, monitor completo y Clawd | humano type (neutral/feliz) + senalar, claude_* |
-| `cenital` | desde arriba sobre el escritorio (teclado, raton, taza, libros) | claude_* |
-| `claude_ojos` | primer plano de Clawd para reacciones | claude_* (incluye mira_izq/der/arriba) |
-| `monitor_lateral` | monitor en tres cuartos desde la derecha, Clawd al pie | claude_* |
-| `pantalla_completa` | (plano 2D, sin Blender) la pantalla ocupa el video, fondo difuminado, zoom automatico a lo importante | — |
+Los 6 guiones grandes se generan con `python3 -I motor/generar_guiones.py` (tiempos automáticos según la longitud de cada frase, pantallas sincronizadas con el diálogo y **docs por vídeo** con tabla de planos y fuentes). **Edita el generador y vuelve a ejecutarlo** en vez de tocar los JSON a mano.
 
-- **Poses del humano** (cinematica inversa, funcionan bien): `type` (manos en el teclado, por defecto), `pensar` (mano en la barbilla), `senalar` (brazo hacia el monitor),
-  `hombros` (encoge hombros), `mira` (cabeza y ojos hacia el monitor). Campo `pose` en la linea del guion (si el plano no la tiene, usa `type`).
-- **Clawd** ademas puede mirar de lado: `claude_estado`: `mira_izq`, `mira_der`, `mira_arriba` (para el 'reojo' sarcastico), `feliz` (ojos ^ ^ de listillo).
-- Emociones del humano: `neutral`, `feliz`, `preocupado`, `burlon`. Bocas: `cerrada`, `media`, `abierta` (+ `neutral_parpadeo`).
-- Clawd SIEMPRE neutro (de pie, sin poses raras ni caras de sorpresa). Habla = **botecitos** (sube/baja), no tiene boca.
-- Orden de apilado: **fondo -> pantalla del monitor -> sombras fijas -> humano -> claude**.
-- **Sombras = capas aparte y FIJAS** (`sombra_humano.png`, `sombra_claude.png`). Los personajes NO llevan sombra pegada, asi al dar botecitos
-  solo se mueve Clawd y el escenario queda quieto (verificado: entre frames solo cambia la zona de Clawd).
-- **Videos de negocios online ('Claude te lleva la vida entera') = MUCHAS escenas de monitor**: usar `monitor`, `monitor_espalda` y `pantalla_completa`
-  alternando con `dos`/`humano`. Ver `guiones/ejemplo_negocio.json`.
-- La **pantalla del monitor es intercambiable**: el fondo trae pantalla `vacia` (neutra) y el montador pega cualquier imagen
-  1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). **Pantallas de TRADING con humor**: `trading` (velas que suben y luego caen + P&L en vivo), `cartera` (posiciones graciosas en rojo), `orden` (el stop loss vacio se rellena), `resultado` (perdida con stop vs sin stop). Ejemplo completo: `guiones/trading_30s_sarcastico.json` (30 s, Claude sarcastico).
-  **Tono de voz** (`tono`): `sarcastico` (Claude por defecto: grave y arrastrando hacia abajo), `dudoso` (sube al final), `seguro` (humano).
-  **Pantallas ANIMADAS** (motor/pantallas.py, vista en `biblioteca/pantallas/_animadas_contacto.png`): `chat` (Claude tecleando lo que hace),
-  `dashboard` (ingresos que suben), `tienda` (pedidos entrando), `calendario`, `email` (Claude redacta y envia), `analitica`, `tareas` (se marcan solas), `hoja`.
-  Se usan con `"pantalla": "dashboard"` o `{"tipo":"dashboard","datos":{"ingresos":9800},"duracion":4}` (los `datos` cambian textos/cifras). Se animan solas durante `duracion` s.
-  Para una pantalla nueva: añadir una funcion `p_xxx(p, datos)` en pantallas.py y registrarla en `PANTALLAS` (y opcionalmente en `ZOOM_AUTO`).
-  Estaticas en `biblioteca/pantallas/`
-  (`vacia` por defecto; `chart`, `chat`, `order` son EJEMPLOS de trading, no la identidad del proyecto). Para otro tema: crear PNG nuevo ahi.
+## Ambientes (carpetas de `biblioteca/`)
+Cada ambiente es una sala completa renderizada: `noche_trading` (noche, neón TRADE, póster BUY THE DIP), `dia_trading` (de día, mismo decorado de trading),
+`dia_tienda` y `atardecer_tienda` (decorado de **tienda online**: neón OPEN, póster de envío, cajas; **sin nada de trading**). Se elige con `"ambiente"` en el guion.
+Cada una tiene `INDICE.md` y `_contacto.png` por plano. Las de día/atardecer son versiones «lite» (menos poses/emociones); `noche_trading` es la completa.
 
-## Como se hace un video
-1. Escribir `guiones/<nombre>.json` (copiar `ejemplo_dip.json`). Campos por linea: `inicio`, `fin`, `quien` (humano|claude), `texto`,
-   `plano`, `emocion` (humano), `pantalla` (cambia el monitor desde esa linea). Extra: `cambios_pantalla` [{"t":..,"pantalla":..}].
-2. Ejecutar el montador. Salida en `salidas/`.
-3. Animacion a **6 fps** (duplicada a 24 al exportar): pocos frames distintos, movimientos minimos (boca alterna, botecitos, parpadeo).
-   13 s = solo 80 frames de animacion. Se pueden hacer videos mas largos sin coste de render.
+## Planos (cámaras fijas) y capas
+`humano` (primer plano), `dos` (humano + Clawd), `general` (sala entera), `monitor` (monitor centrado y de frente, Clawd al pie), `monitor_espalda`, `monitor_lateral` (3/4),
+`cenital` (desde arriba), `claude_ojos` (primerísimo plano de Clawd), `claude` y `espalda` (solo noche), y `pantalla_completa` (2D: la pantalla ocupa el vídeo; zoom automático).
+- **Humano**: emociones `neutral feliz preocupado burlon` + «de tonto»: `bobo`, `ilusionado`, `confundido`. Poses con cinemática inversa: `type` (por defecto), `pensar`, `senalar`, `hombros`, `mira`.
+  Bocas `cerrada media abierta`. Si el plano no tiene una pose/emoción, el montador usa la más cercana.
+- **Clawd**: `idle`, `feliz` (ojos ^ ^ de listillo), `mira_izq`, `mira_der`, `mira_arriba` (reojo sarcástico). **Siempre neutro, sin boca, sin brillos en los ojos**; al hablar da botecitos.
+- Orden de apilado: fondo → pantalla del monitor → sombras fijas → humano → Clawd. Las **sombras son capas aparte y fijas** (el escenario no se mueve con los botecitos).
+
+## Pantallas del monitor (`motor/pantallas.py`, se dibujan al montar, no hay que renderizar)
+`{"tipo":"dashboard","datos":{...},"duracion":4}` en el campo `pantalla` de una línea. Se animan solas durante `duracion` segundos (cifras que suben, texto que se teclea…).
+- Negocio/vida: `chat` `dashboard` `tienda` `calendario` `email` `analitica` `tareas` `hoja`
+- Trading: `trading` `cartera` `orden` `resultado` `curso` (curso milagro + banderas rojas de Claude) `checkout` (pago bloqueado) `telegram` (modo `chat`|`pump`) `apalanc` `verdad` (tipo `esma`|`brasil`|`apalanc`)
+- Dropshipping: `catalogo` `proveedor` `margen` (calculadora real: precio − coste − anuncio − comisión − IVA, ROAS mínimo) `producto` `pedido` `tracking` `cliente` `ley`
+- Opciones comunes: `datos.desde` (empieza la animación ya avanzada), `zoom` en la línea (`pantalla_completa`), `ZOOM_AUTO`. Imágenes de producto: iconos dibujados con PIL (sin imágenes externas).
+- Nueva pantalla: función `p_xxx(p, datos)` en pantallas.py + registrarla en `PANTALLAS`.
+
+## Campos de una línea del guion
+`inicio fin quien texto plano` · humano: `emocion pose` · Claude: `claude_estado empuje` (zoom lento) · `tono` (`sarcastico` por defecto en Claude, `dudoso`, `seguro`) · `pantalla`. Ver el docstring de `motor/montar_video.py`.
+Animación a **6 fps** duplicada a 24: pocos frames distintos y movimientos mínimos (boca que alterna, botecitos, parpadeo). 45 s = solo 270 frames de animación.
 
 ## Limitaciones conocidas (decirlas al Jefe, no inventar)
-- Las **voces son "blips"** sinteticos (estilo Animal Crossing), no voz real. Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
-- Solo hay 4 camaras fijas. Una camara/pose NUEVA exige re-renderizar con Blender (ver abajo) — evitarlo salvo que haga falta de verdad.
-- `pantalla_completa` en video vertical aprovecha poco alto (el monitor es 16:9). Mejora pendiente: versiones verticales (portrait) de las pantallas.
-- (historico) Solo habia UNA pose de brazos del humano ("tecleando") y Clawd solo "de pie" / "de espaldas". Las poses de pensar, facepalm, encoger hombros,
-  celebrar, sorpresa, etc. se probaron y se BORRARON porque quedaban mal; si se quieren, hay que rehacer bien el rig de brazos primero.
+- Las **voces son «blips»** sintéticos (no voz real). Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
+- `pantalla_completa` aprovecha poco alto en vertical (el monitor es 16:9); mejora pendiente: pantallas en formato vertical.
+- Cámara o pose NUEVA = re-render con Blender (~14 s/capa). Evitarlo salvo que haga falta.
+- Poses probadas y **borradas por quedar mal**: facepalm, celebrar, sorpresa (Clawd), sentado/dormido (Clawd). No reintroducir sin rehacer bien el rig.
+- Los datos reales de cada vídeo están citados en su `docs/videos/*.md`; las cuentas de ejemplo (márgenes, nº de tiendas…) son ilustrativas. No es asesoramiento financiero ni legal.
 
-## Regenerar o ampliar la biblioteca (solo si se pierde o se necesita un plano/estado nuevo)
+## Regenerar o ampliar bibliotecas
 ```bash
-pip install bpy                                   # Blender como modulo (Python 3.13 ok)
-python3 -I motor/texturas.py tex                  # pantallas, ventana de ciudad, neon, poster
-python3 -I motor/render_biblioteca.py biblioteca  # ~25 min en 4 CPU; admite plano concreto: ... biblioteca dos
-python3 -I motor/indice_biblioteca.py             # INDICE.md + hojas de contacto
+pip install bpy                                   # Blender como módulo (Python 3.13 ok)
+python3 -I motor/texturas.py tex                  # pantallas base, ventanas (noche/día/atardecer), neón y póster (trading/tienda)
+bash motor/cola_render.sh /tmp                    # cola completa: noche_trading, dia_trading, dia_tienda, atardecer_tienda (~2 h en 4 CPU; reanudable)
+VC_AMBIENTE=dia VC_DECOR=tienda VC_LITE=1 python3 -I motor/render_biblioteca.py $PWD/biblioteca/dia_tienda humano dos   # un ambiente/planos concretos
+python3 -I motor/indice_biblioteca.py             # INDICE.md + hojas de contacto de todos los ambientes
+bash motor/cola_montaje.sh /tmp                   # monta los 6 vídeos cuando cada biblioteca esté lista
 ```
-- `motor/escena.py`: escena Blender completa (personajes, escritorio, props, luces, `BASES` = camaras, `set_human`, `set_clawd`).
-- Añadir un plano: nueva entrada en `BASES` (escena.py) y en `PLANOS` (render_biblioteca.py).
-- Añadir estados (p.ej. otra emocion): ampliar `EMO`/`BOCA` en render_biblioteca.py y renderizar solo ese plano.
+`motor/escena.py` = escena Blender (personajes, props, luces por `VC_AMBIENTE`=`noche|dia|atardecer`, decorado por `VC_DECOR`=`trading|tienda`, `BASES` = cámaras, `set_human`, `set_clawd`, IK de brazos).
 
 ## Estructura
 ```
-motor/      codigo (escena.py, texturas.py, render_biblioteca.py, montar_video.py, indice_biblioteca.py)
-biblioteca/ capas ya renderizadas + manifest.json + INDICE.md + pantallas/   <-- REUTILIZAR, no regenerar
-guiones/    guiones json de los videos
-salidas/    videos finales (mp4)
-tex/        texturas generadas (regenerables; no hace falta guardarlas)
+motor/       código (escena, texturas, pantallas, render_biblioteca, montar_video, generar_guiones, indice_biblioteca, colas .sh)
+biblioteca/  <ambiente>/<plano>/ capas PNG + manifest.json + INDICE.md + _contacto.png ; pantallas/ (compartidas)   <-- REUTILIZAR
+guiones/     JSON de los vídeos (los 6 grandes los escribe generar_guiones.py)
+docs/videos/ documentación por vídeo (guion plano a plano, pantallas, datos reales con fuentes)
+salidas/     vídeos finales (mp4)
+tex/         texturas (regenerables)
 ```

@@ -1,0 +1,168 @@
+{
+ "titulo": "Un día con Claude (te lleva la vida entera)",
+ "ambiente": "dia_tienda",
+ "fps_animacion": 6,
+ "duracion": 45.0,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 1.87,
+   "quien": "humano",
+   "texto": "¡Claude, hazme el día!",
+   "plano": "general",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "chat",
+    "duracion": 4.44
+   }
+  },
+  {
+   "inicio": 1.87,
+   "fin": 4.0,
+   "quien": "claude",
+   "texto": "Ya lo hice.\nMira tu agenda.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 4.0,
+   "fin": 6.2,
+   "quien": "humano",
+   "texto": "¿Hoy tengo cinco reuniones?",
+   "plano": "dos",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "calendario",
+    "duracion": 6.37
+   }
+  },
+  {
+   "inicio": 6.2,
+   "fin": 9.73,
+   "quien": "claude",
+   "texto": "Tres sobraban. Las cancelé.\nAhora podrás dormir.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 9.73,
+   "fin": 11.27,
+   "quien": "humano",
+   "texto": "¡Eres el mejor!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 11.27,
+   "fin": 14.07,
+   "quien": "claude",
+   "texto": "Aún no. Mira tu correo:\n214 sin leer.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 14.07,
+   "fin": 15.61,
+   "quien": "humano",
+   "texto": "¿¡214!?",
+   "plano": "dos",
+   "emocion": "preocupado",
+   "pose": "hombros",
+   "pantalla": {
+    "tipo": "email",
+    "duracion": 6.29
+   }
+  },
+  {
+   "inicio": 15.61,
+   "fin": 19.73,
+   "quien": "claude",
+   "texto": "Respondí 9, archivé 150.\nLos 55 de tu madre, no los toco.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 19.73,
+   "fin": 21.4,
+   "quien": "humano",
+   "texto": "Mamá es importante.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 21.4,
+   "fin": 25.19,
+   "quien": "claude",
+   "texto": "Lo sé. El último dice «¿has comido?».\nRespóndelo tú.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 25.19,
+   "fin": 26.74,
+   "quien": "humano",
+   "texto": "¡Ya he comido!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 26.74,
+   "fin": 30.39,
+   "quien": "claude",
+   "texto": "Mentira: tu tarjeta dice\n«3 cafés». Tareas, vamos.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 30.39,
+   "fin": 31.94,
+   "quien": "humano",
+   "texto": "¿Qué tareas?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "tareas",
+    "duracion": 6.22
+   }
+  },
+  {
+   "inicio": 31.94,
+   "fin": 35.99,
+   "quien": "claude",
+   "texto": "Facturas, pedidos, anuncios...\nYa están. Solo queda una.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 35.99,
+   "fin": 37.53,
+   "quien": "humano",
+   "texto": "¿Cuál?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 37.53,
+   "fin": 39.93,
+   "quien": "claude",
+   "texto": "Agradecérmelo.\nCon una sonrisa.",
+   "plano": "monitor_lateral",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 39.93,
+   "fin": 41.47,
+   "quien": "humano",
+   "texto": "¡Gracias, Claude!",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 41.47,
+   "fin": 45.0,
+   "quien": "claude",
+   "texto": "De nada. Y la próxima vez,\nnada de 214 sin leer.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

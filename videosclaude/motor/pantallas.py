@@ -580,10 +580,65 @@ def p_ley(p, datos):
     if p > 0.7: d.text((945, 600), 'Tu margen: revísalo con el IVA', font=F(16, True), fill=OR, anchor='mm')
     return im
 
+
+# ====================================================================================================== EXTRAS: presupuesto, interes compuesto, anuncios
+def p_presupuesto(p, datos):
+    im, d = base(datos.get('titulo', 'Presupuesto — ¿a dónde se va tu sueldo?')); tarjeta(d, (40, 60, 560, 650), 'TU SUELDO')
+    cats = datos.get('categorias') or [('Vivienda', 35, (110, 215, 235)), ('Comida', 15, (60, 230, 150)), ('Ocio', 12, (170, 125, 255)), ('Suscripciones (que no usas)', 9, (255, 200, 85)), ('Cafés y caprichos', 14, (240, 125, 85)), ('Ahorro', 4, (255, 85, 100)), ('Resto', 11, (90, 100, 150))]
+    cx, cy, r = 300, 300, 150; ang = -90.0; tot = sum(c[1] for c in cats); barrido = ease(p / 0.7) * 360
+    for n_, v, col in cats:
+        a1 = ang + 360.0 * v / tot; lim = -90 + barrido
+        if ang < lim: d.pieslice((cx - r, cy - r, cx + r, cy + r), ang, min(a1, lim), fill=col, outline=(20, 22, 40), width=3)
+        ang = a1
+    d.ellipse((cx - 80, cy - 80, cx + 80, cy + 80), fill=PANEL); d.text((cx, cy - 8), '2.100 €', font=F(34, True), fill=TXT, anchor='mm'); d.text((cx, cy + 28), 'al mes', font=F(16), fill=DIM, anchor='mm')
+    tarjeta(d, (590, 60, W - 40, 650), 'DONDE SE VA')
+    for i, (n_, v, col) in enumerate(cats):
+        k = tramo(p, 0.1 + i * 0.08, 0.25 + i * 0.08); y = 112 + i * 62
+        if k <= 0: continue
+        rr(d, (620, y + 4, 640, y + 24), col, 5); d.text((652, y), n_, font=F(19, True), fill=TXT); d.text((W - 70, y), f'{int(v * k)} %', font=F(24, True, True), fill=RD if n_ == 'Ahorro' else TXT, anchor='ra')
+    if p > 0.8: rr(d, (620, 560, W - 64, 628), (70, 25, 35), 12, RD); d.text((W // 2 + 290, 594), 'Ahorro 4 %. Orientación habitual: 20 %', font=F(19, True), fill=RD, anchor='mm')
+    return im
+
+def p_interes(p, datos):
+    cuota = datos.get('cuota', 100); tasa = datos.get('tasa', 0.07); años = datos.get('años', 30); n = años * 12
+    serie = []; v = 0.0
+    for m in range(n + 1):
+        serie.append(v); v = v * (1 + tasa / 12) + cuota
+    aportado = cuota * n; final = serie[-1]; hasta = int(ease(p / 0.85) * n)
+    im, d = base(datos.get('titulo', 'Interés compuesto — el tiempo hace el trabajo')); tarjeta(d, (40, 60, W - 40, 650))
+    d.text((70, 84), f'{cuota} €/mes durante {años} años al {int(tasa * 100)} % anual (ejemplo)', font=F(22, True), fill=DIM)
+    x0, y0, x1, y1 = 90, 150, 1190, 520; mx = final
+    d.line([(x0, y1), (x1, y1)], fill=LINE, width=2)
+    pts_total = [(x0 + (x1 - x0) * m / n, y1 - serie[m] / mx * (y1 - y0)) for m in range(0, hasta + 1, 3)]
+    pts_apor = [(x0 + (x1 - x0) * m / n, y1 - (cuota * m) / mx * (y1 - y0)) for m in range(0, hasta + 1, 3)]
+    if len(pts_apor) > 1: d.line(pts_apor, fill=DIM, width=4)
+    if len(pts_total) > 1:
+        ov = Image.new('RGBA', im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov); od.polygon(pts_total + [(pts_total[-1][0], y1), (pts_total[0][0], y1)], fill=(*GR, 55)); im.paste(ov, (0, 0), ov); d = ImageDraw.Draw(im); d.line(pts_total, fill=GR, width=5)
+    val = serie[min(hasta, n)]; d.text((70, 540), fmt(val, 0, '', ' €'), font=F(66, True), fill=GR); d.text((70, 618), 'lo que tendrías', font=F(16), fill=DIM)
+    d.text((W - 70, 540), fmt(cuota * min(hasta, n), 0, '', ' €'), font=F(46, True), fill=DIM, anchor='ra'); d.text((W - 70, 600), 'lo que habrías puesto tú', font=F(16), fill=DIM, anchor='ra')
+    if p > 0.9: d.text((W // 2, 118), 'Rentabilidad constante de ejemplo: la real varía y no está garantizada', font=F(15), fill=OR, anchor='mm')
+    return im
+
+def p_anuncios(p, datos):
+    im, d = base(datos.get('titulo', 'Panel de anuncios — campaña «Lámpara cactus»')); tarjeta(d, (40, 60, 830, 400), 'EMBUDO (últimos 7 días)')
+    emb = [('Impresiones', 15800, 1.0, CY), ('Clics', 126, 0.5, PU), ('Al carrito', 12, 0.25, YE), ('Compras', 3, 0.1, RD)]
+    for i, (n_, v, f, col) in enumerate(emb):
+        a = tramo(p, i * 0.15, i * 0.15 + 0.2); y = 110 + i * 70; d.text((70, y + 8), n_, font=F(19, True), fill=TXT)
+        rr(d, (260, y, 800, y + 50), (40, 44, 78), 10); rr(d, (260, y, 260 + 540 * f * a, y + 50), col, 10); d.text((790, y + 25), fmt(v * a), font=F(24, True, True), fill=(10, 10, 20) if i < 3 else TXT, anchor='rm')
+    for i, (t, val, col) in enumerate((('CTR', '0,8 %', YE), ('CPC', '0,98 €', YE), ('GASTADO', '124 €', RD))):
+        x = 860 + (i % 2) * 190 if i < 2 else 860; y = 64 + (i // 2) * 130 if i < 2 else 194
+        tarjeta(d, (x, y, x + 170, y + 110), t); d.text((x + 20, y + 50), val, font=F(32, True), fill=col)
+    tarjeta(d, (40, 420, 830, 650), 'RESULTADO'); roas = 0.75 * ease(p / 0.8); d.text((70, 470), f'ROAS {roas:.2f}'.replace('.', ','), font=F(64, True), fill=RD); d.text((70, 560), 'ingresos ÷ gasto en anuncios (menos de 1 = pierdes)', font=F(17), fill=DIM)
+    d.text((70, 596), '3 ventas × 31 € = 93 € de ingresos con 124 € gastados', font=F(17), fill=TXT)
+    tarjeta(d, (860, 340, W - 40, 650), 'CLAUDE DICE')
+    for i, t in enumerate(('1. Cambia la creatividad', '2. Prueba otro público', '3. Revisa la web y el precio', '4. Pausa lo que no vende')):
+        if p > 0.5 + i * 0.1: d.text((884, 392 + i * 58), '✔ ' + t, font=F(17, True), fill=GR)
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
 ZOOM_AUTO = {'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+PANTALLAS = {'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}
