@@ -1,0 +1,16 @@
+{
+  "titulo": "Ejemplo: el dip (13 s)",
+  "fps_animacion": 6,
+  "duracion": 13.3,
+  "pantalla_inicial": "vacia",
+  "lineas": [
+    {"inicio": 0.0,  "fin": 1.7,  "quien": "humano", "texto": "Claude, ¿compro el dip?", "plano": "humano", "emocion": "neutral", "pantalla": "chart"},
+    {"inicio": 1.7,  "fin": 3.1,  "quien": "claude", "texto": "¿Dónde está tu stop?", "plano": "claude"},
+    {"inicio": 3.1,  "fin": 4.4,  "quien": "humano", "texto": "...En mi cabeza.", "plano": "humano", "emocion": "preocupado"},
+    {"inicio": 4.4,  "fin": 6.8,  "quien": "claude", "texto": "Eso no es un stop.\nEs una esperanza.", "plano": "dos", "pantalla": "chat"},
+    {"inicio": 6.8,  "fin": 8.1,  "quien": "humano", "texto": "Vale, lo pongo.", "plano": "dos", "emocion": "feliz"},
+    {"inicio": 8.1,  "fin": 10.3, "quien": "claude", "texto": "Bien. Ahora cuéntame\ntu plan.", "plano": "claude", "pantalla": "order"},
+    {"inicio": 10.3, "fin": 11.7, "quien": "humano", "texto": "...¿Compro el dip?", "plano": "humano", "emocion": "burlon"},
+    {"inicio": 11.7, "fin": 13.3, "quien": "claude", "texto": "Empecemos otra vez.", "plano": "dos"}
+  ]
+}

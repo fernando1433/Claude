@@ -89,7 +89,7 @@ M_wall = mat('wall', rgb(52, 38, 96), 0.9); M_wall2 = mat('wall2', rgb(40, 28, 7
 M_rug = mat('rug', rgb(120, 50, 110), 0.95); M_frame = mat('frame', rgb(18, 18, 26), 0.5)
 M_led = mat('led', rgb(255, 80, 200), 0.4, emit=rgb(255, 60, 200), strength=9); M_led2 = mat('led2', rgb(60, 220, 255), 0.4, emit=rgb(60, 200, 255), strength=9)
 M_shelf = mat('shelf', rgb(90, 58, 50), 0.7)
-SCREENS = {n: tex_mat('scr_' + n, f'{TEX}/screen_{n}.png', 1.15) for n in ('chart', 'chat', 'order')}
+SCREENS = {n: tex_mat('scr_' + n, f'{TEX}/screen_{n}.png', 1.15) for n in ('vacia', 'chart', 'chat', 'order')}
 M_window = tex_mat('window', f'{TEX}/window.png', 1.0); M_neon = tex_mat('neon', f'{TEX}/neon.png', 1.6); M_poster = tex_mat('poster', f'{TEX}/poster.png', 0.35)
 
 # ------------------------------------------------------------------ decorado

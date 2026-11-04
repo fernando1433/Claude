@@ -100,6 +100,10 @@ rr(d, (1000, 120, 1250, 230), (70, 25, 35), 14, RED); d.text((1125, 150), '⚠ F
 cursor(d, 760, 548)
 im.save(f'{OUT}/screen_order.png')
 
+# ---- pantalla neutra (por defecto en la biblioteca: no enfoca nada de trading)
+im, d = base('')
+im.save(f'{OUT}/screen_vacia.png')
+
 # ---- ventana: ciudad nocturna
 w, h = 800, 920; im = Image.new('RGB', (w, h)); d = ImageDraw.Draw(im); random.seed(21)
 for y in range(h):

@@ -1,0 +1,150 @@
+"""MONTADOR: crea un video a partir de un GUION (json) usando SOLO la biblioteca de capas ya renderizada.
+No usa Blender, no renderiza nada: son unos segundos de PIL + ffmpeg.
+
+Uso:   python3 -I motor/montar_video.py guiones/ejemplo_dip.json salidas/ejemplo_dip.mp4
+Opciones:  --solo-frames N   (monta solo los N primeros frames, para probar)
+
+Guion (ver guiones/ejemplo_dip.json):
+  fps_animacion  frames de animacion por segundo (6 recomendado: poco movimiento, se duplica a 24 al exportar)
+  duracion       segundos totales
+  lineas[]:  inicio, fin (s) | quien: "humano"|"claude" | texto | plano: humano|dos|claude|espalda (opcional)
+             emocion: neutral|feliz|preocupado|burlon (humano, opcional) | claude_estado: idle|feliz (opcional)
+             pantalla: nombre de la pantalla del monitor (opcional, se mantiene hasta que cambie)
+  cambios_pantalla[]: {"t": seg, "pantalla": "nombre"}  (cambios extra en mitad de una linea o en silencio)
+Pantallas: biblioteca/pantallas/<nombre>.png (1280x720), o una ruta a cualquier imagen.
+"""
+import sys, os, json, math, subprocess, wave, random, glob
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+
+RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+BIB = os.path.join(RAIZ, 'biblioteca')
+FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+COL = {'humano': (120, 220, 215), 'claude': (240, 125, 85)}
+CICLO_BOCA = ['media', 'abierta', 'media', 'cerrada', 'abierta', 'media']
+
+def args():
+    a = [x for x in sys.argv[1:] if not x.startswith('--')]
+    n = None
+    if '--solo-frames' in sys.argv: n = int(sys.argv[sys.argv.index('--solo-frames') + 1]); a = [x for x in a if x != str(n)]
+    return a[0], a[1], n
+
+# ---------------------------------------------------------------- biblioteca
+MF = json.load(open(os.path.join(BIB, 'manifest.json')))
+W, H = MF['tamano']
+_cache = {}
+def cargar(plano, fichero):
+    k = (plano, fichero)
+    if k not in _cache: _cache[k] = Image.open(os.path.join(BIB, plano, fichero)).convert('RGBA')
+    return _cache[k]
+
+def cargar_pantalla(nombre):
+    ruta = nombre if os.path.exists(nombre) else os.path.join(BIB, 'pantallas', nombre + '.png')
+    return Image.open(ruta).convert('RGB')
+
+def coef_perspectiva(quad, w, h):
+    """coeficientes PIL (salida->entrada) para pegar una imagen w x h en el cuadrilatero quad (TL,TR,BR,BL)"""
+    src = [(0, 0), (w, 0), (w, h), (0, h)]; A = []; B = []
+    for (x, y), (u, v) in zip(quad, src):
+        A.append([x, y, 1, 0, 0, 0, -x * u, -y * u]); B.append(u)
+        A.append([0, 0, 0, x, y, 1, -x * v, -y * v]); B.append(v)
+    return np.linalg.solve(np.array(A, float), np.array(B, float))
+
+def fondo_con_pantalla(plano, pantalla):
+    k = ('fondo', plano, pantalla)
+    if k in _cache: return _cache[k]
+    fondo = cargar(plano, 'fondo.png').copy()
+    if pantalla != 'vacia':
+        img = cargar_pantalla(pantalla); img = ImageEnhance.Brightness(img).enhance(0.9)
+        q = MF['planos'][plano]['pantalla_quad']; c = coef_perspectiva(q, img.width, img.height)
+        warp = img.convert('RGBA').transform((W, H), Image.PERSPECTIVE, tuple(c), Image.BICUBIC)
+        mask = Image.new('L', img.size, 255).transform((W, H), Image.PERSPECTIVE, tuple(c), Image.BICUBIC)
+        warp.putalpha(mask); fondo = Image.alpha_composite(fondo, warp)
+    _cache[k] = fondo; return fondo
+
+def desplazar(capa, dy):
+    out = Image.new('RGBA', capa.size, (0, 0, 0, 0)); out.paste(capa, (0, dy), capa); return out
+
+# ---------------------------------------------------------------- audio (voces "blip" + pad ambiente)
+def generar_audio(G, ruta):
+    SR = 44100; dur = G['duracion']; out = np.zeros(int(SR * dur)); rnd = random.Random(11)
+    def blip(f, d, who):
+        n = int(SR * d); t = np.arange(n) / SR
+        if who == 'humano': w = 2 * np.abs(2 * ((t * f) % 1) - 1) - 1 + 0.25 * np.sign(np.sin(2 * np.pi * f * 2 * t))
+        else: w = np.sign(np.sin(2 * np.pi * f * t)) * 0.6 + 0.4 * np.sin(2 * np.pi * f * 2 * t)
+        return w * np.minimum(1, t / 0.006) * np.exp(-t / (d * 0.55))
+    for L in G['lineas']:
+        ch = [c for c in L['texto'] if c.isalpha()]
+        if not ch: continue
+        a, b, who = L['inicio'], L['fin'], L['quien']; base = 120 if who == 'humano' else 520
+        paso = (b - a - 0.12) / len(ch)
+        for i, c in enumerate(ch):
+            f = base * (2 ** (((ord(c.lower()) * 7) % 9 - 4) / 12))
+            if who == 'humano': f *= 1 + 0.04 * rnd.uniform(-1, 1)
+            if L['texto'].rstrip().endswith('?') and i > len(ch) * 0.7: f *= 1 + 0.1 * (i - len(ch) * 0.7)
+            s = blip(f, min(0.09, paso * 1.05), who) * (0.34 if who == 'humano' else 0.2)
+            k = int((a + 0.05 + i * paso) * SR); out[k:k + len(s)] += s[:len(out) - k]
+    t = np.arange(len(out)) / SR; pad = np.zeros_like(out)
+    acordes = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]
+    seg = dur / 4
+    for ci, ch in enumerate(acordes):
+        a, b = ci * seg, (ci + 1) * seg + 0.6; m = (t >= a) & (t < b); tt = t[m] - a
+        env = np.minimum(1, tt / 0.8) * np.minimum(1, (b - a - tt) / 0.8)
+        for f in ch: pad[m] += 0.018 * np.sin(2 * np.pi * f * tt) * env
+        pad[m] += np.sin(2 * np.pi * ch[2] * 2 * tt) * np.exp(-tt * 2.2) * 0.02
+    out += pad; fd = int(0.05 * SR); out[:fd] *= np.linspace(0, 1, fd); out[-fd:] *= np.linspace(1, 0, fd)
+    out = np.tanh(out * 1.6) * 0.8
+    with wave.open(ruta, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes((out * 32767).astype(np.int16).tobytes())
+
+# ---------------------------------------------------------------- montaje
+def montar(guion, salida, solo=None):
+    G = json.load(open(guion)); fps = G.get('fps_animacion', 6)
+    N = int(round(G['duracion'] * fps)) if solo is None else solo
+    tmp = os.path.join(os.path.dirname(os.path.abspath(salida)), '_frames_' + os.path.basename(salida).rsplit('.', 1)[0])
+    os.makedirs(tmp, exist_ok=True)
+    fuente = ImageFont.truetype(FONT, 44)
+    L = sorted(G['lineas'], key=lambda x: x['inicio'])
+    cambios = sorted([(x['inicio'], x['pantalla']) for x in L if 'pantalla' in x] + [(c['t'], c['pantalla']) for c in G.get('cambios_pantalla', [])])
+    estado = dict(plano=None, emo='neutral', pantalla=G.get('pantalla_inicial', 'vacia'))
+    for i in range(N):
+        t = i / fps
+        act = next((x for x in L if x['inicio'] <= t < x['fin']), None)
+        for tc, p in cambios:
+            if tc <= t: estado['pantalla'] = p
+        if act:
+            estado['plano'] = act.get('plano') or ('humano' if act['quien'] == 'humano' else 'claude')
+            if act['quien'] == 'humano': estado['emo'] = act.get('emocion', estado['emo'])
+        plano = estado['plano'] or ('humano' if not L else ('humano' if L[0]['quien'] == 'humano' else 'claude'))
+        info = MF['planos'][plano]
+        lienzo = fondo_con_pantalla(plano, estado['pantalla']).copy()
+        habla_h = bool(act and act['quien'] == 'humano'); habla_c = bool(act and act['quien'] == 'claude')
+        if info['humano']:
+            boca = CICLO_BOCA[(i - int(act['inicio'] * fps)) % len(CICLO_BOCA)] if habla_h else 'cerrada'
+            clave = f"{estado['emo']}_{boca}"
+            if i % 14 == 6 and estado['emo'] == 'neutral' and not habla_h and 'neutral_parpadeo' in info['humano']: clave = 'neutral_parpadeo'
+            lienzo = Image.alpha_composite(lienzo, cargar(plano, info['humano'].get(clave) or info['humano']['neutral_cerrada']))
+        if info['claude']:
+            est = (act or {}).get('claude_estado', 'idle') if habla_c else estado.get('claude_estado', 'idle')
+            if habla_c: estado['claude_estado'] = est
+            if i % 14 == 9 and est == 'idle' and 'parpadeo' in info['claude']: est = 'parpadeo'
+            capa = cargar(plano, info['claude'].get(est) or info['claude']['idle'])
+            if habla_c and i % 2 == 0: capa = desplazar(capa, -14)       # botecitos al hablar (sin boca)
+            lienzo = Image.alpha_composite(lienzo, capa)
+        im = lienzo.convert('RGB').resize((1080, 1920), Image.LANCZOS)
+        if act and act.get('texto') and G.get('subtitulos', True):
+            d = ImageDraw.Draw(im); y = 1500
+            for ln in act['texto'].split('\n'):
+                w = d.textlength(ln, font=fuente)
+                d.text(((1080 - w) / 2, y), ln, font=fuente, fill=COL[act['quien']], stroke_width=6, stroke_fill=(10, 8, 20)); y += 62
+        im.save(f'{tmp}/f_{i:04d}.png')
+    wav = os.path.join(tmp, 'voz.wav'); generar_audio(G, wav)
+    dur = N / fps
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-framerate', str(fps), '-i', f'{tmp}/f_%04d.png', '-i', wav,
+                    '-vf', 'fps=24,format=yuv420p', '-af', f'afade=t=out:st={max(0, dur - 0.4)}:d=0.4', '-c:v', 'libx264', '-crf', '18',
+                    '-c:a', 'aac', '-b:a', '160k', '-t', str(dur), '-movflags', '+faststart', salida], check=True)
+    for f in glob.glob(f'{tmp}/*'): os.remove(f)
+    os.rmdir(tmp); print('VIDEO OK', salida, f'({N} frames de animacion, {dur:.1f}s)')
+
+if __name__ == '__main__':
+    g, s, n = args(); montar(g, s, n)
