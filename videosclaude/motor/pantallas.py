@@ -460,12 +460,13 @@ VERDADES = {
     'esma': ('74–89 %', 'de las cuentas minoristas de CFD pierden dinero', 0.82, 'Fuente: ESMA (2018) — advertencia de riesgo obligatoria de los brokers', RD),
     'brasil': ('97 %', 'de los day traders que insistieron +300 días perdió dinero', 0.97, 'Fuente: Chague, De-Losso y Giovannetti — «Day Trading for a Living?» (2020)', RD),
     'brasil2': ('0,5 %', 'ganó más que un sueldo básico (8 de 1.551)', 0.005, 'Fuente: Chague, De-Losso y Giovannetti — «Day Trading for a Living?» (2020)', OR),
-    'apalanc': ('30:1', 'límite UE para minoristas en divisas principales (2:1 en criptos)', 0.3, 'Fuente: ESMA (2018) — restricciones a los CFD para minoristas', CY),
+    'apalanc': ('30:1', 'límite UE para minoristas|en divisas principales (2:1 en criptos)', 0.3, 'Fuente: ESMA (2018) — restricciones a los CFD para minoristas', CY),
 }
 def p_verdad(p, datos):
     n, t, frac, fuente, col = VERDADES[datos.get('tipo', 'esma')]; im, d = base(datos.get('titulo', 'Datos reales (no del gurú)')); tarjeta(d, (100, 70, W - 100, 640))
     d.text((W // 2, 150), 'DATO REAL', font=F(22, True), fill=DIM, anchor='mm'); a = ease(p / 0.5)
-    d.text((W // 2, 270), n, font=F(150, True), fill=col, anchor='mm'); d.text((W // 2, 380), t, font=F(30, True), fill=TXT, anchor='mm')
+    d.text((W // 2, 270), n, font=F(150, True), fill=col, anchor='mm')
+    for k_, ln_ in enumerate(t.split('|')): d.text((W // 2, 380 + k_ * 40 - (len(t.split('|')) - 1) * 14), ln_, font=F(30, True), fill=TXT, anchor='mm')
     rr(d, (200, 440, W - 200, 474), (40, 44, 78), 17); rr(d, (200, 440, 200 + (W - 400) * frac * a, 474), col, 17)
     if p > 0.5: d.text((W // 2, 560), fuente, font=F(17), fill=DIM, anchor='mm')
     return im
