@@ -7,6 +7,7 @@ Opciones:  --solo-frames N   (monta solo los N primeros frames, para probar)
 Guion (ver guiones/ejemplo_dip.json):
   (humano) pose: type (por defecto, manos en el teclado) | pensar | senalar | hombros | mira   (la que no exista en el plano se sustituye por type)
   (claude) claude_estado: idle | feliz | mira_izq | mira_der | mira_arriba   empuje: true (zoom lento durante la linea; opcional)
+  tono (opcional): sarcastico (por defecto en claude: voz grave que arrastra hacia abajo) | dudoso (sube al final) | seguro (por defecto en humano)
   fps_animacion  frames de animacion por segundo (6 recomendado: poco movimiento, se duplica a 24 al exportar)
   duracion       segundos totales
   lineas[]:  inicio, fin (s) | quien: "humano"|"claude" | texto | plano: humano|dos|claude|espalda (opcional)
@@ -119,10 +120,13 @@ def generar_audio(G, ruta):
         a, b, who = L['inicio'], L['fin'], L['quien']; base = 120 if who == 'humano' else 520
         paso = (b - a - 0.12) / len(ch)
         for i, c in enumerate(ch):
-            f = base * (2 ** (((ord(c.lower()) * 7) % 9 - 4) / 12))
+            f = base * (2 ** (((ord(c.lower()) * 7) % 9 - 4) / 12)); fr = i / max(1, len(ch)); tono = L.get('tono') or ('sarcastico' if who == 'claude' else 'seguro')
+            if tono == 'sarcastico': f *= 0.9 * (1 - 0.16 * fr) * (1 + 0.025 * math.sin(i * 1.3))      # voz mas grave que arrastra hacia abajo, con retintin
+            elif tono == 'dudoso': f *= 1 + 0.12 * fr
             if who == 'humano': f *= 1 + 0.04 * rnd.uniform(-1, 1)
             if L['texto'].rstrip().endswith('?') and i > len(ch) * 0.7: f *= 1 + 0.1 * (i - len(ch) * 0.7)
-            s = blip(f, min(0.09, paso * 1.05), who) * (0.34 if who == 'humano' else 0.2)
+            larga = 1.7 if (tono == 'sarcastico' and i >= len(ch) - 2) else 1.0
+            s = blip(f, min(0.09 * larga, paso * 1.05 * larga), who) * (0.34 if who == 'humano' else 0.2)
             k = int((a + 0.05 + i * paso) * SR); out[k:k + len(s)] += s[:len(out) - k]
     t = np.arange(len(out)) / SR; pad = np.zeros_like(out)
     acordes = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]

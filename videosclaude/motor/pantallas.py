@@ -12,6 +12,10 @@ Pantallas (tema: Claude llevandote el negocio online / la vida entera). Generica
   analitica  visitas/seguidores creciendo + top contenidos
   tareas     lista de tareas que se van marcando + barra de progreso
   hoja       hoja de calculo que se rellena y suma el total
+  trading    velas que se forman + P&L en vivo (datos: tendencia sube|cae)
+  cartera    cartera destrozada con posiciones graciosas (humor)
+  orden      ticket de orden: el stop loss vacio se rellena
+  resultado  stop ejecutado: perdida con stop vs sin stop
 Cada una admite `datos` para cambiar textos/cifras (ver DEFECTOS de cada funcion).
 """
 from PIL import Image, ImageDraw, ImageFont
@@ -259,11 +263,93 @@ def p_hoja(p, datos):
     if p > 0.9: d.text((80, 596), '✔ Claude ha actualizado la hoja y calculado márgenes', font=F(20, True), fill=GR)
     return im
 
+
+# ====================================================================================================== TRADING (humor)
+def _velas(im, box, p, tendencia='sube', n=30, seed=4):
+    d = ImageDraw.Draw(im); x0, y0, x1, y1 = box; rr(d, box, PANEL, 14, LINE)
+    for k in range(1, 5): d.line([(x0 + 8, y0 + (y1 - y0) * k / 5), (x1 - 70, y0 + (y1 - y0) * k / 5)], fill=(35, 40, 70), width=1)
+    r = random.Random(seed); pr = 0.35 if tendencia == 'sube' else 0.85; pts = []
+    for i in range(n):
+        dl = (0.032 if tendencia == 'sube' else -0.03) + r.uniform(-0.03, 0.03)
+        if tendencia == 'sube' and i > n * 0.72: dl = -0.07 + r.uniform(-0.02, 0.02)      # el "dip" tras la subida
+        o, c = pr, pr + dl; pr = c; pts.append((o, c, max(o, c) + r.uniform(0.005, 0.03), min(o, c) - r.uniform(0.005, 0.03)))
+    ys = [v for q in pts for v in (q[2], q[3])]; mn, mx = min(ys), max(ys)
+    Y = lambda v: y1 - 18 - (v - mn) / (mx - mn) * (y1 - y0 - 44)
+    hasta = max(1, int(n * ease(p))); step = (x1 - x0 - 90) / n
+    for i, (o, c, hi, lo) in enumerate(pts[:hasta]):
+        x = x0 + 22 + i * step; col = GR if c >= o else RD
+        d.line([(x, Y(hi)), (x, Y(lo))], fill=col, width=3); d.rectangle((x - step * 0.3, Y(max(o, c)), x + step * 0.3, Y(min(o, c)) + 2), fill=col)
+    ult = pts[hasta - 1]; yy = Y(ult[1]); col = GR if ult[1] >= ult[0] else RD
+    d.line([(x0 + 8, yy), (x1 - 70, yy)], fill=(255, 255, 255, 90), width=1); rr(d, (x1 - 66, yy - 13, x1 - 6, yy + 13), col, 6)
+    d.text((x1 - 36, yy), 'BTC', font=F(13, True), fill=(10, 10, 20), anchor='mm')
+    return ult[1] >= ult[0], hasta / n
+
+def p_trading(p, datos):
+    tend = datos.get('tendencia', 'sube'); im, d = base(datos.get('titulo', 'TradeDesk — BTC/USDT'))
+    sube, prog = _velas(im, (40, 110, 900, 600), p, tend, 30, 4 if tend == 'sube' else 9)
+    d = ImageDraw.Draw(im); pct = (0.06 * prog if prog < 0.72 else 0.0432 - 0.05 * (prog - 0.72) / 0.28) if tend == 'sube' else -0.09 * prog; precio = 61200 * (1 + pct)
+    d.text((40, 62), 'BTC/USDT', font=F(30, True), fill=TXT); d.text((235, 64), fmt(precio, 2), font=F(32, True, True), fill=GR if sube else RD)
+    chip(d, (520, 66), ('▲ ' if sube else '▼ ') + f'{abs((precio / 61200 - 1) * 100):.2f}%'.replace('.', ','), GR if sube else RD, 20)
+    rr(d, (920, 110, W - 40, 600), PANEL, 14, LINE); d.text((944, 130), 'TU POSICIÓN', font=F(17, True), fill=DIM)
+    d.text((944, 170), 'COMPRA 0,5 BTC', font=F(22, True), fill=TXT); d.text((944, 214), 'Entrada 61.200', font=F(18, mono=True), fill=DIM)
+    pnl = (precio - 61200) * 0.5; d.text((944, 270), fmt(pnl, 0, '+' if pnl >= 0 else '', ' €'), font=F(44, True), fill=GR if pnl >= 0 else RD)
+    d.text((944, 350), 'Stop loss', font=F(16), fill=DIM); chip(d, (944, 380), 'NINGUNO', RD, 16)
+    d.text((944, 450), 'Convicción', font=F(16), fill=DIM); rr(d, (944, 480, W - 64, 500), (40, 44, 78), 10); rr(d, (944, 480, W - 64, 500), OR, 10)
+    d.text((944, 515), '100 % (sin motivo)', font=F(15, True), fill=OR)
+    return im
+
+def p_cartera(p, datos):
+    im, d = base(datos.get('titulo', 'Cartera — resumen')); tarjeta(d, (40, 64, 560, 330), 'RENDIMIENTO TOTAL')
+    a = ease(p / 0.7); d.text((70, 110), f'-{43.2 * a:.1f} %'.replace('.', ','), font=F(86, True), fill=RD); d.text((72, 225), f'-{12840 * a:,.0f} €'.replace(',', '.'), font=F(34, True), fill=RD)
+    chip(d, (72, 280), 'Stop loss: ninguno', RD, 17)
+    grafica(im, (590, 80, W - 60, 320), [1 - 0.55 * (i / 40) ** 0.8 + 0.04 * math.sin(i * 1.7) for i in range(41)], p / 0.8, RD)
+    d = ImageDraw.Draw(im); tarjeta(d, (40, 350, W - 40, 650), 'POSICIONES')
+    pos = datos.get('posiciones') or [('Acción que me dijo mi primo', -62, RD), ('Memecoin con un perro', -81, RD), ('NFT de mono (2021)', -97, RD), ('Bitcoin', 4, GR), ('"Lo mantengo a largo plazo"', -38, RD)]
+    for i, (n_, v, col) in enumerate(pos):
+        k = tramo(p, 0.15 + i * 0.12, 0.3 + i * 0.12)
+        if k <= 0: continue
+        y = 396 + i * 48; d.text((70, y), n_, font=F(21, True), fill=TXT)
+        d.text((W - 70, y), f'{int(v * k):+d} %', font=F(24, True, True), fill=col, anchor='ra')
+        rr(d, (640, y + 8, 1000, y + 24), (40, 44, 78), 7); w_ = 360 * abs(v) / 100 * k
+        rr(d, (640, y + 8, 640 + max(6, w_), y + 24), col, 7)
+    return im
+
+def p_orden(p, datos):
+    im, d = base(datos.get('titulo', 'TradeDesk — Nueva orden')); tarjeta(d, (300, 64, 980, 650))
+    rr(d, (330, 92, 640, 144), GR, 12); d.text((485, 118), 'COMPRAR', font=F(24, True), fill=(8, 20, 14), anchor='mm')
+    rr(d, (650, 92, 950, 144), (40, 28, 40), 12, RD); d.text((800, 118), 'VENDER', font=F(24, True), fill=RD, anchor='mm')
+    campos = [('Entrada', '61.200,00', TXT), ('Tamaño', '0,50 BTC', TXT), ('Take profit', '64.000,00', GR)]
+    for i, (a, b, c) in enumerate(campos):
+        y = 170 + i * 84; d.text((332, y), a, font=F(19), fill=DIM); rr(d, (332, y + 28, 948, y + 68), (14, 16, 32), 10, LINE); d.text((350, y + 48), b, font=F(25, True, True), fill=c, anchor='lm')
+    y = 170 + 3 * 84; d.text((332, y), 'Stop loss', font=F(19), fill=DIM); lleno = p > 0.45
+    pulso = 3 if (not lleno and int(p * 20) % 2 == 0) else 2
+    rr(d, (332, y + 28, 948, y + 68), (14, 16, 32), 10, GR if lleno else RD, pulso)
+    txt = '60.000,00  (-2 %)' if lleno else '— — —'; n = int(len(txt) * tramo(p, 0.45, 0.65)) if lleno else len(txt)
+    d.text((350, y + 48), txt[:max(1, n)], font=F(25, True, True), fill=GR if lleno else RD, anchor='lm')
+    if lleno and p > 0.7: d.text((930, y + 48), '✔', font=F(28, True), fill=GR, anchor='rm')
+    btn = p > 0.85
+    rr(d, (332, 540, 948, 620), GR if lleno else (60, 90, 70), 16); d.text((640, 580), 'CONFIRMAR COMPRA', font=F(30, True), fill=(8, 20, 14), anchor='mm')
+    if not lleno: rr(d, (1000, 110, 1250, 220), (70, 25, 35), 14, RD); d.text((1125, 140), '⚠ Falta el stop', font=F(20, True), fill=(255, 255, 255), anchor='mm'); d.text((1125, 180), 'Riesgo sin límite', font=F(16), fill=(255, 190, 190), anchor='mm')
+    return im
+
+def p_resultado(p, datos):
+    im, d = base(datos.get('titulo', 'Resultado — operación cerrada')); tarjeta(d, (40, 64, W - 40, 650))
+    rr(d, (80, 96, W - 80, 160), (70, 25, 35) if p < 0.3 else (25, 60, 45), 14, RD if p < 0.3 else GR)
+    d.text((W // 2, 128), '⚠ STOP LOSS EJECUTADO' if p < 0.3 else '✔ STOP LOSS EJECUTADO', font=F(30, True), fill=RD if p < 0.3 else GR, anchor='mm')
+    a = ease((p - 0.15) / 0.5)
+    d.text((100, 200), 'SIN STOP (tu plan)', font=F(22, True), fill=DIM); rr(d, (100, 238, 1180, 296), (40, 44, 78), 12); rr(d, (100, 238, 100 + 1080 * a, 296), RD, 12)
+    d.text((1160, 267), f'-{4000 * a:,.0f} €'.replace(',', '.'), font=F(34, True, True), fill=(255, 255, 255), anchor='rm')
+    b = ease((p - 0.35) / 0.4)
+    d.text((100, 346), 'CON STOP (el de Claude)', font=F(22, True), fill=DIM); rr(d, (100, 384, 1180, 442), (40, 44, 78), 12); rr(d, (100, 384, 100 + max(8, 1080 * 0.01 * b), 442), GR, 12)
+    d.text((1160, 413), f'-{40 * b:,.0f} €'.replace(',', '.'), font=F(34, True, True), fill=GR, anchor='rm')
+    if p > 0.75: rr(d, (180, 500, W - 180, 600), (30, 33, 60), 16, OR, 2); d.text((W // 2, 550), 'Has perdido 3.960 € menos. Felicidades (?)', font=F(30, True), fill=OR, anchor='mm')
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
-ZOOM_AUTO = {'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
+ZOOM_AUTO = {'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
 PANTALLAS = {'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
-             'analitica': p_analitica, 'tareas': p_tareas, 'hoja': p_hoja}
+             'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}
 
 def dibujar(nombre, p=1.0, datos=None):
     return PANTALLAS[nombre](max(0.0, min(1.0, p)), datos or {})

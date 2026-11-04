@@ -1,0 +1,24 @@
+{
+  "titulo": "Trading 30 s — Claude sarcastico y picaro (el trader sin stop loss)",
+  "fps_animacion": 6,
+  "duracion": 30.0,
+  "pantalla_inicial": "vacia",
+  "lineas": [
+    {"inicio": 0.0,  "fin": 2.3,  "quien": "humano", "texto": "Claude, voy a comprar.\nEsto SÍ va a subir.", "plano": "general", "emocion": "feliz", "tono": "seguro", "pantalla": {"tipo": "trading", "datos": {"tendencia": "sube"}, "duracion": 6.5}},
+    {"inicio": 2.3,  "fin": 3.8,  "quien": "claude", "texto": "Ajá. ¿Y en qué te basas?", "plano": "monitor", "claude_estado": "mira_izq"},
+    {"inicio": 3.8,  "fin": 5.0,  "quien": "humano", "texto": "En una sensación.", "plano": "humano", "pose": "hombros", "emocion": "neutral"},
+    {"inicio": 5.0,  "fin": 7.4,  "quien": "claude", "texto": "Una sensación. Qué rigor.\nCasi parece análisis.", "plano": "claude_ojos", "claude_estado": "feliz", "empuje": true},
+    {"inicio": 7.4,  "fin": 9.2,  "quien": "humano", "texto": "Lo vi en un vídeo\nde 8 segundos.", "plano": "dos", "pose": "senalar", "emocion": "neutral"},
+    {"inicio": 9.2,  "fin": 11.8, "quien": "claude", "texto": "Yo vi tu cartera 8 segundos.\nAún me estoy recuperando.", "plano": "pantalla_completa", "pantalla": {"tipo": "cartera", "duracion": 3.2}},
+    {"inicio": 11.8, "fin": 13.0, "quien": "humano", "texto": "No es para tanto.", "plano": "humano", "emocion": "preocupado"},
+    {"inicio": 13.0, "fin": 15.8, "quien": "claude", "texto": "Vas un -43 % con un stop\nloss imaginario. Qué convicción.", "plano": "monitor_lateral", "claude_estado": "feliz"},
+    {"inicio": 15.8, "fin": 17.0, "quien": "humano", "texto": "¿Y qué hago?", "plano": "humano", "pose": "pensar", "emocion": "preocupado", "tono": "dudoso"},
+    {"inicio": 17.0, "fin": 19.8, "quien": "claude", "texto": "Ponle stop. Y no lo muevas\n«solo un poquito».", "plano": "pantalla_completa", "pantalla": {"tipo": "orden", "duracion": 4.0}},
+    {"inicio": 19.8, "fin": 21.0, "quien": "humano", "texto": "Vale... stop puesto.", "plano": "dos", "pose": "mira", "emocion": "feliz"},
+    {"inicio": 21.0, "fin": 23.2, "quien": "claude", "texto": "Mira qué bonito. Casi parece\nque sabes lo que haces.", "plano": "monitor_espalda", "pantalla": {"tipo": "trading", "datos": {"tendencia": "sube"}, "duracion": 3.0}},
+    {"inicio": 23.2, "fin": 24.6, "quien": "humano", "texto": "¡Me ha saltado el stop!", "plano": "dos", "pose": "hombros", "emocion": "preocupado", "tono": "dudoso"},
+    {"inicio": 24.6, "fin": 27.2, "quien": "claude", "texto": "Funcionó. Perdiste 40 €\nen vez de 4.000. Enhorabuena.", "plano": "pantalla_completa", "pantalla": {"tipo": "resultado", "duracion": 2.6}},
+    {"inicio": 27.2, "fin": 28.4, "quien": "humano", "texto": "...Compro otra vez.", "plano": "humano", "emocion": "burlon", "tono": "dudoso"},
+    {"inicio": 28.4, "fin": 30.0, "quien": "claude", "texto": "Yo traigo las palomitas.", "plano": "claude_ojos", "claude_estado": "feliz", "empuje": true}
+  ]
+}
