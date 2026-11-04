@@ -210,6 +210,7 @@ for sx in (-1, 1):
     hl = cube('hl', (ex + 0.011, -0.362, 0.03), (0.011, 0.004, 0.011), M_white, HEAD)
     hl2 = cube('hl2', (ex + 0.011, -0.362, 0.03), (0.0, 0.0, 0.0), M_white, HEAD)
     EYES.append((pu, hl, hl2))
+EYE_BASE = [(pu.location[0], hl.location[0], hl.location[2]) for pu, hl, hl2 in EYES]   # posicion base: se restaura en CADA set_human
 BROWS = [cube('brow', (sx * 0.135, -0.335, 0.115), (0.07, 0.012, 0.012), M_hair, HEAD) for sx in (-1, 1)]
 MOUTH = cube('mouth', (0, -0.33, -0.11), (0.065, 0.012, 0.014), M_dark, HEAD)
 for sx in (-1, 1): cube('blush', (sx * 0.2, -0.31, -0.07), (0.05, 0.008, 0.026), M_blush, HEAD)
@@ -251,6 +252,7 @@ def set_human(pose, expr):
         br.location[2] = E['brow'][0]; br.rotation_euler = (0, R((1 if i == 0 else -1) * E['brow'][1]), 0)
     for pu, hl, hl2 in EYES:
         pu.scale[2] = 0.062 * E['eye']; hl.scale[2] = 0.011 if E['eye'] > 0.45 else 0.002; hl.location[2] = 0.03 * E['eye']
+    for (pu, hl, hl2), (px, hx, hz) in zip(EYES, EYE_BASE): pu.location[0] = px; hl.location[0] = hx; pu.location[1] = -0.345; hl.location[1] = -0.362   # reinicia (antes se acumulaba el desplazamiento de 'mira')
     if pose not in HPOSE: pose_extra(pose)
 
 # ------------------------------------------------------------------ brazos con cinematica inversa (IK de 2 huesos)
@@ -277,7 +279,7 @@ def pose_extra(pose):
         HEAD.location[2] = 1.36; HEAD.rotation_euler = (0, 0, R(7))
     elif pose == 'mira':     # cabeza girada y ojos hacia el monitor (a la derecha de cuadro)
         HEAD.rotation_euler = (R(2), 0, R(18))
-        for pu, hl, hl2 in EYES: pu.location[0] += 0.035; hl.location[0] += 0.035
+        for pu, hl, hl2 in EYES: pu.location[0] += 0.025; hl.location[0] += 0.025; pu.location[1] += 0.012; hl.location[1] += 0.012   # sigue pegado a la cara curva
 
 # ------------------------------------------------------------------ Clawd (pequeno)
 CL = empty('claw', (0, 0, 0)); CL.scale = (0.36, 0.36, 0.36)
