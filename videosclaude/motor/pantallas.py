@@ -414,7 +414,7 @@ def p_checkout(p, datos):
         a = tramo(p, 0.6, 0.72); ov = Image.new('RGBA', im.size, (0, 0, 0, int(150 * a))); im.paste(ov, (0, 0), ov)
         sello = Image.new('RGBA', (760, 220), (0, 0, 0, 0)); sd = ImageDraw.Draw(sello); sd.rounded_rectangle((6, 6, 754, 214), 24, outline=(255, 70, 80, 255), width=10, fill=(40, 8, 14, 235))
         sd.text((380, 80), 'PAGO BLOQUEADO', font=F(64, True), fill=(255, 80, 90), anchor='mm'); sd.text((380, 160), 'por Claude · de nada', font=F(30, True), fill=(255, 200, 200), anchor='mm')
-        sello = sello.rotate(-6, expand=True, resample=Image.BICUBIC); es = 0.5 + 0.5 * a; sello = sello.resize((int(sello.width * es), int(sello.height * es)))
+        sello = sello.rotate(-6, expand=True, resample=Image.BICUBIC); es = 0.45 + 0.3 * a; sello = sello.resize((int(sello.width * es), int(sello.height * es)))
         im.paste(sello, ((W - sello.width) // 2, 320 - sello.height // 2 + 40), sello)
     return im
 
