@@ -4,6 +4,8 @@
 
 El tonto gastó 124 € en anuncios y consiguió 3 ventas. Claude le enseña el embudo, el ROAS (0,75) y qué probar antes de «subir el presupuesto».
 
+**Gancho (primera frase):** «Gasté 124 € en anuncios. ¡Ahora lloverán ventas!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/extra_03_anuncios_que_no_venden.json salidas/extra_03_anuncios_que_no_venden.mp4

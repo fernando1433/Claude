@@ -4,6 +4,8 @@
 
 El tonto ha visto en TikTok «el producto ganador» (una lámpara de cactus). Claude lo analiza con datos: 214 tiendas vendiendo lo mismo, moda pasajera… y le avisa de que la electrónica necesita marcado CE y que el vendedor responde. Veredicto: pruébalo con 50 €, no con 5.000 €.
 
+**Gancho (primera frase):** «¡Tengo el producto ganador! ¡Una lámpara de cactus!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/drop_02_producto_ganador.json salidas/drop_02_producto_ganador.mp4

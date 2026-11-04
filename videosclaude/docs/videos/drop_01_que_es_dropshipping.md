@@ -4,6 +4,8 @@
 
 El tonto cree que el dropshipping es «vender sin tener nada, magia». Claude le explica cómo funciona, le enseña el envío de 18-35 días y, con una calculadora, que de 29,90 € le quedan 3,44 €. Y el ROAS mínimo para no perder.
 
+**Gancho (primera frase):** «¡Voy a vender sin tener nada! ¡Magia!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/drop_01_que_es_dropshipping.json salidas/drop_01_que_es_dropshipping.mp4

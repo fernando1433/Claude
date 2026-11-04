@@ -4,6 +4,8 @@
 
 El trader quiere ser millonario en 7 días con un curso de 997 €. Claude le va desmontando el anuncio (contador falso, testimonios de stock, «garantizado») y, cuando el tonto va a pagar, le bloquea el pago.
 
+**Gancho (primera frase):** «¡Voy a ser millonario! Me apunté a un curso.»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/trading_01_curso_milagro.json salidas/trading_01_curso_milagro.mp4

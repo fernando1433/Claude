@@ -4,6 +4,8 @@
 
 El trader paga 49 €/mes por un canal de señales. Claude le enseña cómo funciona un «pump & dump»: el admin compra antes, anuncia, el precio sube, él vende y tú te quedas con la pérdida. Claude le salva 380 € a tiempo.
 
+**Gancho (primera frase):** «¡Me he metido en un grupo VIP de señales!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/trading_02_senales_vip.json salidas/trading_02_senales_vip.mp4

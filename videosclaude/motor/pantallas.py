@@ -636,10 +636,98 @@ def p_anuncios(p, datos):
         if p > 0.5 + i * 0.1: d.text((884, 392 + i * 58), '✔ ' + t, font=F(17, True), fill=GR)
     return im
 
-# recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
-ZOOM_AUTO = {'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+# ====================================================================================================== DIA A DIA: mensajes, menu, recordatorios, contrasenas, phishing
+def _envolver(d, texto, fuente, ancho):
+    lin, ln = [], ''
+    for w_ in texto.split(' '):
+        if d.textlength((ln + ' ' + w_).strip(), font=fuente) > ancho and ln: lin.append(ln); ln = w_
+        else: ln = (ln + ' ' + w_).strip()
+    lin.append(ln); return lin
+
+def p_mensajes(p, datos):
+    msgs = datos.get('mensajes') or [['yo', 'Claude... ¿tú me quieres?'], ['otro', 'Te respondo a las 3 de la madrugada.'], ['yo', '¿Eso es un sí?'], ['otro', 'Es un «estoy aquí». Es distinto.', 'visto']]
+    im, d = base(datos.get('titulo', 'Mensajes')); rr(d, (300, 54, 980, 652), (16, 20, 34), 22, LINE)
+    rr(d, (300, 54, 980, 124), (26, 32, 54), 22); d.ellipse((322, 68, 372, 118), fill=OR); d.text((347, 93), datos.get('inicial', 'C'), font=F(24, True), fill=(30, 12, 6), anchor='mm')
+    d.text((390, 80), datos.get('contacto', 'Claude'), font=F(22, True), fill=TXT); d.text((390, 106), 'en línea' if datos.get('linea', True) else 'últ. vez hoy 03:12', font=F(14), fill=GR if datos.get('linea', True) else DIM)
+    n = len(msgs); y = 140; vistos = 0
+    for i, m in enumerate(msgs):
+        a = tramo(p, i / (n + 0.6) * 0.9, i / (n + 0.6) * 0.9 + 0.08)
+        if a <= 0: continue
+        yo = m[0] == 'yo'; lins = _envolver(d, m[1], F(21), 400); w_ = max(d.textlength(l, font=F(21)) for l in lins) + 36; h_ = len(lins) * 30 + 22
+        x1 = 960 - 6 if yo else 320 + w_; x0 = x1 - w_ if yo else 320; yy = y + int((1 - a) * 20)
+        rr(d, (x0, yy, x1, yy + h_), (30, 110, 90) if yo else (40, 46, 76), 16)
+        for k, l in enumerate(lins): d.text((x0 + 18, yy + 11 + k * 30), l, font=F(21), fill=(240, 250, 245))
+        if yo: d.text((x1 - 12, yy + h_ - 4), '✔✔', font=F(12, True), fill=(120, 200, 255) if len(m) > 2 or True else DIM, anchor='rb')
+        y += h_ + 14
+        if len(m) > 2 and m[2] == 'visto' and a > 0.5: d.text((x1 if yo else x0, y - 8), 'Visto 14:32', font=F(14), fill=DIM, anchor='ra' if yo else 'la'); y += 22
+    if p < 0.9 and datos.get('escribiendo', True):
+        ult = int(p / 0.9 * (n + 0.6)); 
+        if ult < n and msgs[ult][0] == 'otro': 
+            rr(d, (320, 612 - 52, 420, 612), (40, 46, 76), 16)
+            for k in range(3): d.ellipse((345 + k * 24, 587 + int(4 * math.sin(p * 30 + k)), 357 + k * 24, 599 + int(4 * math.sin(p * 30 + k))), fill=DIM)
+    return im
+
+def p_menu(p, datos):
+    ops = datos.get('opciones') or [['Ensalada', '«muy sano... no»', 'no'], ['Pasta', '«comí ayer»', 'no'], ['Sushi', '«caro»', 'no'], ['Tortilla', '«da pereza»', 'no'], ['Pizza', '«como siempre»', 'si']]
+    im, d = base(datos.get('titulo', '¿Qué cenamos hoy?')); tarjeta(d, (40, 60, 820, 650), 'OPCIONES')
+    n = len(ops); mins = int(datos.get('minutos', 43) * ease(p / 0.9))
+    for i, (nom, mot, est) in enumerate(ops):
+        a = tramo(p, i / (n + 0.5) * 0.85, i / (n + 0.5) * 0.85 + 0.1)
+        if a <= 0: continue
+        y = 112 + i * 100 + int((1 - a) * 20); si = est == 'si'
+        rr(d, (66, y, 794, y + 84), (25, 60, 45) if si else (28, 32, 58), 14, GR if si else LINE, 3 if si else 1)
+        d.text((96, y + 24), nom, font=F(30, True), fill=GR if si else (DIM if a > 0.9 else TXT)); d.text((330, y + 34), mot, font=F(20), fill=TXT if si else RD)
+        if a > 0.8: d.text((766, y + 42), '✔' if si else '✖', font=F(40, True), fill=GR if si else RD, anchor='rm')
+        if not si and a > 0.9: d.line([(96, y + 42), (96 + d.textlength(nom, font=F(30, True)), y + 42)], fill=RD, width=3)
+    tarjeta(d, (850, 60, W - 40, 350), 'TIEMPO ELIGIENDO'); d.text((880, 120), f'{mins}', font=F(110, True), fill=RD if mins > 20 else OR); d.text((880, 250), 'minutos', font=F(24, True), fill=DIM)
+    tarjeta(d, (850, 370, W - 40, 650), 'NEVERA'); d.text((880, 430), 'Una cebolla.', font=F(22), fill=TXT); d.text((880, 470), 'Medio limón.', font=F(22), fill=TXT); d.text((880, 510), 'Salsa picante (2019).', font=F(22), fill=TXT)
+    if p > 0.85: d.text((880, 590), '→ pide a domicilio', font=F(22, True), fill=OR)
+    return im
+
+def p_recordatorios(p, datos):
+    its = datos.get('items') or [['Empezar la dieta', 12], ['Ir al gimnasio', 7], ['Llamar al dentista', 5], ['Aprender inglés', 21]]
+    im, d = base(datos.get('titulo', 'Recordatorios')); tarjeta(d, (100, 60, W - 100, 650), 'HOY'); n = len(its)
+    for i, (t, x) in enumerate(its):
+        a = tramo(p, i / (n + 0.5) * 0.8, i / (n + 0.5) * 0.8 + 0.12)
+        if a <= 0: continue
+        y = 120 + i * 118 + int((1 - a) * 20); rr(d, (130, y, W - 130, y + 98), (28, 32, 58), 14, LINE); rr(d, (156, y + 30, 194, y + 68), (20, 22, 40), 9, DIM, 2)
+        d.text((226, y + 26), t, font=F(32, True), fill=TXT)
+        k = int(x * ease((p - 0.1 * i) / 0.7)); chip(d, (W - 130 - 24 - 250, y + 28), f'Aplazado x{k}', RD if k > 5 else YE, 20)
+    if p > 0.8: d.text((W // 2, 612), 'Mañana. Seguro. (Mañana.)', font=F(24, True), fill=OR, anchor='mm')
+    return im
+
+def p_contrasenas(p, datos):
+    im, d = base(datos.get('titulo', 'Las contraseñas más usadas (NordPass 2023)')); tarjeta(d, (60, 60, 820, 650), 'TOP 3 MUNDIAL')
+    filas = [('1', '123456', 4524867), ('2', 'admin', 4008850), ('3', '12345678', 1371152)]
+    for i, (r_, pw, veces) in enumerate(filas):
+        a = tramo(p, i * 0.15, i * 0.15 + 0.15)
+        if a <= 0: continue
+        y = 120 + i * 130; rr(d, (90, y, 790, y + 112), (28, 32, 58), 14, LINE); d.text((120, y + 30), r_, font=F(44, True), fill=OR); d.text((190, y + 24), pw, font=F(40, True, True), fill=TXT)
+        d.text((190, y + 78), f'usada {fmt(veces * a)} veces', font=F(17), fill=DIM); chip(d, (560, y + 36), '< 1 segundo', RD, 22)
+    tarjeta(d, (850, 60, W - 40, 650), 'LA TUYA'); d.text((880, 120), datos.get('tuya', '123456'), font=F(40, True, True), fill=TXT)
+    if p > 0.45: chip(d, (880, 200), 'MUY DÉBIL', RD, 24)
+    for i, t in enumerate(('Frase larga y absurda', 'Distinta en cada web', 'Gestor de contraseñas', 'Verificación en 2 pasos')):
+        if p > 0.55 + i * 0.1: d.text((880, 290 + i * 60), '✔ ' + t, font=F(20, True), fill=GR)
+    return im
+
+def p_phishing(p, datos):
+    im, d = base(datos.get('titulo', 'Mensajes — nuevo SMS')); rr(d, (60, 60, 700, 650), (16, 20, 34), 22, LINE)
+    d.text((90, 90), 'BancoSeguro', font=F(26, True), fill=TXT); d.text((90, 124), 'info@banco-seguro-verifica.xyz', font=F(16, mono=True), fill=DIM)
+    rr(d, (90, 170, 670, 460), (40, 46, 76), 18)
+    for k, l in enumerate(('URGENTE: tu cuenta será', 'BLOQUEADA en 24 horas.', 'Verifica tus claves aquí:', 'banco-seguro-verifica.xyz/login')): d.text((116, 196 + k * 56), l, font=F(24, True, k == 3), fill=(120, 200, 255) if k == 3 else TXT)
+    rr(d, (90, 490, 670, 560), (200, 60, 50), 14); d.text((380, 525), 'VERIFICAR AHORA', font=F(28, True), fill=(255, 255, 255), anchor='mm')
+    tarjeta(d, (730, 60, W - 40, 650), 'ANÁLISIS DE CLAUDE')
+    fl = ['Remitente raro (dominio falso)', 'Urgencia: «24 horas»', 'Enlace que no es el del banco', 'Te pide las claves']
+    for i, t in enumerate(fl):
+        if p > 0.15 + i * 0.15: rr(d, (756, 112 + i * 76, W - 66, 112 + i * 76 + 62), (70, 25, 35), 10, RD); d.text((776, 143 + i * 76), '✖ ' + t, font=F(19, True), fill=(255, 220, 220), anchor='lm')
+    if p > 0.8: rr(d, (756, 430, W - 66, 640), (25, 60, 45), 12, GR); d.text((W - 66 - 235, 500), 'Los bancos no piden claves\npor SMS ni correo.', font=F(20, True), fill=GR, anchor='mm'); d.text((W - 66 - 235, 580), 'Bórralo. Si dudas, llama\nal número de tu tarjeta.', font=F(17), fill=TXT, anchor='mm')
+    return im
+
+# recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
+ZOOM_AUTO = {'mensajes': (300, 54, 980, 652), 'phishing': (60, 60, 1240, 650), 'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
+
+PANTALLAS = {'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}

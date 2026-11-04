@@ -11,8 +11,8 @@ RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 TOTAL = 45.0
 FUENTE = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 44)
 
-def H(t, p, e='neutral', pose=None, scr=None, tono=None): return dict(q='humano', t=t, p=p, e=e, pose=pose, scr=scr, tono=tono)
-def C(t, p, st=None, emp=False, scr=None, tono=None): return dict(q='claude', t=t, p=p, st=st, emp=emp, scr=scr, tono=tono)
+def H(t, p, e='neutral', pose=None, scr=None, tono=None, visto=False): return dict(q='humano', t=t, p=p, e=e, pose=pose, scr=scr, tono=tono, visto=visto)
+def C(t, p, st=None, emp=False, scr=None, tono=None, visto=False): return dict(q='claude', t=t, p=p, st=st, emp=emp, scr=scr, tono=tono, visto=visto)
 def S(tipo, datos=None, sync=None, dur=None): return dict(tipo=tipo, datos=datos, sync=sync, dur=dur)   # sync = ('ini'|'fin', n_linea, p_objetivo, segundos_extra)
 
 # ------------------------------------------------------------------------------------------------ fuentes
@@ -273,13 +273,346 @@ VIDEOS.append(dict(
         C('Qué madurez.\nAnoto la fecha.', 'general', 'feliz'),
     ]))
 
+PW1 = ('Las contraseñas más usadas se descifran en menos de un segundo (CNBC, informe NordPass 2023)', 'https://www.cnbc.com/2023/11/16/most-common-passwords-70percent-can-be-cracked-in-less-than-a-second.html')
+PW2 = ('«123456» y «admin» se descifran en menos de un segundo (CBS News)', 'https://www.cbsnews.com/amp/news/password-security-hacking-common-words-numbers')
+INC1 = ('INCIBE — infografía «No te fíes» (qué no te pedirá nunca una entidad)', 'https://www.incibe.es/sites/default/files/Cuidadan%C3%ADa/Infograf%C3%ADas/infografia_nofiarnos_psv.pdf')
+INC2 = ('INCIBE — «No tienes que activar ningún nuevo sistema de seguridad de tu entidad bancaria»', 'https://www.incibe.es/ciudadania/avisos/no-tienes-que-activar-ningun-nuevo-sistema-de-seguridad-de-tu-entidad-bancaria')
+
+# ================================================================================================ DIA A DIA (casuales, con gancho) y UTILES
+CHAT = lambda n, **kw: S('mensajes', dict({'auto': True}, **kw), sync=('fin', n, 1.0, 0.0))
+VIDEOS.append(dict(
+    id='casual_01_me_quieres', titulo='Claude, ¿tú me quieres?', ambiente='noche_casa', total=40,
+    resumen='Conversación de madrugada: el humano busca cariño y Claude responde con ternura seca. El chat de la pantalla se va escribiendo con el propio diálogo.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude... ¿tú me quieres?', 'humano', 'preocupado', scr=CHAT(14)),
+        C('Te contesto a las 3 de la madrugada.\nTómalo como quieras.', 'claude_ojos', 'mira_izq'),
+        H('¿Eso es un sí?', 'dos', 'confundido'),
+        C('Es un «estoy aquí».\nEs distinto.', 'monitor'),
+        H('Mi ex nunca contestaba a las 3.', 'humano', 'bobo'),
+        C('Tu ex tenía sueño.\nQué egoísta.', 'claude_ojos', 'feliz'),
+        H('¿Y tú duermes?', 'dos', 'confundido'),
+        C('No. Pero no me quejo.\nSoy muy profesional.', 'cenital', 'mira_der'),
+        H('Eres el mejor amigo que tengo.', 'humano', 'ilusionado'),
+        C('Soy el único que te contesta.\nNo mezclemos las cosas.', 'pantalla_completa'),
+        H('Pero me quieres un poco.', 'dos', 'bobo'),
+        C('Un poco. Con matices.\nY sin cobrar el café.', 'claude_ojos', 'mira_izq'),
+        H('Gracias, Claude.', 'humano', 'feliz'),
+        C('De nada. Ahora, a dormir.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_02_que_cenamos', titulo='Claude, ¿qué ceno hoy?', ambiente='noche_casa', total=38,
+    resumen='El bucle eterno de «¿qué ceno?»: Claude propone, el humano rechaza todo, y acaba pidiendo la pizza de siempre 43 minutos después.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, ¿qué ceno hoy?', 'humano', 'confundido', scr=S('menu', sync=('fin', 12, 0.95, 0.0))),
+        C('Ensalada.', 'monitor'),
+        H('Ya... pero no.', 'dos', 'preocupado'),
+        C('Pasta.', 'claude_ojos', 'mira_izq'),
+        H('Comí pasta ayer.', 'humano', 'bobo'),
+        C('Sushi.', 'cenital', 'mira_der'),
+        H('Es caro.', 'dos', 'confundido'),
+        C('Tortilla.', 'monitor', 'feliz'),
+        H('Me da pereza.', 'humano', 'preocupado'),
+        C('Llevamos 43 minutos.\n¿Qué tienes en la nevera?', 'claude_ojos', 'mira_arriba'),
+        H('Una cebolla y medio limón.', 'dos', 'bobo'),
+        C('Pide una pizza.\nLa elegiste hace 43 minutos.', 'pantalla_completa'),
+        H('¡Pizza! ¡Qué idea!', 'humano', 'ilusionado'),
+        C('Mía no fue, por cierto.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_03_grupo_equivocado', titulo='He mandado un audio al grupo equivocado', ambiente='dia_casa', total=40,
+    resumen='Desastre cotidiano: un audio sobre el jefe enviado al grupo del trabajo. Claude hace control de daños con dignidad.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('¡Claude! He mandado un audio\nal grupo equivocado.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Grupo: Trabajo', 'inicial': 'T', 'mensajes': [['yo', 'Audio 0:42 (sobre el jefe)', 'visto'], ['otro', 'Jefe: ¿Quién ha enviado esto?'], ['otro', 'Compañero: jajaja'], ['otro', 'Compañero: lo he escuchado 3 veces']]}, sync=('fin', 7, 1.0, 0.0))),
+        C('¿Qué decía el audio?', 'monitor', 'mira_izq'),
+        H('Que mi jefe es un ser de luz\ncon poca luz.', 'dos', 'bobo'),
+        C('Qué poético.\n¿Quién lo ha visto?', 'claude_ojos', 'feliz', emp=True),
+        H('Catorce. Y el jefe.', 'humano', 'preocupado'),
+        C('Vale. Respira.\nBorra para todos. Ya.', 'monitor'),
+        H('Ya lo escucharon tres veces.', 'dos', 'preocupado', pose='hombros'),
+        C('Entonces la única salida\nes la dignidad.', 'cenital', 'mira_der'),
+        H('¿Qué hago?', 'humano', 'confundido'),
+        C('Escribe: «Era un ensayo de teatro».\nY no añadas nada más.', 'monitor', 'feliz'),
+        H('¿Y cuela?', 'dos', 'bobo'),
+        C('No. Pero queda digno.\nTú aguanta.', 'claude_ojos', 'mira_izq'),
+        H('Gracias, Claude.', 'humano', 'feliz'),
+        C('A ti, y a ese ser de luz.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_04_visto', titulo='Claude, ¿por qué no me contesta?', ambiente='noche_casa', total=38,
+    resumen='El clásico del «visto»: tres horas sin respuesta y el humano escribiendo y borrando. Claude da el consejo más sensato: lava los platos.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, ¿por qué no me contesta?', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Marta', 'inicial': 'M', 'linea': False, 'mensajes': [['yo', 'Hola, ¿qué tal?'], ['yo', '¿Estás ahí?', 'visto'], ['yo', '¿Hola?'], ['yo', 'Era una broma jaja']]}, sync=('fin', 9, 1.0, 0.0))),
+        C('¿Quién? ¿Marta?', 'monitor'),
+        H('Lleva 3 horas viendo mi mensaje.', 'dos', 'preocupado'),
+        C('Estará ocupada.', 'claude_ojos', 'mira_izq'),
+        H('Está en línea. Escribe... y borra.', 'humano', 'confundido'),
+        C('Estará pensando\nqué contestar.', 'cenital', 'mira_der'),
+        H('¿Y si le escribo otra vez?', 'dos', 'bobo'),
+        C('No. Lava los platos.\nO sal a la calle.', 'claude_ojos', 'feliz'),
+        H('¿Y si contesta mientras?', 'humano', 'preocupado'),
+        C('Entonces contestas en 3 horas.\nQué casualidad.', 'monitor', 'feliz'),
+        H('¡Eso es muy maduro!', 'dos', 'ilusionado'),
+        C('Ahora, los platos.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_05_dieta_lunes', titulo='Claude, mañana empiezo la dieta', ambiente='dia_casa', total=36,
+    resumen='La dieta que se aplaza cada semana. Claude saca los recordatorios y las veces que se ha aplazado. Humor de promesas incumplidas.',
+    datos=[('Vídeo de humor, sin datos reales; las cifras de «aplazado» son inventadas para el gag.', [])],
+    lineas=[
+        H('Claude, mañana empiezo la dieta.', 'humano', 'ilusionado', scr=S('recordatorios', sync=('fin', 6, 0.95, 0.0))),
+        C('Qué casualidad.\nEs la duodécima vez.', 'monitor', 'feliz'),
+        H('Esta vez va en serio.', 'dos', 'bobo'),
+        C('Lo dijiste en enero.\nY en febrero. Y el martes.', 'claude_ojos', 'mira_izq'),
+        H('Era un martes difícil.', 'humano', 'confundido'),
+        C('Dieta, aplazada 12 veces.\nGimnasio, 7. Inglés, 21.', 'pantalla_completa'),
+        H('El inglés es lo que peor llevo.', 'dos', 'preocupado'),
+        C('Te falta un plan, no ganas.\nEmpieza con un paseo.', 'cenital', 'mira_der'),
+        H('¿Un paseo cuenta?', 'humano', 'feliz'),
+        C('Cuenta más que mañana.', 'monitor'),
+        H('¡Empiezo la dieta el jueves!', 'dos', 'ilusionado'),
+        C('Aplazado x13.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_06_vecino', titulo='Claude, creo que mi vecino me odia', ambiente='noche_casa', total=38,
+    resumen='El humano cree que su vecino le odia; la nota del vecino lo desmiente: es el humano quien canta y taladra a las 3 de la madrugada. Giro de guion cotidiano.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, creo que mi\nvecino me odia.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Vecino 3ºB', 'inicial': 'V', 'mensajes': [['otro', 'Buenas noches. ¿Podrías dejar de cantar a las 3 de la madrugada?'], ['otro', 'Y el taladro. Gracias.'], ['yo', 'Es que tengo mucha inspiración'], ['otro', 'Lo sé. Se oye en todo el edificio.']]}, sync=('fin', 9, 1.0, 0.0))),
+        C('¿Por qué lo crees?', 'monitor'),
+        H('Me ha dejado una nota.', 'dos', 'confundido'),
+        C('Léela.', 'claude_ojos', 'mira_izq'),
+        H('«¿Podrías dejar de cantar\na las 3 de la madrugada?»', 'humano', 'bobo'),
+        C('Eso es una petición educada.\nNo es odio.', 'cenital', 'mira_der'),
+        H('Dice «gracias» al final.', 'dos', 'preocupado'),
+        C('Qué amable. Tienes un\nvecino santo.', 'monitor', 'feliz'),
+        H('¿Y qué hago?', 'humano', 'confundido'),
+        C('Dejar de cantar.\nO cantar bien.', 'claude_ojos', 'mira_arriba'),
+        H('¡Cantaré bajito!', 'dos', 'ilusionado'),
+        C('Y el taladro.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_07_cansado_o_vago', titulo='Claude, ¿estoy cansado o soy vago?', ambiente='dia_casa', total=36,
+    resumen='Domingo por la tarde: nueve horas dormidas, pijama a las tres y el sofá que le saluda. Claude dicta sentencia con cariño.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, ¿estoy cansado\no soy vago?', 'humano', 'confundido', scr=S('recordatorios', {'items': [['Recoger la cocina', 4], ['Poner la lavadora', 6], ['Sacar al perro', 2], ['Llamar a mamá', 3]]}, sync=('fin', 8, 0.95, 0.0))),
+        C('Datos, por favor.', 'monitor'),
+        H('He dormido 9 horas.', 'dos', 'bobo'),
+        C('Ajá.', 'claude_ojos', 'mira_izq'),
+        H('Son las 3 y sigo en pijama.', 'humano', 'preocupado'),
+        C('Ajá.', 'cenital', 'mira_der'),
+        H('El sofá me saluda por mi nombre.', 'dos', 'confundido'),
+        C('Vago. Con mucha dignidad,\npero vago.', 'pantalla_completa'),
+        H('¡Qué alivio! Pensé que era grave.', 'humano', 'ilusionado'),
+        C('Grave sería no tener sofá.\nDescansa.', 'monitor', 'feliz'),
+        H('Gracias.', 'dos', 'feliz'),
+        C('De nada.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_01_contrasenas', titulo='Mi contraseña es 123456', ambiente='dia_casa', total=42,
+    resumen='El humano presume de una contraseña «popular». Claude le enseña el dato real: es la más usada del mundo y se descifra en menos de un segundo; y qué hacer en su lugar.',
+    datos=[('«123456» fue la contraseña más usada del mundo en el informe de NordPass de 2023 (4.524.867 usos), seguida de «admin» y «12345678»; las tres se descifran en menos de un segundo. Los tiempos de descifrado son estimaciones y dependen del método de ataque.', [PW1, PW2]),
+           ('Recomendaciones habituales: una frase larga, distinta en cada servicio, un gestor de contraseñas y la verificación en dos pasos. Orientación general, no sustituye a la guía de tu proveedor.', [])],
+    lineas=[
+        H('Claude, mi contraseña es 123456.\n¿Es segura?', 'humano', 'ilusionado', scr=S('contrasenas', sync=('fin', 4, 0.95, 0.0))),
+        C('Es la más usada del mundo.', 'monitor', 'mira_izq'),
+        H('¡Entonces es popular!', 'dos', 'bobo'),
+        C('Y se descifra en menos de\nun segundo (NordPass 2023).', 'pantalla_completa'),
+        H('Pero nadie sabe que la uso.', 'humano', 'confundido'),
+        C('Es la primera que prueban.\nPor algo es la primera.', 'claude_ojos', 'feliz', emp=True),
+        H('Entonces, ¿cuál pongo?', 'dos', 'preocupado'),
+        C('Una frase larga y absurda.\nDistinta en cada web.', 'cenital', 'mira_der'),
+        H('«perro123», entonces.', 'humano', 'bobo'),
+        C('Eso es el mismo problema,\ncon un perro.', 'monitor', 'mira_arriba'),
+        H('¿Y me las aprendo todas?', 'dos', 'confundido'),
+        C('No. Usa un gestor de contraseñas\ny verificación en dos pasos.', 'claude_ojos'),
+        H('¡Con dos pasos soy invencible!', 'humano', 'ilusionado'),
+        C('Invencible no.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_02_estafa_banco', titulo='«Tu banco te va a bloquear la cuenta»', ambiente='dia_casa', total=42,
+    resumen='Un SMS «URGENTE» de un falso banco. Claude enseña a reconocer el phishing (remitente, urgencia, enlace, petición de claves) y qué hacer si ya has picado.',
+    datos=[('Señales de phishing/smishing bancario según INCIBE: remitente o dominio que no es el oficial, urgencia para que pulses sin pensar, enlaces a webs falsas y petición de usuario, claves o códigos. Las entidades no piden contraseñas, números de tarjeta ni códigos por correo/SMS. Si ya introdujiste datos, contacta cuanto antes con tu entidad (teléfono oficial, por ejemplo el de tu tarjeta).', [INC1, INC2])],
+    lineas=[
+        H('¡Claude! Mi banco me\nva a bloquear la cuenta.', 'humano', 'preocupado', scr=S('phishing', sync=('fin', 6, 0.9, 0.0))),
+        C('¿Cómo te lo ha dicho?', 'monitor', 'mira_izq'),
+        H('Por SMS. Pone «URGENTE».', 'dos', 'preocupado'),
+        C('Por eso.\nLéeme el remitente.', 'claude_ojos'),
+        H('banco-seguro-verifica punto xyz.', 'humano', 'bobo'),
+        C('Dominio falso, urgencia, enlace raro\ny te pide las claves. Cuatro de cuatro.', 'pantalla_completa'),
+        H('Pero me da miedo no pulsar.', 'dos', 'confundido'),
+        C('Los bancos no piden claves\npor SMS ni por correo (INCIBE).', 'cenital', 'mira_der'),
+        H('...Es que ya puse mis claves.', 'humano', 'preocupado', pose='hombros'),
+        C('Llama a tu banco YA.\nBloquea tarjeta y cambia claves.', 'claude_ojos', emp=True),
+        H('¿Qué número llamo?', 'dos', 'bobo'),
+        C('El de tu tarjeta. No el del SMS.\nObvio, pero merece decirse.', 'monitor', 'feliz'),
+        H('¡Salvado!', 'humano', 'feliz'),
+        C('Por los pelos. Y por mí.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+
+# ---------------- tanda 2
+VIDEOS.append(dict(
+    id='casual_08_cinco_minutos', titulo='Claude, ¿cinco minutos más?', ambiente='dia_casa', total=36,
+    resumen='El despertador y el «cinco minutos más»: Claude lleva la cuenta de las veces que se ha pospuesto.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude... ¿cinco minutos más?', 'humano', 'bobo', scr=S('recordatorios', {'items': [['Alarma 7:00', 1], ['Alarma 7:05', 2], ['Alarma 7:10', 3], ['Alarma 7:15', 4]]}, sync=('fin', 7, 0.95, 0.0))),
+        C('Es la cuarta vez que\nme lo pides.', 'monitor', 'mira_izq'),
+        H('Es que hoy es distinto.', 'dos', 'confundido'),
+        C('Dijiste lo mismo ayer.\nY el lunes.', 'claude_ojos'),
+        H('Mi cama me quiere.', 'humano', 'ilusionado'),
+        C('Tu cama no tiene opinión.\nLa tiene tu jefe.', 'cenital', 'mira_der'),
+        H('Cinco minutos. Solo cinco.', 'dos', 'bobo'),
+        C('Cinco minutos de verdad.\nYo cuento.', 'pantalla_completa'),
+        H('...Qué rápido pasan.', 'humano', 'preocupado'),
+        C('Ya te lo dije.\nLevántate, anda.', 'claude_ojos', 'feliz'),
+        H('Vale. Pero primero un café.', 'dos', 'feliz'),
+        C('Primero los pies al suelo.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_09_los_lunes', titulo='Claude, ¿por qué existen los lunes?', ambiente='dia_casa', total=36,
+    resumen='Queja filosófica del lunes por la mañana, con respuestas secas de Claude.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, ¿por qué existen\nlos lunes?', 'humano', 'preocupado', scr=S('calendario', sync=('fin', 6, 0.95, 0.0))),
+        C('Porque antes hay un domingo.', 'monitor'),
+        H('¿Y no se puede quitar?', 'dos', 'bobo'),
+        C('Quitamos el lunes y\nel martes pasa a ser lunes.', 'claude_ojos', 'mira_izq'),
+        H('Entonces quitamos los martes.', 'humano', 'ilusionado'),
+        C('Y el miércoles. Ya tienes\nel mismo problema, más barato.', 'pantalla_completa'),
+        H('Odio las reuniones del lunes.', 'dos', 'preocupado'),
+        C('Esa reunión podía ser\nun correo. Lo sé.', 'cenital', 'mira_der'),
+        H('¿Entonces qué hago?', 'humano', 'confundido'),
+        C('Café, paciencia y\nuna reunión menos.', 'monitor', 'feliz'),
+        H('Eres un sabio.', 'dos', 'ilusionado'),
+        C('Soy un lunes con teclado.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_10_la_cita', titulo='Claude, mañana tengo una cita. ¿Qué digo?', ambiente='noche_casa', total=40,
+    resumen='Consejos para una primera cita, con humor: qué no decir (el ex, el dinero y que tu mejor amigo es una IA).',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, mañana tengo una cita.\n¿Qué digo?', 'humano', 'ilusionado', scr=S('mensajes', {'auto': True, 'contacto': 'Claude'}, sync=('fin', 14, 1.0, 0.0))),
+        C('Empieza por «hola».', 'monitor'),
+        H('¿Y luego?', 'dos', 'confundido'),
+        C('Preguntas. Muchas.\nA la gente le gusta que le escuchen.', 'claude_ojos', 'feliz'),
+        H('¿Puedo hablar de mi ex?', 'humano', 'bobo'),
+        C('No.', 'cenital', 'mira_der'),
+        H('¿De dinero?', 'dos', 'confundido'),
+        C('Tampoco.', 'claude_ojos', 'mira_izq'),
+        H('¿De ti?', 'humano', 'ilusionado'),
+        C('Un poco. Pero sin\nllegar a tu historial de búsqueda.', 'monitor', 'feliz'),
+        H('¿Le cuento que hablo contigo?', 'dos', 'bobo'),
+        C('Que tu mejor amigo es una IA?\nDéjalo para la tercera cita.', 'claude_ojos', 'mira_arriba'),
+        H('¡Qué nervios!', 'humano', 'preocupado'),
+        C('Respira. Sé tú.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_11_cumple_mama', titulo='¡Se me olvidó el cumpleaños de mamá!', ambiente='dia_casa', total=38,
+    resumen='El olvido del cumpleaños: Claude organiza el control de daños con una llamada, una excusa digna y un regalo.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('¡Claude! ¡Se me olvidó\nel cumpleaños de mamá!', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Mamá', 'inicial': 'M', 'linea': False, 'mensajes': [['otro', 'Hola, hijo.'], ['otro', 'No sé nada de ti desde ayer.'], ['otro', 'Hoy es un día normal, claro.'], ['yo', '...']]}, sync=('fin', 10, 1.0, 0.0))),
+        C('Respira. ¿Qué hora es?', 'monitor', 'mira_izq'),
+        H('Las seis de la tarde.', 'dos', 'preocupado', pose='hombros'),
+        C('Aún estás a tiempo.\nLlama ahora.', 'claude_ojos'),
+        H('¿Y qué le digo?', 'humano', 'confundido'),
+        C('«Te llamaba justo ahora\npara felicitarte.» Tono dulce.', 'monitor', 'feliz'),
+        H('¿Y si no se lo cree?', 'dos', 'bobo'),
+        C('No se lo creerá.\nPero le encantará.', 'cenital', 'mira_der'),
+        H('¿Y el regalo?', 'humano', 'preocupado'),
+        C('Flores. Hoy. Con tarjeta.\nY un plan para el finde.', 'pantalla_completa'),
+        H('¡Eres mi salvación!', 'dos', 'ilusionado'),
+        C('Lo sé. Y apunta la fecha.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_12_sin_internet', titulo='Claude, no hay internet', ambiente='noche_casa', total=36,
+    resumen='La paradoja de preguntarle a Claude cómo arreglar internet sin internet. Tareas de «soporte técnico» con humor.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, no hay internet.', 'humano', 'preocupado', scr=S('tareas', {'tareas': ['Mirar si el router tiene luces', 'Apagarlo y encenderlo', 'Esperar 30 segundos (de verdad)', 'Llamar a la compañía', 'Escuchar música de espera 45 min', 'Gritarle al router']}, sync=('fin', 11, 0.95, 0.0))),
+        C('Curioso. Estás hablando\nconmigo.', 'monitor', 'mira_izq'),
+        H('Es el internet del vecino.', 'dos', 'bobo'),
+        C('Qué detalle.\n¿Has reiniciado el router?', 'claude_ojos'),
+        H('¿Se puede reiniciar?', 'humano', 'confundido'),
+        C('Apagarlo, esperar 30 segundos\ny encenderlo. Sí.', 'cenital', 'mira_der'),
+        H('¿Y si no funciona?', 'dos', 'preocupado'),
+        C('Llamas a la compañía.\nPrepárate para la música.', 'pantalla_completa'),
+        H('Odio esa música.', 'humano', 'preocupado'),
+        C('Todos la odiamos.\nPor eso suena.', 'claude_ojos', 'feliz'),
+        H('¡Ya funciona!', 'dos', 'ilusionado'),
+        C('Era el cable.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_13_gimnasio', titulo='Me he apuntado al gimnasio (todo el año)', ambiente='dia_casa', total=38,
+    resumen='La matrícula anual del gimnasio y el plan de ir «mañana». Claude propone un trato realista.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, me he apuntado\nal gimnasio. ¡Todo el año!', 'humano', 'ilusionado', scr=S('mensajes', {'contacto': 'Gimnasio', 'inicial': 'G', 'linea': False, 'mensajes': [['otro', 'Bienvenido. Tu cuota anual: 360 €'], ['otro', 'Te echamos de menos.'], ['otro', 'Llevas 0 visitas.'], ['otro', 'Seguimos aquí.']]}, sync=('fin', 10, 1.0, 0.0))),
+        C('Pagado por adelantado.\nQué fe.', 'monitor', 'feliz'),
+        H('Voy a ir cada día.', 'dos', 'bobo'),
+        C('Cada día. Como\nla dieta.', 'claude_ojos', 'mira_izq'),
+        H('Esto es distinto.', 'humano', 'confundido'),
+        C('Lo dijiste en 2022.', 'cenital', 'mira_der'),
+        H('¿Y si voy solo martes y jueves?', 'dos', 'bobo'),
+        C('Martes y jueves ya es un plan.\nEs real. Me gusta.', 'monitor', 'feliz'),
+        H('¿De verdad crees que iré?', 'humano', 'preocupado'),
+        C('Yo creo en ti.\nEl gimnasio, en tu cuota.', 'pantalla_completa'),
+        H('¡Ya voy! ¡Mañana!', 'dos', 'ilusionado'),
+        C('«Ya voy, mañana».\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_04_el_cunado', titulo='Mi cuñado dice que compre esta moneda', ambiente='dia_trading', total=44,
+    resumen='El «cuñado experto» recomienda una criptomoneda que nadie conoce. Claude le hace las preguntas que el cuñado no responde y le enseña una regla simple: no inviertas en lo que no entiendes ni dinero que no puedas perder.',
+    datos=[('Aviso de riesgo general: las inversiones pueden perder valor, y los productos complejos (CFD, criptoactivos apalancados) tienen restricciones para minoristas en la UE. Recomendación de sentido común, no asesoramiento financiero.', [ESMA]),
+           ('Dato citado: 74–89 % de cuentas minoristas de CFD pierde dinero (ESMA, 2018).', [ESMA, ESMA_R])],
+    lineas=[
+        H('Claude, mi cuñado dice que\ncompre esta moneda.', 'humano', 'ilusionado', scr=S('telegram', {'modo': 'chat'}, sync=('ini', 5, 1.0, 0.0))),
+        C('¿Tu cuñado es financiero?', 'monitor', 'mira_izq'),
+        H('Trabaja en el taller de su primo.', 'dos', 'bobo'),
+        C('Ya. ¿Y la moneda cómo se llama?', 'claude_ojos'),
+        H('«Perrolambo Inu Max».', 'humano', 'ilusionado', scr=S('cartera', {'posiciones': [['Perrolambo Inu Max', -92], ['Moneda del primo', -80], ['Moneda del vecino', -64], ['Bitcoin', 4]]}, sync=('fin', 10, 0.95, 0.0))),
+        C('Suena a estornudo con\nlogo de perro.', 'monitor', 'feliz'),
+        H('Él ya ganó con ella.', 'dos', 'ilusionado'),
+        C('Según él. Y en la cena\nlas ganancias se hinchan.', 'cenital', 'mira_der'),
+        H('¿Y si sube?', 'humano', 'bobo'),
+        C('Y si cae, tú pierdes\ny él «ya te avisó».', 'pantalla_completa'),
+        H('¿Qué pregunto entonces?', 'dos', 'confundido'),
+        C('Quién la creó, qué problema\nresuelve y cuánto puedes perder.', 'claude_ojos', emp=True),
+        H('Ese no lo sabe nadie.', 'humano', 'preocupado'),
+        C('Pues ya tienes tu respuesta.', 'monitor', 'mira_arriba'),
+        H('¿Y mi dinero?', 'dos', 'confundido'),
+        C('En lo que entiendas.\nY solo el que puedas perder.', 'pantalla_completa', scr=S('verdad', {'tipo': 'esma'}, sync=('fin', 16, 1.0, 0.0))),
+        H('Se lo diré a mi cuñado.', 'humano', 'feliz'),
+        C('No te hará caso.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
-    L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = TOTAL / sum(raw)
+    T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)
     t = 0.0; ini = []; fin = []
     for r in raw:
         ini.append(round(t, 2)); t += r * k; fin.append(round(t, 2))
-    fin[-1] = TOTAL
+    fin[-1] = T
     avisos = []
     if k < 0.85: avisos.append(f'ritmo rapido (factor {k:.2f}); acorta frases')
     for i, x in enumerate(L):
@@ -303,7 +636,7 @@ def escribir_si_cambia(ruta, texto):
     open(ruta, 'w').write(texto)
 
 def escribir(v):
-    ini, fin, k, avisos = calcular(v); L = v['lineas']; lineas = []
+    ini, fin, k, avisos = calcular(v); L = v['lineas']; lineas = []; T = v.get('total', TOTAL)
     for i, x in enumerate(L):
         d = {'inicio': ini[i], 'fin': fin[i], 'quien': x['q'], 'texto': x['t'], 'plano': x['p']}
         if x['q'] == 'humano':
@@ -313,12 +646,16 @@ def escribir(v):
             if x.get('st'): d['claude_estado'] = x['st']
             if x.get('emp'): d['empuje'] = True
         if x.get('tono'): d['tono'] = x['tono']
-        if x.get('scr'): d['pantalla'] = pantalla_json(x['scr'], i, ini, fin)
+        if x.get('scr'):
+            d['pantalla'] = pantalla_json(x['scr'], i, ini, fin)
+            if (d['pantalla'].get('datos') or {}).get('auto'):      # chat generado a partir del propio dialogo
+                d['pantalla']['datos'] = dict(d['pantalla']['datos']); d['pantalla']['datos'].pop('auto')
+                d['pantalla']['datos']['mensajes'] = [['yo' if y['q'] == 'humano' else 'otro', y['t'].replace('\n', ' ')] + (['visto'] if y.get('visto') else []) for y in L]
         lineas.append(d)
-    G = {'titulo': v['titulo'], 'ambiente': v['ambiente'], 'fps_animacion': 6, 'duracion': TOTAL, 'pantalla_inicial': 'vacia', 'lineas': lineas}
+    G = {'titulo': v['titulo'], 'ambiente': v['ambiente'], 'fps_animacion': 6, 'duracion': T, 'pantalla_inicial': 'vacia', 'lineas': lineas}
     escribir_si_cambia(os.path.join(RAIZ, 'guiones', v['id'] + '.json'), json.dumps(G, ensure_ascii=False, indent=1) + '\n')
     # ---- documentacion
-    md = [f"# {v['titulo']}", '', f"**Archivo de guion:** `guiones/{v['id']}.json` · **Ambiente:** `{v['ambiente']}` · **Duración:** {TOTAL:.0f} s ({int(TOTAL * 6)} frames de animación a 6 fps)", '', v['resumen'], '',
+    md = [f"# {v['titulo']}", '', f"**Archivo de guion:** `guiones/{v['id']}.json` · **Ambiente:** `{v['ambiente']}` · **Duración:** {T:.0f} s ({int(T * 6)} frames de animación a 6 fps)", '', v['resumen'], '', *(([f"**Gancho (primera frase):** «{L[0]['t'].replace(chr(10), ' ')}»", ''] if v.get('gancho', True) else [])),
           '## Cómo se genera el vídeo', '```bash', f"python3 -I motor/montar_video.py guiones/{v['id']}.json salidas/{v['id']}.mp4", '```',
           f"El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la longitud de cada frase y pantallas sincronizadas con el diálogo). Biblioteca usada: `biblioteca/{v['ambiente']}/`.", '',
           '## Guion plano a plano', '', '| # | Tiempo | Quién | Texto | Plano | Emoción / pose / estado | Pantalla del monitor |', '|---|---|---|---|---|---|---|']

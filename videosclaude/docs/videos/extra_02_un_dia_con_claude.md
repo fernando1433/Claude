@@ -4,6 +4,8 @@
 
 «Claude, hazme el día». Agenda con 3 reuniones menos, 214 correos sin leer, tareas hechas… y la madre del tonto. Humor de oficina, sin datos reales.
 
+**Gancho (primera frase):** «¡Claude, hazme el día!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/extra_02_un_dia_con_claude.json salidas/extra_02_un_dia_con_claude.mp4

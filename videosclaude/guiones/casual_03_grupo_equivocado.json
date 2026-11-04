@@ -1,0 +1,149 @@
+{
+ "titulo": "He mandado un audio al grupo equivocado",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.06,
+   "quien": "humano",
+   "texto": "¡Claude! He mandado un audio\nal grupo equivocado.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 19.88,
+    "datos": {
+     "contacto": "Grupo: Trabajo",
+     "inicial": "T",
+     "mensajes": [
+      [
+       "yo",
+       "Audio 0:42 (sobre el jefe)",
+       "visto"
+      ],
+      [
+       "otro",
+       "Jefe: ¿Quién ha enviado esto?"
+      ],
+      [
+       "otro",
+       "Compañero: jajaja"
+      ],
+      [
+       "otro",
+       "Compañero: lo he escuchado 3 veces"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 4.06,
+   "fin": 6.02,
+   "quien": "claude",
+   "texto": "¿Qué decía el audio?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.02,
+   "fin": 9.56,
+   "quien": "humano",
+   "texto": "Que mi jefe es un ser de luz\ncon poca luz.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 9.56,
+   "fin": 12.35,
+   "quien": "claude",
+   "texto": "Qué poético.\n¿Quién lo ha visto?",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz",
+   "empuje": true
+  },
+  {
+   "inicio": 12.35,
+   "fin": 14.23,
+   "quien": "humano",
+   "texto": "Catorce. Y el jefe.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 14.23,
+   "fin": 17.32,
+   "quien": "claude",
+   "texto": "Vale. Respira.\nBorra para todos. Ya.",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 17.32,
+   "fin": 19.88,
+   "quien": "humano",
+   "texto": "Ya lo escucharon tres veces.",
+   "plano": "dos",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 19.88,
+   "fin": 23.27,
+   "quien": "claude",
+   "texto": "Entonces la única salida\nes la dignidad.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 23.27,
+   "fin": 25.01,
+   "quien": "humano",
+   "texto": "¿Qué hago?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 25.01,
+   "fin": 29.67,
+   "quien": "claude",
+   "texto": "Escribe: «Era un ensayo de teatro».\nY no añadas nada más.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 29.67,
+   "fin": 31.41,
+   "quien": "humano",
+   "texto": "¿Y cuela?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 31.41,
+   "fin": 34.27,
+   "quien": "claude",
+   "texto": "No. Pero queda digno.\nTú aguanta.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 34.27,
+   "fin": 36.01,
+   "quien": "humano",
+   "texto": "Gracias, Claude.",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 36.01,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "A ti, y a ese ser de luz.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

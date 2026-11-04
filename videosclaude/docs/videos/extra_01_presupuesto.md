@@ -4,6 +4,8 @@
 
 El tonto cobra 2.100 € y se siente rico. Claude le enseña a dónde se van: cafés, nueve suscripciones (usa dos), ahorro del 4 %. Y le enseña el interés compuesto con una cuenta de ejemplo.
 
+**Gancho (primera frase):** «¡Cobro 2.100 € al mes! ¡Soy rico!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/extra_01_presupuesto.json salidas/extra_01_presupuesto.mp4

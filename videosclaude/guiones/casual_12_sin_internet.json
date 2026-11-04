@@ -1,0 +1,117 @@
+{
+ "titulo": "Claude, no hay internet",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.57,
+   "quien": "humano",
+   "texto": "Claude, no hay internet.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "tareas",
+    "duracion": 34.21,
+    "datos": {
+     "tareas": [
+      "Mirar si el router tiene luces",
+      "Apagarlo y encenderlo",
+      "Esperar 30 segundos (de verdad)",
+      "Llamar a la compañía",
+      "Escuchar música de espera 45 min",
+      "Gritarle al router"
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 2.57,
+   "fin": 5.73,
+   "quien": "claude",
+   "texto": "Curioso. Estás hablando\nconmigo.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.73,
+   "fin": 8.47,
+   "quien": "humano",
+   "texto": "Es el internet del vecino.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.47,
+   "fin": 12.22,
+   "quien": "claude",
+   "texto": "Qué detalle.\n¿Has reiniciado el router?",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 12.22,
+   "fin": 14.45,
+   "quien": "humano",
+   "texto": "¿Se puede reiniciar?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 14.45,
+   "fin": 18.89,
+   "quien": "claude",
+   "texto": "Apagarlo, esperar 30 segundos\ny encenderlo. Sí.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 18.89,
+   "fin": 20.95,
+   "quien": "humano",
+   "texto": "¿Y si no funciona?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 20.95,
+   "fin": 25.38,
+   "quien": "claude",
+   "texto": "Llamas a la compañía.\nPrepárate para la música.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 25.38,
+   "fin": 27.36,
+   "quien": "humano",
+   "texto": "Odio esa música.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 27.36,
+   "fin": 30.52,
+   "quien": "claude",
+   "texto": "Todos la odiamos.\nPor eso suena.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 30.52,
+   "fin": 32.5,
+   "quien": "humano",
+   "texto": "¡Ya funciona!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 32.5,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Era el cable.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

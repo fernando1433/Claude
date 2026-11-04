@@ -4,6 +4,8 @@
 
 El trader quiere meter 500 € a x100 «porque si sube un 1 % gana 500 €». Claude le enseña la otra cara: si baja un 1 %, liquidado. Y le explica los límites de la UE y la regla de arriesgar poco por operación.
 
+**Gancho (primera frase):** «¡Pongo mis 500 € a x100!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/trading_03_apalancamiento_x100.json salidas/trading_03_apalancamiento_x100.mp4

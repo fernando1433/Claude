@@ -4,6 +4,8 @@
 
 ¡Primer pedido! El tonto se cree rico… hasta que el cliente espera 25 días y escribe en mayúsculas. Claude le enseña a contestar, el derecho de desistimiento de 14 días, el contracargo y el IVA de importación. Humor y datos reales.
 
+**Gancho (primera frase):** «¡CLAUDE! ¡PRIMER PEDIDO!»
+
 ## Cómo se genera el vídeo
 ```bash
 python3 -I motor/montar_video.py guiones/drop_03_primer_pedido.json salidas/drop_03_primer_pedido.mp4

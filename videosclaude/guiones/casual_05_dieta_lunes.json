@@ -1,0 +1,107 @@
+{
+ "titulo": "Claude, mañana empiezo la dieta",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.99,
+   "quien": "humano",
+   "texto": "Claude, mañana empiezo la dieta.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "recordatorios",
+    "duracion": 19.94
+   }
+  },
+  {
+   "inicio": 2.99,
+   "fin": 6.21,
+   "quien": "claude",
+   "texto": "Qué casualidad.\nEs la duodécima vez.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 6.21,
+   "fin": 8.33,
+   "quien": "humano",
+   "texto": "Esta vez va en serio.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.33,
+   "fin": 12.42,
+   "quien": "claude",
+   "texto": "Lo dijiste en enero.\nY en febrero. Y el martes.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 12.42,
+   "fin": 14.62,
+   "quien": "humano",
+   "texto": "Era un martes difícil.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 14.62,
+   "fin": 18.94,
+   "quien": "claude",
+   "texto": "Dieta, aplazada 12 veces.\nGimnasio, 7. Inglés, 21.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 18.94,
+   "fin": 21.84,
+   "quien": "humano",
+   "texto": "El inglés es lo que peor llevo.",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 21.84,
+   "fin": 26.08,
+   "quien": "claude",
+   "texto": "Te falta un plan, no ganas.\nEmpieza con un paseo.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 26.08,
+   "fin": 27.9,
+   "quien": "humano",
+   "texto": "¿Un paseo cuenta?",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 27.9,
+   "fin": 30.1,
+   "quien": "claude",
+   "texto": "Cuenta más que mañana.",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 30.1,
+   "fin": 32.78,
+   "quien": "humano",
+   "texto": "¡Empiezo la dieta el jueves!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 32.78,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Aplazado x13.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

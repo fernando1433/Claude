@@ -199,6 +199,15 @@ if DEC == 'tienda':     # decorado de tienda online: paquetes en el escritorio y
     caja(3.1, 2.6, -1.85, 0.45, 0.35, 0.3, 8); caja(3.6, 2.55, -1.85, 0.35, 0.3, 0.22, -6); caja(3.3, 2.6, -1.25, 0.3, 0.25, 0.18, 3)
     caja(-3.2, 2.6, -1.85, 0.4, 0.3, 0.26, -5)
 
+if DEC == 'casa':       # decorado de casa: gato durmiendo en el escritorio y mantita (conversaciones del dia a dia)
+    M_cat = mat('cat', rgb(232, 150, 84), 0.8); M_catw = mat('catw', rgb(246, 240, 230), 0.8); M_pink = mat('pink', rgb(235, 130, 150), 0.6)
+    ico('cat_body', (2.55, -0.3, 0.16), (0.3, 0.2, 0.15), M_cat, sub=1, rot=(0, 0, R(-15))); ico('cat_chest', (2.3, -0.38, 0.12), (0.12, 0.1, 0.08), M_catw, sub=1)
+    ico('cat_head', (2.32, -0.4, 0.2), (0.12, 0.11, 0.1), M_cat, sub=1)
+    for sx in (-1, 1): cyl('cat_ear', (2.32 + sx * 0.07, -0.4, 0.31), 0.045, 0.08, M_cat, v=3); cube('cat_eye', (2.32 + sx * 0.045, -0.5, 0.21), (0.025, 0.004, 0.004), M_dark)
+    cube('cat_nose', (2.32, -0.51, 0.18), (0.014, 0.01, 0.01), M_pink)
+    for k in range(4): ico('cat_tail', (2.88 + k * 0.05, -0.26 - 0.06 * k, 0.1 + 0.02 * k), (0.07, 0.05, 0.05), M_cat, sub=1)
+    cube('mantita', (-0.6, 1.3, 0.1 - 0.5), (0.5, 0.3, 0.03), mat('mantita', rgb(200, 90, 100), 0.95), rot=(0, 0, R(8)))
+
 # ------------------------------------------------------------------ humano (cintura arriba)
 HU = empty('hum', (-0.6, 1.45, -0.28), rot=(0, 0, R(14)))
 TORSO = empty('torso', (0, 0, 0), HU)
