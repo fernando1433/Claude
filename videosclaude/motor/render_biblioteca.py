@@ -1,8 +1,9 @@
 """Renderiza LA BIBLIOTECA de capas reutilizables (se hace UNA vez; los videos se montan despues con montar_video.py).
 
 Por cada PLANO (camara) genera:
+  sombra_humano.png / sombra_claude.png -> SOLO la sombra de cada personaje sobre el escritorio (capa FIJA: no se mueve con los botecitos)
   fondo.png                       -> habitacion sin personajes, con la pantalla del monitor VACIA (neutra)
-  humano_<emocion>_<boca>.png     -> solo el humano, fondo transparente (RGBA) + sombra sobre el escritorio
+  humano_<emocion>_<boca>.png     -> solo el humano, fondo transparente (RGBA), SIN sombra
   claude_<estado>.png             -> solo Clawd, fondo transparente (RGBA)
 y un manifest.json con el cuadrilatero de la pantalla (para pegar cualquier imagen en el monitor con perspectiva).
 
@@ -16,7 +17,11 @@ import escena as E
 import bpy
 from bpy_extras.object_utils import world_to_camera_view
 
-OUT = sys.argv[1]; ONLY = sys.argv[2:]
+OUT = sys.argv[1]; ARGS = sys.argv[2:]
+SIN_FONDO = '--sin-fondo' in ARGS
+ONLY = [a for a in ARGS if not a.startswith('--')]
+import numpy as np
+from PIL import Image
 W, H = 720, 1280
 sc = E.sc; sc.render.resolution_x, sc.render.resolution_y = W, H
 sc.render.image_settings.color_mode = 'RGBA'
@@ -37,14 +42,31 @@ def capa_fondo():
     reset()
     for o in HUM | CLA: o.hide_render = True
 
-def capa_personaje(quien):   # 'h' o 'c'
+def capa_personaje(quien):   # 'h' o 'c'  -> SOLO el personaje, SIN sombra (la sombra va en su propia capa fija)
     reset(); sc.render.film_transparent = True
     mios, otros = (HUM, CLA) if quien == 'h' else (CLA, HUM)
     for o in otros: o.hide_render = True
     for o in MESHES:
         if o in HUM or o in CLA: continue
         o.is_holdout = True            # el resto de la sala recorta (oclusion correcta) pero no se ve
-    DESK.is_holdout = False; DESK.is_shadow_catcher = True   # solo su sombra
+
+def capa_sombra(visibles):   # solo la sombra sobre el escritorio (shadow catcher) con los personajes `visibles`
+    reset(); sc.render.film_transparent = True
+    for o in HUM | CLA: o.hide_render = o not in visibles
+    for o in MESHES:
+        if o in HUM or o in CLA: o.is_holdout = True          # recorta al personaje pero proyecta sombra
+        elif o is DESK: o.is_shadow_catcher = True
+        else: o.is_holdout = True
+
+def sombra_de(quien, ruta, tmp0):
+    """sombra que anade el personaje = (sombra con el) - (sombra sin el). Solo canal alfa, color negro."""
+    vis = HUM if quien == 'h' else CLA
+    capa_sombra(vis); E.render(ruta + '.tmp.png')
+    a1 = np.array(Image.open(ruta + '.tmp.png').convert('RGBA'))[..., 3].astype(int)
+    a0 = np.array(Image.open(tmp0).convert('RGBA'))[..., 3].astype(int)
+    d = np.clip(a1 - a0, 0, 255).astype(np.uint8)
+    out = np.zeros(d.shape + (4,), np.uint8); out[..., 3] = d
+    Image.fromarray(out, 'RGBA').save(ruta); os.remove(ruta + '.tmp.png')
 
 # --- estados del humano: emocion x boca
 EMO = {'neutral': 'neutral', 'feliz': 'happy', 'preocupado': 'worried', 'burlon': 'smug'}
@@ -90,12 +112,15 @@ for nombre, P in PLANOS.items():
     E.SCR.data.materials.clear(); E.SCR.data.materials.append(E.SCREENS['vacia'])
     E.set_cam(*B['cam'])
     info = {'camara': [list(B['cam'][0]), list(B['cam'][1]), B['cam'][2]], 'descripcion': B['desc'],
-            'pantalla_quad': quad_pantalla(), 'fondo': 'fondo.png', 'humano': {}, 'claude': {}}
+            'pantalla_quad': quad_pantalla(), 'fondo': 'fondo.png', 'sombra': {}, 'humano': {}, 'claude': {}}
     # fondo
     E.set_human('type', 'neutral'); E.set_clawd(E.POS['lamp'], 'stand')
-    capa_fondo(); E.render(f'{d}/fondo.png'); print('OK', nombre, 'fondo', flush=True)
+    if not (SIN_FONDO and os.path.exists(f'{d}/fondo.png')):
+        capa_fondo(); E.render(f'{d}/fondo.png'); print('OK', nombre, 'fondo', flush=True)
+    tmp0 = f'{d}/_s0.png'; capa_sombra(set()); E.render(tmp0)
     # humano
     if P['humano']:
+        E.set_human('type', 'neutral'); sombra_de('h', f'{d}/sombra_humano.png', tmp0); info['sombra']['humano'] = 'sombra_humano.png'; print('OK', nombre, 'sombra_humano', flush=True)
         for emo in EMO:
             for boca in BOCA:
                 humano(emo, boca); capa_personaje('h')
@@ -106,11 +131,13 @@ for nombre, P in PLANOS.items():
     # clawd
     if P['clawd']:
         pos, pose = P['clawd']
+        claude(pos, 'idle', pose); sombra_de('c', f'{d}/sombra_claude.png', tmp0); info['sombra']['claude'] = 'sombra_claude.png'; print('OK', nombre, 'sombra_claude', flush=True)
         estados = ['idle'] if pose == 'look' else ['idle', 'parpadeo', 'feliz']
         for est in estados:
             claude(pos, est, pose); capa_personaje('c')
             f = f'claude_{est}.png'; E.render(f'{d}/{f}'); info['claude'][est] = f
             print('OK', nombre, f, flush=True)
+    os.remove(tmp0)
     manifest['planos'][nombre] = info
     json.dump(manifest, open(mf_path, 'w'), indent=1, ensure_ascii=False)
 reset(); print('BIBLIOTECA LISTA')

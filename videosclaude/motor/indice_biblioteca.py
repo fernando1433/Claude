@@ -11,6 +11,8 @@ for plano, info in MF['planos'].items():
     md.append(f"\n## Plano `{plano}` - {info['descripcion']}\n")
     md.append(f"- Fondo: `{plano}/{info['fondo']}` (habitacion sin personajes, monitor con pantalla `vacia`).")
     md.append(f"- Cuadrilatero del monitor (px, TL,TR,BR,BL): `{info['pantalla_quad']}`")
+    if info.get('sombra'):
+        md.append('- Sombras FIJAS (capas aparte, no se mueven): ' + ', '.join(f'`{v}`' for v in info['sombra'].values()))
     if info['humano']:
         md.append('- Capas del humano (RGBA, fondo transparente + sombra): ' + ', '.join(f'`{v}`' for v in info['humano'].values()))
     if info['claude']:
@@ -22,7 +24,12 @@ for plano, info in MF['planos'].items():
     for i, (nombre, f) in enumerate(capas):
         p = os.path.join(BIB, plano, f)
         if not os.path.exists(p): continue
-        im = Image.open(p).convert('RGBA'); im = im if nombre == 'fondo' else Image.alpha_composite(fondo, im)
+        im = Image.open(p).convert('RGBA')
+        if nombre != 'fondo':
+            base_ = fondo.copy()
+            for sf in info.get('sombra', {}).values():
+                sh = Image.open(os.path.join(BIB, plano, sf)).convert('RGBA'); sh.putalpha(sh.getchannel('A').point(lambda v: int(v * 0.55))); base_ = Image.alpha_composite(base_, sh)
+            im = Image.alpha_composite(base_, im)
         im = im.convert('RGB').resize((tw, th)); ImageDraw.Draw(im).text((4, 4), nombre, font=F, fill=(255, 255, 0), stroke_width=2, stroke_fill=(0, 0, 0))
         hoja.paste(im, ((i % cols) * tw, (i // cols) * th))
     hoja.save(os.path.join(BIB, plano, '_contacto.png'))

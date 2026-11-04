@@ -21,6 +21,7 @@ RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 BIB = os.path.join(RAIZ, 'biblioteca')
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 COL = {'humano': (120, 220, 215), 'claude': (240, 125, 85)}
+SOMBRA = 0.55   # intensidad de las sombras fijas (0-1)
 CICLO_BOCA = ['media', 'abierta', 'media', 'cerrada', 'abierta', 'media']
 
 def args():
@@ -61,6 +62,12 @@ def fondo_con_pantalla(plano, pantalla):
         mask = Image.new('L', img.size, 255).transform((W, H), Image.PERSPECTIVE, tuple(c), Image.BICUBIC)
         warp.putalpha(mask); fondo = Image.alpha_composite(fondo, warp)
     _cache[k] = fondo; return fondo
+
+def sombra_capa(plano, f):
+    k = ('sombra', plano, f)
+    if k not in _cache:
+        im = cargar(plano, f).copy(); a = im.getchannel('A').point(lambda v: int(v * SOMBRA)); im.putalpha(a); _cache[k] = im
+    return _cache[k]
 
 def desplazar(capa, dy):
     out = Image.new('RGBA', capa.size, (0, 0, 0, 0)); out.paste(capa, (0, dy), capa); return out
@@ -119,6 +126,8 @@ def montar(guion, salida, solo=None):
         info = MF['planos'][plano]
         lienzo = fondo_con_pantalla(plano, estado['pantalla']).copy()
         habla_h = bool(act and act['quien'] == 'humano'); habla_c = bool(act and act['quien'] == 'claude')
+        for _q, _f in info.get('sombra', {}).items():          # sombras FIJAS: el escenario no se mueve con los personajes
+            lienzo = Image.alpha_composite(lienzo, sombra_capa(plano, _f))
         if info['humano']:
             boca = CICLO_BOCA[(i - int(act['inicio'] * fps)) % len(CICLO_BOCA)] if habla_h else 'cerrada'
             clave = f"{estado['emo']}_{boca}"

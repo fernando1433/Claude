@@ -226,23 +226,15 @@ for name, sx in (('L', -1), ('R', 1)):
     ARM[name] = (sh, el)
 
 # poses: (hombro_x, hombro_y, codo_x, codo_y) para L y R, inclinacion cabeza (x,y,z), torso x
-HPOSE = {
-    'type':  dict(L=(-38, 6, -58, 0),  R=(-38, -6, -58, 0), head=(0, 0, 0), lean=0),
-    'mouse': dict(L=(-38, 6, -58, 0),  R=(-30, -30, -62, 18), head=(0, R and 0, 0), lean=0),
-    'think': dict(L=(-38, 6, -58, 0),  R=(-70, -42, -100, 0), head=(0, 0, 6), lean=2),
-    'shrug': dict(L=(-6, 38, -78, 30), R=(-6, -38, -78, -30), head=(0, 0, 8), lean=0, raise_=0.07),
-    'lean':  dict(L=(-34, 8, -64, 0),  R=(-58, -34, -105, 0), head=(6, 0, -8), lean=12),
-    'point': dict(L=(-38, 6, -58, 0),  R=(-70, -45, -26, 0), head=(0, 0, -4), lean=3),
-    'facepalm': dict(L=(-38, 6, -58, 0), R=(-64, -40, -105, 0), head=(14, 0, 0), lean=8),
+HPOSE = {   # solo queda la pose que funciona: manos en el teclado. (pensar/facepalm/encoger/inclinar/señalar se BORRARON: los brazos no articulaban bien)
+    'type': dict(L=(-38, 6, -58, 0), R=(-38, -6, -58, 0), head=(0, 0, 0), lean=0),
 }
 # expresiones: boca(w,h), cejas(y, rot), ojos(escala z), pupila escala
 EXPR = {
     'neutral':   dict(mouth=(0.08, 0.018), brow=(0.115, 0), eye=1.0),
     'talk':      dict(mouth=(0.06, 0.028), brow=(0.125, 0), eye=1.0),
-    'surprised': dict(mouth=(0.04, 0.032), brow=(0.16, 0), eye=1.2),
     'worried':   dict(mouth=(0.06, 0.012), brow=(0.135, 14), eye=1.0),
     'smug':      dict(mouth=(0.09, 0.012), brow=(0.13, -10), eye=0.6),
-    'sleepy':    dict(mouth=(0.045, 0.012), brow=(0.1, 0), eye=0.3),
     'happy':     dict(mouth=(0.09, 0.03), brow=(0.13, 0), eye=0.55),
 }
 def set_human(pose, expr):
@@ -271,16 +263,9 @@ for n, sx in (('L', -1), ('R', 1)):
     cube('carm_m', (sx * 0.2, 0, 0), (0.22, 0.2, 0.15), M_claw, p); CARM[n] = p
 CEYES = [cube('ceye', (sx * 0.26, -0.435, 0.6), (0.075, 0.02, 0.1), M_dark, CB) for sx in (-1, 1)]
 CHL = [cube('chl', (sx * 0.26 + 0.02, -0.452, 0.65), (0.022, 0.006, 0.03), M_white, CB) for sx in (-1, 1)]
-CPOSE = {
-    'stand':  dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=-10, ry=0, hop=0),
-    'wave':   dict(arms=(-18, -82), eye=1.0, squash=1.0, rz=-10, ry=0, hop=0),
-    'cheer':  dict(arms=(75, -75), eye=0.35, squash=1.1, rz=0, ry=0, hop=0.12),
-    'curious': dict(arms=(-10, 10), eye=1.15, squash=1.0, rz=-20, ry=11, hop=0),
-    'shy':    dict(arms=(-30, 30), eye=0.3, squash=0.92, rz=-25, ry=0, hop=0),
-    'look':   dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=140, ry=0, hop=0),   # de espaldas, mirando la pantalla
-    'sit':    dict(arms=(-40, 40), eye=1.0, squash=0.95, rz=-8, ry=0, hop=-0.1, sit=True),
-    'shock':  dict(arms=(60, -60), eye=1.35, squash=1.18, rz=0, ry=0, hop=0.05),
-    'sleep':  dict(arms=(-25, 25), eye=0.12, squash=0.9, rz=-12, ry=6, hop=0, sit=True),
+CPOSE = {   # Clawd: solo 'stand' (de pie) y 'look' (de espaldas mirando el monitor). Poses raras BORRADAS.
+    'stand': dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=-10, ry=0, hop=0),
+    'look':  dict(arms=(-18, 18), eye=1.0, squash=1.0, rz=140, ry=0, hop=0),
 }
 def set_clawd(pos, pose, face=0):
     P = CPOSE[pose]
