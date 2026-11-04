@@ -36,5 +36,21 @@ Tamano de cada capa: 720x1280 (vertical). Todas las capas de un plano comparten 
 - Capas de Clawd (RGBA): `claude_idle.png`
 - Vista rapida de todas las capas: `espalda/_contacto.png`
 
+## Plano `monitor` - Monitor centrado y de frente; Clawd pequeno al pie mirando a camara
+
+- Fondo: `monitor/fondo.png` (habitacion sin personajes, monitor con pantalla `vacia`).
+- Cuadrilatero del monitor (px, TL,TR,BR,BL): `[[30.9, 388.3], [690.6, 388.2], [690.6, 759.9], [30.9, 759.8]]`
+- Sombras FIJAS (capas aparte, no se mueven): `sombra_claude.png`
+- Capas de Clawd (RGBA): `claude_idle.png`, `claude_parpadeo.png`, `claude_feliz.png`
+- Vista rapida de todas las capas: `monitor/_contacto.png`
+
+## Plano `monitor_espalda` - Monitor centrado; Clawd de espaldas mirandolo en primer plano
+
+- Fondo: `monitor_espalda/fondo.png` (habitacion sin personajes, monitor con pantalla `vacia`).
+- Cuadrilatero del monitor (px, TL,TR,BR,BL): `[[29.7, 409.6], [692.1, 409.3], [687.4, 780.4], [34.4, 780.1]]`
+- Sombras FIJAS (capas aparte, no se mueven): `sombra_claude.png`
+- Capas de Clawd (RGBA): `claude_idle.png`
+- Vista rapida de todas las capas: `monitor_espalda/_contacto.png`
+
 ## Pantallas del monitor (`biblioteca/pantallas/`, 1280x720)
 - `vacia` (por defecto, neutra) y ejemplos de trading: `chart`, `chat`, `order`. Se pueden anadir mas: cualquier PNG 1280x720.

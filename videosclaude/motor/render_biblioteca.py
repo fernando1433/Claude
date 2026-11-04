@@ -78,8 +78,8 @@ def humano(emo, boca, parpadeo=False):
         for pu, hl, hl2 in E.EYES: pu.scale[2] = 0.004; hl.scale[2] = 0.002
 
 # --- estados de Clawd (siempre neutros)
-def claude(pos, estado, pose='stand'):
-    E.set_clawd(E.POS[pos], pose)
+def claude(pos, estado, pose='stand', face=0):
+    E.set_clawd(E.POS[pos], pose, face)
     if estado == 'parpadeo':
         for e, h in zip(E.CEYES, E.CHL): e.scale[2] = 0.012; h.scale[2] = 0.003
     elif estado == 'feliz':   # ojos ^ ^ (sin brazos raros)
@@ -90,6 +90,9 @@ PLANOS = {
     'dos':     dict(base='dos',      humano=True,  clawd=('lamp', 'stand')),
     'claude':  dict(base='claude',   humano=False, clawd=('books', 'stand')),
     'espalda': dict(base='pantalla', humano=False, clawd=('screen', 'look')),
+    # --- planos de MONITOR (enseñar pantallas): sin humano; Clawd pequeno
+    'monitor':         dict(base='monitor',         humano=False, clawd=('monitor_frente', 'stand', -13), f=6.0),
+    'monitor_espalda': dict(base='monitor_espalda', humano=False, clawd=('monitor_espalda', 'look', 16), f=6.0),
 }
 
 def quad_pantalla():
@@ -110,7 +113,7 @@ for nombre, P in PLANOS.items():
     d = os.path.join(OUT, nombre); os.makedirs(d, exist_ok=True)
     B = E.BASES[P['base']]
     E.SCR.data.materials.clear(); E.SCR.data.materials.append(E.SCREENS['vacia'])
-    E.set_cam(*B['cam'])
+    E.set_cam(*B['cam']); E.cam.data.dof.aperture_fstop = P.get('f', 2.8)
     info = {'camara': [list(B['cam'][0]), list(B['cam'][1]), B['cam'][2]], 'descripcion': B['desc'],
             'pantalla_quad': quad_pantalla(), 'fondo': 'fondo.png', 'sombra': {}, 'humano': {}, 'claude': {}}
     # fondo
@@ -130,11 +133,11 @@ for nombre, P in PLANOS.items():
         E.render(f'{d}/humano_neutral_parpadeo.png'); info['humano']['neutral_parpadeo'] = 'humano_neutral_parpadeo.png'
     # clawd
     if P['clawd']:
-        pos, pose = P['clawd']
-        claude(pos, 'idle', pose); sombra_de('c', f'{d}/sombra_claude.png', tmp0); info['sombra']['claude'] = 'sombra_claude.png'; print('OK', nombre, 'sombra_claude', flush=True)
+        pos, pose = P['clawd'][:2]; face = P['clawd'][2] if len(P['clawd']) > 2 else 0
+        claude(pos, 'idle', pose, face); sombra_de('c', f'{d}/sombra_claude.png', tmp0); info['sombra']['claude'] = 'sombra_claude.png'; print('OK', nombre, 'sombra_claude', flush=True)
         estados = ['idle'] if pose == 'look' else ['idle', 'parpadeo', 'feliz']
         for est in estados:
-            claude(pos, est, pose); capa_personaje('c')
+            claude(pos, est, pose, face); capa_personaje('c')
             f = f'claude_{est}.png'; E.render(f'{d}/{f}'); info['claude'][est] = f
             print('OK', nombre, f, flush=True)
     os.remove(tmp0)

@@ -312,12 +312,16 @@ def set_cam(pos, tgt, lens, focus=None):
 
 # ====================================================================== API REUTILIZABLE
 POS = {'kb': (0.55, 0.0, 0.1), 'pad': (1.0, 0.1, 0.03), 'books': (3.05, 0.1, 0.47), 'mug': (2.2, -0.35, 0.0),
-       'front': (-0.2, -0.55, 0.0), 'lamp': (-1.1, 0.0, 0.0), 'edge': (0.9, -0.62, 0.0), 'screen': (1.55, 0.2, 0.0), 'plant': (3.2, 0.5, 0.0)}
+       'front': (-0.2, -0.55, 0.0), 'lamp': (-1.1, 0.0, 0.0), 'edge': (0.9, -0.62, 0.0), 'screen': (1.55, 0.2, 0.0), 'plant': (3.2, 0.5, 0.0),
+       'monitor_frente': (1.6, 0.1, 0.0), 'monitor_espalda': (1.15, -0.45, 0.0)}
 # Los 4 PLANOS BASE (siempre neutros: humano tecleando, Clawd de pie)
 BASES = {
     'humano':   dict(cam=((-0.3, -2.0, 1.45), (-0.5, 1.4, 1.2), 50), clawd='pad',    clawd_pose='stand', desc='Primer plano del humano'),
     'claude':   dict(cam=((2.4, -2.0, 0.8), (3.0, 0.1, 0.55), 50),   clawd='books',  clawd_pose='stand', desc='Clawd sobre los libros, la pantalla detras'),
     'pantalla': dict(cam=((1.2, -2.8, 0.9), (1.5, 0.6, 0.9), 45),    clawd='screen', clawd_pose='look',  desc='Clawd de espaldas mirando el monitor'),
+    # planos CENTRADOS EN EL MONITOR (camara alineada con la normal de la pantalla): para ensenar lo que se esta haciendo
+    'monitor':         dict(cam=((-0.01, -3.83, 1.1), (2.02, 0.74, 1.1), 55), clawd='monitor_frente',  clawd_pose='stand', desc='Monitor centrado y de frente; Clawd pequeno al pie mirando a camara'),
+    'monitor_espalda': dict(cam=((0.32, -3.10, 1.35), (2.02, 0.74, 1.2), 46), clawd='monitor_espalda', clawd_pose='look',  desc='Monitor centrado; Clawd de espaldas mirandolo en primer plano'),
     'dos':      dict(cam=((-0.4, -2.6, 0.9), (-0.7, 0.6, 0.7), 40),  clawd='lamp',   clawd_pose='stand', desc='Plano de los dos: humano y Clawd en el escritorio'),
 }
 PANTALLAS = tuple(SCREENS)   # chart, chat, order  (para anadir una nueva: motor/texturas.py + SCREENS)

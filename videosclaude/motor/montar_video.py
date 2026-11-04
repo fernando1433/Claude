@@ -11,12 +11,19 @@ Guion (ver guiones/ejemplo_dip.json):
              emocion: neutral|feliz|preocupado|burlon (humano, opcional) | claude_estado: idle|feliz (opcional)
              pantalla: nombre de la pantalla del monitor (opcional, se mantiene hasta que cambie)
   cambios_pantalla[]: {"t": seg, "pantalla": "nombre"}  (cambios extra en mitad de una linea o en silencio)
-Pantallas: biblioteca/pantallas/<nombre>.png (1280x720), o una ruta a cualquier imagen.
+Pantallas del monitor (campo `pantalla`):
+  - ANIMADAS (motor/pantallas.py): chat dashboard tienda calendario email analitica tareas hoja -> se animan solas (cifras que suben, texto que se teclea...)
+    forma larga: {"tipo":"dashboard","datos":{"ingresos":9800},"duracion":4}   (duracion = segundos que tarda la animacion)
+  - ESTATICAS: biblioteca/pantallas/<nombre>.png (1280x720: vacia, chart, chat, order) o una ruta a cualquier imagen.
+Planos con monitor: monitor (centrado, Clawd al pie), monitor_espalda (Clawd de espaldas), dos, claude, espalda.
+Plano especial `pantalla_completa`: la pantalla ocupa el video (fondo difuminado); campo `zoom`:[x0,y0,x1,y1] (coords 1280x720) recorta y amplia una zona; si no lo pones, usa un recorte automatico (pantallas.ZOOM_AUTO); `"zoom": false` = pantalla entera.
 """
 import sys, os, json, math, subprocess, wave, random, glob
 import numpy as np
-from PIL import Image, ImageDraw, ImageFont, ImageEnhance
+from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from pantallas import dibujar, PANTALLAS, ZOOM_AUTO
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 BIB = os.path.join(RAIZ, 'biblioteca')
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
@@ -39,6 +46,13 @@ def cargar(plano, fichero):
     if k not in _cache: _cache[k] = Image.open(os.path.join(BIB, plano, fichero)).convert('RGBA')
     return _cache[k]
 
+def clave_pantalla(spec): return json.dumps(spec, sort_keys=True) if isinstance(spec, dict) else spec
+
+def imagen_pantalla(spec, p=1.0):
+    """spec: nombre (animada o estatica) o dict {tipo, datos, duracion}. p = progreso 0..1 de la animacion."""
+    nombre, datos = (spec['tipo'], spec.get('datos')) if isinstance(spec, dict) else (spec, None)
+    return dibujar(nombre, p, datos).convert('RGB') if nombre in PANTALLAS else cargar_pantalla(nombre)
+
 def cargar_pantalla(nombre):
     ruta = nombre if os.path.exists(nombre) else os.path.join(BIB, 'pantallas', nombre + '.png')
     return Image.open(ruta).convert('RGB')
@@ -51,17 +65,34 @@ def coef_perspectiva(quad, w, h):
         A.append([0, 0, 0, x, y, 1, -x * v, -y * v]); B.append(v)
     return np.linalg.solve(np.array(A, float), np.array(B, float))
 
-def fondo_con_pantalla(plano, pantalla):
-    k = ('fondo', plano, pantalla)
+def fondo_con_pantalla(plano, pantalla, p=1.0):
+    nom = pantalla['tipo'] if isinstance(pantalla, dict) else pantalla
+    q_ = round(p * 40) if nom in PANTALLAS else 0           # las animadas cambian cada frame; las estaticas se cachean
+    k = ('fondo', plano, clave_pantalla(pantalla), q_)
     if k in _cache: return _cache[k]
     fondo = cargar(plano, 'fondo.png').copy()
     if pantalla != 'vacia':
-        img = cargar_pantalla(pantalla); img = ImageEnhance.Brightness(img).enhance(0.9)
+        img = imagen_pantalla(pantalla, q_ / 40 if nom in PANTALLAS else 1.0); img = ImageEnhance.Brightness(img).enhance(0.9)
         q = MF['planos'][plano]['pantalla_quad']; c = coef_perspectiva(q, img.width, img.height)
         warp = img.convert('RGBA').transform((W, H), Image.PERSPECTIVE, tuple(c), Image.BICUBIC)
         mask = Image.new('L', img.size, 255).transform((W, H), Image.PERSPECTIVE, tuple(c), Image.BICUBIC)
         warp.putalpha(mask); fondo = Image.alpha_composite(fondo, warp)
+    if len([1 for kk in _cache if kk[0] == 'fondo']) > 150: _cache.pop(next(kk for kk in _cache if kk[0] == 'fondo'))
     _cache[k] = fondo; return fondo
+
+def pantalla_completa(spec, p, zoom=None):
+    """plano especial: la pantalla del monitor ocupa el video (fondo = sala difuminada y oscurecida)"""
+    bg = cargar('monitor', 'fondo.png').convert('RGB').filter(ImageFilter.GaussianBlur(16)); bg = ImageEnhance.Brightness(bg).enhance(0.32)
+    img = imagen_pantalla(spec, p)
+    if zoom: img = img.crop(tuple(zoom))
+    ancho = int(W * 0.96); alto = int(img.height * ancho / img.width)
+    if alto > H * 0.8: alto = int(H * 0.8); ancho = int(img.width * alto / img.height)
+    img = img.resize((ancho, alto), Image.LANCZOS)
+    x, y = (W - ancho) // 2, int(H * 0.46 - alto / 2)
+    glow = Image.new('RGBA', (W, H), (0, 0, 0, 0)); ImageDraw.Draw(glow).rounded_rectangle((x - 6, y - 6, x + ancho + 6, y + alto + 6), 26, fill=(240, 125, 85, 70))
+    bg = Image.alpha_composite(bg.convert('RGBA'), glow.filter(ImageFilter.GaussianBlur(18)))
+    mask = Image.new('L', (ancho, alto), 0); ImageDraw.Draw(mask).rounded_rectangle((0, 0, ancho, alto), 20, fill=255)
+    bg.paste(img, (x, y), mask); return bg
 
 def sombra_capa(plano, f):
     k = ('sombra', plano, f)
@@ -112,19 +143,29 @@ def montar(guion, salida, solo=None):
     os.makedirs(tmp, exist_ok=True)
     fuente = ImageFont.truetype(FONT, 44)
     L = sorted(G['lineas'], key=lambda x: x['inicio'])
-    cambios = sorted([(x['inicio'], x['pantalla']) for x in L if 'pantalla' in x] + [(c['t'], c['pantalla']) for c in G.get('cambios_pantalla', [])])
+    cambios = sorted([(x['inicio'], x['pantalla']) for x in L if 'pantalla' in x] + [(c['t'], c['pantalla']) for c in G.get('cambios_pantalla', [])], key=lambda c: c[0])
     estado = dict(plano=None, emo='neutral', pantalla=G.get('pantalla_inicial', 'vacia'))
     for i in range(N):
         t = i / fps
         act = next((x for x in L if x['inicio'] <= t < x['fin']), None)
-        for tc, p in cambios:
-            if tc <= t: estado['pantalla'] = p
+        t0, dur_p = 0.0, 4.0
+        for j, (tc, p_) in enumerate(cambios):
+            if tc <= t:
+                estado['pantalla'] = p_; t0 = tc
+                dur_p = (p_.get('duracion') if isinstance(p_, dict) and p_.get('duracion') else
+                         ((cambios[j + 1][0] - tc) if j + 1 < len(cambios) else max(1.0, G['duracion'] - tc)))
+        prog = max(0.0, min(1.0, (t - t0) / dur_p)) if cambios else 1.0
         if act:
             estado['plano'] = act.get('plano') or ('humano' if act['quien'] == 'humano' else 'claude')
             if act['quien'] == 'humano': estado['emo'] = act.get('emocion', estado['emo'])
         plano = estado['plano'] or ('humano' if not L else ('humano' if L[0]['quien'] == 'humano' else 'claude'))
-        info = MF['planos'][plano]
-        lienzo = fondo_con_pantalla(plano, estado['pantalla']).copy()
+        if plano == 'pantalla_completa':
+            zoom = (act or {}).get('zoom'); nom_ = estado['pantalla']['tipo'] if isinstance(estado['pantalla'], dict) else estado['pantalla']
+            if zoom is None: zoom = ZOOM_AUTO.get(nom_)          # zoom automatico (pon "zoom": false en la linea para ver la pantalla entera)
+            if zoom is False: zoom = None
+            lienzo = pantalla_completa(estado['pantalla'], prog, zoom); info = dict(humano={}, claude={}, sombra={})
+        else:
+            info = MF['planos'][plano]; lienzo = fondo_con_pantalla(plano, estado['pantalla'], prog).copy()
         habla_h = bool(act and act['quien'] == 'humano'); habla_c = bool(act and act['quien'] == 'claude')
         for _q, _f in info.get('sombra', {}).items():          # sombras FIJAS: el escenario no se mueve con los personajes
             lienzo = Image.alpha_composite(lienzo, sombra_capa(plano, _f))

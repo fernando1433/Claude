@@ -202,6 +202,92 @@
    "claude": {
     "idle": "claude_idle.png"
    }
+  },
+  "monitor": {
+   "camara": [
+    [
+     -0.01,
+     -3.83,
+     1.1
+    ],
+    [
+     2.02,
+     0.74,
+     1.1
+    ],
+    55
+   ],
+   "descripcion": "Monitor centrado y de frente; Clawd pequeno al pie mirando a camara",
+   "pantalla_quad": [
+    [
+     30.9,
+     388.3
+    ],
+    [
+     690.6,
+     388.2
+    ],
+    [
+     690.6,
+     759.9
+    ],
+    [
+     30.9,
+     759.8
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png"
+   }
+  },
+  "monitor_espalda": {
+   "camara": [
+    [
+     0.32,
+     -3.1,
+     1.35
+    ],
+    [
+     2.02,
+     0.74,
+     1.2
+    ],
+    46
+   ],
+   "descripcion": "Monitor centrado; Clawd de espaldas mirandolo en primer plano",
+   "pantalla_quad": [
+    [
+     29.7,
+     409.6
+    ],
+    [
+     692.1,
+     409.3
+    ],
+    [
+     687.4,
+     780.4
+    ],
+    [
+     34.4,
+     780.1
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png"
+   }
   }
  }
 }

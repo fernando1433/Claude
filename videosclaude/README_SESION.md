@@ -23,14 +23,23 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 | `claude`  | Clawd pequeño sobre una pila de libros     | claude_idle / parpadeo / feliz |
 | `dos`     | humano + Clawd en el escritorio            | humano_* y claude_* |
 | `espalda` | Clawd de espaldas mirando el monitor       | claude_idle |
+| `monitor` | **MONITOR centrado y de frente** (para enseñar pantallas), Clawd pequeño al pie | claude_idle / parpadeo / feliz |
+| `monitor_espalda` | monitor centrado, Clawd de espaldas en primer plano | claude_idle |
+| `pantalla_completa` | (plano 2D, sin Blender) la pantalla ocupa el video, fondo difuminado, zoom automatico a lo importante | — |
 
 - Emociones del humano: `neutral`, `feliz`, `preocupado`, `burlon`. Bocas: `cerrada`, `media`, `abierta` (+ `neutral_parpadeo`).
 - Clawd SIEMPRE neutro (de pie, sin poses raras ni caras de sorpresa). Habla = **botecitos** (sube/baja), no tiene boca.
 - Orden de apilado: **fondo -> pantalla del monitor -> sombras fijas -> humano -> claude**.
 - **Sombras = capas aparte y FIJAS** (`sombra_humano.png`, `sombra_claude.png`). Los personajes NO llevan sombra pegada, asi al dar botecitos
   solo se mueve Clawd y el escenario queda quieto (verificado: entre frames solo cambia la zona de Clawd).
+- **Videos de negocios online ('Claude te lleva la vida entera') = MUCHAS escenas de monitor**: usar `monitor`, `monitor_espalda` y `pantalla_completa`
+  alternando con `dos`/`humano`. Ver `guiones/ejemplo_negocio.json`.
 - La **pantalla del monitor es intercambiable**: el fondo trae pantalla `vacia` (neutra) y el montador pega cualquier imagen
-  1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). Pantallas en `biblioteca/pantallas/`
+  1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). **Pantallas ANIMADAS** (motor/pantallas.py, vista en `biblioteca/pantallas/_animadas_contacto.png`): `chat` (Claude tecleando lo que hace),
+  `dashboard` (ingresos que suben), `tienda` (pedidos entrando), `calendario`, `email` (Claude redacta y envia), `analitica`, `tareas` (se marcan solas), `hoja`.
+  Se usan con `"pantalla": "dashboard"` o `{"tipo":"dashboard","datos":{"ingresos":9800},"duracion":4}` (los `datos` cambian textos/cifras). Se animan solas durante `duracion` s.
+  Para una pantalla nueva: añadir una funcion `p_xxx(p, datos)` en pantallas.py y registrarla en `PANTALLAS` (y opcionalmente en `ZOOM_AUTO`).
+  Estaticas en `biblioteca/pantallas/`
   (`vacia` por defecto; `chart`, `chat`, `order` son EJEMPLOS de trading, no la identidad del proyecto). Para otro tema: crear PNG nuevo ahi.
 
 ## Como se hace un video
