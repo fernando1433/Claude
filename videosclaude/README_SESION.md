@@ -26,7 +26,9 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 
 - Emociones del humano: `neutral`, `feliz`, `preocupado`, `burlon`. Bocas: `cerrada`, `media`, `abierta` (+ `neutral_parpadeo`).
 - Clawd SIEMPRE neutro (de pie, sin poses raras ni caras de sorpresa). Habla = **botecitos** (sube/baja), no tiene boca.
-- Orden de apilado: **fondo -> pantalla del monitor -> humano -> claude**.
+- Orden de apilado: **fondo -> pantalla del monitor -> sombras fijas -> humano -> claude**.
+- **Sombras = capas aparte y FIJAS** (`sombra_humano.png`, `sombra_claude.png`). Los personajes NO llevan sombra pegada, asi al dar botecitos
+  solo se mueve Clawd y el escenario queda quieto (verificado: entre frames solo cambia la zona de Clawd).
 - La **pantalla del monitor es intercambiable**: el fondo trae pantalla `vacia` (neutra) y el montador pega cualquier imagen
   1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). Pantallas en `biblioteca/pantallas/`
   (`vacia` por defecto; `chart`, `chat`, `order` son EJEMPLOS de trading, no la identidad del proyecto). Para otro tema: crear PNG nuevo ahi.
@@ -41,7 +43,8 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 ## Limitaciones conocidas (decirlas al Jefe, no inventar)
 - Las **voces son "blips"** sinteticos (estilo Animal Crossing), no voz real. Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
 - Solo hay 4 camaras fijas. Una camara/pose NUEVA exige re-renderizar con Blender (ver abajo) — evitarlo salvo que haga falta de verdad.
-- Los brazos del humano solo tienen la pose "tecleando" (las poses de pensar/facepalm no quedaron bien; no usarlas).
+- Solo hay UNA pose de brazos del humano ("tecleando") y Clawd solo "de pie" / "de espaldas". Las poses de pensar, facepalm, encoger hombros,
+  celebrar, sorpresa, etc. se probaron y se BORRARON porque quedaban mal; si se quieren, hay que rehacer bien el rig de brazos primero.
 
 ## Regenerar o ampliar la biblioteca (solo si se pierde o se necesita un plano/estado nuevo)
 ```bash

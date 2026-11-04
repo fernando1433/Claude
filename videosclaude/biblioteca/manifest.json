@@ -38,6 +38,9 @@
     ]
    ],
    "fondo": "fondo.png",
+   "sombra": {
+    "humano": "sombra_humano.png"
+   },
    "humano": {
     "neutral_cerrada": "humano_neutral_cerrada.png",
     "neutral_media": "humano_neutral_media.png",
@@ -89,6 +92,10 @@
     ]
    ],
    "fondo": "fondo.png",
+   "sombra": {
+    "humano": "sombra_humano.png",
+    "claude": "sombra_claude.png"
+   },
    "humano": {
     "neutral_cerrada": "humano_neutral_cerrada.png",
     "neutral_media": "humano_neutral_media.png",
@@ -144,6 +151,9 @@
     ]
    ],
    "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
    "humano": {},
    "claude": {
     "idle": "claude_idle.png",
@@ -185,6 +195,9 @@
     ]
    ],
    "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
    "humano": {},
    "claude": {
     "idle": "claude_idle.png"
