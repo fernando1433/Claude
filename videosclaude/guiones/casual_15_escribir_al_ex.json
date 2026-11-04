@@ -1,0 +1,185 @@
+{
+ "titulo": "Claude, ¿le escribo a mi ex?",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.84,
+   "quien": "humano",
+   "texto": "Claude... ¿le escribo a mi ex?",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 40.0,
+    "datos": {
+     "contacto": "Claude",
+     "mensajes": [
+      [
+       "yo",
+       "Claude... ¿le escribo a mi ex?"
+      ],
+      [
+       "otro",
+       "¿Qué hora es?"
+      ],
+      [
+       "yo",
+       "Las dos de la madrugada."
+      ],
+      [
+       "otro",
+       "No."
+      ],
+      [
+       "yo",
+       "Solo un «hola»."
+      ],
+      [
+       "otro",
+       "Nadie escribe «hola» a las 2 para decir solo «hola»."
+      ],
+      [
+       "yo",
+       "Lo hago con buena intención."
+      ],
+      [
+       "otro",
+       "Las buenas intenciones se envían a las 2 de la tarde."
+      ],
+      [
+       "yo",
+       "¿Y si me contesta?"
+      ],
+      [
+       "otro",
+       "Entonces tendrás una conversación a las 2 de la mañana."
+      ],
+      [
+       "yo",
+       "Tienes razón."
+      ],
+      [
+       "otro",
+       "Deja el móvil. Bebe agua. Duerme."
+      ],
+      [
+       "yo",
+       "¿Y mañana le escribo?"
+      ],
+      [
+       "otro",
+       "Mañana hablamos de eso. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 2.84,
+   "fin": 4.66,
+   "quien": "claude",
+   "texto": "¿Qué hora es?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.66,
+   "fin": 7.03,
+   "quien": "humano",
+   "texto": "Las dos de la madrugada.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.03,
+   "fin": 8.85,
+   "quien": "claude",
+   "texto": "No.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 8.85,
+   "fin": 10.68,
+   "quien": "humano",
+   "texto": "Solo un «hola».",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 10.68,
+   "fin": 15.16,
+   "quien": "claude",
+   "texto": "Nadie escribe «hola» a las 2\npara decir solo «hola».",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 15.16,
+   "fin": 17.85,
+   "quien": "humano",
+   "texto": "Lo hago con buena intención.",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 17.85,
+   "fin": 22.41,
+   "quien": "claude",
+   "texto": "Las buenas intenciones se\nenvían a las 2 de la tarde.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 22.41,
+   "fin": 24.31,
+   "quien": "humano",
+   "texto": "¿Y si me contesta?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 24.31,
+   "fin": 29.03,
+   "quien": "claude",
+   "texto": "Entonces tendrás una\nconversación a las 2 de la mañana.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_arriba",
+   "empuje": true
+  },
+  {
+   "inicio": 29.03,
+   "fin": 30.85,
+   "quien": "humano",
+   "texto": "Tienes razón.",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 30.85,
+   "fin": 33.85,
+   "quien": "claude",
+   "texto": "Deja el móvil. Bebe agua.\nDuerme.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 33.85,
+   "fin": 35.98,
+   "quien": "humano",
+   "texto": "¿Y mañana le escribo?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 35.98,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Mañana hablamos de eso.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

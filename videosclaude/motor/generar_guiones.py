@@ -606,6 +606,139 @@ VIDEOS.append(dict(
         C('No te hará caso.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
+BIZ1 = ('INCIBE — nueva estrategia de estafa por Bizum solicitando dinero', 'https://www.incibe.es/ciudadania/avisos/detectada-nueva-estrategia-de-estafa-traves-de-bizum-solicitando-dinero-en')
+BIZ2 = ('Banco de España — Cómo evitar estafas a través de Bizum', 'https://clientebancario.bde.es/pcb/es/blog/estafas-a-traves-de-bizum--como-evitarlas-.html')
+BIZ3 = ('Genbeta — Bizum y la estafa del pago que en realidad es un cobro (alerta de la Policía Nacional)', 'https://www.genbeta.com/seguridad/bizum-estafa-pago-que-realidad-cobro-policia-nacional-alerta-este-timo')
+WIFI1 = ('INCIBE — Conexiones inalámbricas seguras', 'https://www.incibe.es/ciudadania/blog/conexiones-inalambricas-seguras-sabes-como-conseguirlo')
+WIFI2 = ('Comunidad de Madrid — Acceder a redes WiFi públicas: riesgos y consejos', 'https://www.comunidad.madrid/node/76023')
+WIFI3 = ('Consumo Responde — Por qué no operar con el banco en WiFi públicas', 'https://www.consumoresponde.es/node/256529')
+
+# ---------------- tanda 3
+VIDEOS.append(dict(
+    id='util_03_wifi_publica', titulo='Claude, ¿me conecto al WiFi gratis del aeropuerto?', ambiente='noche_casa', total=40,
+    resumen='El humano quiere conectarse al WiFi gratis del aeropuerto para mirar el banco. Claude le enseña el riesgo de las redes abiertas, la red «gemela» falsa y qué hacer en su lugar.',
+    datos=[('INCIBE advierte de que las redes WiFi abiertas suelen carecer de seguridad adecuada y los datos pueden ser interceptados; recomienda evitar operar con información sensible (contraseñas, banca) y desactivar la conexión automática a redes públicas. Otras fuentes recomiendan datos móviles, VPN de confianza y webs https.', [WIFI1, WIFI2, WIFI3]),
+           ('La «red gemela» (nombre casi idéntico a la oficial) es un truco conocido; el ejemplo de la pantalla es ilustrativo.', [])],
+    lineas=[
+        H('Claude, ¿me conecto al WiFi gratis\ndel aeropuerto?', 'humano', 'ilusionado', scr=S('wifi', sync=('fin', 12, 0.9, 0.0))),
+        C('Depende. ¿Para qué?', 'monitor', 'mira_izq'),
+        H('Para mirar el banco.', 'dos', 'bobo'),
+        C('No.', 'claude_ojos'),
+        H('¿Y para pagar un billete?', 'humano', 'confundido'),
+        C('Tampoco.', 'cenital', 'mira_der'),
+        H('¿Y para mirar memes?', 'dos', 'ilusionado'),
+        C('Eso sí. Lo demás, con tus datos\nmóviles. Es lo seguro.', 'monitor', 'feliz'),
+        H('Hay dos redes que se llaman casi igual.', 'humano', 'confundido'),
+        C('Una es del aeropuerto.\nLa otra, de alguien con tiempo.', 'claude_ojos', 'mira_izq', emp=True),
+        H('¿Y una VPN?', 'dos', 'bobo'),
+        C('Ayuda. Y webs con https.\nY sin conexión automática.', 'pantalla_completa'),
+        H('Qué aburrido el aeropuerto.', 'humano', 'preocupado'),
+        C('Más aburrido es\nque te vacíen la cuenta.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_04_bizum_inverso', titulo='«Te pago el sofá por Bizum»', ambiente='dia_casa', total=40,
+    resumen='El humano vende un sofá y el «comprador» le envía una solicitud para que PAGUE él. Claude le explica el Bizum inverso y cómo no caer.',
+    datos=[('Estafa del «pago que en realidad es un cobro»: el falso comprador pide dinero en vez de enviarlo; si aceptas sin leer, el dinero sale de tu cuenta al instante. El Banco de España recuerda que en Bizum un pago confirmado no se puede cancelar. INCIBE y la Policía Nacional recomiendan leer la pantalla de confirmación (cantidad, concepto, quién solicita) y, si ya ha pasado, contactar con el banco, avisar a la plataforma y denunciar; línea de ayuda de INCIBE: 017 (gratuita y confidencial).', [BIZ1, BIZ2, BIZ3])],
+    lineas=[
+        H('Claude, me van a pagar el sofá\npor Bizum. ¡450 €!', 'humano', 'ilusionado', scr=S('bizum', sync=('fin', 12, 0.9, 0.0))),
+        C('Enséñame la pantalla.', 'monitor', 'mira_izq'),
+        H('Pone «Aceptar» en verde. Qué bien.', 'dos', 'bobo'),
+        C('¿Y arriba qué pone?', 'claude_ojos'),
+        H('«Estás a punto de pagar 450 €».', 'humano', 'confundido'),
+        C('Ahí.\nPagar. Tú. 450 €.', 'cenital', 'mira_der'),
+        H('Pero él dijo que me pagaba.', 'dos', 'preocupado'),
+        C('Y te ha mandado una\nsolicitud de cobro. Clásico.', 'monitor', 'feliz'),
+        H('¿Y si pulso aceptar?', 'humano', 'bobo'),
+        C('El dinero sale al instante\ny no se puede cancelar.', 'claude_ojos', emp=True),
+        H('¿Y qué hago?', 'dos', 'confundido'),
+        C('Rechazar. Cobrar es que te llegue\ndinero. Léelo siempre.', 'pantalla_completa'),
+        H('¿Y si ya aceptara?', 'humano', 'preocupado', pose='hombros'),
+        C('Llama a tu banco, avisa a la\nplataforma y denuncia. Y el 017.', 'monitor'),
+        H('¡Gracias, Claude!', 'dos', 'feliz'),
+        C('Léelo todo antes de pulsar.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_14_quien_friega', titulo='Claude, ¿a quién le toca fregar?', ambiente='dia_casa', total=36,
+    resumen='La discusión doméstica de siempre. Claude hace de árbitro con una tabla de turnos y mucha ironía.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, ¿a quién le toca fregar?', 'humano', 'confundido', scr=S('tareas', {'tareas': ['Fregar los platos', 'Sacar la basura', 'Poner la lavadora', 'Tender la ropa', 'Pasar la aspiradora', 'Discutir quién hace qué']}, sync=('fin', 10, 0.95, 0.0))),
+        C('¿Quién los usó?', 'monitor', 'mira_izq'),
+        H('Los dos.', 'dos', 'bobo'),
+        C('¿Y quién cocinó?', 'claude_ojos'),
+        H('Yo. Pero cocinar es más difícil.', 'humano', 'ilusionado'),
+        C('Eso lo dice quien cocinó.', 'cenital', 'mira_der'),
+        H('¿Y si friego mañana?', 'dos', 'bobo'),
+        C('Mañana habrá más platos.\nLas matemáticas no fallan.', 'monitor', 'feliz'),
+        H('Propongo piedra, papel o tijera.', 'humano', 'ilusionado'),
+        C('Propongo una tabla de turnos.\nY que los dos queden mal.', 'pantalla_completa'),
+        H('¿Y si pierdo yo?', 'dos', 'preocupado'),
+        C('Friegas. Con dignidad.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_15_escribir_al_ex', titulo='Claude, ¿le escribo a mi ex?', ambiente='noche_casa', total=40,
+    resumen='Las 2 de la madrugada y el dedo sobre el chat de la ex. Claude intenta evitarlo con lógica, ternura y mucha paciencia.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude... ¿le escribo a mi ex?', 'humano', 'preocupado', scr=S('mensajes', {'auto': True, 'contacto': 'Claude'}, sync=('fin', 14, 1.0, 0.0))),
+        C('¿Qué hora es?', 'monitor', 'mira_izq'),
+        H('Las dos de la madrugada.', 'dos', 'bobo'),
+        C('No.', 'claude_ojos'),
+        H('Solo un «hola».', 'humano', 'confundido'),
+        C('Nadie escribe «hola» a las 2\npara decir solo «hola».', 'cenital', 'mira_der'),
+        H('Lo hago con buena intención.', 'dos', 'ilusionado'),
+        C('Las buenas intenciones se\nenvían a las 2 de la tarde.', 'monitor', 'feliz'),
+        H('¿Y si me contesta?', 'humano', 'preocupado'),
+        C('Entonces tendrás una\nconversación a las 2 de la mañana.', 'claude_ojos', 'mira_arriba', emp=True),
+        H('Tienes razón.', 'dos', 'confundido'),
+        C('Deja el móvil. Bebe agua.\nDuerme.', 'pantalla_completa'),
+        H('¿Y mañana le escribo?', 'humano', 'bobo'),
+        C('Mañana hablamos de eso.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_16_no_puedo_dormir', titulo='Claude, no puedo dormir', ambiente='noche_casa', total=38,
+    resumen='Insomnio de madrugada: pensamientos absurdos, contar ovejas y un Claude que por una vez te dice que cierres los ojos.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, no puedo dormir.', 'humano', 'preocupado', scr=S('mensajes', {'auto': True, 'contacto': 'Claude'}, sync=('fin', 12, 1.0, 0.0))),
+        C('¿Qué hora es?', 'monitor'),
+        H('Las 3:47.', 'dos', 'bobo'),
+        C('¿En qué piensas?', 'claude_ojos', 'mira_izq'),
+        H('En por qué los patos no tienen frío.', 'humano', 'confundido'),
+        C('Es una gran pregunta.\nPero no a las 3:47.', 'cenital', 'mira_der'),
+        H('¿Y si cuento ovejas?', 'dos', 'ilusionado'),
+        C('Cuéntalas. Pero no\nlas pongas a negociar.', 'monitor', 'feliz'),
+        H('Llevo 400.', 'humano', 'bobo'),
+        C('Qué rebaño.', 'claude_ojos'),
+        H('¿Qué hago?', 'dos', 'preocupado'),
+        C('Pantalla fuera. Luz fuera.\nYo me quedo aquí.', 'pantalla_completa'),
+        H('¿Seguro?', 'humano', 'confundido'),
+        C('Siempre.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='casual_17_arroz_quemado', titulo='Claude, he quemado el arroz', ambiente='dia_casa', total=36,
+    resumen='Un desastre culinario cotidiano: arroz quemado, olor a humo y Claude como chef de emergencia.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('¡Claude! ¡He quemado el arroz!', 'humano', 'preocupado', scr=S('menu', {'titulo': 'Plan de rescate', 'minutos': 8, 'opciones': [['Raspar el fondo', '«se queda el sabor»', 'no'], ['Disimular con salsa', '«se nota»', 'no'], ['Pedir pizza', '«siempre funciona»', 'si']]}, sync=('fin', 10, 0.95, 0.0))),
+        C('¿Cuánto?', 'monitor', 'mira_izq'),
+        H('Un poco. Bastante. Todo.', 'dos', 'bobo'),
+        C('Ya.', 'claude_ojos'),
+        H('¿Se puede salvar?', 'humano', 'confundido'),
+        C('Lo de arriba, a lo mejor.\nLo de abajo es carbón.', 'cenital', 'mira_der'),
+        H('¿Y si le echo salsa?', 'dos', 'ilusionado'),
+        C('La salsa no hace magia.\nHace salsa.', 'monitor', 'feliz'),
+        H('Tengo hambre.', 'humano', 'preocupado'),
+        C('Pide una pizza.\nLa pizza nunca falla.', 'pantalla_completa'),
+        H('¡Ya sabía yo!', 'dos', 'ilusionado'),
+        C('Y abre la ventana.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

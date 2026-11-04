@@ -724,10 +724,38 @@ def p_phishing(p, datos):
     if p > 0.8: rr(d, (756, 430, W - 66, 640), (25, 60, 45), 12, GR); d.text((W - 66 - 235, 500), 'Los bancos no piden claves\npor SMS ni correo.', font=F(20, True), fill=GR, anchor='mm'); d.text((W - 66 - 235, 580), 'Bórralo. Si dudas, llama\nal número de tu tarjeta.', font=F(17), fill=TXT, anchor='mm')
     return im
 
+
+def p_wifi(p, datos):
+    im, d = base(datos.get('titulo', 'Redes WiFi disponibles')); tarjeta(d, (40, 60, 640, 650), 'REDES')
+    redes = [('AEROPUERTO_FREE_WIFI', 'abierta · sin contraseña', RD), ('AEROPUERTO_FREE_WlFI', 'abierta · gemela sospechosa', RD), ('Movil_de_Claude (4G)', 'cifrada · tus datos', GR)]
+    for i, (n_, e_, col) in enumerate(redes):
+        a = tramo(p, i * 0.12, i * 0.12 + 0.12)
+        if a <= 0: continue
+        y = 112 + i * 150 + int((1 - a) * 20); rr(d, (66, y, 614, y + 130), (28, 32, 58), 14, col, 2); d.text((96, y + 26), n_, font=F(26, True), fill=TXT); d.text((96, y + 74), e_, font=F(19, True), fill=col)
+        d.text((580, y + 62), '▮▮▮' if i != 1 else '▮▮', font=F(26, True), fill=col, anchor='rm')
+    tarjeta(d, (670, 60, W - 40, 350), 'EN WIFI PÚBLICA, NO')
+    for i, t in enumerate(('Entrar en el banco', 'Poner contraseñas', 'Comprar con tarjeta')):
+        if p > 0.35 + i * 0.1: d.text((700, 118 + i * 62), '✖ ' + t, font=F(22, True), fill=RD)
+    tarjeta(d, (670, 370, W - 40, 650), 'SÍ')
+    for i, t in enumerate(('Usar tus datos móviles', 'Una VPN de confianza', 'Webs con https', 'Quitar conexión automática')):
+        if p > 0.55 + i * 0.1: d.text((700, 426 + i * 52), '✔ ' + t, font=F(20, True), fill=GR)
+    return im
+
+def p_bizum(p, datos):
+    im, d = base(datos.get('titulo', 'Pagos — solicitud recibida')); rr(d, (60, 60, 600, 650), (16, 20, 34), 22, LINE)
+    rr(d, (90, 100, 570, 190), (70, 25, 35), 14, RD); d.text((330, 145), 'ESTÁS A PUNTO DE PAGAR', font=F(26, True), fill=(255, 220, 220), anchor='mm')
+    d.text((330, 260), '450,00 €', font=F(70, True, True), fill=TXT, anchor='mm'); d.text((330, 330), 'a: Comprador123', font=F(24, True), fill=DIM, anchor='mm'); d.text((330, 370), 'concepto: «Sofá, ya te pago»', font=F(19), fill=DIM, anchor='mm')
+    rr(d, (110, 430, 550, 500), GR, 16); d.text((330, 465), 'ACEPTAR', font=F(28, True), fill=(8, 20, 14), anchor='mm'); rr(d, (110, 520, 550, 590), (40, 44, 78), 16, LINE); d.text((330, 555), 'Rechazar', font=F(26, True), fill=TXT, anchor='mm')
+    tarjeta(d, (640, 60, W - 40, 650), 'CÓMO LO RECONOCES')
+    for i, t in enumerate(('Cobrar = te llega dinero', 'Si pone «PAGAR», pagas TÚ', 'Un pago confirmado no se cancela', 'Lee cantidad, concepto y nombre')):
+        if p > 0.15 + i * 0.15: rr(d, (666, 112 + i * 84, W - 66, 112 + i * 84 + 68), (28, 32, 58), 12, LINE); d.text((690, 146 + i * 84), t, font=F(20, True), fill=TXT, anchor='lm')
+    if p > 0.8: rr(d, (666, 460, W - 66, 636), (25, 60, 45), 14, GR); d.text((W - 66 - 280, 520), 'Línea de Ayuda en Ciberseguridad', font=F(18, True), fill=GR, anchor='mm'); d.text((W - 66 - 280, 580), '017', font=F(64, True), fill=GR, anchor='mm')
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
 ZOOM_AUTO = {'mensajes': (300, 54, 980, 652), 'phishing': (60, 60, 1240, 650), 'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+PANTALLAS = {'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}

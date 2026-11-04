@@ -29,5 +29,11 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_12_sin_internet` | Claude, no hay internet | `noche_casa` | [docs](casual_12_sin_internet.md) | [json](../../guiones/casual_12_sin_internet.json) | [mp4](../../salidas/casual_12_sin_internet.mp4) |
 | `casual_13_gimnasio` | Me he apuntado al gimnasio (todo el año) | `dia_casa` | [docs](casual_13_gimnasio.md) | [json](../../guiones/casual_13_gimnasio.json) | [mp4](../../salidas/casual_13_gimnasio.mp4) |
 | `trading_04_el_cunado` | Mi cuñado dice que compre esta moneda | `dia_trading` | [docs](trading_04_el_cunado.md) | [json](../../guiones/trading_04_el_cunado.json) | [mp4](../../salidas/trading_04_el_cunado.mp4) |
+| `util_03_wifi_publica` | Claude, ¿me conecto al WiFi gratis del aeropuerto? | `noche_casa` | [docs](util_03_wifi_publica.md) | [json](../../guiones/util_03_wifi_publica.json) | [mp4](../../salidas/util_03_wifi_publica.mp4) |
+| `util_04_bizum_inverso` | «Te pago el sofá por Bizum» | `dia_casa` | [docs](util_04_bizum_inverso.md) | [json](../../guiones/util_04_bizum_inverso.json) | [mp4](../../salidas/util_04_bizum_inverso.mp4) |
+| `casual_14_quien_friega` | Claude, ¿a quién le toca fregar? | `dia_casa` | [docs](casual_14_quien_friega.md) | [json](../../guiones/casual_14_quien_friega.json) | [mp4](../../salidas/casual_14_quien_friega.mp4) |
+| `casual_15_escribir_al_ex` | Claude, ¿le escribo a mi ex? | `noche_casa` | [docs](casual_15_escribir_al_ex.md) | [json](../../guiones/casual_15_escribir_al_ex.json) | [mp4](../../salidas/casual_15_escribir_al_ex.mp4) |
+| `casual_16_no_puedo_dormir` | Claude, no puedo dormir | `noche_casa` | [docs](casual_16_no_puedo_dormir.md) | [json](../../guiones/casual_16_no_puedo_dormir.json) | [mp4](../../salidas/casual_16_no_puedo_dormir.mp4) |
+| `casual_17_arroz_quemado` | Claude, he quemado el arroz | `dia_casa` | [docs](casual_17_arroz_quemado.md) | [json](../../guiones/casual_17_arroz_quemado.json) | [mp4](../../salidas/casual_17_arroz_quemado.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

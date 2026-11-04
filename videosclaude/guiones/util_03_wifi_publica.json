@@ -1,0 +1,124 @@
+{
+ "titulo": "Claude, ¿me conecto al WiFi gratis del aeropuerto?",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.99,
+   "quien": "humano",
+   "texto": "Claude, ¿me conecto al WiFi gratis\ndel aeropuerto?",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "wifi",
+    "duracion": 36.39
+   }
+  },
+  {
+   "inicio": 3.99,
+   "fin": 5.81,
+   "quien": "claude",
+   "texto": "Depende. ¿Para qué?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.81,
+   "fin": 7.7,
+   "quien": "humano",
+   "texto": "Para mirar el banco.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.7,
+   "fin": 9.38,
+   "quien": "claude",
+   "texto": "No.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 9.38,
+   "fin": 11.63,
+   "quien": "humano",
+   "texto": "¿Y para pagar un billete?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 11.63,
+   "fin": 13.31,
+   "quien": "claude",
+   "texto": "Tampoco.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 13.31,
+   "fin": 15.2,
+   "quien": "humano",
+   "texto": "¿Y para mirar memes?",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 15.2,
+   "fin": 19.47,
+   "quien": "claude",
+   "texto": "Eso sí. Lo demás, con tus datos\nmóviles. Es lo seguro.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 19.47,
+   "fin": 22.74,
+   "quien": "humano",
+   "texto": "Hay dos redes que se llaman casi igual.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 22.74,
+   "fin": 27.01,
+   "quien": "claude",
+   "texto": "Una es del aeropuerto.\nLa otra, de alguien con tiempo.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  },
+  {
+   "inicio": 27.01,
+   "fin": 28.69,
+   "quien": "humano",
+   "texto": "¿Y una VPN?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 28.69,
+   "fin": 32.75,
+   "quien": "claude",
+   "texto": "Ayuda. Y webs con https.\nY sin conexión automática.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 32.75,
+   "fin": 35.15,
+   "quien": "humano",
+   "texto": "Qué aburrido el aeropuerto.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 35.15,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Más aburrido es\nque te vacíen la cuenta.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

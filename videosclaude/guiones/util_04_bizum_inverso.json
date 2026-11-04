@@ -1,0 +1,139 @@
+{
+ "titulo": "«Te pago el sofá por Bizum»",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.43,
+   "quien": "humano",
+   "texto": "Claude, me van a pagar el sofá\npor Bizum. ¡450 €!",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "bizum",
+    "duracion": 32.58
+   }
+  },
+  {
+   "inicio": 3.43,
+   "fin": 5.15,
+   "quien": "claude",
+   "texto": "Enséñame la pantalla.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.15,
+   "fin": 7.69,
+   "quien": "humano",
+   "texto": "Pone «Aceptar» en verde. Qué bien.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.69,
+   "fin": 9.29,
+   "quien": "claude",
+   "texto": "¿Y arriba qué pone?",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 9.29,
+   "fin": 11.64,
+   "quien": "humano",
+   "texto": "«Estás a punto de pagar 450 €».",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 11.64,
+   "fin": 13.36,
+   "quien": "claude",
+   "texto": "Ahí.\nPagar. Tú. 450 €.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 13.36,
+   "fin": 15.46,
+   "quien": "humano",
+   "texto": "Pero él dijo que me pagaba.",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 15.46,
+   "fin": 18.83,
+   "quien": "claude",
+   "texto": "Y te ha mandado una\nsolicitud de cobro. Clásico.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 18.83,
+   "fin": 20.48,
+   "quien": "humano",
+   "texto": "¿Y si pulso aceptar?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 20.48,
+   "fin": 23.98,
+   "quien": "claude",
+   "texto": "El dinero sale al instante\ny no se puede cancelar.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 23.98,
+   "fin": 25.45,
+   "quien": "humano",
+   "texto": "¿Y qué hago?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 25.45,
+   "fin": 29.32,
+   "quien": "claude",
+   "texto": "Rechazar. Cobrar es que te llegue\ndinero. Léelo siempre.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 29.32,
+   "fin": 30.85,
+   "quien": "humano",
+   "texto": "¿Y si ya aceptara?",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 30.85,
+   "fin": 35.04,
+   "quien": "claude",
+   "texto": "Llama a tu banco, avisa a la\nplataforma y denuncia. Y el 017.",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 35.04,
+   "fin": 36.51,
+   "quien": "humano",
+   "texto": "¡Gracias, Claude!",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 36.51,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Léelo todo antes de pulsar.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}
