@@ -25,8 +25,15 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 | `espalda` | Clawd de espaldas mirando el monitor       | claude_idle |
 | `monitor` | **MONITOR centrado y de frente** (para enseñar pantallas), Clawd pequeño al pie | claude_idle / parpadeo / feliz |
 | `monitor_espalda` | monitor centrado, Clawd de espaldas en primer plano | claude_idle |
+| `general` | plano general de la sala: humano, monitor completo y Clawd | humano type (neutral/feliz) + senalar, claude_* |
+| `cenital` | desde arriba sobre el escritorio (teclado, raton, taza, libros) | claude_* |
+| `claude_ojos` | primer plano de Clawd para reacciones | claude_* (incluye mira_izq/der/arriba) |
+| `monitor_lateral` | monitor en tres cuartos desde la derecha, Clawd al pie | claude_* |
 | `pantalla_completa` | (plano 2D, sin Blender) la pantalla ocupa el video, fondo difuminado, zoom automatico a lo importante | — |
 
+- **Poses del humano** (cinematica inversa, funcionan bien): `type` (manos en el teclado, por defecto), `pensar` (mano en la barbilla), `senalar` (brazo hacia el monitor),
+  `hombros` (encoge hombros), `mira` (cabeza y ojos hacia el monitor). Campo `pose` en la linea del guion (si el plano no la tiene, usa `type`).
+- **Clawd** ademas puede mirar de lado: `claude_estado`: `mira_izq`, `mira_der`, `mira_arriba` (para el 'reojo' sarcastico), `feliz` (ojos ^ ^ de listillo).
 - Emociones del humano: `neutral`, `feliz`, `preocupado`, `burlon`. Bocas: `cerrada`, `media`, `abierta` (+ `neutral_parpadeo`).
 - Clawd SIEMPRE neutro (de pie, sin poses raras ni caras de sorpresa). Habla = **botecitos** (sube/baja), no tiene boca.
 - Orden de apilado: **fondo -> pantalla del monitor -> sombras fijas -> humano -> claude**.
@@ -35,7 +42,9 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 - **Videos de negocios online ('Claude te lleva la vida entera') = MUCHAS escenas de monitor**: usar `monitor`, `monitor_espalda` y `pantalla_completa`
   alternando con `dos`/`humano`. Ver `guiones/ejemplo_negocio.json`.
 - La **pantalla del monitor es intercambiable**: el fondo trae pantalla `vacia` (neutra) y el montador pega cualquier imagen
-  1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). **Pantallas ANIMADAS** (motor/pantallas.py, vista en `biblioteca/pantallas/_animadas_contacto.png`): `chat` (Claude tecleando lo que hace),
+  1280x720 con perspectiva (cuadrilatero guardado en `biblioteca/manifest.json`). **Pantallas de TRADING con humor**: `trading` (velas que suben y luego caen + P&L en vivo), `cartera` (posiciones graciosas en rojo), `orden` (el stop loss vacio se rellena), `resultado` (perdida con stop vs sin stop). Ejemplo completo: `guiones/trading_30s_sarcastico.json` (30 s, Claude sarcastico).
+  **Tono de voz** (`tono`): `sarcastico` (Claude por defecto: grave y arrastrando hacia abajo), `dudoso` (sube al final), `seguro` (humano).
+  **Pantallas ANIMADAS** (motor/pantallas.py, vista en `biblioteca/pantallas/_animadas_contacto.png`): `chat` (Claude tecleando lo que hace),
   `dashboard` (ingresos que suben), `tienda` (pedidos entrando), `calendario`, `email` (Claude redacta y envia), `analitica`, `tareas` (se marcan solas), `hoja`.
   Se usan con `"pantalla": "dashboard"` o `{"tipo":"dashboard","datos":{"ingresos":9800},"duracion":4}` (los `datos` cambian textos/cifras). Se animan solas durante `duracion` s.
   Para una pantalla nueva: añadir una funcion `p_xxx(p, datos)` en pantallas.py y registrarla en `PANTALLAS` (y opcionalmente en `ZOOM_AUTO`).
@@ -52,7 +61,8 @@ Dependencias del montador: `pillow numpy` y `ffmpeg`. (Blender `pip install bpy`
 ## Limitaciones conocidas (decirlas al Jefe, no inventar)
 - Las **voces son "blips"** sinteticos (estilo Animal Crossing), no voz real. Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
 - Solo hay 4 camaras fijas. Una camara/pose NUEVA exige re-renderizar con Blender (ver abajo) — evitarlo salvo que haga falta de verdad.
-- Solo hay UNA pose de brazos del humano ("tecleando") y Clawd solo "de pie" / "de espaldas". Las poses de pensar, facepalm, encoger hombros,
+- `pantalla_completa` en video vertical aprovecha poco alto (el monitor es 16:9). Mejora pendiente: versiones verticales (portrait) de las pantallas.
+- (historico) Solo habia UNA pose de brazos del humano ("tecleando") y Clawd solo "de pie" / "de espaldas". Las poses de pensar, facepalm, encoger hombros,
   celebrar, sorpresa, etc. se probaron y se BORRARON porque quedaban mal; si se quieren, hay que rehacer bien el rig de brazos primero.
 
 ## Regenerar o ampliar la biblioteca (solo si se pierde o se necesita un plano/estado nuevo)

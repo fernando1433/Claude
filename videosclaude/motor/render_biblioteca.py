@@ -108,7 +108,7 @@ PLANOS = {
     'general':         dict(base='general', humano=dict(type_emos=['neutral', 'feliz'], poses={'senalar': ['neutral']}), clawd=('pad', 'stand', 0, CL_BASE), f=4.0),
     'cenital':         dict(base='cenital', humano=None, clawd=('kb', 'stand', 0, CL_MIRA), f=5.6),
     'claude_ojos':     dict(base='claude_ojos', humano=None, clawd=('books', 'stand', 0, CL_MIRA), f=5.6),
-    'monitor_lateral': dict(base='monitor_lateral', humano=None, clawd=('monitor_frente', 'stand', 48, CL_BASE), f=6.0),
+    'monitor_lateral': dict(base='monitor_lateral', humano=None, clawd=('monitor_lat', 'stand', 48, CL_BASE), f=6.0),
 }
 
 def quad_pantalla():

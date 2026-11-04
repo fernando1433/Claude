@@ -340,7 +340,7 @@ def set_cam(pos, tgt, lens, focus=None):
 # ====================================================================== API REUTILIZABLE
 POS = {'kb': (0.55, 0.0, 0.1), 'pad': (1.0, 0.1, 0.03), 'books': (3.05, 0.1, 0.47), 'mug': (2.2, -0.35, 0.0),
        'front': (-0.2, -0.55, 0.0), 'lamp': (-1.1, 0.0, 0.0), 'edge': (0.9, -0.62, 0.0), 'screen': (1.55, 0.2, 0.0), 'plant': (3.2, 0.5, 0.0),
-       'monitor_frente': (1.6, 0.1, 0.0), 'monitor_espalda': (1.15, -0.45, 0.0)}
+       'monitor_frente': (1.6, 0.1, 0.0), 'monitor_espalda': (1.15, -0.45, 0.0), 'monitor_lat': (1.5, 0.2, 0.0)}
 # Los 4 PLANOS BASE (siempre neutros: humano tecleando, Clawd de pie)
 BASES = {
     'humano':   dict(cam=((-0.3, -2.0, 1.45), (-0.5, 1.4, 1.2), 50), clawd='pad',    clawd_pose='stand', desc='Primer plano del humano'),
@@ -352,7 +352,7 @@ BASES = {
     # --- tomas extra
     'general':         dict(cam=((0.9, -5.6, 1.25), (0.9, 0.8, 0.95), 40), clawd='pad',  clawd_pose='stand', desc='Plano general: humano, monitor y Clawd en el escritorio'),
     'cenital':         dict(cam=((1.2, -1.9, 3.5), (1.2, 0.25, 0.1), 36),  clawd='kb',   clawd_pose='stand', desc='Cenital sobre el escritorio (teclado, raton, taza, libros) con Clawd'),
-    'claude_ojos':     dict(cam=((3.05, -0.75, 0.72), (3.05, 0.1, 0.70), 60), clawd='books', clawd_pose='stand', desc='Primerisimo plano de Clawd (reacciones: parpadeo, mirada)'),
+    'claude_ojos':     dict(cam=((3.05, -1.45, 0.78), (3.05, 0.1, 0.66), 60), clawd='books', clawd_pose='stand', desc='Primerisimo plano de Clawd (reacciones: parpadeo, mirada)'),
     'monitor_lateral': dict(cam=((3.4, -2.2, 1.5), (1.9, 0.7, 1.2), 42),   clawd='monitor_frente', clawd_pose='stand', desc='Monitor en tres cuartos desde la derecha, Clawd al pie'),
     'dos':      dict(cam=((-0.4, -2.6, 0.9), (-0.7, 0.6, 0.7), 40),  clawd='lamp',   clawd_pose='stand', desc='Plano de los dos: humano y Clawd en el escritorio'),
 }
