@@ -1,0 +1,154 @@
+{
+ "titulo": "Un proveedor que vende todo a 1 €",
+ "ambiente": "atardecer_tienda",
+ "fps_animacion": 6,
+ "duracion": 45,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.69,
+   "quien": "humano",
+   "texto": "¡Claude! ¡Un proveedor que\nvende todo a 1 €!",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "proveedor",
+    "duracion": 21.92,
+    "datos": {
+     "producto": "cactus",
+     "nombre": "Lámpara cactus",
+     "coste": "1,20 €"
+    }
+   }
+  },
+  {
+   "inicio": 3.69,
+   "fin": 5.43,
+   "quien": "claude",
+   "texto": "¿Y el envío?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.43,
+   "fin": 7.17,
+   "quien": "humano",
+   "texto": "Gratis.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.17,
+   "fin": 8.91,
+   "quien": "claude",
+   "texto": "Gratis. Ya.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  },
+  {
+   "inicio": 8.91,
+   "fin": 10.66,
+   "quien": "humano",
+   "texto": "¿Qué pasa?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 10.66,
+   "fin": 15.24,
+   "quien": "claude",
+   "texto": "Que si todo es muy barato,\nfalla algo: calidad o plazos.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 15.24,
+   "fin": 17.21,
+   "quien": "humano",
+   "texto": "Tiene 4,1 estrellas.",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 17.21,
+   "fin": 20.82,
+   "quien": "claude",
+   "texto": "Con 1.203 opiniones.\nLee las malas primero.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 20.82,
+   "fin": 23.23,
+   "quien": "humano",
+   "texto": "¿Las malas? Qué mal rollo.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 23.23,
+   "fin": 27.22,
+   "quien": "claude",
+   "texto": "Pide una muestra. Úsala\ny compárala con la foto.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "margen",
+    "duracion": 4.99,
+    "datos": {
+     "precio": 29.9,
+     "coste": 1.2
+    }
+   }
+  },
+  {
+   "inicio": 27.22,
+   "fin": 29.56,
+   "quien": "humano",
+   "texto": "¿Y si no es como la foto?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 29.56,
+   "fin": 33.54,
+   "quien": "claude",
+   "texto": "Te has ahorrado 200 pedidos\ny 200 reclamaciones.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 33.54,
+   "fin": 35.36,
+   "quien": "humano",
+   "texto": "¡Pido una muestra!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 35.36,
+   "fin": 39.12,
+   "quien": "claude",
+   "texto": "Y si es electrónico, que\nlleve el marcado CE.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 39.12,
+   "fin": 40.86,
+   "quien": "humano",
+   "texto": "¡Eres un profe!",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 40.86,
+   "fin": 45,
+   "quien": "claude",
+   "texto": "Soy un profe con ordenador.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

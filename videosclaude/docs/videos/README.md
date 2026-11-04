@@ -35,5 +35,10 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_15_escribir_al_ex` | Claude, ¿le escribo a mi ex? | `noche_casa` | [docs](casual_15_escribir_al_ex.md) | [json](../../guiones/casual_15_escribir_al_ex.json) | [mp4](../../salidas/casual_15_escribir_al_ex.mp4) |
 | `casual_16_no_puedo_dormir` | Claude, no puedo dormir | `noche_casa` | [docs](casual_16_no_puedo_dormir.md) | [json](../../guiones/casual_16_no_puedo_dormir.json) | [mp4](../../salidas/casual_16_no_puedo_dormir.mp4) |
 | `casual_17_arroz_quemado` | Claude, he quemado el arroz | `dia_casa` | [docs](casual_17_arroz_quemado.md) | [json](../../guiones/casual_17_arroz_quemado.json) | [mp4](../../salidas/casual_17_arroz_quemado.mp4) |
+| `drop_04_devoluciones` | Un cliente quiere devolver la lámpara… ¡a los 3 meses! | `dia_tienda` | [docs](drop_04_devoluciones.md) | [json](../../guiones/drop_04_devoluciones.json) | [mp4](../../salidas/drop_04_devoluciones.mp4) |
+| `drop_05_proveedor_barato` | Un proveedor que vende todo a 1 € | `atardecer_tienda` | [docs](drop_05_proveedor_barato.md) | [json](../../guiones/drop_05_proveedor_barato.json) | [mp4](../../salidas/drop_05_proveedor_barato.mp4) |
+| `trading_05_el_guru_del_yate` | Este tío tiene un yate y dice que me hace rico | `noche_trading` | [docs](trading_05_el_guru_del_yate.md) | [json](../../guiones/trading_05_el_guru_del_yate.json) | [mp4](../../salidas/trading_05_el_guru_del_yate.mp4) |
+| `extra_04_pedir_aumento` | Claude, ¿me pido un aumento? | `atardecer_tienda` | [docs](extra_04_pedir_aumento.md) | [json](../../guiones/extra_04_pedir_aumento.json) | [mp4](../../salidas/extra_04_pedir_aumento.mp4) |
+| `extra_05_entrevista` | Claude, mañana tengo una entrevista de trabajo | `dia_casa` | [docs](extra_05_entrevista.md) | [json](../../guiones/extra_05_entrevista.json) | [mp4](../../salidas/extra_05_entrevista.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

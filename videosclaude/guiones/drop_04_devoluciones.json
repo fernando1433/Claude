@@ -1,0 +1,152 @@
+{
+ "titulo": "Un cliente quiere devolver la lámpara… ¡a los 3 meses!",
+ "ambiente": "dia_tienda",
+ "fps_animacion": 6,
+ "duracion": 45,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.52,
+   "quien": "humano",
+   "texto": "Claude, un cliente quiere devolver\nla lámpara... ¡a los 3 meses!",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "cliente",
+    "duracion": 20.83,
+    "datos": {
+     "asunto": "Quiero devolver mi lámpara",
+     "texto": "La compré hace 3 meses y ya no me gusta. Además a veces parpadea. Quiero mi dinero.",
+     "respuesta": "Hola, gracias por escribirnos. El plazo de desistimiento ya pasó, pero si la lámpara parpadea es un posible defecto cubierto por la garantía: te la reparamos o cambiamos sin coste."
+    }
+   }
+  },
+  {
+   "inicio": 4.52,
+   "fin": 6.04,
+   "quien": "claude",
+   "texto": "¿La ha usado?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.04,
+   "fin": 8.73,
+   "quien": "humano",
+   "texto": "Cada noche. Dice que\nya no le gusta.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.73,
+   "fin": 11.68,
+   "quien": "claude",
+   "texto": "Los 14 días de desistimiento\nya pasaron.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 11.68,
+   "fin": 13.71,
+   "quien": "humano",
+   "texto": "¡Entonces no la devuelvo!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 13.71,
+   "fin": 18.75,
+   "quien": "claude",
+   "texto": "Ojo: la garantía legal es otra cosa.\nEn España, 3 años en bienes nuevos.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "ley",
+    "duracion": 5.6,
+    "datos": {
+     "tipo": "garantia"
+    }
+   }
+  },
+  {
+   "inicio": 18.75,
+   "fin": 20.27,
+   "quien": "humano",
+   "texto": "¿Y qué cubre?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 20.27,
+   "fin": 24.79,
+   "quien": "claude",
+   "texto": "Defectos, no «ya no me gusta».\nSi está rota, hay que arreglarla.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 24.79,
+   "fin": 26.37,
+   "quien": "humano",
+   "texto": "Dice que parpadea.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 26.37,
+   "fin": 29.25,
+   "quien": "claude",
+   "texto": "Eso es un defecto.\nRepárala o cámbiala.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 29.25,
+   "fin": 31.16,
+   "quien": "humano",
+   "texto": "¿Y quién paga el envío?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 31.16,
+   "fin": 34.57,
+   "quien": "claude",
+   "texto": "Tú. Es tu tienda. Y\nreclámaselo a tu proveedor.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq",
+   "empuje": true
+  },
+  {
+   "inicio": 34.57,
+   "fin": 36.6,
+   "quien": "humano",
+   "texto": "Mi proveedor no contesta.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pose": "hombros"
+  },
+  {
+   "inicio": 36.6,
+   "fin": 40.53,
+   "quien": "claude",
+   "texto": "Por eso hay que elegirlos bien.\nPero eso es otro vídeo.",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 40.53,
+   "fin": 42.11,
+   "quien": "humano",
+   "texto": "¿Habrá otro vídeo?",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 42.11,
+   "fin": 45,
+   "quien": "claude",
+   "texto": "Si no te rindes.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

@@ -1,0 +1,184 @@
+{
+ "titulo": "Claude, mañana tengo una entrevista de trabajo",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 38,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.94,
+   "quien": "humano",
+   "texto": "Claude, mañana tengo una\nentrevista de trabajo.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 38.0,
+    "datos": {
+     "contacto": "Claude",
+     "mensajes": [
+      [
+       "yo",
+       "Claude, mañana tengo una entrevista de trabajo."
+      ],
+      [
+       "otro",
+       "Empecemos. «Háblame de ti»."
+      ],
+      [
+       "yo",
+       "Soy muy... humano."
+      ],
+      [
+       "otro",
+       "No. Eso no."
+      ],
+      [
+       "yo",
+       "¿Mi mayor defecto?"
+      ],
+      [
+       "otro",
+       "No digas «soy demasiado perfeccionista». Lo huelen."
+      ],
+      [
+       "yo",
+       "Que me cuesta madrugar."
+      ],
+      [
+       "otro",
+       "Honesto, pero peligroso. Di algo real que ya mejoras."
+      ],
+      [
+       "yo",
+       "¿Mi mayor logro?"
+      ],
+      [
+       "otro",
+       "Uno medible. Con un número."
+      ],
+      [
+       "yo",
+       "Llegué a tiempo 4 días seguidos."
+      ],
+      [
+       "otro",
+       "Eso... guárdalo para el café."
+      ],
+      [
+       "yo",
+       "¡Voy a arrasar!"
+      ],
+      [
+       "otro",
+       "Con calma. Y con camisa. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.94,
+   "fin": 6.36,
+   "quien": "claude",
+   "texto": "Empecemos.\n«Háblame de ti».",
+   "plano": "monitor"
+  },
+  {
+   "inicio": 6.36,
+   "fin": 8.19,
+   "quien": "humano",
+   "texto": "Soy muy... humano.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.19,
+   "fin": 9.94,
+   "quien": "claude",
+   "texto": "No. Eso no.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 9.94,
+   "fin": 11.77,
+   "quien": "humano",
+   "texto": "¿Mi mayor defecto?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 11.77,
+   "fin": 16.0,
+   "quien": "claude",
+   "texto": "No digas «soy demasiado\nperfeccionista». Lo huelen.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.0,
+   "fin": 18.21,
+   "quien": "humano",
+   "texto": "Que me cuesta madrugar.",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 18.21,
+   "fin": 22.59,
+   "quien": "claude",
+   "texto": "Honesto, pero peligroso.\nDi algo real que ya mejoras.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 22.59,
+   "fin": 24.35,
+   "quien": "humano",
+   "texto": "¿Mi mayor logro?",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 24.35,
+   "fin": 26.85,
+   "quien": "claude",
+   "texto": "Uno medible. Con un número.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 26.85,
+   "fin": 29.73,
+   "quien": "humano",
+   "texto": "Llegué a tiempo 4 días seguidos.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 29.73,
+   "fin": 32.31,
+   "quien": "claude",
+   "texto": "Eso... guárdalo\npara el café.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 32.31,
+   "fin": 34.06,
+   "quien": "humano",
+   "texto": "¡Voy a arrasar!",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 34.06,
+   "fin": 38,
+   "quien": "claude",
+   "texto": "Con calma. Y con camisa.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

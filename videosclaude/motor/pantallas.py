@@ -554,14 +554,14 @@ def p_tracking(p, datos):
 
 def p_cliente(p, datos):
     im, d = base(datos.get('titulo', 'Correo — Atención al cliente')); tarjeta(d, (40, 60, W - 40, 650))
-    d.text((70, 82), '¡¿DÓNDE ESTÁ MI PEDIDO?!', font=F(32, True), fill=RD); d.text((70, 128), 'De: Ana M.  ·  hace 1 min', font=F(15), fill=DIM)
-    txt = 'Pedí una lámpara hace 25 días. Nadie contesta. Si no llega YA quiero mi dinero y voy a llamar a consumo.'; n = int(len(txt) * tramo(p, 0.0, 0.3)); y = 170; ln = ''
+    d.text((70, 82), datos.get('asunto', '¡¿DÓNDE ESTÁ MI PEDIDO?!'), font=F(32, True), fill=RD); d.text((70, 128), datos.get('de', 'De: Ana M.  ·  hace 1 min'), font=F(15), fill=DIM)
+    txt = datos.get('texto', 'Pedí una lámpara hace 25 días. Nadie contesta. Si no llega YA quiero mi dinero y voy a llamar a consumo.'); n = int(len(txt) * tramo(p, 0.0, 0.3)); y = 170; ln = ''
     for w_ in txt[:n].split(' '):
         if d.textlength(ln + w_, font=F(21)) > W - 160: d.text((70, y), ln, font=F(21), fill=TXT); y += 32; ln = ''
         ln += w_ + ' '
     d.text((70, y), ln, font=F(21), fill=TXT)
     rr(d, (70, 330, W - 70, 600), (18, 20, 38), 14, OR); chip(d, (90, 346), 'Borrador de Claude', OR, 14)
-    resp = 'Hola Ana, perdona la espera: tu pedido viene de ultramar y tarda más de lo que prometimos. Te paso el seguimiento y, si prefieres, te devuelvo el dinero hoy mismo. Gracias por avisarnos.'
+    resp = datos.get('respuesta', 'Hola Ana, perdona la espera: tu pedido viene de ultramar y tarda más de lo que prometimos. Te paso el seguimiento y, si prefieres, te devuelvo el dinero hoy mismo. Gracias por avisarnos.')
     n2 = int(len(resp) * tramo(p, 0.35, 0.85)); y = 392; ln = ''
     for w_ in resp[:n2].split(' '):
         if d.textlength(ln + w_, font=F(20)) > W - 200: d.text((90, y), ln, font=F(20), fill=TXT); y += 32; ln = ''
@@ -575,6 +575,11 @@ def p_ley(p, datos):
     d.text((330, 130), 'DEVOLUCIÓN', font=F(20, True), fill=DIM, anchor='mm'); d.text((330, 260), f'{int(14 * a)}', font=F(150, True), fill=OR, anchor='mm'); d.text((330, 360), 'días naturales para desistir', font=F(24, True), fill=TXT, anchor='mm')
     d.text((330, 410), 'sin dar motivos (compras a distancia)', font=F(18), fill=DIM, anchor='mm'); d.text((330, 470), 'Te devuelven el dinero… incluso el envío', font=F(18, True), fill=CY, anchor='mm')
     d.text((330, 600), 'Directiva 2011/83/UE', font=F(15), fill=DIM, anchor='mm')
+    if datos.get('tipo') == 'garantia':
+        tarjeta(d, (650, 60, W - 40, 650)); d.text((945, 130), 'GARANTÍA LEGAL', font=F(20, True), fill=DIM, anchor='mm'); d.text((945, 270), f'{int(3 * ease(p / 0.5) + 0.5)}', font=F(150, True), fill=GR, anchor='mm')
+        if p > 0.4: d.text((945, 380), 'años en bienes nuevos (España)', font=F(24, True), fill=TXT, anchor='mm'); d.text((945, 430), 'cubre DEFECTOS, no «ya no me gusta»', font=F(18), fill=DIM, anchor='mm')
+        if p > 0.7: chip(d, (800, 480), 'Reparar, sustituir o devolver', CY, 16); d.text((945, 600), 'Plazo desde que recibes el producto', font=F(15), fill=DIM, anchor='mm')
+        return im
     tarjeta(d, (650, 60, W - 40, 650)); d.text((945, 130), 'IVA EN IMPORTACIONES', font=F(20, True), fill=DIM, anchor='mm')
     if p > 0.3: d.text((945, 250), 'desde 1/7/2021', font=F(40, True), fill=YE, anchor='mm'); d.text((945, 320), 'se paga IVA desde el primer euro', font=F(22, True), fill=TXT, anchor='mm')
     if p > 0.5: d.text((945, 390), '(adiós a la exención de 22 €)', font=F(20), fill=DIM, anchor='mm'); chip(d, (845, 440), 'IOSS: ventanilla única hasta 150 €', CY, 16)

@@ -739,6 +739,121 @@ VIDEOS.append(dict(
         C('Y abre la ventana.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
+GAR1 = ('España amplía la garantía legal mínima de dos a tres años (Centro Europeo del Consumidor)', 'https://portal-cec.consumo.gob.es/es/comunicacion/noticias/2022/espana-amplia-la-garantia-legal-minima-de-dos-tres-anos')
+GAR2 = ('Ampliación de la garantía de productos a tres años (Legálitas)', 'https://www.legalitas.com/actualidad/ley-consumidor-derechos-garantias')
+
+# ---------------- tanda 4
+VIDEOS.append(dict(
+    id='drop_04_devoluciones', titulo='Un cliente quiere devolver la lámpara… ¡a los 3 meses!', ambiente='dia_tienda', total=45,
+    resumen='Devolución fuera de plazo: Claude separa el desistimiento (14 días) de la garantía legal (3 años en España para bienes nuevos) y le enseña qué cubre cada uno.',
+    datos=[('Desistimiento: 14 días naturales en compras a distancia (UE). Garantía legal en España: 3 años en bienes nuevos desde 2022 (2 años antes); cubre falta de conformidad/defectos, no el simple arrepentimiento. Son derechos distintos.', [DESIST, GAR1, GAR2])],
+    lineas=[
+        H('Claude, un cliente quiere devolver\nla lámpara... ¡a los 3 meses!', 'humano', 'preocupado', scr=S('cliente', {'asunto': 'Quiero devolver mi lámpara', 'texto': 'La compré hace 3 meses y ya no me gusta. Además a veces parpadea. Quiero mi dinero.', 'respuesta': 'Hola, gracias por escribirnos. El plazo de desistimiento ya pasó, pero si la lámpara parpadea es un posible defecto cubierto por la garantía: te la reparamos o cambiamos sin coste.'}, sync=('fin', 6, 0.9, 0.0))),
+        C('¿La ha usado?', 'monitor', 'mira_izq'),
+        H('Cada noche. Dice que\nya no le gusta.', 'dos', 'bobo'),
+        C('Los 14 días de desistimiento\nya pasaron.', 'claude_ojos'),
+        H('¡Entonces no la devuelvo!', 'humano', 'ilusionado'),
+        C('Ojo: la garantía legal es otra cosa.\nEn España, 3 años en bienes nuevos.', 'pantalla_completa', scr=S('ley', {'tipo': 'garantia'}, sync=('fin', 6, 0.9, 0.0))),
+        H('¿Y qué cubre?', 'dos', 'confundido'),
+        C('Defectos, no «ya no me gusta».\nSi está rota, hay que arreglarla.', 'cenital', 'mira_der'),
+        H('Dice que parpadea.', 'humano', 'preocupado'),
+        C('Eso es un defecto.\nRepárala o cámbiala.', 'monitor', 'feliz'),
+        H('¿Y quién paga el envío?', 'dos', 'confundido'),
+        C('Tú. Es tu tienda. Y\nreclámaselo a tu proveedor.', 'claude_ojos', 'mira_izq', emp=True),
+        H('Mi proveedor no contesta.', 'humano', 'preocupado', pose='hombros'),
+        C('Por eso hay que elegirlos bien.\nPero eso es otro vídeo.', 'monitor'),
+        H('¿Habrá otro vídeo?', 'dos', 'feliz'),
+        C('Si no te rindes.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='drop_05_proveedor_barato', titulo='Un proveedor que vende todo a 1 €', ambiente='atardecer_tienda', total=45,
+    resumen='El tonto encuentra un proveedor «demasiado barato». Claude le enseña a desconfiar: leer las opiniones malas, pedir muestra y revisar plazos y marcado CE.',
+    datos=[('Si es electrónica o eléctrica, debe llevar marcado CE para venderse en la UE (ver vídeo drop_02).', [CE1, CE2]), ('Cifras de la ficha del proveedor (1,20 €, 4,1 estrellas, 1.203 opiniones) son ilustrativas.', [])],
+    lineas=[
+        H('¡Claude! ¡Un proveedor que\nvende todo a 1 €!', 'humano', 'ilusionado', scr=S('proveedor', {'producto': 'cactus', 'nombre': 'Lámpara cactus', 'coste': '1,20 €'}, sync=('fin', 8, 0.95, 0.0))),
+        C('¿Y el envío?', 'monitor', 'mira_izq'),
+        H('Gratis.', 'dos', 'bobo'),
+        C('Gratis. Ya.', 'claude_ojos', 'mira_izq', emp=True),
+        H('¿Qué pasa?', 'humano', 'confundido'),
+        C('Que si todo es muy barato,\nfalla algo: calidad o plazos.', 'cenital', 'mira_der'),
+        H('Tiene 4,1 estrellas.', 'dos', 'preocupado'),
+        C('Con 1.203 opiniones.\nLee las malas primero.', 'monitor', 'feliz'),
+        H('¿Las malas? Qué mal rollo.', 'humano', 'bobo'),
+        C('Pide una muestra. Úsala\ny compárala con la foto.', 'pantalla_completa', scr=S('margen', {'precio': 29.90, 'coste': 1.20}, sync=('fin', 10, 0.8, 0.0))),
+        H('¿Y si no es como la foto?', 'dos', 'confundido'),
+        C('Te has ahorrado 200 pedidos\ny 200 reclamaciones.', 'claude_ojos', 'feliz'),
+        H('¡Pido una muestra!', 'humano', 'ilusionado'),
+        C('Y si es electrónico, que\nlleve el marcado CE.', 'monitor', 'mira_arriba'),
+        H('¡Eres un profe!', 'dos', 'feliz'),
+        C('Soy un profe con ordenador.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_05_el_guru_del_yate', titulo='Este tío tiene un yate y dice que me hace rico', ambiente='noche_trading', total=44,
+    resumen='El gurú de Instagram con yate, coches y seguidores comprados. Claude le baja los humos con sarcasmo y el dato de ESMA.',
+    datos=[('74–89 % de cuentas minoristas de CFD pierden dinero (ESMA, 2018).', [ESMA, ESMA_R]), ('Los seguidores se pueden comprar y los yates y coches de lujo se pueden alquilar por horas: afirmaciones de carácter general, no de una persona concreta.', [])],
+    lineas=[
+        H('Claude, este tío tiene un yate\ny dice que me hace rico.', 'humano', 'ilusionado', scr=S('analitica', {'titulo': 'Perfil del gurú — analítica', 'seguidores': 412000, 'vistas': 9800000}, sync=('fin', 8, 0.9, 0.0))),
+        C('¿Ese yate es suyo?', 'monitor', 'mira_izq'),
+        H('Sale en todas las fotos.', 'dos', 'bobo'),
+        C('Se puede alquilar por horas.\nTiene tarifa y todo.', 'claude_ojos'),
+        H('¿Y los seguidores?', 'humano', 'confundido'),
+        C('Se pueden comprar. Por\nmiles. A céntimos.', 'cenital', 'mira_der'),
+        H('¿Todo es falso?', 'dos', 'preocupado'),
+        C('Todo no. Lo único real\nes tu tarjeta.', 'monitor', 'feliz'),
+        H('Pero dice que gana en directo.', 'humano', 'bobo'),
+        C('Dato real: 74–89 % de cuentas\nminoristas de CFD pierde.', 'pantalla_completa', scr=S('verdad', {'tipo': 'esma'}, sync=('fin', 10, 1.0, 0.0))),
+        H('Yo pensaba que ganaba.', 'dos', 'confundido'),
+        C('Él gana. Con los que\npagan su curso.', 'claude_ojos', 'mira_izq', emp=True),
+        H('¿Entonces dónde invierto?', 'humano', 'preocupado'),
+        C('Donde entiendas, con poco\nriesgo y sin gurús.', 'monitor', 'mira_arriba'),
+        H('¡Pues sin gurú!', 'dos', 'ilusionado'),
+        C('Y sin yate.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='extra_04_pedir_aumento', titulo='Claude, ¿me pido un aumento?', ambiente='atardecer_tienda', total=40,
+    resumen='Preparar la petición de un aumento de sueldo: argumentos buenos (logros, datos de mercado, una cifra real) y malos («mi gato lo merece»).',
+    datos=[('Vídeo de humor con consejos generales de negociación (logros medibles, referencias de mercado y una cifra concreta). No es asesoramiento laboral.', [])],
+    lineas=[
+        H('Claude, ¿me pido un aumento?', 'humano', 'ilusionado', scr=S('tareas', {'titulo': 'Argumentos para el aumento', 'tareas': ['Llevo tres años', 'Me duele la espalda', 'Mi gato lo merece', 'Hago cosas (a veces)', 'Lista de logros con datos', 'Una cifra real']}, sync=('fin', 10, 0.95, 0.0))),
+        C('¿Con qué argumentos?', 'monitor', 'mira_izq'),
+        H('Llevo tres años.', 'dos', 'bobo'),
+        C('Bien. ¿Y qué has logrado?', 'claude_ojos'),
+        H('Asistir a las reuniones.', 'humano', 'confundido'),
+        C('Más bien sobrevivir.\nNecesitamos resultados.', 'cenital', 'mira_der'),
+        H('Mi gato lo merece.', 'dos', 'ilusionado'),
+        C('Tu gato no negocia.\nTú, un poco peor.', 'monitor', 'feliz'),
+        H('¿Y qué hago?', 'humano', 'preocupado'),
+        C('Lista de logros con datos,\nreferencias del mercado y una cifra.', 'pantalla_completa'),
+        H('¿Una cifra? ¿Cuál?', 'dos', 'confundido'),
+        C('Una real. Ni 3 millones\nni «lo que usted crea».', 'claude_ojos', 'mira_izq', emp=True),
+        H('¡Voy a por ello!', 'humano', 'ilusionado'),
+        C('Y respira.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='extra_05_entrevista', titulo='Claude, mañana tengo una entrevista de trabajo', ambiente='dia_casa', total=38,
+    resumen='Simulacro de entrevista: «háblame de ti», el defecto «perfeccionista» y el logro de llegar a tiempo cuatro días seguidos.',
+    datos=[('Vídeo de humor con consejos generales de entrevista (respuestas concretas y honestas con ejemplos medibles). No es asesoramiento laboral.', [])],
+    lineas=[
+        H('Claude, mañana tengo una\nentrevista de trabajo.', 'humano', 'preocupado', scr=S('mensajes', {'auto': True, 'contacto': 'Claude'}, sync=('fin', 14, 1.0, 0.0))),
+        C('Empecemos.\n«Háblame de ti».', 'monitor'),
+        H('Soy muy... humano.', 'dos', 'bobo'),
+        C('No. Eso no.', 'claude_ojos', 'mira_izq'),
+        H('¿Mi mayor defecto?', 'humano', 'confundido'),
+        C('No digas «soy demasiado\nperfeccionista». Lo huelen.', 'cenital', 'mira_der'),
+        H('Que me cuesta madrugar.', 'dos', 'preocupado'),
+        C('Honesto, pero peligroso.\nDi algo real que ya mejoras.', 'monitor', 'feliz'),
+        H('¿Mi mayor logro?', 'humano', 'ilusionado'),
+        C('Uno medible. Con un número.', 'claude_ojos', emp=True),
+        H('Llegué a tiempo 4 días seguidos.', 'dos', 'bobo'),
+        C('Eso... guárdalo\npara el café.', 'pantalla_completa'),
+        H('¡Voy a arrasar!', 'humano', 'feliz'),
+        C('Con calma. Y con camisa.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)
