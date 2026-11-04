@@ -5,6 +5,8 @@ Uso:   python3 -I motor/montar_video.py guiones/ejemplo_dip.json salidas/ejemplo
 Opciones:  --solo-frames N   (monta solo los N primeros frames, para probar)
 
 Guion (ver guiones/ejemplo_dip.json):
+  (humano) pose: type (por defecto, manos en el teclado) | pensar | senalar | hombros | mira   (la que no exista en el plano se sustituye por type)
+  (claude) claude_estado: idle | feliz | mira_izq | mira_der | mira_arriba   empuje: true (zoom lento durante la linea; opcional)
   fps_animacion  frames de animacion por segundo (6 recomendado: poco movimiento, se duplica a 24 al exportar)
   duracion       segundos totales
   lineas[]:  inicio, fin (s) | quien: "humano"|"claude" | texto | plano: humano|dos|claude|espalda (opcional)
@@ -157,7 +159,7 @@ def montar(guion, salida, solo=None):
         prog = max(0.0, min(1.0, (t - t0) / dur_p)) if cambios else 1.0
         if act:
             estado['plano'] = act.get('plano') or ('humano' if act['quien'] == 'humano' else 'claude')
-            if act['quien'] == 'humano': estado['emo'] = act.get('emocion', estado['emo'])
+            if act['quien'] == 'humano': estado['emo'] = act.get('emocion', estado['emo']); estado['pose'] = act.get('pose', estado.get('pose', 'type'))
         plano = estado['plano'] or ('humano' if not L else ('humano' if L[0]['quien'] == 'humano' else 'claude'))
         if plano == 'pantalla_completa':
             zoom = (act or {}).get('zoom'); nom_ = estado['pantalla']['tipo'] if isinstance(estado['pantalla'], dict) else estado['pantalla']
@@ -171,9 +173,11 @@ def montar(guion, salida, solo=None):
             lienzo = Image.alpha_composite(lienzo, sombra_capa(plano, _f))
         if info['humano']:
             boca = CICLO_BOCA[(i - int(act['inicio'] * fps)) % len(CICLO_BOCA)] if habla_h else 'cerrada'
-            clave = f"{estado['emo']}_{boca}"
-            if i % 14 == 6 and estado['emo'] == 'neutral' and not habla_h and 'neutral_parpadeo' in info['humano']: clave = 'neutral_parpadeo'
-            lienzo = Image.alpha_composite(lienzo, cargar(plano, info['humano'].get(clave) or info['humano']['neutral_cerrada']))
+            pose = estado.get('pose', 'type'); emo = estado['emo']
+            cands = ([f'{pose}:{emo}_{boca}', f'{pose}:neutral_{boca}'] if pose != 'type' else []) + [f'{emo}_{boca}', f'neutral_{boca}', 'neutral_cerrada']
+            clave = next(c for c in cands if c in info['humano'])
+            if i % 14 == 6 and pose == 'type' and emo == 'neutral' and not habla_h and 'neutral_parpadeo' in info['humano']: clave = 'neutral_parpadeo'
+            lienzo = Image.alpha_composite(lienzo, cargar(plano, info['humano'][clave]))
         if info['claude']:
             est = (act or {}).get('claude_estado', 'idle') if habla_c else estado.get('claude_estado', 'idle')
             if habla_c: estado['claude_estado'] = est
@@ -181,6 +185,10 @@ def montar(guion, salida, solo=None):
             capa = cargar(plano, info['claude'].get(est) or info['claude']['idle'])
             if habla_c and i % 2 == 0: capa = desplazar(capa, -14)       # botecitos al hablar (sin boca)
             lienzo = Image.alpha_composite(lienzo, capa)
+        if act and act.get('empuje'):        # empuje de camara opcional (zoom lento hacia dentro durante la linea)
+            k = (t - act['inicio']) / max(0.1, act['fin'] - act['inicio']); s = 1 + 0.08 * k
+            cw, ch = int(W / s), int(H / s); x0, y0 = (W - cw) // 2, int((H - ch) * 0.4)
+            lienzo = lienzo.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.LANCZOS)
         im = lienzo.convert('RGB').resize((1080, 1920), Image.LANCZOS)
         if act and act.get('texto') and G.get('subtitulos', True):
             d = ImageDraw.Draw(im); y = 1500

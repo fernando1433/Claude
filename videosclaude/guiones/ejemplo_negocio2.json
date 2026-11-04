@@ -1,0 +1,16 @@
+{
+  "titulo": "Ejemplo 2: usa las tomas y poses nuevas (general, lateral, cenital, ojos, poses IK)",
+  "fps_animacion": 6,
+  "duracion": 13.3,
+  "pantalla_inicial": "vacia",
+  "lineas": [
+    {"inicio": 0.0,  "fin": 1.6,  "quien": "humano", "texto": "Claude, ¿cómo voy hoy?", "plano": "dos", "pose": "mira", "emocion": "neutral", "pantalla": {"tipo": "dashboard", "duracion": 3.2}},
+    {"inicio": 1.6,  "fin": 3.4,  "quien": "claude", "texto": "Un 23 % por encima\nde ayer.", "plano": "monitor_lateral"},
+    {"inicio": 3.4,  "fin": 5.2,  "quien": "humano", "texto": "¿Y esos pedidos?", "plano": "general", "pose": "senalar", "emocion": "feliz", "pantalla": {"tipo": "tienda", "duracion": 3.0}},
+    {"inicio": 5.2,  "fin": 7.0,  "quien": "claude", "texto": "Ya empaquetados.\nSalen esta tarde.", "plano": "cenital", "claude_estado": "mira_der"},
+    {"inicio": 7.0,  "fin": 8.4,  "quien": "humano", "texto": "¿Y las facturas?", "plano": "humano", "pose": "pensar", "emocion": "preocupado"},
+    {"inicio": 8.4,  "fin": 10.2, "quien": "claude", "texto": "Enviadas.\nNo te preocupes.", "plano": "claude_ojos", "claude_estado": "feliz", "empuje": true},
+    {"inicio": 10.2, "fin": 11.9, "quien": "claude", "texto": "Todo al día.", "plano": "pantalla_completa", "pantalla": {"tipo": "tareas", "duracion": 1.7}},
+    {"inicio": 11.9, "fin": 13.3, "quien": "humano", "texto": "Qué haría sin ti.", "plano": "dos", "pose": "hombros", "emocion": "neutral"}
+  ]
+}

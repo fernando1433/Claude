@@ -238,7 +238,7 @@ EXPR = {
     'happy':     dict(mouth=(0.09, 0.03), brow=(0.13, 0), eye=0.55),
 }
 def set_human(pose, expr):
-    P = HPOSE[pose]
+    P = HPOSE.get(pose, HPOSE['type'])
     for n in ('L', 'R'):
         a, b, c, d = P[n]; sh, el = ARM[n]
         sh.rotation_euler = (R(a), R(b), 0); el.rotation_euler = (R(c), R(d), 0)
@@ -251,6 +251,33 @@ def set_human(pose, expr):
         br.location[2] = E['brow'][0]; br.rotation_euler = (0, R((1 if i == 0 else -1) * E['brow'][1]), 0)
     for pu, hl, hl2 in EYES:
         pu.scale[2] = 0.062 * E['eye']; hl.scale[2] = 0.011 if E['eye'] > 0.45 else 0.002; hl.location[2] = 0.03 * E['eye']
+    if pose not in HPOSE: pose_extra(pose)
+
+# ------------------------------------------------------------------ brazos con cinematica inversa (IK de 2 huesos)
+from mathutils import Vector as _V
+L1, L2 = 0.54, 0.52     # largo del brazo y del antebrazo hasta el centro de la mano
+def ik_brazo(lado, objetivo, polo):
+    """Coloca el brazo `lado` ('L'|'R') para que la mano llegue a `objetivo` (coordenadas del TORSO). `polo` = hacia donde apunta el codo."""
+    sh, el = ARM[lado]; S = _V(sh.location); T = _V(objetivo); d = T - S
+    dist = min(d.length, L1 + L2 - 1e-3); dirT = d.normalized(); T = S + dirT * dist
+    a = (L1 ** 2 - L2 ** 2 + dist ** 2) / (2 * dist); h = math.sqrt(max(0.0, L1 ** 2 - a ** 2))
+    polo = _V(polo); perp = polo - dirT * polo.dot(dirT); perp = perp.normalized() if perp.length > 1e-6 else _V((0, 0, -1))
+    El = S + dirT * a + perp * h
+    q1 = (El - S).normalized().to_track_quat('-Z', 'Y'); q2 = (T - El).normalized().to_track_quat('-Z', 'Y')
+    sh.rotation_euler = q1.to_euler(); el.rotation_euler = (q1.inverted() @ q2).to_euler()
+
+def pose_extra(pose):
+    """poses con IK: 'pensar' (mano en la barbilla), 'senalar' (brazo estirado hacia el monitor), 'hombros' (encoger hombros), 'mira' (mira al monitor)"""
+    if pose == 'pensar':
+        ik_brazo('R', (0.10, -0.40, 1.03), (0.9, 0.1, -0.5)); HEAD.rotation_euler = (R(2), 0, R(-5))
+    elif pose == 'senalar':
+        S = _V(ARM['R'][0].location); dr = _V((0.85, -0.45, 0.30)).normalized(); ik_brazo('R', S + dr * 1.02, (0.0, 0.3, -1.0)); HEAD.rotation_euler = (0, 0, R(10))
+    elif pose == 'hombros':
+        ik_brazo('R', (0.80, -0.32, 0.80), (0.5, 0.6, -1.0)); ik_brazo('L', (-0.80, -0.32, 0.80), (-0.5, 0.6, -1.0))
+        HEAD.location[2] = 1.36; HEAD.rotation_euler = (0, 0, R(7))
+    elif pose == 'mira':     # cabeza girada y ojos hacia el monitor (a la derecha de cuadro)
+        HEAD.rotation_euler = (R(2), 0, R(18))
+        for pu, hl, hl2 in EYES: pu.location[0] += 0.035; hl.location[0] += 0.035
 
 # ------------------------------------------------------------------ Clawd (pequeno)
 CL = empty('claw', (0, 0, 0)); CL.scale = (0.36, 0.36, 0.36)
@@ -322,6 +349,11 @@ BASES = {
     # planos CENTRADOS EN EL MONITOR (camara alineada con la normal de la pantalla): para ensenar lo que se esta haciendo
     'monitor':         dict(cam=((-0.01, -3.83, 1.1), (2.02, 0.74, 1.1), 55), clawd='monitor_frente',  clawd_pose='stand', desc='Monitor centrado y de frente; Clawd pequeno al pie mirando a camara'),
     'monitor_espalda': dict(cam=((0.32, -3.10, 1.35), (2.02, 0.74, 1.2), 46), clawd='monitor_espalda', clawd_pose='look',  desc='Monitor centrado; Clawd de espaldas mirandolo en primer plano'),
+    # --- tomas extra
+    'general':         dict(cam=((0.9, -5.6, 1.25), (0.9, 0.8, 0.95), 40), clawd='pad',  clawd_pose='stand', desc='Plano general: humano, monitor y Clawd en el escritorio'),
+    'cenital':         dict(cam=((1.2, -1.9, 3.5), (1.2, 0.25, 0.1), 36),  clawd='kb',   clawd_pose='stand', desc='Cenital sobre el escritorio (teclado, raton, taza, libros) con Clawd'),
+    'claude_ojos':     dict(cam=((3.05, -0.75, 0.72), (3.05, 0.1, 0.70), 60), clawd='books', clawd_pose='stand', desc='Primerisimo plano de Clawd (reacciones: parpadeo, mirada)'),
+    'monitor_lateral': dict(cam=((3.4, -2.2, 1.5), (1.9, 0.7, 1.2), 42),   clawd='monitor_frente', clawd_pose='stand', desc='Monitor en tres cuartos desde la derecha, Clawd al pie'),
     'dos':      dict(cam=((-0.4, -2.6, 0.9), (-0.7, 0.6, 0.7), 40),  clawd='lamp',   clawd_pose='stand', desc='Plano de los dos: humano y Clawd en el escritorio'),
 }
 PANTALLAS = tuple(SCREENS)   # chart, chat, order  (para anadir una nueva: motor/texturas.py + SCREENS)
