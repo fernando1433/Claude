@@ -6,6 +6,7 @@ montar() {   # ambiente id...
   local amb=$1; shift
   while [ ! -f $LOG/LISTO_$amb ]; do sleep 15; done
   for id in "$@"; do
+    [ -f $LOG/VIDEO_$id ] && continue      # ya montado
     echo "montando $id ($(date +%H:%M:%S))" >> $LOG/montaje.log
     python3 -I motor/montar_video.py guiones/$id.json salidas/$id.mp4 >> $LOG/montaje.log 2>&1
     echo "listo $id ($(date +%H:%M:%S))" >> $LOG/montaje.log; touch $LOG/VIDEO_$id
