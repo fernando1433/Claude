@@ -787,10 +787,55 @@ def p_llamada(p, datos):
     if p > 0.85: rr(d, (676, 462, W - 66, 636), (25, 60, 45), 12, GR); d.text((W - 66 - 260, 520), 'Cuelga. Microsoft no te llama\npara «arreglarte» el PC.', font=F(19, True), fill=GR, anchor='mm'); d.text((W - 66 - 260, 590), 'Si dudas: llama tú, al número oficial.', font=F(15), fill=TXT, anchor='mm')
     return im
 
+
+def p_inflacion(p, datos):
+    tasa = datos.get('tasa', 0.02); años = datos.get('años', 20); im, d = base(datos.get('titulo', 'Inflación — lo que valen tus 100 €')); tarjeta(d, (40, 60, W - 40, 650))
+    d.text((70, 84), f'100 € de hoy, con una inflación del {int(tasa * 100)} % anual (ejemplo)', font=F(22, True), fill=DIM)
+    x0, y0, x1, y1 = 100, 150, 1180, 520; hasta = int(ease(p / 0.85) * años); serie = [100 / (1 + tasa) ** k for k in range(años + 1)]
+    d.line([(x0, y1), (x1, y1)], fill=LINE, width=2)
+    pts = [(x0 + (x1 - x0) * k / años, y1 - (serie[k] - 60) / 40 * (y1 - y0)) for k in range(hasta + 1)]
+    if len(pts) > 1:
+        ov = Image.new('RGBA', im.size, (0, 0, 0, 0)); od = ImageDraw.Draw(ov); od.polygon(pts + [(pts[-1][0], y1), (pts[0][0], y1)], fill=(*RD, 50)); im.paste(ov, (0, 0), ov); d = ImageDraw.Draw(im); d.line(pts, fill=RD, width=5)
+    v = serie[min(hasta, años)]; d.text((70, 540), fmt(v, 1, '', ' €'), font=F(72, True), fill=RD); d.text((70, 620), f'de poder de compra tras {min(hasta, años)} años', font=F(18), fill=DIM)
+    d.text((W - 70, 560), 'Objetivo del BCE: 2 % a medio plazo', font=F(20, True), fill=CY, anchor='ra')
+    return im
+
+def p_etf(p, datos):
+    im, d = base(datos.get('titulo', 'ETF — una cesta con etiqueta')); tarjeta(d, (40, 60, 620, 650), 'EL ÍNDICE (la cesta)')
+    r_ = random.Random(2); cols = [CY, GR, PU, YE, OR, (255, 120, 170), (120, 160, 255)]
+    n = int(60 * ease(p / 0.5))
+    for i in range(60):
+        x = 70 + (i % 10) * 54; y = 112 + (i // 10) * 54
+        if i < n: rr(d, (x, y, x + 44, y + 44), cols[(i * 5) % 7], 8)
+        else: rr(d, (x, y, x + 44, y + 44), (30, 34, 60), 8)
+    d.text((330, 470), '60 empresas (ejemplo)', font=F(22, True), fill=TXT, anchor='mm')
+    if p > 0.5: rr(d, (90, 500, 570, 620), (28, 32, 58), 14, OR, 2); d.text((330, 530), 'ETF = una participación', font=F(22, True), fill=OR, anchor='mm'); d.text((330, 575), 'que reproduce toda la cesta', font=F(20, True), fill=TXT, anchor='mm')
+    tarjeta(d, (650, 60, W - 40, 350), 'LO BUENO')
+    for i, t in enumerate(('Muchas empresas en una', 'Se compra y vende en bolsa', 'Sin elegir empresas una a una')):
+        if p > 0.55 + i * 0.1: d.text((680, 118 + i * 62), '✔ ' + t, font=F(21, True), fill=GR)
+    tarjeta(d, (650, 370, W - 40, 650), 'LO QUE NO TE CUENTAN')
+    for i, t in enumerate(('Puede caer (riesgo de mercado)', 'Tiene comisiones y costes', 'El índice puede bajar años')):
+        if p > 0.75 + i * 0.08: d.text((680, 428 + i * 62), '⚠ ' + t, font=F(21, True), fill=YE)
+    return im
+
+def p_comisiones(p, datos):
+    ini = datos.get('capital', 10000); a = datos.get('rent', 0.07); b = datos.get('rent_neta', 0.05); años = 30
+    im, d = base(datos.get('titulo', 'Comisiones — el 2 % que se come tu dinero')); tarjeta(d, (40, 60, W - 40, 650))
+    d.text((70, 84), f'{fmt(ini)} € durante {años} años: al {int(a * 100)} % bruto vs. al {int(b * 100)} % (tras un 2 % de costes), ejemplo', font=F(20, True), fill=DIM)
+    x0, y0, x1, y1 = 100, 140, 1180, 500; hasta = int(ease(p / 0.85) * años); mx = ini * (1 + a) ** años
+    for k, (col, r_) in enumerate(((GR, a), (RD, b))):
+        pts = [(x0 + (x1 - x0) * t / años, y1 - ini * (1 + r_) ** t / mx * (y1 - y0)) for t in range(hasta + 1)]
+        if len(pts) > 1: d.line(pts, fill=col, width=5)
+    va = ini * (1 + a) ** hasta; vb = ini * (1 + b) ** hasta
+    d.text((70, 520), fmt(va, 0, '', ' €'), font=F(58, True), fill=GR); d.text((70, 592), 'sin costes', font=F(17), fill=DIM)
+    d.text((W - 70, 520), fmt(vb, 0, '', ' €'), font=F(58, True), fill=RD, anchor='ra'); d.text((W - 70, 592), 'con un 2 % de costes', font=F(17), fill=DIM, anchor='ra')
+    if p > 0.9: rr(d, (400, 560, 880, 626), (50, 38, 36), 12, OR, 2); d.text((640, 593), f'Diferencia: {fmt(va - vb, 0, "", " €")}', font=F(30, True), fill=OR, anchor='mm')
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
 ZOOM_AUTO = {'mensajes': (300, 54, 980, 652), 'phishing': (60, 60, 1240, 650), 'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'tienda_falsa': p_tienda_falsa, 'llamada': p_llamada, 'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+PANTALLAS = {'inflacion': p_inflacion, 'etf': p_etf, 'comisiones': p_comisiones, 'tienda_falsa': p_tienda_falsa, 'llamada': p_llamada, 'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}

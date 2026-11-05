@@ -1486,6 +1486,79 @@ micro('micro_10_dime_la_verdad', 'Claude, dime la verdad: ¿canto mal?', 'noche_
     C('Bajito.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+BCE = ('BCE — Estabilidad de precios: objetivo de inflación del 2 % a medio plazo', 'https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/stableprices.es.html')
+CNMV1 = ('CNMV — Guía «Los fondos cotizados (ETF)»', 'https://www.cnmv.es/DocPortal/Publicaciones/Guias/Los_fondos_cotizados_ETF.pdf')
+CNMV2 = ('CNMV — Ficha «Fondos cotizados (ETF)»', 'https://www.cnmv.es/DocPortal/Publicaciones/Fichas/FondosCotizados(ETF).pdf')
+
+# ---------------- finanzas basicas (con fuentes oficiales)
+VIDEOS.append(dict(
+    id='fin_01_que_es_la_inflacion', titulo='Claude, ¿por qué todo está más caro?', ambiente='dia_trading', total=42,
+    resumen='La inflación explicada con un euro que compra cada vez menos: el objetivo del BCE (2 % a medio plazo) y qué significa para tus ahorros.',
+    datos=[('El BCE define la estabilidad de precios con una inflación del 2 % a medio plazo (objetivo simétrico desde 2021; no es un techo).', [BCE]),
+           ('Cuenta del ejemplo: 100 € con una inflación constante del 2 % anual tienen, tras 20 años, un poder de compra de 100 / 1,02^20 ≈ 67,3 €. Ilustración matemática, no una previsión.', [])],
+    lineas=[
+        H('Claude, ¿por qué todo está más caro?', 'humano', 'confundido', scr=S('inflacion', sync=('fin', 8, 0.95, 0.0))),
+        C('Se llama inflación.', 'monitor', 'mira_izq'),
+        H('¿Es un virus?', 'dos', 'bobo'),
+        C('Casi. Los precios suben y\ntu dinero compra menos.', 'claude_ojos', 'feliz'),
+        H('¿Y cuánto suben?', 'humano', 'confundido'),
+        C('El BCE busca un 2 % anual\na medio plazo.', 'cenital', 'mira_der'),
+        H('¿Solo un 2 %? Eso no es nada.', 'dos', 'bobo'),
+        C('Mira: 100 € dentro de 20 años,\nal 2 %, valen unos 67.', 'pantalla_completa'),
+        H('¿¡Pierdo 33 € sin hacer nada!?', 'humano', 'preocupado'),
+        C('Por dejarlos quietos.\nEl dinero también envejece.', 'monitor', 'feliz'),
+        H('¿Y qué hago?', 'dos', 'preocupado'),
+        C('Que tu dinero crezca al menos\ncomo los precios. Sin prisas.', 'claude_ojos', emp=True),
+        H('¿Debajo del colchón no vale?', 'humano', 'bobo'),
+        C('Vale. Para perder valor\ncon mucha comodidad.', 'monitor', 'mira_arriba'),
+        H('Entonces... ahorrar bien.', 'dos', 'feliz'),
+        C('Eso. Ahorrar bien.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='fin_02_que_es_un_etf', titulo='Claude, ¿qué es un ETF?', ambiente='noche_trading', total=42,
+    resumen='Un ETF explicado como una cesta con etiqueta: replica un índice, se negocia en bolsa, tiene costes y puede caer. Con la guía de la CNMV como fuente.',
+    datos=[('Según la CNMV: muchos ETF buscan replicar un índice de referencia; se compran y venden en bolsa en tiempo real; asumen comisiones de gestión/depósito y costes de compraventa; los de renta variable están sujetos a riesgo de mercado (pueden caer); su valor liquidativo puede diferir del índice por comisiones, gastos y dividendos.', [CNMV1, CNMV2]),
+           ('Contenido educativo, no asesoramiento financiero.', [])],
+    lineas=[
+        H('Claude, ¿qué es un ETF?', 'humano', 'confundido', scr=S('etf', sync=('fin', 8, 0.95, 0.0))),
+        C('Piensa en una cesta con\nmuchas empresas dentro.', 'monitor', 'mira_izq'),
+        H('¿Y la compro entera?', 'dos', 'bobo'),
+        C('Compras una porción de\nla cesta. Con etiqueta.', 'claude_ojos', 'feliz'),
+        H('¿Y la etiqueta qué pone?', 'humano', 'confundido'),
+        C('El índice que copia.\nPor ejemplo, las 500 mayores.', 'cenital', 'mira_der'),
+        H('¡Entonces no puedo perder!', 'dos', 'ilusionado'),
+        C('Sí puedes. Si el índice cae,\nel ETF cae. Es riesgo de mercado.', 'pantalla_completa'),
+        H('Qué tramposo.', 'humano', 'preocupado'),
+        C('Y tiene comisiones y costes\nde comprar y vender en bolsa.', 'monitor', 'feliz'),
+        H('¿Entonces para qué sirve?', 'dos', 'confundido'),
+        C('Para repartir el riesgo entre\nmuchas empresas, sin elegirlas tú.', 'claude_ojos', emp=True),
+        H('Eso suena sensato.', 'humano', 'ilusionado'),
+        C('Y aburrido. Va con el pack.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='fin_03_las_comisiones', titulo='Claude, mi fondo solo cobra un 2 %', ambiente='dia_trading', total=42,
+    resumen='El 2 % «de nada» que se come casi la mitad de tu dinero en 30 años: la cuenta exacta de 10.000 € al 7 % frente al 5 %.',
+    datos=[('Cuenta del ejemplo: 10.000 € durante 30 años; al 7 % anual constante = 76.123 €; al 5 % (tras un 2 % de costes) = 43.219 €; diferencia ≈ 32.900 €. Ilustración matemática: la rentabilidad real varía y los costes reales dependen del producto (mira siempre sus comisiones).', []),
+           ('Los fondos y ETF tienen comisiones de gestión/depósito y costes de compraventa (CNMV).', [CNMV1, CNMV2])],
+    lineas=[
+        H('Claude, mi fondo solo\ncobra un 2 %.', 'humano', 'ilusionado', scr=S('comisiones', sync=('fin', 8, 0.95, 0.0))),
+        C('¿«Solo»?', 'monitor', 'mira_izq'),
+        H('Es poquísimo. Un dos.', 'dos', 'bobo'),
+        C('Sí. Un dos por ciento,\ncada año. Para siempre.', 'claude_ojos', 'feliz'),
+        H('Es lo mismo que nada.', 'humano', 'confundido'),
+        C('Haz la cuenta: 10.000 € durante\n30 años, al 7 % bruto.', 'cenital', 'mira_der'),
+        H('¿Cuánto salen?', 'dos', 'bobo'),
+        C('76.000 €. Con ese 2 % menos,\nal 5 %: 43.000 €.', 'pantalla_completa'),
+        H('¿¡33.000 € de diferencia!?', 'humano', 'preocupado'),
+        C('Por «un 2 %». Qué poquísimo.', 'monitor', 'feliz'),
+        H('¿Y cómo lo evito?', 'dos', 'preocupado'),
+        C('Mira las comisiones antes de\ncontratar. Todas. Siempre.', 'claude_ojos', emp=True),
+        H('¿Dónde las veo?', 'humano', 'confundido'),
+        C('En el folleto. Sí, ese que\nnadie lee. En fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

@@ -1,0 +1,140 @@
+{
+ "titulo": "Claude, ¿por qué todo está más caro?",
+ "ambiente": "dia_trading",
+ "fps_animacion": 6,
+ "duracion": 42,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.75,
+   "quien": "humano",
+   "texto": "Claude, ¿por qué todo está más caro?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "inflacion",
+    "duracion": 21.01
+   }
+  },
+  {
+   "inicio": 2.75,
+   "fin": 4.39,
+   "quien": "claude",
+   "texto": "Se llama inflación.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.39,
+   "fin": 5.9,
+   "quien": "humano",
+   "texto": "¿Es un virus?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 5.9,
+   "fin": 9.43,
+   "quien": "claude",
+   "texto": "Casi. Los precios suben y\ntu dinero compra menos.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 9.43,
+   "fin": 10.94,
+   "quien": "humano",
+   "texto": "¿Y cuánto suben?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 10.94,
+   "fin": 13.88,
+   "quien": "claude",
+   "texto": "El BCE busca un 2 % anual\na medio plazo.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 13.88,
+   "fin": 16.17,
+   "quien": "humano",
+   "texto": "¿Solo un 2 %? Eso no es nada.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 16.17,
+   "fin": 19.96,
+   "quien": "claude",
+   "texto": "Mira: 100 € dentro de 20 años,\nal 2 %, valen unos 67.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 19.96,
+   "fin": 22.32,
+   "quien": "humano",
+   "texto": "¿¡Pierdo 33 € sin hacer nada!?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 22.32,
+   "fin": 25.84,
+   "quien": "claude",
+   "texto": "Por dejarlos quietos.\nEl dinero también envejece.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 25.84,
+   "fin": 27.36,
+   "quien": "humano",
+   "texto": "¿Y qué hago?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 27.36,
+   "fin": 31.53,
+   "quien": "claude",
+   "texto": "Que tu dinero crezca al menos\ncomo los precios. Sin prisas.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 31.53,
+   "fin": 33.76,
+   "quien": "humano",
+   "texto": "¿Debajo del colchón no vale?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 33.76,
+   "fin": 36.96,
+   "quien": "claude",
+   "texto": "Vale. Para perder valor\ncon mucha comodidad.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 36.96,
+   "fin": 38.99,
+   "quien": "humano",
+   "texto": "Entonces... ahorrar bien.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 38.99,
+   "fin": 42,
+   "quien": "claude",
+   "texto": "Eso. Ahorrar bien.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

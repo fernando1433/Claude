@@ -82,5 +82,8 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `micro_08_me_he_equivocado` | Claude, me he equivocado muchísimo | `noche_casa` | [docs](micro_08_me_he_equivocado.md) | [json](../../guiones/micro_08_me_he_equivocado.json) | [mp4](../../salidas/micro_08_me_he_equivocado.mp4) |
 | `micro_09_ya_voy` | Claude, ¿tengo que ir a la fiesta? | `atardecer_casa` | [docs](micro_09_ya_voy.md) | [json](../../guiones/micro_09_ya_voy.json) | [mp4](../../salidas/micro_09_ya_voy.mp4) |
 | `micro_10_dime_la_verdad` | Claude, dime la verdad: ¿canto mal? | `noche_casa` | [docs](micro_10_dime_la_verdad.md) | [json](../../guiones/micro_10_dime_la_verdad.json) | [mp4](../../salidas/micro_10_dime_la_verdad.mp4) |
+| `fin_01_que_es_la_inflacion` | Claude, ¿por qué todo está más caro? | `dia_trading` | [docs](fin_01_que_es_la_inflacion.md) | [json](../../guiones/fin_01_que_es_la_inflacion.json) | [mp4](../../salidas/fin_01_que_es_la_inflacion.mp4) |
+| `fin_02_que_es_un_etf` | Claude, ¿qué es un ETF? | `noche_trading` | [docs](fin_02_que_es_un_etf.md) | [json](../../guiones/fin_02_que_es_un_etf.json) | [mp4](../../salidas/fin_02_que_es_un_etf.mp4) |
+| `fin_03_las_comisiones` | Claude, mi fondo solo cobra un 2 % | `dia_trading` | [docs](fin_03_las_comisiones.md) | [json](../../guiones/fin_03_las_comisiones.json) | [mp4](../../salidas/fin_03_las_comisiones.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.
