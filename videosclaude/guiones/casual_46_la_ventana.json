@@ -1,0 +1,137 @@
+{
+ "titulo": "Claude, ¿cierro la ventana o dejo entrar el frío?",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 34,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.9,
+   "quien": "humano",
+   "texto": "Claude, ¿cierro la ventana o\ndejo entrar el frío?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 34.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, ¿cierro la ventana o dejo entrar el frío?"
+      ],
+      [
+       "otro",
+       "¿Tienes frío?"
+      ],
+      [
+       "yo",
+       "Un poco. Pero me gusta el aire."
+      ],
+      [
+       "otro",
+       "El aire se queda fuera. La manta, dentro."
+      ],
+      [
+       "yo",
+       "Es un dilema."
+      ],
+      [
+       "otro",
+       "Tienes un edredón. No es un dilema."
+      ],
+      [
+       "yo",
+       "Pero tendría que levantarme."
+      ],
+      [
+       "otro",
+       "Ah. Ahí está el verdadero dilema."
+      ],
+      [
+       "yo",
+       "Dejo la ventana abierta."
+      ],
+      [
+       "otro",
+       "Con frío. Dignamente. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 4.9,
+   "fin": 7.0,
+   "quien": "claude",
+   "texto": "¿Tienes frío?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 7.0,
+   "fin": 10.36,
+   "quien": "humano",
+   "texto": "Un poco. Pero me gusta el aire.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 10.36,
+   "fin": 14.54,
+   "quien": "claude",
+   "texto": "El aire se queda fuera.\nLa manta, dentro.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 14.54,
+   "fin": 16.64,
+   "quien": "humano",
+   "texto": "Es un dilema.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 16.64,
+   "fin": 20.28,
+   "quien": "claude",
+   "texto": "Tienes un edredón.\nNo es un dilema.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 20.28,
+   "fin": 23.37,
+   "quien": "humano",
+   "texto": "Pero tendría que levantarme.",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 23.37,
+   "fin": 26.82,
+   "quien": "claude",
+   "texto": "Ah. Ahí está el verdadero\ndilema.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 26.82,
+   "fin": 29.55,
+   "quien": "humano",
+   "texto": "Dejo la ventana abierta.",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 29.55,
+   "fin": 34,
+   "quien": "claude",
+   "texto": "Con frío. Dignamente.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

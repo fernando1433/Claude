@@ -1874,6 +1874,86 @@ casual('casual_45_domingo_de_limpieza', 'Claude, hoy toca limpiar la casa', 'dia
     C('Y menos cajones.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+
+# ---------------- tanda 12 (historias cotidianas)
+casual('casual_46_la_ventana', 'Claude, ¿cierro la ventana o dejo entrar el frío?', 'noche_casa', 34, 'La gran decisión doméstica de la noche: la ventana abierta y el edredón.', [
+    H('Claude, ¿cierro la ventana o\ndejo entrar el frío?', 'humano', 'confundido', scr=CHAT(10)),
+    C('¿Tienes frío?', 'monitor', 'mira_izq'),
+    H('Un poco. Pero me gusta el aire.', 'dos', 'bobo'),
+    C('El aire se queda fuera.\nLa manta, dentro.', 'claude_ojos', 'feliz'),
+    H('Es un dilema.', 'humano', 'preocupado'),
+    C('Tienes un edredón.\nNo es un dilema.', 'cenital', 'mira_der'),
+    H('Pero tendría que levantarme.', 'dos', 'confundido'),
+    C('Ah. Ahí está el verdadero\ndilema.', 'monitor', 'feliz'),
+    H('Dejo la ventana abierta.', 'humano', 'feliz'),
+    C('Con frío. Dignamente.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_47_el_tupper', 'Claude, ¿me como el táper de hace 4 días?', 'dia_casa', 32, 'El táper olvidado en la nevera: Claude, con su prudencia habitual, dice que no.', [
+    H('Claude, ¿me como el táper\nde hace 4 días?', 'humano', 'ilusionado', scr=CHAT(10)),
+    C('¿Qué hay dentro?', 'monitor', 'mira_izq'),
+    H('Algo. Marrón.', 'dos', 'bobo'),
+    C('«Marrón» no es un ingrediente.', 'claude_ojos', 'feliz'),
+    H('Huele... a recuerdo.', 'humano', 'confundido'),
+    C('No lo comas.', 'cenital', 'mira_der'),
+    H('Pero me da pena tirarlo.', 'dos', 'preocupado'),
+    C('Pena de ti, si lo comes.', 'monitor', 'feliz'),
+    H('Vale. Lo tiro.', 'humano', 'feliz'),
+    C('Y lava el táper.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_48_el_cargador', 'Claude, un amigo no me devuelve el cargador desde 2019', 'atardecer_casa', 34, 'El cargador prestado que nunca vuelve: cómo pedirlo con elegancia (y por qué no vale la pena).', [
+    H('Claude, un amigo no me devuelve\nel cargador desde 2019.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Pablo', 'inicial': 'P', 'mensajes': [['yo', 'Oye, ¿tienes mi cargador?'], ['otro', '¿Qué cargador?'], ['yo', 'El que te presté en 2019'], ['otro', 'Ah. Lo busco.']]}, sync=('fin', 10, 1.0, 0.0))),
+    C('¿Se lo has pedido?', 'monitor', 'mira_izq'),
+    H('Cuatro veces. Siempre\ndice «lo busco».', 'dos', 'bobo'),
+    C('«Lo busco» es un idioma.\nSignifica «no».', 'claude_ojos', 'feliz'),
+    H('¿Y si le pido que me lo\nde vuelta ya?', 'humano', 'confundido'),
+    C('Pídeselo con fecha: «el\nviernes lo recojo».', 'cenital', 'mira_der'),
+    H('¿Y si no lo tiene?', 'dos', 'preocupado'),
+    C('Cómprate otro. Cuesta menos\nque la discusión.', 'monitor', 'feliz'),
+    H('Es cuestión de principios.', 'humano', 'ilusionado'),
+    C('Los principios no cargan\nmóviles. En fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_49_nombre_en_la_cafeteria', 'Claude, en la cafetería siempre me llaman Pablo', 'dia_casa', 32, 'El nombre equivocado en el vaso de café: una vida entera siendo Pablo.', [
+    H('Claude, en la cafetería\nsiempre me llaman Pablo.', 'humano', 'confundido', scr=CHAT(10)),
+    C('¿Y cómo te llamas?', 'monitor', 'mira_izq'),
+    H('Pedro.', 'dos', 'bobo'),
+    C('Es un error comprensible.', 'claude_ojos', 'feliz'),
+    H('Llevo tres años.', 'humano', 'preocupado'),
+    C('Tres años de Pablo.', 'cenital', 'mira_der'),
+    H('¿Les corrijo?', 'dos', 'confundido'),
+    C('Una vez. Con una sonrisa.\nSi no, te quedas Pablo.', 'monitor', 'feliz'),
+    H('Me gusta ser Pablo.', 'humano', 'bobo'),
+    C('Pues es tu decisión.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_51_mi_gato_me_ignora', 'Claude, mi gato me ignora', 'noche_casa', 34, 'La eterna historia de amor no correspondido con un gato. (El gato está durmiendo en el escritorio, como siempre.)', [
+    H('Claude, mi gato me ignora.', 'humano', 'preocupado', scr=CHAT(10)),
+    C('¿Desde cuándo?', 'monitor', 'mira_izq'),
+    H('Desde que lo tengo.', 'dos', 'bobo'),
+    C('Entonces es su carácter.', 'claude_ojos', 'feliz'),
+    H('Pero yo le doy de comer.', 'humano', 'confundido'),
+    C('Por eso te tolera.', 'cenital', 'mira_der'),
+    H('¿Y cómo me quiere?', 'dos', 'ilusionado'),
+    C('Durmiendo cerca. Es su\nmanera de decir «te quiero».', 'monitor', 'feliz'),
+    H('Está durmiendo en mi escritorio.', 'humano', 'ilusionado'),
+    C('Ahí lo tienes.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_52_el_calcetin', 'Claude, mi pareja dice que siempre dejo el calcetín en el suelo', 'atardecer_casa', 36, 'La eterna discusión del calcetín en el suelo. Claude hace de mediador con una propuesta salomónica.', [
+    H('Claude, mi pareja dice que siempre\ndejo el calcetín en el suelo.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('¿Y es verdad?', 'monitor', 'mira_izq'),
+    H('Casi siempre. Pero con cariño.', 'dos', 'bobo'),
+    C('El cariño no recoge calcetines.', 'claude_ojos', 'feliz'),
+    H('Es que me los quito caminando.', 'humano', 'confundido'),
+    C('Y los dejas donde caen.\nCoherente.', 'cenital', 'mira_der'),
+    H('¿Y qué hago?', 'dos', 'preocupado'),
+    C('Una cesta cerca de la cama.\nY puntería.', 'monitor', 'feliz'),
+    H('¿Y si fallo?', 'humano', 'bobo'),
+    C('Entonces lo recoges.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

@@ -1,0 +1,115 @@
+{
+ "titulo": "Claude, un amigo no me devuelve el cargador desde 2019",
+ "ambiente": "atardecer_casa",
+ "fps_animacion": 6,
+ "duracion": 34,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.75,
+   "quien": "humano",
+   "texto": "Claude, un amigo no me devuelve\nel cargador desde 2019.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 34.0,
+    "datos": {
+     "contacto": "Pablo",
+     "inicial": "P",
+     "mensajes": [
+      [
+       "yo",
+       "Oye, ¿tienes mi cargador?"
+      ],
+      [
+       "otro",
+       "¿Qué cargador?"
+      ],
+      [
+       "yo",
+       "El que te presté en 2019"
+      ],
+      [
+       "otro",
+       "Ah. Lo busco."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 4.75,
+   "fin": 6.66,
+   "quien": "claude",
+   "texto": "¿Se lo has pedido?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.66,
+   "fin": 10.07,
+   "quien": "humano",
+   "texto": "Cuatro veces. Siempre\ndice «lo busco».",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 10.07,
+   "fin": 13.63,
+   "quien": "claude",
+   "texto": "«Lo busco» es un idioma.\nSignifica «no».",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 13.63,
+   "fin": 16.96,
+   "quien": "humano",
+   "texto": "¿Y si le pido que me lo\nde vuelta ya?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 16.96,
+   "fin": 20.76,
+   "quien": "claude",
+   "texto": "Pídeselo con fecha: «el\nviernes lo recojo».",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 20.76,
+   "fin": 22.67,
+   "quien": "humano",
+   "texto": "¿Y si no lo tiene?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 22.67,
+   "fin": 26.63,
+   "quien": "claude",
+   "texto": "Cómprate otro. Cuesta menos\nque la discusión.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 26.63,
+   "fin": 29.17,
+   "quien": "humano",
+   "texto": "Es cuestión de principios.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 29.17,
+   "fin": 34,
+   "quien": "claude",
+   "texto": "Los principios no cargan\nmóviles. En fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}
