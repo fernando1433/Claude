@@ -1,0 +1,131 @@
+{
+ "titulo": "Claude, ¿cuál es la forma más rápida de hacerse rico?",
+ "ambiente": "noche_trading",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.66,
+   "quien": "humano",
+   "texto": "Claude, ¿cuál es la forma más\nrápida de hacerse rico?",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "curso",
+    "duracion": 13.07
+   }
+  },
+  {
+   "inicio": 4.66,
+   "fin": 6.53,
+   "quien": "claude",
+   "texto": "Hay tres.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.53,
+   "fin": 8.39,
+   "quien": "humano",
+   "texto": "¡Dime!",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 8.39,
+   "fin": 12.42,
+   "quien": "claude",
+   "texto": "La lotería, el fraude\ny el trabajo constante.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 12.42,
+   "fin": 14.92,
+   "quien": "humano",
+   "texto": "¿El tercero cuánto tarda?",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 14.92,
+   "fin": 16.86,
+   "quien": "claude",
+   "texto": "Unos treinta años.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.86,
+   "fin": 18.72,
+   "quien": "humano",
+   "texto": "¿Y el primero?",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 18.72,
+   "fin": 22.58,
+   "quien": "claude",
+   "texto": "Casi nunca toca. Pero\nla ilusión es gratis.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 22.58,
+   "fin": 24.45,
+   "quien": "humano",
+   "texto": "¿Y el segundo?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 24.45,
+   "fin": 27.03,
+   "quien": "claude",
+   "texto": "Es ilegal. No hay segundo.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 27.03,
+   "fin": 28.89,
+   "quien": "humano",
+   "texto": "¿Y el trading?",
+   "plano": "dos",
+   "emocion": "bobo",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 1.86,
+    "datos": {
+     "tipo": "esma"
+    }
+   }
+  },
+  {
+   "inicio": 28.89,
+   "fin": 33.72,
+   "quien": "claude",
+   "texto": "Dato real: 74–89 % de cuentas\nminoristas de CFD pierde.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 33.72,
+   "fin": 36.14,
+   "quien": "humano",
+   "texto": "Entonces... ¿constancia?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 36.14,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Y un poco de suerte.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

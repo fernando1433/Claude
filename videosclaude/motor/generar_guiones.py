@@ -1238,6 +1238,116 @@ casual('extra_07_idea_millonaria', 'Claude, tengo una idea millonaria', 'noche_t
     C('Empieza por tu madre.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+
+# ---------------- tanda 9
+VIDEOS.append(dict(
+    id='trading_08_ahorros_en_cripto', titulo='Claude, ¿meto todos mis ahorros en cripto?', ambiente='dia_trading', total=44,
+    resumen='El tonto quiere meter todo su colchón en una moneda. Claude le explica el fondo de emergencia, la diversificación y el riesgo, con el dato de interés compuesto como alternativa aburrida.',
+    datos=[('Orientación habitual: tener un fondo de emergencia (de unos 3 a 6 meses de gastos) antes de asumir riesgos, y no invertir dinero que puedas necesitar a corto plazo. Es una pauta general, no asesoramiento.', []),
+           ('Ejemplo de interés compuesto: 100 €/mes durante 30 años al 7 % anual constante ≈ 122.000 € (aportado: 36.000 €). Ilustración matemática: la rentabilidad real varía y no está garantizada.', [])],
+    lineas=[
+        H('Claude, ¿meto todos mis\nahorros en cripto?', 'humano', 'ilusionado', scr=S('cartera', {'posiciones': [['Mis ahorros (en una moneda)', -48], ['La moneda del cuñado', -71], ['Fondo de emergencia', 0], ['Dormir tranquilo', 0]]}, sync=('fin', 6, 0.9, 0.0))),
+        C('¿Todos?', 'monitor', 'mira_izq'),
+        H('Todos. Para ganar más.', 'dos', 'bobo'),
+        C('¿Y si necesitas dinero\nel mes que viene?', 'claude_ojos'),
+        H('Entonces vendo.', 'humano', 'confundido'),
+        C('Si ha bajado, vendes\ncon pérdida. Clásico.', 'cenital', 'mira_der'),
+        H('¿Y qué hago?', 'dos', 'preocupado'),
+        C('Primero, un colchón de 3 a 6 meses\nde gastos. Luego, lo que sobre.', 'monitor', 'feliz'),
+        H('Eso es muy lento.', 'humano', 'preocupado', scr=S('interes', sync=('fin', 10, 0.9, 0.0))),
+        C('100 €/mes, 30 años, 7 %:\n≈ 122.000 € (ejemplo).', 'pantalla_completa'),
+        H('¿Eso es seguro?', 'dos', 'confundido'),
+        C('Nada lo es. Por eso\nse llama riesgo.', 'claude_ojos', emp=True),
+        H('Vale. Solo un 5 %.', 'humano', 'ilusionado'),
+        C('Y con ese 5 %, con stop.\nQué evolución.', 'monitor', 'mira_arriba'),
+        H('¡Eres un profe!', 'dos', 'feliz'),
+        C('Y tú, un alumno.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_09_hacerse_rico_rapido', titulo='Claude, ¿cuál es la forma más rápida de hacerse rico?', ambiente='noche_trading', total=40,
+    resumen='La pregunta clásica. Claude repasa las «vías rápidas» y acaba en la aburrida: tiempo, ahorro y paciencia.',
+    datos=[('Ejemplo de interés compuesto: 100 €/mes durante 30 años al 7 % anual constante ≈ 122.000 €. Ilustración matemática, no una promesa.', []), ('Referencia: 74–89 % de cuentas minoristas de CFD pierde dinero (ESMA, 2018).', [ESMA, ESMA_R])],
+    lineas=[
+        H('Claude, ¿cuál es la forma más\nrápida de hacerse rico?', 'humano', 'ilusionado', scr=S('curso', sync=('fin', 4, 0.95, 0.0))),
+        C('Hay tres.', 'monitor', 'mira_izq'),
+        H('¡Dime!', 'dos', 'ilusionado'),
+        C('La lotería, el fraude\ny el trabajo constante.', 'claude_ojos', 'feliz'),
+        H('¿El tercero cuánto tarda?', 'humano', 'bobo'),
+        C('Unos treinta años.', 'cenital', 'mira_der'),
+        H('¿Y el primero?', 'dos', 'ilusionado'),
+        C('Casi nunca toca. Pero\nla ilusión es gratis.', 'monitor', 'feliz'),
+        H('¿Y el segundo?', 'humano', 'confundido'),
+        C('Es ilegal. No hay segundo.', 'claude_ojos', emp=True),
+        H('¿Y el trading?', 'dos', 'bobo', scr=S('verdad', {'tipo': 'esma'}, sync=('fin', 11, 1.0, 0.0))),
+        C('Dato real: 74–89 % de cuentas\nminoristas de CFD pierde.', 'pantalla_completa'),
+        H('Entonces... ¿constancia?', 'humano', 'confundido'),
+        C('Y un poco de suerte.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='drop_08_beneficio_negativo', titulo='Claude, vendí 10 y mi beneficio es negativo', ambiente='dia_tienda', total=44,
+    resumen='El tonto vendió 10 pedidos y su beneficio es negativo. Claude revisa los gastos ocultos: anuncios, comisiones, IVA y devoluciones.',
+    datos=[('Cuenta ilustrativa por pedido: precio 29,90 € − coste 8,10 € − anuncio 12,00 € − comisión de cobro 1,17 € − IVA 5,19 € = 3,44 €. Si el anuncio sube a 18 €, el pedido deja −2,56 €. Cifras de ejemplo.', []),
+           ('IVA en importaciones: desde 1/7/2021 se paga IVA desde el primer euro.', [IVA1, IVA2])],
+    lineas=[
+        H('Claude, vendí 10 pedidos\ny mi beneficio es negativo.', 'humano', 'preocupado', scr=S('margen', {'precio': 29.90, 'coste': 8.10, 'anuncio': 18.0}, sync=('fin', 8, 0.8, 0.0))),
+        C('Enséñame los números.', 'monitor', 'mira_izq'),
+        H('Vendí a 29,90. Eso es mucho.', 'dos', 'bobo'),
+        C('Menos el coste, los anuncios,\nla comisión y el IVA.', 'claude_ojos'),
+        H('¿El IVA? ¡Eso no lo cuento!', 'humano', 'confundido'),
+        C('Hacienda sí. Y desde 2021,\nen importación, desde el primer euro.', 'cenital', 'mira_der'),
+        H('¿Y los anuncios?', 'dos', 'preocupado'),
+        C('18 € por pedido.\nTe quedan menos 2,56 €.', 'pantalla_completa'),
+        H('¡Pierdo dinero con cada venta!', 'humano', 'preocupado', pose='hombros'),
+        C('Y lo celebras con cada venta.\nMuy coherente.', 'monitor', 'feliz'),
+        H('¿Qué hago?', 'dos', 'confundido'),
+        C('Sube el precio, baja el coste\no baja el coste del anuncio.', 'claude_ojos', emp=True),
+        H('¿Cuál de las tres?', 'humano', 'bobo'),
+        C('Las tres. Poco a poco.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+casual('casual_37_la_nevera', 'Claude, abro la nevera cada 10 minutos', 'noche_casa', 34, 'Abrir la nevera esperando que haya aparecido algo nuevo. Claude lo trata como un experimento científico.', [
+    H('Claude, abro la nevera\ncada 10 minutos.', 'humano', 'confundido', scr=CHAT(12)),
+    C('¿Y qué buscas?', 'monitor', 'mira_izq'),
+    H('Algo nuevo.', 'dos', 'bobo'),
+    C('¿Ha aparecido algo?', 'claude_ojos', 'feliz'),
+    H('Todavía no.', 'humano', 'preocupado'),
+    C('Interesante. Repite el\nexperimento en 10 minutos.', 'cenital', 'mira_der'),
+    H('Eso hago.', 'dos', 'ilusionado'),
+    C('Y apunta resultados.\nAyuda a la ciencia.', 'monitor', 'feliz'),
+    H('¿Y si tengo hambre?', 'humano', 'bobo'),
+    C('Cocina algo. Las neveras\nno se rellenan solas.', 'claude_ojos', emp=True),
+    H('Qué injusto.', 'dos', 'preocupado'),
+    C('Es la vida.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_38_un_por_ciento', 'Claude, me queda el 1 % de batería', 'dia_casa', 32, 'El 1 % de batería y la urgencia absoluta de decir algo importante.', [
+    H('¡Claude! ¡Me queda el\n1 % de batería!', 'humano', 'preocupado', scr=CHAT(10)),
+    C('¿Qué necesitas?', 'monitor', 'mira_izq'),
+    H('Decirte algo importante.', 'dos', 'bobo'),
+    C('Rápido.', 'claude_ojos'),
+    H('Es que... gracias por todo.', 'humano', 'ilusionado'),
+    C('¿Eso era?', 'cenital', 'mira_der'),
+    H('Es lo más importante.', 'dos', 'confundido'),
+    C('Pues muy bien.\nPero enchúfalo ya.', 'monitor', 'feliz'),
+    H('No encuentro el cargador.', 'humano', 'preocupado', pose='hombros'),
+    C('Está donde lo dejaste.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_39_audio_de_4_minutos', 'Claude, me han mandado un audio de 4 minutos', 'atardecer_casa', 36, 'El audio eterno del amigo: Claude lo resume en una frase y se queda corto.', [
+    H('Claude, me han mandado\nun audio de 4 minutos.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Lucas', 'inicial': 'L', 'mensajes': [['otro', 'Audio 4:12'], ['otro', 'Escúchalo hoy, ¿vale?'], ['yo', '...'], ['otro', 'Es rápido']]}, sync=('fin', 10, 1.0, 0.0))),
+    C('¿Lo has escuchado?', 'monitor', 'mira_izq'),
+    H('Dos segundos. Dice «hola».', 'dos', 'bobo'),
+    C('¿Y el resto?', 'claude_ojos'),
+    H('Cuatro minutos más.', 'humano', 'confundido'),
+    C('Ponlo a velocidad doble.\nEs un truco.', 'cenital', 'mira_der'),
+    H('¿Y si dice algo importante?', 'dos', 'preocupado'),
+    C('Entonces te lo repetirá\nen otro audio. De 5 minutos.', 'monitor', 'feliz'),
+    H('Voy a escucharlo.', 'humano', 'feliz'),
+    C('A doble velocidad.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

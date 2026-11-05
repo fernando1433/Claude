@@ -64,5 +64,11 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `drop_07_venta_a_las_3` | Claude, ¡tengo una venta a las 3 de la mañana! | `noche_tienda` | [docs](drop_07_venta_a_las_3.md) | [json](../../guiones/drop_07_venta_a_las_3.json) | [mp4](../../salidas/drop_07_venta_a_las_3.mp4) |
 | `extra_06_marca_personal` | Claude, ¿hago una marca personal? | `noche_tienda` | [docs](extra_06_marca_personal.md) | [json](../../guiones/extra_06_marca_personal.json) | [mp4](../../salidas/extra_06_marca_personal.mp4) |
 | `extra_07_idea_millonaria` | Claude, tengo una idea millonaria | `noche_tienda` | [docs](extra_07_idea_millonaria.md) | [json](../../guiones/extra_07_idea_millonaria.json) | [mp4](../../salidas/extra_07_idea_millonaria.mp4) |
+| `trading_08_ahorros_en_cripto` | Claude, ¿meto todos mis ahorros en cripto? | `dia_trading` | [docs](trading_08_ahorros_en_cripto.md) | [json](../../guiones/trading_08_ahorros_en_cripto.json) | [mp4](../../salidas/trading_08_ahorros_en_cripto.mp4) |
+| `trading_09_hacerse_rico_rapido` | Claude, ¿cuál es la forma más rápida de hacerse rico? | `noche_trading` | [docs](trading_09_hacerse_rico_rapido.md) | [json](../../guiones/trading_09_hacerse_rico_rapido.json) | [mp4](../../salidas/trading_09_hacerse_rico_rapido.mp4) |
+| `drop_08_beneficio_negativo` | Claude, vendí 10 y mi beneficio es negativo | `dia_tienda` | [docs](drop_08_beneficio_negativo.md) | [json](../../guiones/drop_08_beneficio_negativo.json) | [mp4](../../salidas/drop_08_beneficio_negativo.mp4) |
+| `casual_37_la_nevera` | Claude, abro la nevera cada 10 minutos | `noche_casa` | [docs](casual_37_la_nevera.md) | [json](../../guiones/casual_37_la_nevera.json) | [mp4](../../salidas/casual_37_la_nevera.mp4) |
+| `casual_38_un_por_ciento` | Claude, me queda el 1 % de batería | `dia_casa` | [docs](casual_38_un_por_ciento.md) | [json](../../guiones/casual_38_un_por_ciento.json) | [mp4](../../salidas/casual_38_un_por_ciento.mp4) |
+| `casual_39_audio_de_4_minutos` | Claude, me han mandado un audio de 4 minutos | `atardecer_casa` | [docs](casual_39_audio_de_4_minutos.md) | [json](../../guiones/casual_39_audio_de_4_minutos.json) | [mp4](../../salidas/casual_39_audio_de_4_minutos.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.
