@@ -1632,6 +1632,19 @@ def escribir(v):
     escribir_si_cambia(os.path.join(RAIZ, 'docs', 'videos', v['id'] + '.md'), '\n'.join(md) + '\n')
     print(f"{v['id']:36s} {len(L):2d} lineas  factor ritmo {k:.2f}  " + ('AVISOS: ' + '; '.join(avisos) if avisos else 'ok'))
 
+FAMILIAS = [('trading', 'Trading (Claude salva al trader)'), ('fin', 'Finanzas básicas (con fuentes oficiales)'), ('util', 'Útiles: estafas y seguridad (con fuentes)'), ('drop', 'Dropshipping'), ('extra', 'Extras: negocio y vida'), ('casual', 'Día a día (conversaciones con gancho)'), ('micro', 'Micro-vídeos de ~20 s')]
+def catalogo():
+    md = ['# Catálogo de vídeos', '', f'{len(VIDEOS)} vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.', '']
+    for pref, nombre in FAMILIAS:
+        vs = [v for v in VIDEOS if v['id'].startswith(pref + '_')]
+        if not vs: continue
+        md += [f'## {nombre} ({len(vs)})', '', '| Portada | Vídeo | Duración | Sala |', '|---|---|---|---|']
+        for v in vs:
+            T = v.get('total', TOTAL); md.append(f"| <img src=\"../salidas/portadas/{v['id']}.jpg\" width=\"90\"> | **{v['titulo']}**<br>[`{v['id']}`](videos/{v['id']}.md) | {T:.0f} s | `{v['ambiente']}` |")
+        md.append('')
+    md += ['Resto de piezas: `trading_30s_sarcastico` (primera versión de 30 s) y los `ejemplo_*` (pruebas del montador).']
+    escribir_si_cambia(os.path.join(RAIZ, 'docs', 'CATALOGO.md'), '\n'.join(md) + '\n')
+
 def indice():
     md = ['# Vídeos de videosclaude', '', 'Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reales con fuentes. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.', '',
           '| Vídeo | Tema | Ambiente | Documentación | Guion | MP4 |', '|---|---|---|---|---|---|']
@@ -1643,4 +1656,4 @@ def indice():
 if __name__ == '__main__':
     os.makedirs(os.path.join(RAIZ, 'guiones'), exist_ok=True)
     for v in VIDEOS: escribir(v)
-    indice()
+    indice(); catalogo()

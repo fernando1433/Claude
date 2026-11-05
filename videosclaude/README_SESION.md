@@ -14,7 +14,7 @@ python3 -I motor/montar_video.py guiones/ALGO.json salidas/prueba.mp4 --solo-fra
 ```
 Dependencias del montador: `pillow numpy` + `ffmpeg`. (`pip install bpy` solo hace falta para REGENERAR la biblioteca.)
 
-## Vídeos hechos (índice completo en `docs/videos/README.md`; cada uno tiene su `docs/videos/<id>.md` con guion, pantallas y datos reales con fuentes)
+## Vídeos hechos (**catálogo con portadas: `docs/CATALOGO.md`**; índice en `docs/videos/README.md`; cada uno tiene su `docs/videos/<id>.md` con guion, pantallas y datos reales con fuentes)
 Familias (todos terminan con **«En fin... eres humano»** y empiezan con un **gancho** en la primera frase):
 - `trading_*` (5, ~45 s): curso milagro, señales VIP, apalancamiento x100, el cuñado, el gurú del yate (+ `trading_30s_sarcastico`).
 - `drop_*` (5, ~45 s): qué es el dropshipping, producto ganador, primer pedido, devoluciones, proveedor barato.
@@ -51,8 +51,13 @@ Cada una tiene `INDICE.md` y `_contacto.png` por plano. Las de día/atardecer so
 `inicio fin quien texto plano` · humano: `emocion pose` · Claude: `claude_estado empuje` (zoom lento) · `tono` (`sarcastico` por defecto en Claude, `dudoso`, `seguro`) · `pantalla`. Ver el docstring de `motor/montar_video.py`.
 Animación a **6 fps** duplicada a 24: pocos frames distintos y movimientos mínimos (boca que alterna, botecitos, parpadeo). 45 s = solo 270 frames de animación.
 
+## Voz sintética (EXPERIMENTAL)
+Por defecto las voces son «blips» (estilo Animal Crossing). `--voz espeak` (o `"voz": "espeak"` en el guion) usa **eSpeak NG offline** (`pip install espeakng-loader`, `motor/voz_espeak.py`):
+voz robótica pero inteligible en español, ajustada al hueco de cada frase (Claude más agudo, el humano más grave). Muestras en `salidas/voz/` (`bash motor/muestras_voz.sh`).
+No se ha podido escuchar desde la sesión: el Jefe decide si prefiere blips, esta voz o una voz real (ElevenLabs).
+
 ## Limitaciones conocidas (decirlas al Jefe, no inventar)
-- Las **voces son «blips»** sintéticos (no voz real). Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
+- Las **voces son «blips»** sintéticos (no voz real) o, en `salidas/voz/`, voz robótica eSpeak. Para voz real: ElevenLabs con la cuenta del Jefe o su voz grabada.
 - `pantalla_completa` aprovecha poco alto en vertical (el monitor es 16:9); mejora pendiente: pantallas en formato vertical.
 - Cámara o pose NUEVA = re-render con Blender (~14 s/capa). Evitarlo salvo que haga falta.
 - Poses probadas y **borradas por quedar mal**: facepalm, celebrar, sorpresa (Clawd), sentado/dormido (Clawd). No reintroducir sin rehacer bien el rig.

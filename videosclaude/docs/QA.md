@@ -1,6 +1,6 @@
 # Control de calidad de los vídeos
 
-67 vídeos revisados · 9 con problemas.
+79 vídeos revisados · 0 con problemas.
 
 | Vídeo | Guion (s) | Real (s) | Estado |
 |---|---|---|---|
@@ -35,28 +35,38 @@
 | `casual_30_no_hacer_nada` | 36 | 36.0 | OK |
 | `casual_31_que_foto_subo` | 36 | 36.0 | OK |
 | `casual_32_la_mudanza` | 38 | 38.0 | OK |
-| `casual_33_jefe_19h` | 36 | - | FALTA |
-| `casual_34_hoy_productivo` | 34 | - | FALTA |
-| `casual_35_cansado_a_las_6` | 36 | - | FALTA |
-| `casual_36_pido_comida` | 36 | - | FALTA |
+| `casual_33_jefe_19h` | 36 | 36.0 | OK |
+| `casual_34_hoy_productivo` | 34 | 34.0 | OK |
+| `casual_35_cansado_a_las_6` | 36 | 36.0 | OK |
+| `casual_36_pido_comida` | 36 | 36.0 | OK |
 | `casual_37_la_nevera` | 34 | 34.0 | OK |
 | `casual_38_un_por_ciento` | 32 | 32.0 | OK |
-| `casual_39_audio_de_4_minutos` | 36 | - | FALTA |
+| `casual_39_audio_de_4_minutos` | 36 | 36.0 | OK |
 | `drop_01_que_es_dropshipping` | 45.0 | 45.0 | OK |
 | `drop_02_producto_ganador` | 45.0 | 45.0 | OK |
 | `drop_03_primer_pedido` | 45.0 | 45.0 | OK |
 | `drop_04_devoluciones` | 45 | 45.0 | OK |
 | `drop_05_proveedor_barato` | 45 | 45.0 | OK |
-| `drop_06_cambio_el_logo` | 44 | - | FALTA |
-| `drop_07_venta_a_las_3` | 40 | - | FALTA |
+| `drop_06_cambio_el_logo` | 44 | 44.0 | OK |
+| `drop_07_venta_a_las_3` | 40 | 40.0 | OK |
 | `drop_08_beneficio_negativo` | 44 | 44.0 | OK |
 | `extra_01_presupuesto` | 45.0 | 45.0 | OK |
 | `extra_02_un_dia_con_claude` | 45.0 | 45.0 | OK |
 | `extra_03_anuncios_que_no_venden` | 45.0 | 45.0 | OK |
 | `extra_04_pedir_aumento` | 40 | 40.0 | OK |
 | `extra_05_entrevista` | 38 | 38.0 | OK |
-| `extra_06_marca_personal` | 38 | - | FALTA |
-| `extra_07_idea_millonaria` | 38 | - | FALTA |
+| `extra_06_marca_personal` | 38 | 38.0 | OK |
+| `extra_07_idea_millonaria` | 38 | 38.0 | OK |
+| `micro_01_el_horno` | 20 | 20.0 | OK |
+| `micro_02_dime_algo_bonito` | 20 | 20.0 | OK |
+| `micro_03_mi_futuro` | 20 | 20.0 | OK |
+| `micro_04_ahorrar_100` | 20 | 20.0 | OK |
+| `micro_05_las_3_de_la_manana` | 20 | 20.0 | OK |
+| `micro_06_sabes_demasiado` | 20 | 20.0 | OK |
+| `micro_07_empezar_de_cero` | 20 | 20.0 | OK |
+| `micro_08_me_he_equivocado` | 20 | 20.0 | OK |
+| `micro_09_ya_voy` | 20 | 20.0 | OK |
+| `micro_10_dime_la_verdad` | 20 | 20.0 | OK |
 | `trading_01_curso_milagro` | 45.0 | 45.0 | OK |
 | `trading_02_senales_vip` | 45.0 | 45.0 | OK |
 | `trading_03_apalancamiento_x100` | 45.0 | 45.0 | OK |
@@ -71,3 +81,5 @@
 | `util_02_estafa_banco` | 42 | 42.0 | OK |
 | `util_03_wifi_publica` | 40 | 40.0 | OK |
 | `util_04_bizum_inverso` | 40 | 40.0 | OK |
+| `util_05_chollo_falso` | 42 | 42.0 | OK |
+| `util_06_falso_tecnico` | 42 | 42.0 | OK |

@@ -9,6 +9,7 @@ Guion (ver guiones/ejemplo_dip.json):
   (humano) pose: type (por defecto, manos en el teclado) | pensar | senalar | hombros | mira   (la que no exista en el plano se sustituye por type)
   (claude) claude_estado: idle | feliz | mira_izq | mira_der | mira_arriba   empuje: true (zoom lento durante la linea; opcional)
   tono (opcional): sarcastico (por defecto en claude: voz grave que arrastra hacia abajo) | dudoso (sube al final) | seguro (por defecto en humano)
+  voz (opcional, EXPERIMENTAL): "espeak" = voz sintetica offline en vez de los blips (tambien: --voz espeak en la linea de comandos)
   sfx (opcional, true por defecto): whoosh en los cortes de plano y pop al cambiar la pantalla
   fps_animacion  frames de animacion por segundo (6 recomendado: poco movimiento, se duplica a 24 al exportar)
   duracion       segundos totales
@@ -36,7 +37,10 @@ COL = {'humano': (120, 220, 215), 'claude': (240, 125, 85)}
 SOMBRA = 0.55   # intensidad de las sombras fijas (0-1)
 CICLO_BOCA = ['media', 'abierta', 'media', 'cerrada', 'abierta', 'media']
 
+VOZ = None
 def args():
+    global VOZ
+    if '--voz' in sys.argv: VOZ = sys.argv[sys.argv.index('--voz') + 1]; sys.argv.pop(sys.argv.index('--voz') + 1)
     a = [x for x in sys.argv[1:] if not x.startswith('--')]
     n = None
     if '--solo-frames' in sys.argv: n = int(sys.argv[sys.argv.index('--solo-frames') + 1]); a = [x for x in a if x != str(n)]
@@ -113,6 +117,20 @@ def desplazar(capa, dy):
     out = Image.new('RGBA', capa.size, (0, 0, 0, 0)); out.paste(capa, (0, dy), capa); return out
 
 # ---------------------------------------------------------------- audio (voces "blip" + pad ambiente)
+def voz_espeak(G, out, SR):
+    """voz sintetica offline (eSpeak NG): robotica pero inteligible. Cada linea se ajusta (velocidad) al hueco del guion."""
+    import voz_espeak as V
+    for L in G['lineas']:
+        txt = L['texto'].replace('\n', ' ').replace('«', '').replace('»', '').replace('€', ' euros').replace('%', ' por ciento').replace('...', ',')
+        hueco = max(0.8, L['fin'] - L['inicio'] - 0.15)
+        if L['quien'] == 'claude': tono, vel0 = 68, 172
+        else: tono, vel0 = 26, 160
+        if L.get('tono') == 'dudoso': tono += 8
+        pcm, sr = V.sintetizar(txt, 'es', tono, vel0); dur = len(pcm) / sr
+        if dur > hueco: pcm, sr = V.sintetizar(txt, 'es', tono, min(300, int(vel0 * dur / hueco * 1.03))); dur = len(pcm) / sr
+        x = np.interp(np.linspace(0, len(pcm) - 1, int(len(pcm) * SR / sr)), np.arange(len(pcm)), pcm.astype(float)) / 32768.0
+        k = int((L['inicio'] + 0.05) * SR); x = x[:max(0, len(out) - k)]; out[k:k + len(x)] += x * (0.55 if L['quien'] == 'humano' else 0.5)
+
 def generar_audio(G, ruta):
     SR = 44100; dur = G['duracion']; out = np.zeros(int(SR * dur)); rnd = random.Random(11)
     def blip(f, d, who):
@@ -120,7 +138,8 @@ def generar_audio(G, ruta):
         if who == 'humano': w = 2 * np.abs(2 * ((t * f) % 1) - 1) - 1 + 0.25 * np.sign(np.sin(2 * np.pi * f * 2 * t))
         else: w = np.sign(np.sin(2 * np.pi * f * t)) * 0.6 + 0.4 * np.sin(2 * np.pi * f * 2 * t)
         return w * np.minimum(1, t / 0.006) * np.exp(-t / (d * 0.55))
-    for L in G['lineas']:
+    if G.get('voz') == 'espeak': voz_espeak(G, out, SR)
+    for L in ([] if G.get('voz') == 'espeak' else G['lineas']):
         ch = [c for c in L['texto'] if c.isalpha()]
         if not ch: continue
         a, b, who = L['inicio'], L['fin'], L['quien']; base = 120 if who == 'humano' else 520
@@ -161,7 +180,9 @@ def generar_audio(G, ruta):
 
 # ---------------------------------------------------------------- montaje
 def montar(guion, salida, solo=None):
-    G = json.load(open(guion)); fps = G.get('fps_animacion', 6); usar_ambiente(G.get('ambiente', 'noche_trading'))
+    G = json.load(open(guion)); fps = G.get('fps_animacion', 6)
+    if VOZ: G['voz'] = VOZ
+    usar_ambiente(G.get('ambiente', 'noche_trading'))
     N = int(round(G['duracion'] * fps)) if solo is None else solo
     tmp = os.path.join(os.path.dirname(os.path.abspath(salida)), '_frames_' + os.path.basename(salida).rsplit('.', 1)[0])
     os.makedirs(tmp, exist_ok=True)
