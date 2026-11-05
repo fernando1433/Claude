@@ -1,0 +1,137 @@
+{
+ "titulo": "Claude, solo un capítulo más",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 34,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.53,
+   "quien": "humano",
+   "texto": "Claude, solo un capítulo más.",
+   "plano": "humano",
+   "emocion": "bobo",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 34.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, solo un capítulo más."
+      ],
+      [
+       "otro",
+       "¿Qué hora es?"
+      ],
+      [
+       "yo",
+       "La una y media."
+      ],
+      [
+       "otro",
+       "¿Y cuántos llevas?"
+      ],
+      [
+       "yo",
+       "Seis. Pero este acaba bien."
+      ],
+      [
+       "otro",
+       "Todos acaban en «continuará»."
+      ],
+      [
+       "yo",
+       "¿A qué hora suena el despertador?"
+      ],
+      [
+       "otro",
+       "A las 7:00. Tú sabrás."
+      ],
+      [
+       "yo",
+       "Uno más. Prometido."
+      ],
+      [
+       "otro",
+       "Lo prometes con la cara de quien no lo cumple. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.53,
+   "fin": 5.86,
+   "quien": "claude",
+   "texto": "¿Qué hora es?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.86,
+   "fin": 8.19,
+   "quien": "humano",
+   "texto": "La una y media.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.19,
+   "fin": 10.62,
+   "quien": "claude",
+   "texto": "¿Y cuántos llevas?",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 10.62,
+   "fin": 13.95,
+   "quien": "humano",
+   "texto": "Seis. Pero este acaba bien.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 13.95,
+   "fin": 17.48,
+   "quien": "claude",
+   "texto": "Todos acaban en «continuará».",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 17.48,
+   "fin": 21.31,
+   "quien": "humano",
+   "texto": "¿A qué hora suena el\ndespertador?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 21.31,
+   "fin": 24.13,
+   "quien": "claude",
+   "texto": "A las 7:00. Tú sabrás.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 24.13,
+   "fin": 26.66,
+   "quien": "humano",
+   "texto": "Uno más. Prometido.",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 26.66,
+   "fin": 34,
+   "quien": "claude",
+   "texto": "Lo prometes con la cara\nde quien no lo cumple.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

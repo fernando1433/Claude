@@ -1559,6 +1559,192 @@ VIDEOS.append(dict(
         C('En el folleto. Sí, ese que\nnadie lee. En fin... eres humano.', 'general', 'feliz'),
     ]))
 
+WA1 = ('Maldita.es — El código de 6 dígitos de WhatsApp: cómo funciona el robo de cuentas', 'https://maldita.es/malditobulo/20260116/codigo-whatsapp-digitos-sms-robo-cuenta/')
+WA2 = ('Genbeta — La Guardia Civil avisa de la estafa que te puede robar la cuenta de WhatsApp', 'https://www.genbeta.com/seguridad/guardia-civil-avisa-peligro-que-corre-tu-cuenta-whatsapp-esta-sencilla-estafa-te-puede-robar')
+
+# ---------------- tanda 10b
+VIDEOS.append(dict(
+    id='util_07_codigo_whatsapp', titulo='Claude, mi amigo me pide un código por WhatsApp', ambiente='dia_casa', total=40,
+    resumen='«Te envié un código por error, ¿me lo pasas?» Claude explica la estafa del código de 6 dígitos de WhatsApp: no se comparte nunca, aunque lo pida un conocido.',
+    datos=[('Estafa del código de 6 dígitos: alguien (a veces un contacto con la cuenta ya robada) dice haberte enviado un código por error y te pide que se lo reenvíes; ese código sirve para tomar el control de tu cuenta. La Policía Nacional aconseja no compartir ningún código de WhatsApp, ni con conocidos; avisa al contacto por otro canal (llamada). Si ya lo diste, recupera la cuenta y activa la verificación en dos pasos.', [WA1, WA2])],
+    lineas=[
+        H('Claude, mi amigo me pide un\ncódigo por WhatsApp.', 'humano', 'confundido', scr=S('mensajes', {'contacto': 'Dani (amigo)', 'inicial': 'D', 'mensajes': [['otro', 'Ey, te he mandado un código por error'], ['otro', '¿Me lo pasas rápido?'], ['otro', 'Es urgente, porfa'], ['yo', '...']]}, sync=('fin', 10, 1.0, 0.0))),
+        C('¿Qué código?', 'monitor', 'mira_izq'),
+        H('Uno de seis números.\nMe llegó por SMS.', 'dos', 'bobo'),
+        C('Ese código es la llave\nde tu cuenta.', 'claude_ojos', 'feliz'),
+        H('Pero es mi amigo.', 'humano', 'preocupado'),
+        C('Puede ser tu amigo con la cuenta\nrobada. Pasa mucho.', 'cenital', 'mira_der'),
+        H('¿Y si de verdad lo necesita?', 'dos', 'confundido'),
+        C('Nadie necesita que le\nreenvíes un código tuyo.', 'monitor', 'feliz'),
+        H('¿Qué hago?', 'humano', 'confundido'),
+        C('No lo compartas. Llámale\npor teléfono y pregúntale.', 'claude_ojos', emp=True),
+        H('¿Y si ya se lo pasé?', 'dos', 'preocupado', pose='hombros'),
+        C('Recupera tu cuenta, activa la\nverificación en dos pasos y avisa.', 'monitor', 'mira_arriba'),
+        H('Gracias, Claude.', 'humano', 'feliz'),
+        C('Ese código no se presta.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_10_que_es_un_stop_loss', titulo='Claude, ¿qué es un stop loss?', ambiente='dia_trading', total=40,
+    resumen='El stop loss explicado como un freno de emergencia: se define antes de entrar, limita la pérdida y no se mueve «solo un poquito».',
+    datos=[('Concepto educativo: un stop loss es una orden que cierra la posición si el precio llega a un nivel; limita la pérdida pero no la elimina (puede ejecutarse a un precio peor en saltos de precio). No es asesoramiento financiero.', [])],
+    lineas=[
+        H('Claude, ¿qué es un stop loss?', 'humano', 'confundido', scr=S('orden', sync=('fin', 8, 0.9, 0.0))),
+        C('Un freno de emergencia.', 'monitor', 'mira_izq'),
+        H('¿Para el coche?', 'dos', 'bobo'),
+        C('Para tu dinero. Dices antes\nde entrar hasta dónde aguantas.', 'claude_ojos', 'feliz'),
+        H('¿Y si baja más?', 'humano', 'preocupado'),
+        C('Se vende solo. Tú no sufres\nni lo discutes.', 'cenital', 'mira_der'),
+        H('Pero a lo mejor luego sube.', 'dos', 'bobo'),
+        C('A lo mejor. Y a lo mejor no.\nPor eso es un freno.', 'pantalla_completa'),
+        H('¿Lo puedo mover si no me gusta?', 'humano', 'ilusionado'),
+        C('«Solo un poquito».\nAsí empiezan las desgracias.', 'monitor', 'feliz'),
+        H('¿Es perfecto?', 'dos', 'confundido'),
+        C('No. Puede ejecutarse a peor precio\nsi hay un salto. Pero ayuda.', 'claude_ojos', emp=True),
+        H('Entonces siempre pongo uno.', 'humano', 'ilusionado'),
+        C('Siempre. Antes de entrar.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_11_cuenta_demo', titulo='Claude, ¿puedo probar sin dinero real?', ambiente='noche_trading', total=40,
+    resumen='La cuenta demo como gimnasio del trading: practicar sin arriesgar, aunque con la advertencia de que los nervios con dinero real son otros.',
+    datos=[('Concepto educativo: una cuenta demo simula operaciones sin dinero real; sirve para aprender la plataforma y probar ideas, pero no reproduce la presión emocional del dinero real. No es asesoramiento financiero.', [])],
+    lineas=[
+        H('Claude, ¿puedo probar\nsin dinero real?', 'humano', 'ilusionado', scr=S('trading', {'tendencia': 'sube'}, sync=('fin', 10, 0.8, 0.0))),
+        C('Sí. Se llama cuenta demo.', 'monitor', 'mira_izq'),
+        H('¿Con dinero de mentira?', 'dos', 'bobo'),
+        C('Con dinero de mentira.\nPérdidas de mentira.', 'claude_ojos', 'feliz'),
+        H('¡Entonces soy millonario!', 'humano', 'ilusionado'),
+        C('De mentira. Pero la\npráctica es real.', 'cenital', 'mira_der'),
+        H('¿Y qué aprendo?', 'dos', 'confundido'),
+        C('La plataforma, los stops y tus\nerrores. Gratis. Un lujo.', 'monitor', 'feliz'),
+        H('¿Y luego paso al dinero real?', 'humano', 'ilusionado'),
+        C('Con poco. Porque con dinero\nreal los nervios no son de mentira.', 'pantalla_completa'),
+        H('Yo soy muy tranquilo.', 'dos', 'bobo'),
+        C('Dice el que no encuentra\nlas llaves. En fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='fin_04_no_todos_los_huevos', titulo='Claude, ¿pongo todos los huevos en la misma cesta?', ambiente='noche_trading', total=40,
+    resumen='La diversificación explicada con huevos y cestas: repartir el riesgo entre muchas inversiones, sin prometer que elimine las pérdidas.',
+    datos=[('Concepto educativo: diversificar reparte el riesgo entre varios activos; no lo elimina. Un ETF indexado es una forma de tener muchas empresas en un solo producto (CNMV).', [CNMV1, CNMV2])],
+    lineas=[
+        H('Claude, ¿pongo todos los\nhuevos en la misma cesta?', 'humano', 'ilusionado', scr=S('etf', sync=('fin', 8, 0.9, 0.0))),
+        C('Depende. ¿Cuántos huevos tienes?', 'monitor', 'mira_izq'),
+        H('Todos mis ahorros.', 'dos', 'bobo'),
+        C('Entonces no.', 'claude_ojos'),
+        H('Pero la cesta es buena.', 'humano', 'ilusionado'),
+        C('Todas las cestas son buenas\nhasta que se rompe una.', 'cenital', 'mira_der'),
+        H('¿Y qué hago?', 'dos', 'confundido'),
+        C('Repartir. Muchas empresas,\nmuchos sectores, muchos países.', 'pantalla_completa'),
+        H('Eso es muy trabajoso.', 'humano', 'preocupado'),
+        C('Un ETF lo hace de golpe:\nuna cesta con muchas cestas.', 'claude_ojos', 'feliz', emp=True),
+        H('¿Y así no pierdo?', 'dos', 'ilusionado'),
+        C('Sí puedes perder. Pero\nno por un solo huevo.', 'monitor', 'feliz'),
+        H('Voy a repartir los huevos.', 'humano', 'feliz'),
+        C('Y no los cuentes cada hora.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='fin_05_fondo_de_emergencia', titulo='Claude, ¿cuánto debo tener ahorrado por si acaso?', ambiente='dia_trading', total=38,
+    resumen='El fondo de emergencia: una pauta habitual de unos 3 a 6 meses de gastos antes de asumir riesgos, con el humor de «el coche siempre se rompe en agosto».',
+    datos=[('Pauta habitual (no una norma): tener un fondo de emergencia de unos 3 a 6 meses de gastos antes de invertir en activos de riesgo. Cada situación es distinta; no es asesoramiento financiero.', [])],
+    lineas=[
+        H('Claude, ¿cuánto debo tener\nahorrado por si acaso?', 'humano', 'confundido', scr=S('presupuesto', sync=('fin', 6, 0.9, 0.0))),
+        C('¿Cuánto gastas al mes?', 'monitor', 'mira_izq'),
+        H('Unos 1.800 €. Más o menos.', 'dos', 'bobo'),
+        C('«Más o menos» es mucho.', 'claude_ojos', 'feliz'),
+        H('¿Y cuántos meses guardo?', 'humano', 'confundido'),
+        C('La pauta habitual: de 3 a 6 meses\nde gastos. Es tu paracaídas.', 'pantalla_completa'),
+        H('¿5.400 € como mínimo?', 'dos', 'preocupado'),
+        C('Sí. Y el coche se romperá\nen agosto. Siempre.', 'cenital', 'mira_der'),
+        H('¿Dónde lo guardo?', 'humano', 'confundido'),
+        C('Donde puedas sacarlo ya\ny no pierda valor de golpe.', 'monitor', 'feliz'),
+        H('¿Y si lo invierto en cripto?', 'dos', 'bobo'),
+        C('Ya vimos el vídeo.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='drop_09_cliente_14_mensajes', titulo='Claude, un cliente me ha escrito 14 mensajes', ambiente='atardecer_tienda', total=40,
+    resumen='La atención al cliente al límite: 14 mensajes seguidos. Claude propone una respuesta única, clara y con calma.',
+    datos=[('Vídeo de humor con consejos generales de atención al cliente (respuesta clara, plazos reales y seguimiento).', [])],
+    lineas=[
+        H('Claude, un cliente me ha\nescrito 14 mensajes.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Cliente #1042', 'inicial': 'C', 'mensajes': [['otro', '¿Dónde está mi pedido?'], ['otro', '¿Hola?'], ['otro', 'Llevo 3 días esperando'], ['otro', 'Contestadme']]}, sync=('fin', 10, 1.0, 0.0))),
+        C('¿Y qué pregunta?', 'monitor', 'mira_izq'),
+        H('Lo mismo. 14 veces.', 'dos', 'bobo'),
+        C('Una pregunta. Catorce\nformas de ansiedad.', 'claude_ojos', 'feliz'),
+        H('¿Contesto uno por uno?', 'humano', 'confundido'),
+        C('No. Un solo mensaje, claro,\ncon plazos reales.', 'cenital', 'mira_der'),
+        H('¿Y qué pongo?', 'dos', 'confundido'),
+        C('«Tu pedido sale hoy, llegará\nen X días; aquí el seguimiento».', 'monitor', 'feliz'),
+        H('¿Y si me sigue escribiendo?', 'humano', 'preocupado'),
+        C('Entonces esperó 3 días.\nEs comprensible. Contesta con calma.', 'claude_ojos', emp=True),
+        H('Qué paciencia.', 'dos', 'ilusionado'),
+        C('Por eso cobras, dicen.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+casual('casual_40_un_capitulo_mas', 'Claude, solo un capítulo más', 'noche_casa', 34, 'La maratón de series a las 2 de la madrugada: «solo uno más» y el despertador a las 7.', [
+    H('Claude, solo un capítulo más.', 'humano', 'bobo', scr=CHAT(10)),
+    C('¿Qué hora es?', 'monitor', 'mira_izq'),
+    H('La una y media.', 'dos', 'bobo'),
+    C('¿Y cuántos llevas?', 'claude_ojos', 'feliz'),
+    H('Seis. Pero este acaba bien.', 'humano', 'ilusionado'),
+    C('Todos acaban en «continuará».', 'cenital', 'mira_der'),
+    H('¿A qué hora suena el\ndespertador?', 'dos', 'confundido'),
+    C('A las 7:00. Tú sabrás.', 'monitor', 'feliz'),
+    H('Uno más. Prometido.', 'humano', 'feliz'),
+    C('Lo prometes con la cara\nde quien no lo cumple.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_42_el_dentista', 'Claude, mañana voy al dentista y tengo miedo', 'dia_casa', 36, 'El miedo al dentista con humor: Claude acompaña con datos prácticos de respiración y cero dramatismo.', [
+    H('Claude, mañana voy al dentista\ny tengo miedo.', 'humano', 'preocupado', scr=CHAT(12)),
+    C('¿Qué es lo que más miedo da?', 'monitor', 'mira_izq'),
+    H('El ruidito del taladro.', 'dos', 'bobo'),
+    C('El ruidito. Entendido.', 'claude_ojos', 'feliz'),
+    H('Y el «esto no va a doler».', 'humano', 'preocupado'),
+    C('Cuando dicen eso es que\nvan a avisar antes.', 'cenital', 'mira_der'),
+    H('¿Y si me desmayo?', 'dos', 'preocupado'),
+    C('Respira lento. Cuenta hasta\ncuatro. Y avísales.', 'monitor', 'feliz'),
+    H('¿Puedo llevar música?', 'humano', 'ilusionado'),
+    C('Sí. Con auriculares. Pide que\nte avisen antes de cada paso.', 'claude_ojos', emp=True),
+    H('Voy a ir.', 'dos', 'feliz'),
+    C('Y mañana, un helado.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_43_fiesta_sorpresa', 'Claude, organizo una fiesta sorpresa y no sé guardar secretos', 'atardecer_casa', 38, 'La fiesta sorpresa que se cuenta sola: Claude diseña un plan para que el humano aguante en silencio.', [
+    H('Claude, organizo una fiesta\nsorpresa y no sé guardar secretos.', 'humano', 'preocupado', scr=S('tareas', {'titulo': 'Fiesta sorpresa — plan', 'tareas': ['Invitar a todos (en secreto)', 'Comprar la tarta', 'Decirle a nadie que hay fiesta', 'No sonreír con cara de secreto', 'Cuando pregunte: «nada»', 'Gritar «¡sorpresa!»']}, sync=('fin', 10, 0.95, 0.0))),
+    C('¿A quién?', 'monitor', 'mira_izq'),
+    H('A mi madre. Y ya se lo he\ndicho a tres personas.', 'dos', 'bobo'),
+    C('Tres. Y ella lo sabe.', 'claude_ojos', 'feliz'),
+    H('¿Cómo lo sabes?', 'humano', 'confundido'),
+    C('Tu madre lo sabe todo.\nEs una norma.', 'cenital', 'mira_der'),
+    H('¿Y qué hago?', 'dos', 'preocupado'),
+    C('Invita a poca gente y di\nsiempre lo mismo: «nada».', 'monitor', 'feliz'),
+    H('¿Y si sospecha?', 'humano', 'preocupado'),
+    C('Que sospeche.\nLa sorpresa es la tarta.', 'claude_ojos', emp=True),
+    H('Voy a llamarla... para no decirle nada.', 'dos', 'ilusionado'),
+    C('No la llames. Silencio.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+VIDEOS.append(dict(
+    id='extra_08_trabajar_desde_casa', titulo='Claude, trabajo desde casa y no hago nada', ambiente='noche_tienda', total=38,
+    resumen='El teletrabajo y la productividad fantasma: Claude propone un plan sencillo sin gurús.',
+    datos=[('Vídeo de humor, sin datos reales.', [])],
+    lineas=[
+        H('Claude, trabajo desde casa\ny no hago nada.', 'humano', 'preocupado', scr=S('tareas', {'titulo': 'Mi día de teletrabajo', 'tareas': ['Abrir el portátil', 'Mirar el correo', 'Hacer café (tres veces)', 'Reunión (cámara apagada)', 'Trabajar de verdad (15 min)', 'Sentirme culpable']}, sync=('fin', 10, 0.95, 0.0))),
+        C('¿Cuántas horas trabajas?', 'monitor', 'mira_izq'),
+        H('Ocho. Pero con pausas.', 'dos', 'bobo'),
+        C('¿Cuántas pausas?', 'claude_ojos'),
+        H('Siete. Y una reunión.', 'humano', 'confundido'),
+        C('La reunión ha sido\nla pausa más productiva.', 'cenital', 'mira_der'),
+        H('Me cuesta concentrarme.', 'dos', 'preocupado'),
+        C('Una tarea. 25 minutos.\nMóvil lejos. Luego pausa.', 'monitor', 'feliz'),
+        H('¿Así de simple?', 'humano', 'confundido'),
+        C('Sí. Y repite.\nSin gurús. Sin app.', 'claude_ojos', emp=True),
+        H('Voy a probarlo.', 'dos', 'feliz'),
+        C('Ya llevas 30 segundos.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)
