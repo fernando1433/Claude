@@ -1348,6 +1348,58 @@ casual('casual_39_audio_de_4_minutos', 'Claude, me han mandado un audio de 4 min
     C('A doble velocidad.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+TF1 = ('INCIBE — Compras seguras online', 'https://www.incibe.es/ciudadania/tematicas/compras-seguras-online')
+TF2 = ('INCIBE — Claves para detectar una compra fraudulenta', 'https://www.incibe.es/empresas/blog/tienes-una-tienda-online-conoce-las-claves-para-detectar-una-compra-fraudulenta')
+FT1 = ('INCIBE — ¿Microsoft te ha llamado sin haberlo solicitado?', 'https://www.incibe.es/ciudadania/blog/microsoft-te-ha-llamado-sin-haberlo-solicitado')
+FT2 = ('INCIBE — Historias reales: el timo del falso soporte técnico', 'https://www.incibe.es/empresas/blog/historias-reales-el-timo-del-falso-soporte-tecnico')
+
+# ---------------- tanda 10 (utiles)
+VIDEOS.append(dict(
+    id='util_05_chollo_falso', titulo='Claude, he visto un móvil a 90 € en una web que no conozco', ambiente='dia_casa', total=42,
+    resumen='Un chollo demasiado bueno en una web desconocida. Claude revisa las señales de una tienda online fraudulenta (precio, datos de la empresa, formas de pago, prisa y opiniones) y qué hacer.',
+    datos=[('Señales según INCIBE: un solo indicio no basta, pero conviene revisar quién es la empresa (aviso legal, política de privacidad), buscar opiniones fuera de la propia web, desconfiar de ofertas excesivamente baratas y de la prisa, usar formas de pago con garantías y recordar que el candado/HTTPS solo indica conexión cifrada, no que la web sea fiable.', [TF1, TF2])],
+    lineas=[
+        H('Claude, he visto un móvil a 90 €\nen una web que no conozco.', 'humano', 'ilusionado', scr=S('tienda_falsa', sync=('fin', 12, 0.9, 0.0))),
+        C('¿Y cuánto cuesta normalmente?', 'monitor', 'mira_izq'),
+        H('899. ¡Es un 90 % de descuento!', 'dos', 'bobo'),
+        C('Un 90 % de descuento\nes un 90 % de sospecha.', 'claude_ojos', 'feliz'),
+        H('Pero tiene mil estrellas.', 'humano', 'confundido'),
+        C('Cuarenta y siete opiniones.\nTodas del mismo día.', 'cenital', 'mira_der'),
+        H('¿Y la empresa?', 'dos', 'confundido'),
+        C('No dice quién vende. Ni\ndirección ni CIF. Qué misterio.', 'monitor', 'feliz'),
+        H('Solo me deja pagar por Bizum.', 'humano', 'preocupado'),
+        C('Pagos sin garantía y prisa:\n«solo hoy». Cuatro de cinco.', 'pantalla_completa'),
+        H('¿Y qué hago?', 'dos', 'preocupado'),
+        C('Busca opiniones fuera de la web\ny paga con garantías.', 'claude_ojos', emp=True),
+        H('¿Y el candado de la web?', 'humano', 'bobo'),
+        C('Solo dice que va cifrada,\nno que sea honesta.', 'monitor', 'mira_arriba'),
+        H('Mejor lo compro en tienda.', 'dos', 'feliz'),
+        C('Aburrido y seguro.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_06_falso_tecnico', titulo='Claude, me ha llamado Microsoft: dice que mi PC tiene un virus', ambiente='noche_casa', total=42,
+    resumen='La clásica llamada del «soporte técnico de Microsoft»: virus inventado, acceso remoto y pago en tarjetas regalo. Claude le dice por qué colgar y qué hacer si ya has instalado algo.',
+    datos=[('Según INCIBE y Microsoft: Microsoft no hace llamadas no solicitadas para ofrecer soporte ni pedir datos; los estafadores piden instalar herramientas de acceso remoto legítimas (AnyDesk, TeamViewer, Asistencia rápida) y a veces cobran por «desbloquear» el equipo; nunca se paga soporte con criptomonedas o tarjetas regalo. Si ya diste acceso: analiza con antivirus, desinstala lo que te pidieron instalar, cambia tus claves y denuncia a Policía Nacional o Guardia Civil; línea de ayuda de INCIBE 017.', [FT1, FT2, BIZ1])],
+    lineas=[
+        H('Claude, me ha llamado Microsoft:\ndice que mi PC tiene un virus.', 'humano', 'preocupado', scr=S('llamada', sync=('fin', 12, 0.95, 0.0))),
+        C('¿Tú has llamado a Microsoft?', 'monitor', 'mira_izq'),
+        H('No. Me ha llamado él.', 'dos', 'bobo'),
+        C('Ya. Microsoft no\nllama a nadie así.', 'claude_ojos', 'feliz'),
+        H('Pero sabe mi nombre.', 'humano', 'confundido'),
+        C('Y el de media ciudad.\nLo sacan de listas.', 'cenital', 'mira_der'),
+        H('Me pide instalar AnyDesk.', 'dos', 'preocupado'),
+        C('Esa es la trampa: acceso remoto\npara entrar en tu ordenador.', 'pantalla_completa'),
+        H('¿Y si no lo hago?', 'humano', 'preocupado'),
+        C('Te dirá que perderás todo.\nEs miedo. Cuelga.', 'monitor', 'feliz'),
+        H('...Es que ya lo instalé.', 'dos', 'preocupado', pose='hombros'),
+        C('Desinstálalo, pasa el antivirus,\ncambia claves y denuncia.', 'claude_ojos', emp=True),
+        H('¿Y mi dinero?', 'humano', 'confundido'),
+        C('Llama al banco ya. Y\nal 017 si necesitas ayuda.', 'monitor', 'mira_arriba'),
+        H('Gracias, Claude.', 'dos', 'feliz'),
+        C('La próxima, cuelga a la primera.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

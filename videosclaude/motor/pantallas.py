@@ -757,10 +757,40 @@ def p_bizum(p, datos):
     if p > 0.8: rr(d, (666, 460, W - 66, 636), (25, 60, 45), 14, GR); d.text((W - 66 - 280, 520), 'Línea de Ayuda en Ciberseguridad', font=F(18, True), fill=GR, anchor='mm'); d.text((W - 66 - 280, 580), '017', font=F(64, True), fill=GR, anchor='mm')
     return im
 
+
+def p_tienda_falsa(p, datos):
+    im, d = base(datos.get('titulo', 'chollos-moviles-baratos.shop')); rr(d, (40, 56, 800, 650), (24, 22, 40), 14, LINE); rr(d, (60, 70, 780, 106), (14, 15, 28), 18); d.text((86, 88), 'chollos-moviles-baratos.shop', font=F(16, mono=True), fill=DIM, anchor='lm')
+    rr(d, (80, 130, 330, 380), (40, 44, 80), 16); rr(d, (160, 150, 250, 360), (24, 26, 44), 14); d.ellipse((197, 335, 213, 351), fill=(60, 66, 100))
+    d.text((360, 140), 'MÓVIL TOP 5G', font=F(32, True), fill=TXT); d.text((360, 190), '899 €', font=F(26, True), fill=DIM); d.line([(360, 205), (440, 205)], fill=RD, width=3); d.text((360, 225), '90 €', font=F(72, True), fill=GR)
+    seg = max(0, 299 - int(ease(p) * 40)); d.text((360, 330), f'⚠ ¡Solo hoy! Quedan 00:{seg // 60:02d}:{seg % 60:02d}', font=F(22, True, True), fill=RD)
+    rr(d, (360, 370, 770, 430), (240, 90, 60), 14); d.text((565, 400), 'COMPRAR AHORA', font=F(26, True), fill=(255, 255, 255), anchor='mm')
+    d.text((80, 455), '★★★★★ 5,0 (47 opiniones, todas del mismo día)', font=F(18, True), fill=YE); d.text((80, 500), 'Pago: solo transferencia o Bizum', font=F(20, True), fill=TXT); d.text((80, 540), 'Contacto: (sin dirección, sin CIF)', font=F(20), fill=DIM)
+    tarjeta(d, (830, 56, W - 40, 650), 'ANÁLISIS DE CLAUDE')
+    fl = ['Precio imposible (10 % del real)', 'No dice quién vende', 'Solo pagos sin garantía', 'Prisa: «solo hoy»', 'Opiniones perfectas y nuevas']
+    for i, t in enumerate(fl):
+        if p > 0.15 + i * 0.12: rr(d, (852, 110 + i * 74, W - 62, 110 + i * 74 + 62), (70, 25, 35), 10, RD); d.text((872, 141 + i * 74), '✖ ' + t, font=F(18, True), fill=(255, 220, 220), anchor='lm')
+    if p > 0.8: d.text((W - 62 - 190, 600), 'Busca opiniones fuera y paga\ncon garantías (tarjeta/pasarela).', font=F(16, True), fill=GR, anchor='mm')
+    return im
+
+def p_llamada(p, datos):
+    im, d = base(datos.get('titulo', 'Llamada entrante')); rr(d, (60, 56, 620, 650), (16, 20, 34), 24, LINE); d.ellipse((290, 100, 390, 200), fill=(70, 90, 140)); d.text((340, 150), '?', font=F(60, True), fill=TXT, anchor='mm')
+    d.text((340, 240), 'Soporte Microsoft', font=F(30, True), fill=TXT, anchor='mm'); d.text((340, 280), '+1 000 555 0199 · no solicitada', font=F(16, mono=True), fill=DIM, anchor='mm')
+    mm_, ss_ = divmod(int(ease(p) * 420), 60); d.text((340, 330), f'{mm_:02d}:{ss_:02d}', font=F(28, True, True), fill=GR, anchor='mm')
+    msgs = ['«Su ordenador tiene un virus.»', '«Instale AnyDesk ahora.»', '«Pague 200 € en tarjetas regalo.»']
+    for i, t in enumerate(msgs):
+        if p > 0.1 + i * 0.2: rr(d, (90, 370 + i * 64, 590, 370 + i * 64 + 52), (40, 46, 76), 12); d.text((340, 396 + i * 64), t, font=F(19, True), fill=TXT, anchor='mm')
+    rr(d, (130, 580, 270, 636), RD, 16); d.text((200, 608), 'Colgar', font=F(22, True), fill=(255, 255, 255), anchor='mm'); rr(d, (410, 580, 550, 636), (40, 100, 70), 16); d.text((480, 608), 'Seguir', font=F(22, True), fill=(200, 230, 210), anchor='mm')
+    tarjeta(d, (650, 56, W - 40, 650), 'ANÁLISIS DE CLAUDE')
+    fl = ['Llamada que no pediste', 'Te pide instalar acceso remoto', 'Urgencia y miedo', 'Pide tarjetas regalo o cripto']
+    for i, t in enumerate(fl):
+        if p > 0.25 + i * 0.13: rr(d, (676, 112 + i * 84, W - 66, 112 + i * 84 + 68), (70, 25, 35), 10, RD); d.text((696, 146 + i * 84), '✖ ' + t, font=F(20, True), fill=(255, 220, 220), anchor='lm')
+    if p > 0.85: rr(d, (676, 462, W - 66, 636), (25, 60, 45), 12, GR); d.text((W - 66 - 260, 520), 'Cuelga. Microsoft no te llama\npara «arreglarte» el PC.', font=F(19, True), fill=GR, anchor='mm'); d.text((W - 66 - 260, 590), 'Si dudas: llama tú, al número oficial.', font=F(15), fill=TXT, anchor='mm')
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
 ZOOM_AUTO = {'mensajes': (300, 54, 980, 652), 'phishing': (60, 60, 1240, 650), 'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+PANTALLAS = {'tienda_falsa': p_tienda_falsa, 'llamada': p_llamada, 'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}

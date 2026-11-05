@@ -70,5 +70,7 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_37_la_nevera` | Claude, abro la nevera cada 10 minutos | `noche_casa` | [docs](casual_37_la_nevera.md) | [json](../../guiones/casual_37_la_nevera.json) | [mp4](../../salidas/casual_37_la_nevera.mp4) |
 | `casual_38_un_por_ciento` | Claude, me queda el 1 % de batería | `dia_casa` | [docs](casual_38_un_por_ciento.md) | [json](../../guiones/casual_38_un_por_ciento.json) | [mp4](../../salidas/casual_38_un_por_ciento.mp4) |
 | `casual_39_audio_de_4_minutos` | Claude, me han mandado un audio de 4 minutos | `atardecer_casa` | [docs](casual_39_audio_de_4_minutos.md) | [json](../../guiones/casual_39_audio_de_4_minutos.json) | [mp4](../../salidas/casual_39_audio_de_4_minutos.mp4) |
+| `util_05_chollo_falso` | Claude, he visto un móvil a 90 € en una web que no conozco | `dia_casa` | [docs](util_05_chollo_falso.md) | [json](../../guiones/util_05_chollo_falso.json) | [mp4](../../salidas/util_05_chollo_falso.mp4) |
+| `util_06_falso_tecnico` | Claude, me ha llamado Microsoft: dice que mi PC tiene un virus | `noche_casa` | [docs](util_06_falso_tecnico.md) | [json](../../guiones/util_06_falso_tecnico.json) | [mp4](../../salidas/util_06_falso_tecnico.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.
