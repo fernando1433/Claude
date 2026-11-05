@@ -1,0 +1,103 @@
+{
+ "titulo": "Claude, hoy he sido muy productivo",
+ "ambiente": "atardecer_casa",
+ "fps_animacion": 6,
+ "duracion": 34,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.08,
+   "quien": "humano",
+   "texto": "Claude, hoy he sido\nmuy productivo.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "tareas",
+    "duracion": 35.79,
+    "datos": {
+     "titulo": "Hoy",
+     "tareas": [
+      "Ordenar un cajón",
+      "Mirar el correo (sin abrirlo)",
+      "Pensar en hacer deporte",
+      "Planificar mañana (en el sofá)",
+      "Responder a mamá",
+      "Sentirme productivo"
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 4.08,
+   "fin": 6.44,
+   "quien": "claude",
+   "texto": "Cuéntame.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.44,
+   "fin": 9.19,
+   "quien": "humano",
+   "texto": "He ordenado un cajón.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 9.19,
+   "fin": 11.55,
+   "quien": "claude",
+   "texto": "Un cajón.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 11.55,
+   "fin": 15.73,
+   "quien": "humano",
+   "texto": "Entero. Y he encontrado\nun cargador.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 15.73,
+   "fin": 18.09,
+   "quien": "claude",
+   "texto": "Es un hito.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 18.09,
+   "fin": 20.45,
+   "quien": "humano",
+   "texto": "¿Te parece poco?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 20.45,
+   "fin": 26.25,
+   "quien": "claude",
+   "texto": "Me parece suficiente.\nEl cargador, además, funciona.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 26.25,
+   "fin": 29.42,
+   "quien": "humano",
+   "texto": "Mañana, el segundo cajón.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 29.42,
+   "fin": 34,
+   "quien": "claude",
+   "texto": "Ritmo sostenible.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

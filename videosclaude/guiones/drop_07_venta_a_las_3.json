@@ -1,0 +1,108 @@
+{
+ "titulo": "Claude, ¡tengo una venta a las 3 de la mañana!",
+ "ambiente": "noche_tienda",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.95,
+   "quien": "humano",
+   "texto": "¡Claude! ¡Tengo una venta\na las 3 de la mañana!",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "pedido",
+    "duracion": 13.21
+   }
+  },
+  {
+   "inicio": 3.95,
+   "fin": 7.07,
+   "quien": "claude",
+   "texto": "Enhorabuena. ¿De dónde\nes el pedido?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 7.07,
+   "fin": 8.98,
+   "quien": "humano",
+   "texto": "Mira, eso da igual.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.98,
+   "fin": 12.55,
+   "quien": "claude",
+   "texto": "No da igual. Mira país,\nemail y dirección.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 12.55,
+   "fin": 16.12,
+   "quien": "humano",
+   "texto": "Un email con números\ny una dirección rara.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 16.12,
+   "fin": 20.38,
+   "quien": "claude",
+   "texto": "Pedido grande, urgente,\ncon email raro. Sospechoso.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 20.38,
+   "fin": 22.14,
+   "quien": "humano",
+   "texto": "¿Fraude?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 22.14,
+   "fin": 25.94,
+   "quien": "claude",
+   "texto": "Puede. Verifica el pago antes\nde enviar nada.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 25.94,
+   "fin": 27.92,
+   "quien": "humano",
+   "texto": "¿Y cómo lo verifico?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 27.92,
+   "fin": 33.46,
+   "quien": "claude",
+   "texto": "Pasarela de pagos: revisa el\nestado del cobro y la alerta de riesgo.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 33.46,
+   "fin": 36.81,
+   "quien": "humano",
+   "texto": "Vale, espero a que\nel pago se confirme.",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 36.81,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Eso. Y duerme.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

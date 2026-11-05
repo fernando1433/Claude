@@ -1118,6 +1118,126 @@ casual('casual_32_la_mudanza', 'Claude, me mudo mañana y no he empaquetado nada
     C('Pide ayuda a tus amigos.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+
+# ---------------- tanda 8 (ambientes nuevos: atardecer_casa y noche_tienda)
+casual('casual_33_jefe_19h', 'Claude, mi jefe me ha escrito a las 19:01', 'atardecer_casa', 36, 'El mensaje del jefe fuera de horario: Claude defiende el derecho a desconectar con elegancia pasivo-agresiva.', [
+    H('Claude, mi jefe me ha escrito\na las 19:01.', 'humano', 'preocupado', scr=S('mensajes', {'contacto': 'Jefe', 'inicial': 'J', 'linea': True, 'mensajes': [['otro', 'Una cosita rápida.'], ['otro', 'Es para mañana.'], ['otro', 'O para esta noche.'], ['yo', '...']]}, sync=('fin', 10, 1.0, 0.0))),
+    C('Salí a las 19:00. ¿Verdad?', 'monitor', 'mira_izq'),
+    H('Sí. Pero «es una cosita».', 'dos', 'bobo'),
+    C('Las cositas rápidas\nduran tres horas.', 'claude_ojos', 'feliz'),
+    H('¿Contesto?', 'humano', 'confundido'),
+    C('Mañana. Con educación.\nY a las 9:00 en punto.', 'cenital', 'mira_der'),
+    H('¿Y si se enfada?', 'dos', 'preocupado'),
+    C('Se enfadará menos que\nsi contestas a las 23:00.', 'monitor', 'feliz'),
+    H('Tienes razón.', 'humano', 'ilusionado'),
+    C('Silencia el chat. Cena.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_34_hoy_productivo', 'Claude, hoy he sido muy productivo', 'atardecer_casa', 34, 'La productividad en sus mínimos: ordenar un cajón y sentirse un héroe.', [
+    H('Claude, hoy he sido\nmuy productivo.', 'humano', 'ilusionado', scr=S('tareas', {'titulo': 'Hoy', 'tareas': ['Ordenar un cajón', 'Mirar el correo (sin abrirlo)', 'Pensar en hacer deporte', 'Planificar mañana (en el sofá)', 'Responder a mamá', 'Sentirme productivo']}, sync=('fin', 10, 0.95, 0.0))),
+    C('Cuéntame.', 'monitor', 'mira_izq'),
+    H('He ordenado un cajón.', 'dos', 'bobo'),
+    C('Un cajón.', 'claude_ojos'),
+    H('Entero. Y he encontrado\nun cargador.', 'humano', 'ilusionado'),
+    C('Es un hito.', 'cenital', 'mira_der', ),
+    H('¿Te parece poco?', 'dos', 'confundido'),
+    C('Me parece suficiente.\nEl cargador, además, funciona.', 'monitor', 'feliz'),
+    H('Mañana, el segundo cajón.', 'humano', 'ilusionado'),
+    C('Ritmo sostenible.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_35_cansado_a_las_6', 'Claude, ¿por qué siempre estoy cansado a las 6?', 'atardecer_casa', 36, 'El bajón de la tarde y todas las excusas posibles. Claude receta agua, un paseo y una siesta con límite.', [
+    H('Claude, ¿por qué siempre\nestoy cansado a las 6?', 'humano', 'confundido', scr=CHAT(12)),
+    C('¿A qué hora comiste?', 'monitor', 'mira_izq'),
+    H('A las 15:30. Pasta.', 'dos', 'bobo'),
+    C('Ahí está parte de la respuesta.', 'claude_ojos', 'feliz'),
+    H('¿Y el resto?', 'humano', 'confundido'),
+    C('Tres cafés y cinco\nhoras de pantalla.', 'cenital', 'mira_der'),
+    H('Siete. Pero con descansos.', 'dos', 'preocupado'),
+    C('Mirar el móvil\nno es un descanso.', 'monitor', 'feliz'),
+    H('¿Qué hago?', 'humano', 'preocupado'),
+    C('Agua, un paseo y una\nsiesta de veinte minutos.', 'claude_ojos', emp=True),
+    H('¿Solo veinte?', 'dos', 'bobo'),
+    C('Con alarma.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_36_pido_comida', 'Claude, ¿pido comida otra vez?', 'atardecer_casa', 36, 'La comida a domicilio por décima vez esta semana. Claude no juzga, solo cuenta.', [
+    H('Claude, ¿pido comida otra vez?', 'humano', 'bobo', scr=S('menu', {'titulo': 'Pedidos esta semana', 'minutos': 9, 'opciones': [['Lunes: pizza', '«para celebrar el lunes»', 'no'], ['Martes: pizza', '«porque era martes»', 'no'], ['Miércoles: sushi', '«una excepción»', 'no'], ['Hoy: ???', '«sorpréndeme»', 'si']]}, sync=('fin', 10, 0.95, 0.0))),
+    C('Es la quinta vez\nesta semana.', 'monitor', 'mira_izq'),
+    H('Es que cocinar da pereza.', 'dos', 'bobo'),
+    C('Pedir también. Pero se\nsiente más a gusto.', 'claude_ojos', 'feliz'),
+    H('¿Qué me recomiendas?', 'humano', 'confundido'),
+    C('Algo que no sea pizza.', 'cenital', 'mira_der'),
+    H('Pizza.', 'dos', 'ilusionado'),
+    C('Me lo imaginaba.', 'monitor', 'mira_arriba'),
+    H('Mañana cocino. Seguro.', 'humano', 'feliz'),
+    C('«Mañana». Lo apunto.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('drop_06_cambio_el_logo', 'Claude, mi tienda no vende. ¿Cambio el logo?', 'noche_tienda', 44, 'El tonto cree que el problema de su tienda es el logo. Claude le enseña a mirar el embudo: tráfico, conversión y precio. Humor y método.', [
+    H('Claude, mi tienda no vende.\n¿Cambio el logo?', 'humano', 'preocupado', scr=S('anuncios', {'titulo': 'Mi tienda — embudo'}, sync=('fin', 8, 0.9, 0.0))),
+    C('¿Cuántas visitas tienes?', 'monitor', 'mira_izq'),
+    H('Doce. Seis soy yo.', 'dos', 'bobo'),
+    C('Entonces el logo no es\nel problema.', 'claude_ojos', 'feliz'),
+    H('¿Y el color?', 'humano', 'ilusionado'),
+    C('Tampoco. Primero, tráfico:\ngente que te vea.', 'cenital', 'mira_der'),
+    H('¿Cómo la consigo?', 'dos', 'confundido'),
+    C('Anuncios, contenido,\nrecomendaciones. Con método.', 'pantalla_completa'),
+    H('¿Y luego?', 'humano', 'confundido'),
+    C('Luego, que entren, miren\ny compren. Eso es conversión.', 'monitor', 'feliz'),
+    H('¿Y si no compran?', 'dos', 'preocupado'),
+    C('Revisa precio, fotos, envíos\ny confianza. El logo, al final.', 'claude_ojos', emp=True),
+    H('Qué lío.', 'humano', 'preocupado'),
+    C('Un lío con orden.\nSe llama negocio.', 'monitor', 'mira_arriba'),
+    H('Voy a arreglar el tráfico.', 'dos', 'feliz'),
+    C('Y el logo, el último.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('drop_07_venta_a_las_3', 'Claude, ¡tengo una venta a las 3 de la mañana!', 'noche_tienda', 40, 'Una venta de madrugada: celebración, sospecha y revisión de señales de fraude con calma.', [
+    H('¡Claude! ¡Tengo una venta\na las 3 de la mañana!', 'humano', 'ilusionado', scr=S('pedido', sync=('fin', 4, 0.95, 0.0))),
+    C('Enhorabuena. ¿De dónde\nes el pedido?', 'monitor', 'mira_izq'),
+    H('Mira, eso da igual.', 'dos', 'bobo'),
+    C('No da igual. Mira país,\nemail y dirección.', 'claude_ojos'),
+    H('Un email con números\ny una dirección rara.', 'humano', 'confundido'),
+    C('Pedido grande, urgente,\ncon email raro. Sospechoso.', 'cenital', 'mira_der'),
+    H('¿Fraude?', 'dos', 'preocupado'),
+    C('Puede. Verifica el pago antes\nde enviar nada.', 'monitor', 'feliz'),
+    H('¿Y cómo lo verifico?', 'humano', 'confundido'),
+    C('Pasarela de pagos: revisa el\nestado del cobro y la alerta de riesgo.', 'claude_ojos', emp=True),
+    H('Vale, espero a que\nel pago se confirme.', 'dos', 'ilusionado'),
+    C('Eso. Y duerme.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('extra_06_marca_personal', 'Claude, ¿hago una marca personal?', 'noche_tienda', 38, 'Todos quieren una marca personal. Claude pregunta lo básico: ¿qué ofreces, a quién y por qué te van a creer?', [
+    H('Claude, ¿hago una\nmarca personal?', 'humano', 'ilusionado', scr=S('analitica', {'titulo': 'Mi marca personal — analítica', 'seguidores': 14, 'vistas': 112}, sync=('fin', 10, 0.9, 0.0))),
+    C('¿Qué ofreces?', 'monitor', 'mira_izq'),
+    H('Mi cara. Y mi estilo.', 'dos', 'bobo'),
+    C('Hmm. ¿Y a quién\nle sirve?', 'claude_ojos'),
+    H('A mi madre.', 'humano', 'ilusionado'),
+    C('Cliente fiel.', 'cenital', 'mira_der'),
+    H('¿Cuántos seguidores\nnecesito?', 'dos', 'confundido'),
+    C('Menos de los que crees,\nsi ayudas de verdad.', 'monitor', 'feliz'),
+    H('¿Y con qué empiezo?', 'humano', 'preocupado'),
+    C('Con una cosa que sepas\ny puedas enseñar.', 'claude_ojos', 'mira_arriba'),
+    H('Sé... dormir.', 'dos', 'bobo'),
+    C('Entonces tienes futuro.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('extra_07_idea_millonaria', 'Claude, tengo una idea millonaria', 'noche_tienda', 38, 'La idea «millonaria» que ya existe diez veces. Claude propone validar antes de gastar.', [
+    H('Claude, tengo una\nidea millonaria.', 'humano', 'ilusionado', scr=S('hoja', {'titulo': 'Mi idea — números', 'filas': [['Café con app', 3, 4.5, 0.6], ['Mismo café, sin app', 120, 2.5, 0.6], ['Idea millonaria', 0, 99.0, 0.5]]}, sync=('fin', 8, 0.9, 0.0))),
+    C('Cuéntamela.', 'monitor', 'mira_izq'),
+    H('Una app para...\nsaber si hace frío.', 'dos', 'ilusionado'),
+    C('Se llama «asomarse\na la ventana».', 'claude_ojos', 'feliz'),
+    H('Pero con notificaciones.', 'humano', 'bobo'),
+    C('Ah. Eso lo cambia todo.', 'cenital', 'mira_der'),
+    H('¿Crees que funcionará?', 'dos', 'preocupado'),
+    C('No lo sé. Pregunta a 20\npersonas antes de programar nada.', 'pantalla_completa'),
+    H('¿Y si dicen que no?', 'humano', 'confundido'),
+    C('Te has ahorrado un año.\nEs un buen negocio.', 'monitor', 'feliz'),
+    H('Voy a preguntar.', 'dos', 'feliz'),
+    C('Empieza por tu madre.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

@@ -1,0 +1,113 @@
+{
+ "titulo": "Claude, ¿hago una marca personal?",
+ "ambiente": "noche_tienda",
+ "fps_animacion": 6,
+ "duracion": 38,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.69,
+   "quien": "humano",
+   "texto": "Claude, ¿hago una\nmarca personal?",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "analitica",
+    "duracion": 34.23,
+    "datos": {
+     "titulo": "Mi marca personal — analítica",
+     "seguidores": 14,
+     "vistas": 112
+    }
+   }
+  },
+  {
+   "inicio": 3.69,
+   "fin": 5.93,
+   "quien": "claude",
+   "texto": "¿Qué ofreces?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.93,
+   "fin": 8.56,
+   "quien": "humano",
+   "texto": "Mi cara. Y mi estilo.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.56,
+   "fin": 11.47,
+   "quien": "claude",
+   "texto": "Hmm. ¿Y a quién\nle sirve?",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 11.47,
+   "fin": 13.72,
+   "quien": "humano",
+   "texto": "A mi madre.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 13.72,
+   "fin": 15.96,
+   "quien": "claude",
+   "texto": "Cliente fiel.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 15.96,
+   "fin": 19.27,
+   "quien": "humano",
+   "texto": "¿Cuántos seguidores\nnecesito?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 19.27,
+   "fin": 24.02,
+   "quien": "claude",
+   "texto": "Menos de los que crees,\nsi ayudas de verdad.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 24.02,
+   "fin": 26.45,
+   "quien": "humano",
+   "texto": "¿Y con qué empiezo?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 26.45,
+   "fin": 30.81,
+   "quien": "claude",
+   "texto": "Con una cosa que sepas\ny puedas enseñar.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 30.81,
+   "fin": 33.06,
+   "quien": "humano",
+   "texto": "Sé... dormir.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 33.06,
+   "fin": 38,
+   "quien": "claude",
+   "texto": "Entonces tienes futuro.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

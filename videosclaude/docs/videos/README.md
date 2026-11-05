@@ -56,5 +56,13 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `trading_07_miedo_a_quedarse_fuera` | Todo el mundo compra esta moneda. ¡No me puedo quedar fuera! | `dia_trading` | [docs](trading_07_miedo_a_quedarse_fuera.md) | [json](../../guiones/trading_07_miedo_a_quedarse_fuera.json) | [mp4](../../salidas/trading_07_miedo_a_quedarse_fuera.mp4) |
 | `casual_31_que_foto_subo` | Claude, ¿qué foto subo? | `noche_casa` | [docs](casual_31_que_foto_subo.md) | [json](../../guiones/casual_31_que_foto_subo.json) | [mp4](../../salidas/casual_31_que_foto_subo.mp4) |
 | `casual_32_la_mudanza` | Claude, me mudo mañana y no he empaquetado nada | `dia_casa` | [docs](casual_32_la_mudanza.md) | [json](../../guiones/casual_32_la_mudanza.json) | [mp4](../../salidas/casual_32_la_mudanza.mp4) |
+| `casual_33_jefe_19h` | Claude, mi jefe me ha escrito a las 19:01 | `atardecer_casa` | [docs](casual_33_jefe_19h.md) | [json](../../guiones/casual_33_jefe_19h.json) | [mp4](../../salidas/casual_33_jefe_19h.mp4) |
+| `casual_34_hoy_productivo` | Claude, hoy he sido muy productivo | `atardecer_casa` | [docs](casual_34_hoy_productivo.md) | [json](../../guiones/casual_34_hoy_productivo.json) | [mp4](../../salidas/casual_34_hoy_productivo.mp4) |
+| `casual_35_cansado_a_las_6` | Claude, ¿por qué siempre estoy cansado a las 6? | `atardecer_casa` | [docs](casual_35_cansado_a_las_6.md) | [json](../../guiones/casual_35_cansado_a_las_6.json) | [mp4](../../salidas/casual_35_cansado_a_las_6.mp4) |
+| `casual_36_pido_comida` | Claude, ¿pido comida otra vez? | `atardecer_casa` | [docs](casual_36_pido_comida.md) | [json](../../guiones/casual_36_pido_comida.json) | [mp4](../../salidas/casual_36_pido_comida.mp4) |
+| `drop_06_cambio_el_logo` | Claude, mi tienda no vende. ¿Cambio el logo? | `noche_tienda` | [docs](drop_06_cambio_el_logo.md) | [json](../../guiones/drop_06_cambio_el_logo.json) | [mp4](../../salidas/drop_06_cambio_el_logo.mp4) |
+| `drop_07_venta_a_las_3` | Claude, ¡tengo una venta a las 3 de la mañana! | `noche_tienda` | [docs](drop_07_venta_a_las_3.md) | [json](../../guiones/drop_07_venta_a_las_3.json) | [mp4](../../salidas/drop_07_venta_a_las_3.mp4) |
+| `extra_06_marca_personal` | Claude, ¿hago una marca personal? | `noche_tienda` | [docs](extra_06_marca_personal.md) | [json](../../guiones/extra_06_marca_personal.json) | [mp4](../../salidas/extra_06_marca_personal.mp4) |
+| `extra_07_idea_millonaria` | Claude, tengo una idea millonaria | `noche_tienda` | [docs](extra_07_idea_millonaria.md) | [json](../../guiones/extra_07_idea_millonaria.json) | [mp4](../../salidas/extra_07_idea_millonaria.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.
