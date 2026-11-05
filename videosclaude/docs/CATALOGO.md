@@ -1,6 +1,6 @@
 # Catálogo de vídeos
 
-98 vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.
+104 vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.
 
 ## Empieza por estos 10
 
@@ -87,7 +87,7 @@
 | <img src="../salidas/portadas/extra_07_idea_millonaria.jpg" width="90"> | **Claude, tengo una idea millonaria**<br>[`extra_07_idea_millonaria`](videos/extra_07_idea_millonaria.md) | 38 s | `noche_tienda` |
 | <img src="../salidas/portadas/extra_08_trabajar_desde_casa.jpg" width="90"> | **Claude, trabajo desde casa y no hago nada**<br>[`extra_08_trabajar_desde_casa`](videos/extra_08_trabajar_desde_casa.md) | 38 s | `noche_tienda` |
 
-## Día a día (conversaciones con gancho) (43)
+## Día a día (conversaciones con gancho) (49)
 
 | Portada | Vídeo | Duración | Sala |
 |---|---|---|---|
@@ -134,6 +134,12 @@
 | <img src="../salidas/portadas/casual_43_fiesta_sorpresa.jpg" width="90"> | **Claude, organizo una fiesta sorpresa y no sé guardar secretos**<br>[`casual_43_fiesta_sorpresa`](videos/casual_43_fiesta_sorpresa.md) | 38 s | `atardecer_casa` |
 | <img src="../salidas/portadas/casual_44_cocinar_para_la_cita.jpg" width="90"> | **Claude, voy a cocinar para mi cita**<br>[`casual_44_cocinar_para_la_cita`](videos/casual_44_cocinar_para_la_cita.md) | 38 s | `noche_casa` |
 | <img src="../salidas/portadas/casual_45_domingo_de_limpieza.jpg" width="90"> | **Claude, hoy toca limpiar la casa**<br>[`casual_45_domingo_de_limpieza`](videos/casual_45_domingo_de_limpieza.md) | 34 s | `dia_casa` |
+| <img src="../salidas/portadas/casual_46_la_ventana.jpg" width="90"> | **Claude, ¿cierro la ventana o dejo entrar el frío?**<br>[`casual_46_la_ventana`](videos/casual_46_la_ventana.md) | 34 s | `noche_casa` |
+| <img src="../salidas/portadas/casual_47_el_tupper.jpg" width="90"> | **Claude, ¿me como el táper de hace 4 días?**<br>[`casual_47_el_tupper`](videos/casual_47_el_tupper.md) | 32 s | `dia_casa` |
+| <img src="../salidas/portadas/casual_48_el_cargador.jpg" width="90"> | **Claude, un amigo no me devuelve el cargador desde 2019**<br>[`casual_48_el_cargador`](videos/casual_48_el_cargador.md) | 34 s | `atardecer_casa` |
+| <img src="../salidas/portadas/casual_49_nombre_en_la_cafeteria.jpg" width="90"> | **Claude, en la cafetería siempre me llaman Pablo**<br>[`casual_49_nombre_en_la_cafeteria`](videos/casual_49_nombre_en_la_cafeteria.md) | 32 s | `dia_casa` |
+| <img src="../salidas/portadas/casual_51_mi_gato_me_ignora.jpg" width="90"> | **Claude, mi gato me ignora**<br>[`casual_51_mi_gato_me_ignora`](videos/casual_51_mi_gato_me_ignora.md) | 34 s | `noche_casa` |
+| <img src="../salidas/portadas/casual_52_el_calcetin.jpg" width="90"> | **Claude, mi pareja dice que siempre dejo el calcetín en el suelo**<br>[`casual_52_el_calcetin`](videos/casual_52_el_calcetin.md) | 36 s | `atardecer_casa` |
 
 ## Micro-vídeos de ~20 s (10)
 

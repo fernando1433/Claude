@@ -102,5 +102,11 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `util_09_copia_de_seguridad` | Claude, ¿hago copia de seguridad de mis fotos? | `dia_casa` | [docs](util_09_copia_de_seguridad.md) | [json](../../guiones/util_09_copia_de_seguridad.json) | [mp4](../../salidas/util_09_copia_de_seguridad.mp4) |
 | `casual_44_cocinar_para_la_cita` | Claude, voy a cocinar para mi cita | `noche_casa` | [docs](casual_44_cocinar_para_la_cita.md) | [json](../../guiones/casual_44_cocinar_para_la_cita.json) | [mp4](../../salidas/casual_44_cocinar_para_la_cita.mp4) |
 | `casual_45_domingo_de_limpieza` | Claude, hoy toca limpiar la casa | `dia_casa` | [docs](casual_45_domingo_de_limpieza.md) | [json](../../guiones/casual_45_domingo_de_limpieza.json) | [mp4](../../salidas/casual_45_domingo_de_limpieza.mp4) |
+| `casual_46_la_ventana` | Claude, ¿cierro la ventana o dejo entrar el frío? | `noche_casa` | [docs](casual_46_la_ventana.md) | [json](../../guiones/casual_46_la_ventana.json) | [mp4](../../salidas/casual_46_la_ventana.mp4) |
+| `casual_47_el_tupper` | Claude, ¿me como el táper de hace 4 días? | `dia_casa` | [docs](casual_47_el_tupper.md) | [json](../../guiones/casual_47_el_tupper.json) | [mp4](../../salidas/casual_47_el_tupper.mp4) |
+| `casual_48_el_cargador` | Claude, un amigo no me devuelve el cargador desde 2019 | `atardecer_casa` | [docs](casual_48_el_cargador.md) | [json](../../guiones/casual_48_el_cargador.json) | [mp4](../../salidas/casual_48_el_cargador.mp4) |
+| `casual_49_nombre_en_la_cafeteria` | Claude, en la cafetería siempre me llaman Pablo | `dia_casa` | [docs](casual_49_nombre_en_la_cafeteria.md) | [json](../../guiones/casual_49_nombre_en_la_cafeteria.json) | [mp4](../../salidas/casual_49_nombre_en_la_cafeteria.mp4) |
+| `casual_51_mi_gato_me_ignora` | Claude, mi gato me ignora | `noche_casa` | [docs](casual_51_mi_gato_me_ignora.md) | [json](../../guiones/casual_51_mi_gato_me_ignora.json) | [mp4](../../salidas/casual_51_mi_gato_me_ignora.mp4) |
+| `casual_52_el_calcetin` | Claude, mi pareja dice que siempre dejo el calcetín en el suelo | `atardecer_casa` | [docs](casual_52_el_calcetin.md) | [json](../../guiones/casual_52_el_calcetin.json) | [mp4](../../salidas/casual_52_el_calcetin.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

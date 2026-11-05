@@ -1942,7 +1942,7 @@ casual('casual_51_mi_gato_me_ignora', 'Claude, mi gato me ignora', 'noche_casa',
 ])
 
 casual('casual_52_el_calcetin', 'Claude, mi pareja dice que siempre dejo el calcetín en el suelo', 'atardecer_casa', 36, 'La eterna discusión del calcetín en el suelo. Claude hace de mediador con una propuesta salomónica.', [
-    H('Claude, mi pareja dice que siempre\ndejo el calcetín en el suelo.', 'humano', 'preocupado', scr=CHAT(12)),
+    H('Claude, mi pareja dice que siempre\ndejo el calcetín en el suelo.', 'humano', 'preocupado', scr=CHAT(10)),
     C('¿Y es verdad?', 'monitor', 'mira_izq'),
     H('Casi siempre. Pero con cariño.', 'dos', 'bobo'),
     C('El cariño no recoge calcetines.', 'claude_ojos', 'feliz'),
