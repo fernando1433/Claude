@@ -1745,6 +1745,135 @@ VIDEOS.append(dict(
         C('Ya llevas 30 segundos.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
+
+# ---------------- tanda 11
+VIDEOS.append(dict(
+    id='trading_13_doblar_para_recuperar', titulo='Claude, si pierdo, ¿lo recupero doblando la apuesta?', ambiente='noche_trading', total=42,
+    resumen='La «martingala»: doblar la apuesta tras cada pérdida para recuperar. Claude hace la cuenta exacta: 7 pérdidas seguidas con 10 € iniciales suponen 1.270 € perdidos para ganar 10 €.',
+    datos=[('Cuenta exacta: apuestas 10 €, 20 €, 40 €, 80 €, 160 €, 320 €, 640 €; tras 7 pérdidas seguidas has perdido 10 × (2^7 − 1) = 1.270 € y la siguiente apuesta sería de 1.280 € para ganar 10 €. Ejemplo matemático ilustrativo: las rachas existen, los brokers tienen límites y tu capital es finito.', [])],
+    lineas=[
+        H('Claude, si pierdo, ¿lo recupero\ndoblando la apuesta?', 'humano', 'ilusionado', scr=S('martingala', sync=('fin', 8, 0.9, 0.0))),
+        C('Hmm. ¿Y si pierdes otra vez?', 'monitor', 'mira_izq'),
+        H('La doblo otra vez.', 'dos', 'bobo'),
+        C('¿Y otra?', 'claude_ojos', 'feliz'),
+        H('Otra vez. Hasta que gane.', 'humano', 'ilusionado'),
+        C('Haz la cuenta conmigo.\n10, 20, 40, 80...', 'cenital', 'mira_der'),
+        H('...160, 320, 640.', 'dos', 'confundido'),
+        C('Siete pérdidas: has perdido 1.270 €\npara intentar ganar 10.', 'pantalla_completa'),
+        H('¿¡1.270 € para ganar 10!?', 'humano', 'preocupado'),
+        C('Y la siguiente apuesta sería\nde 1.280 €. Si tienes.', 'monitor', 'feliz'),
+        H('Pero siete seguidas es raro.', 'dos', 'bobo'),
+        C('Raro no es imposible.\nY solo hace falta una vez.', 'claude_ojos', emp=True),
+        H('¿Entonces cómo recupero?', 'humano', 'confundido'),
+        C('Pierdes poco, con stop,\ny aceptas la pérdida.', 'monitor', 'mira_arriba'),
+        H('Eso es perder con estilo.', 'dos', 'feliz'),
+        C('Es sobrevivir.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_12_noticia_falsa', titulo='Claude, he leído que mañana sube todo', ambiente='dia_trading', total=40,
+    resumen='El «he leído en un grupo que mañana sube todo». Claude enseña a desconfiar de rumores, comprobar la fuente y no operar por un titular.',
+    datos=[('Consejo general: contrastar la fuente y no operar por rumores de grupos o titulares; el 74–89 % de cuentas minoristas de CFD pierde dinero (ESMA, 2018).', [ESMA, ESMA_R])],
+    lineas=[
+        H('Claude, he leído que\nmañana sube todo.', 'humano', 'ilusionado', scr=S('telegram', {'modo': 'chat'}, sync=('ini', 5, 1.0, 0.0))),
+        C('¿Dónde lo has leído?', 'monitor', 'mira_izq'),
+        H('En un grupo. Lo dijo uno\nque parecía listo.', 'dos', 'bobo'),
+        C('Parecía.', 'claude_ojos', 'feliz'),
+        H('Tiene una foto con corbata.', 'humano', 'ilusionado'),
+        C('La corbata no predice el mercado.', 'cenital', 'mira_der'),
+        H('¿Y si tiene razón?', 'dos', 'confundido'),
+        C('Si tuviera razón, no lo\ndiría en un grupo gratis.', 'monitor', 'feliz'),
+        H('¿Y cómo compruebo si es verdad?', 'humano', 'confundido'),
+        C('Fuente, fecha y quién gana\ncon que tú te lo creas.', 'claude_ojos', emp=True),
+        H('¿Quién gana?', 'dos', 'bobo'),
+        C('El que ya compró.\nY necesita compradores.', 'pantalla_completa', scr=S('verdad', {'tipo': 'esma'}, sync=('fin', 12, 1.0, 0.0))),
+        H('Qué mal pensado eres.', 'humano', 'preocupado'),
+        C('Bien pensado. Con datos.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='drop_10_fotos_del_producto', titulo='Claude, mi producto se ve horrible en las fotos', ambiente='dia_tienda', total=38,
+    resumen='La fotografía de producto sin presupuesto: luz natural, fondo limpio, varios ángulos y una foto de uso. Sencillo y útil.',
+    datos=[('Consejos generales de fotografía de producto: luz natural suave, fondo neutro, varios ángulos, una foto de escala/uso y no editar de forma engañosa.', [])],
+    lineas=[
+        H('Claude, mi producto se ve\nhorrible en las fotos.', 'humano', 'preocupado', scr=S('catalogo', sync=('fin', 8, 0.9, 0.0))),
+        C('¿Cómo las haces?', 'monitor', 'mira_izq'),
+        H('Con el flash. En la cocina.', 'dos', 'bobo'),
+        C('Ahí está el problema:\nflash y cocina.', 'claude_ojos', 'feliz'),
+        H('¿Qué cambio?', 'humano', 'confundido'),
+        C('Luz natural, junto a una ventana.\nSin flash. Fondo liso.', 'cenital', 'mira_der'),
+        H('¿Cuántas fotos?', 'dos', 'bobo'),
+        C('Varias: de frente, de lado,\ndetalle y una de uso.', 'pantalla_completa'),
+        H('¿Y si le añado filtros?', 'humano', 'ilusionado'),
+        C('No. Que el cliente reciba\nlo que ve. O vuelve.', 'monitor', 'feliz'),
+        H('Entendido.', 'dos', 'feliz'),
+        C('Y limpia el producto.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_08_actualizaciones', titulo='Claude, el móvil lleva 40 días pidiéndome actualizar', ambiente='noche_casa', total=36,
+    resumen='La actualización pospuesta durante semanas. Claude explica por qué conviene instalarla y el truco de hacerlo por la noche enchufado.',
+    datos=[('Consejo general de seguridad: las actualizaciones suelen corregir vulnerabilidades; instálalas desde los canales oficiales del fabricante.', [])],
+    lineas=[
+        H('Claude, el móvil lleva 40 días\npidiéndome actualizar.', 'humano', 'bobo', scr=S('recordatorios', {'items': [['Actualizar el móvil', 40], ['Actualizar el portátil', 22], ['Cambiar la contraseña', 31]]}, sync=('fin', 8, 0.95, 0.0))),
+        C('¿Y por qué no lo haces?', 'monitor', 'mira_izq'),
+        H('Tarda mucho.', 'dos', 'bobo'),
+        C('Veinte minutos. Llevas\n40 días.', 'claude_ojos', 'feliz'),
+        H('Es que luego va peor.', 'humano', 'preocupado'),
+        C('Las actualizaciones corrigen\nfallos de seguridad. Importa.', 'cenital', 'mira_der'),
+        H('¿Y si pierdo mis fotos?', 'dos', 'preocupado'),
+        C('Haz una copia antes.\nY actualiza por la noche, enchufado.', 'pantalla_completa'),
+        H('Vale. Esta noche.', 'humano', 'ilusionado'),
+        C('«Esta noche». Lo apunto\nel día 41. En fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='util_09_copia_de_seguridad', titulo='Claude, ¿hago copia de seguridad de mis fotos?', ambiente='dia_casa', total=38,
+    resumen='La regla 3-2-1 explicada con humor: tres copias, en dos soportes distintos y una fuera de casa. Aviso: el disco duro se rompe justo el día que no hay copia.',
+    datos=[('Pauta conocida de copias de seguridad «3-2-1»: tres copias de tus datos, en dos tipos de soporte distintos, con una copia fuera de casa. Pauta orientativa.', [])],
+    lineas=[
+        H('Claude, ¿hago copia de seguridad\nde mis fotos?', 'humano', 'confundido', scr=S('tareas', {'titulo': 'Copias de seguridad', 'tareas': ['Copia 1: el móvil', 'Copia 2: un disco externo', 'Copia 3: la nube (fuera de casa)', 'Probar que se pueden recuperar', 'No decir «ya lo haré»', 'Dormir tranquilo']}, sync=('fin', 10, 0.95, 0.0))),
+        C('Sí. Ya.', 'monitor', 'mira_izq'),
+        H('¿Dónde están ahora\nmis fotos?', 'dos', 'bobo'),
+        C('Dímelo tú.', 'claude_ojos'),
+        H('En el móvil. Solo ahí.', 'humano', 'preocupado'),
+        C('Una copia. Si se cae al\nwater, adiós a 10 años.', 'cenital', 'mira_der'),
+        H('¿Qué hago?', 'dos', 'preocupado'),
+        C('Regla 3-2-1: tres copias, dos\nsoportes, una fuera de casa.', 'pantalla_completa'),
+        H('¿Y comprobar que funcionan?', 'humano', 'confundido'),
+        C('Sobre todo. Una copia que\nnunca probaste es una ilusión.', 'monitor', 'feliz'),
+        H('Esta tarde lo hago.', 'dos', 'feliz'),
+        C('«Esta tarde». Ya conozco\nel final. En fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+casual('casual_44_cocinar_para_la_cita', 'Claude, voy a cocinar para mi cita', 'noche_casa', 38, 'Cocinar para impresionar sin saber cocinar: Claude propone un plan realista (y pide pizza de reserva).', [
+    H('Claude, voy a cocinar para mi cita.', 'humano', 'ilusionado', scr=CHAT(12)),
+    C('¿Y sabes cocinar?', 'monitor', 'mira_izq'),
+    H('Sé hacer huevos. A veces.', 'dos', 'bobo'),
+    C('«A veces» es un riesgo\nde primera cita.', 'claude_ojos', 'feliz'),
+    H('¿Qué hago entonces?', 'humano', 'confundido'),
+    C('Algo sencillo que ya hayas\nhecho tres veces y salió bien.', 'cenital', 'mira_der'),
+    H('Solo he hecho huevos.', 'dos', 'preocupado'),
+    C('Pasta con una salsa buena.\nY una vela. Con vela cuela.', 'monitor', 'feliz'),
+    H('¿Y si se me quema?', 'humano', 'preocupado'),
+    C('Tienes el número de la\npizzería. Siempre.', 'claude_ojos', emp=True),
+    H('Qué listo eres.', 'dos', 'ilusionado'),
+    C('Es experiencia contigo.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_45_domingo_de_limpieza', 'Claude, hoy toca limpiar la casa', 'dia_casa', 34, 'El domingo de limpieza: empezar por un rincón y acabar organizando los cajones.', [
+    H('Claude, hoy toca limpiar\nla casa.', 'humano', 'preocupado', scr=S('tareas', {'titulo': 'Limpieza del domingo', 'tareas': ['Quitar el polvo', 'Barrer', 'Fregar el suelo', 'Ordenar un cajón (y perderme)', 'Reorganizar los cables', 'Sentarme a descansar']}, sync=('fin', 10, 0.95, 0.0))),
+    C('Empieza por un rincón.', 'monitor', 'mira_izq'),
+    H('He empezado por\nordenar un cajón.', 'dos', 'bobo'),
+    C('Eso no es un rincón.\nEs una excusa.', 'claude_ojos', 'feliz'),
+    H('Es que había cables.', 'humano', 'confundido'),
+    C('Hay cables en cada casa.\nNo los resuelvas todos hoy.', 'cenital', 'mira_der'),
+    H('¿Y por dónde sigo?', 'dos', 'confundido'),
+    C('Polvo, suelo, y luego\nel premio: un café.', 'monitor', 'feliz'),
+    H('¡Me gusta el plan!', 'humano', 'ilusionado'),
+    C('Y menos cajones.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

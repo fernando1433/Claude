@@ -1,0 +1,118 @@
+{
+ "titulo": "Claude, ¿hago copia de seguridad de mis fotos?",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 38,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 4.05,
+   "quien": "humano",
+   "texto": "Claude, ¿hago copia de seguridad\nde mis fotos?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "tareas",
+    "duracion": 32.73,
+    "datos": {
+     "titulo": "Copias de seguridad",
+     "tareas": [
+      "Copia 1: el móvil",
+      "Copia 2: un disco externo",
+      "Copia 3: la nube (fuera de casa)",
+      "Probar que se pueden recuperar",
+      "No decir «ya lo haré»",
+      "Dormir tranquilo"
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 4.05,
+   "fin": 5.89,
+   "quien": "claude",
+   "texto": "Sí. Ya.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.89,
+   "fin": 8.59,
+   "quien": "humano",
+   "texto": "¿Dónde están ahora\nmis fotos?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.59,
+   "fin": 10.43,
+   "quien": "claude",
+   "texto": "Dímelo tú.",
+   "plano": "claude_ojos"
+  },
+  {
+   "inicio": 10.43,
+   "fin": 12.66,
+   "quien": "humano",
+   "texto": "En el móvil. Solo ahí.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 12.66,
+   "fin": 16.79,
+   "quien": "claude",
+   "texto": "Una copia. Si se cae al\nwater, adiós a 10 años.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.79,
+   "fin": 18.63,
+   "quien": "humano",
+   "texto": "¿Qué hago?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 18.63,
+   "fin": 23.62,
+   "quien": "claude",
+   "texto": "Regla 3-2-1: tres copias, dos\nsoportes, una fuera de casa.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 23.62,
+   "fin": 26.25,
+   "quien": "humano",
+   "texto": "¿Y comprobar que funcionan?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 26.25,
+   "fin": 31.09,
+   "quien": "claude",
+   "texto": "Sobre todo. Una copia que\nnunca probaste es una ilusión.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 31.09,
+   "fin": 33.08,
+   "quien": "humano",
+   "texto": "Esta tarde lo hago.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 33.08,
+   "fin": 38,
+   "quien": "claude",
+   "texto": "«Esta tarde». Ya conozco\nel final. En fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

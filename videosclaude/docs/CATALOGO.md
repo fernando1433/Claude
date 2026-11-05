@@ -1,8 +1,8 @@
 # Catálogo de vídeos
 
-91 vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.
+98 vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.
 
-## Trading (Claude salva al trader) (11)
+## Trading (Claude salva al trader) (13)
 
 | Portada | Vídeo | Duración | Sala |
 |---|---|---|---|
@@ -17,6 +17,8 @@
 | <img src="../salidas/portadas/trading_09_hacerse_rico_rapido.jpg" width="90"> | **Claude, ¿cuál es la forma más rápida de hacerse rico?**<br>[`trading_09_hacerse_rico_rapido`](videos/trading_09_hacerse_rico_rapido.md) | 40 s | `noche_trading` |
 | <img src="../salidas/portadas/trading_10_que_es_un_stop_loss.jpg" width="90"> | **Claude, ¿qué es un stop loss?**<br>[`trading_10_que_es_un_stop_loss`](videos/trading_10_que_es_un_stop_loss.md) | 40 s | `dia_trading` |
 | <img src="../salidas/portadas/trading_11_cuenta_demo.jpg" width="90"> | **Claude, ¿puedo probar sin dinero real?**<br>[`trading_11_cuenta_demo`](videos/trading_11_cuenta_demo.md) | 40 s | `noche_trading` |
+| <img src="../salidas/portadas/trading_13_doblar_para_recuperar.jpg" width="90"> | **Claude, si pierdo, ¿lo recupero doblando la apuesta?**<br>[`trading_13_doblar_para_recuperar`](videos/trading_13_doblar_para_recuperar.md) | 42 s | `noche_trading` |
+| <img src="../salidas/portadas/trading_12_noticia_falsa.jpg" width="90"> | **Claude, he leído que mañana sube todo**<br>[`trading_12_noticia_falsa`](videos/trading_12_noticia_falsa.md) | 40 s | `dia_trading` |
 
 ## Finanzas básicas (con fuentes oficiales) (5)
 
@@ -28,7 +30,7 @@
 | <img src="../salidas/portadas/fin_04_no_todos_los_huevos.jpg" width="90"> | **Claude, ¿pongo todos los huevos en la misma cesta?**<br>[`fin_04_no_todos_los_huevos`](videos/fin_04_no_todos_los_huevos.md) | 40 s | `noche_trading` |
 | <img src="../salidas/portadas/fin_05_fondo_de_emergencia.jpg" width="90"> | **Claude, ¿cuánto debo tener ahorrado por si acaso?**<br>[`fin_05_fondo_de_emergencia`](videos/fin_05_fondo_de_emergencia.md) | 38 s | `dia_trading` |
 
-## Útiles: estafas y seguridad (con fuentes) (7)
+## Útiles: estafas y seguridad (con fuentes) (9)
 
 | Portada | Vídeo | Duración | Sala |
 |---|---|---|---|
@@ -39,8 +41,10 @@
 | <img src="../salidas/portadas/util_05_chollo_falso.jpg" width="90"> | **Claude, he visto un móvil a 90 € en una web que no conozco**<br>[`util_05_chollo_falso`](videos/util_05_chollo_falso.md) | 42 s | `dia_casa` |
 | <img src="../salidas/portadas/util_06_falso_tecnico.jpg" width="90"> | **Claude, me ha llamado Microsoft: dice que mi PC tiene un virus**<br>[`util_06_falso_tecnico`](videos/util_06_falso_tecnico.md) | 42 s | `noche_casa` |
 | <img src="../salidas/portadas/util_07_codigo_whatsapp.jpg" width="90"> | **Claude, mi amigo me pide un código por WhatsApp**<br>[`util_07_codigo_whatsapp`](videos/util_07_codigo_whatsapp.md) | 40 s | `dia_casa` |
+| <img src="../salidas/portadas/util_08_actualizaciones.jpg" width="90"> | **Claude, el móvil lleva 40 días pidiéndome actualizar**<br>[`util_08_actualizaciones`](videos/util_08_actualizaciones.md) | 36 s | `noche_casa` |
+| <img src="../salidas/portadas/util_09_copia_de_seguridad.jpg" width="90"> | **Claude, ¿hago copia de seguridad de mis fotos?**<br>[`util_09_copia_de_seguridad`](videos/util_09_copia_de_seguridad.md) | 38 s | `dia_casa` |
 
-## Dropshipping (9)
+## Dropshipping (10)
 
 | Portada | Vídeo | Duración | Sala |
 |---|---|---|---|
@@ -53,6 +57,7 @@
 | <img src="../salidas/portadas/drop_07_venta_a_las_3.jpg" width="90"> | **Claude, ¡tengo una venta a las 3 de la mañana!**<br>[`drop_07_venta_a_las_3`](videos/drop_07_venta_a_las_3.md) | 40 s | `noche_tienda` |
 | <img src="../salidas/portadas/drop_08_beneficio_negativo.jpg" width="90"> | **Claude, vendí 10 y mi beneficio es negativo**<br>[`drop_08_beneficio_negativo`](videos/drop_08_beneficio_negativo.md) | 44 s | `dia_tienda` |
 | <img src="../salidas/portadas/drop_09_cliente_14_mensajes.jpg" width="90"> | **Claude, un cliente me ha escrito 14 mensajes**<br>[`drop_09_cliente_14_mensajes`](videos/drop_09_cliente_14_mensajes.md) | 40 s | `atardecer_tienda` |
+| <img src="../salidas/portadas/drop_10_fotos_del_producto.jpg" width="90"> | **Claude, mi producto se ve horrible en las fotos**<br>[`drop_10_fotos_del_producto`](videos/drop_10_fotos_del_producto.md) | 38 s | `dia_tienda` |
 
 ## Extras: negocio y vida (8)
 
@@ -67,7 +72,7 @@
 | <img src="../salidas/portadas/extra_07_idea_millonaria.jpg" width="90"> | **Claude, tengo una idea millonaria**<br>[`extra_07_idea_millonaria`](videos/extra_07_idea_millonaria.md) | 38 s | `noche_tienda` |
 | <img src="../salidas/portadas/extra_08_trabajar_desde_casa.jpg" width="90"> | **Claude, trabajo desde casa y no hago nada**<br>[`extra_08_trabajar_desde_casa`](videos/extra_08_trabajar_desde_casa.md) | 38 s | `noche_tienda` |
 
-## Día a día (conversaciones con gancho) (41)
+## Día a día (conversaciones con gancho) (43)
 
 | Portada | Vídeo | Duración | Sala |
 |---|---|---|---|
@@ -112,6 +117,8 @@
 | <img src="../salidas/portadas/casual_40_un_capitulo_mas.jpg" width="90"> | **Claude, solo un capítulo más**<br>[`casual_40_un_capitulo_mas`](videos/casual_40_un_capitulo_mas.md) | 34 s | `noche_casa` |
 | <img src="../salidas/portadas/casual_42_el_dentista.jpg" width="90"> | **Claude, mañana voy al dentista y tengo miedo**<br>[`casual_42_el_dentista`](videos/casual_42_el_dentista.md) | 36 s | `dia_casa` |
 | <img src="../salidas/portadas/casual_43_fiesta_sorpresa.jpg" width="90"> | **Claude, organizo una fiesta sorpresa y no sé guardar secretos**<br>[`casual_43_fiesta_sorpresa`](videos/casual_43_fiesta_sorpresa.md) | 38 s | `atardecer_casa` |
+| <img src="../salidas/portadas/casual_44_cocinar_para_la_cita.jpg" width="90"> | **Claude, voy a cocinar para mi cita**<br>[`casual_44_cocinar_para_la_cita`](videos/casual_44_cocinar_para_la_cita.md) | 38 s | `noche_casa` |
+| <img src="../salidas/portadas/casual_45_domingo_de_limpieza.jpg" width="90"> | **Claude, hoy toca limpiar la casa**<br>[`casual_45_domingo_de_limpieza`](videos/casual_45_domingo_de_limpieza.md) | 34 s | `dia_casa` |
 
 ## Micro-vídeos de ~20 s (10)
 

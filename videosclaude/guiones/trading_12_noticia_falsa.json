@@ -1,0 +1,134 @@
+{
+ "titulo": "Claude, he leído que mañana sube todo",
+ "ambiente": "dia_trading",
+ "fps_animacion": 6,
+ "duracion": 40,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.24,
+   "quien": "humano",
+   "texto": "Claude, he leído que\nmañana sube todo.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "telegram",
+    "duracion": 10.57,
+    "datos": {
+     "modo": "chat"
+    }
+   }
+  },
+  {
+   "inicio": 3.24,
+   "fin": 5.21,
+   "quien": "claude",
+   "texto": "¿Dónde lo has leído?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.21,
+   "fin": 8.83,
+   "quien": "humano",
+   "texto": "En un grupo. Lo dijo uno\nque parecía listo.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 8.83,
+   "fin": 10.57,
+   "quien": "claude",
+   "texto": "Parecía.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 10.57,
+   "fin": 13.06,
+   "quien": "humano",
+   "texto": "Tiene una foto con corbata.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 13.06,
+   "fin": 16.01,
+   "quien": "claude",
+   "texto": "La corbata no predice el mercado.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.01,
+   "fin": 17.82,
+   "quien": "humano",
+   "texto": "¿Y si tiene razón?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 17.82,
+   "fin": 21.89,
+   "quien": "claude",
+   "texto": "Si tuviera razón, no lo\ndiría en un grupo gratis.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 21.89,
+   "fin": 24.68,
+   "quien": "humano",
+   "texto": "¿Y cómo compruebo si es verdad?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 24.68,
+   "fin": 28.83,
+   "quien": "claude",
+   "texto": "Fuente, fecha y quién gana\ncon que tú te lo creas.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 28.83,
+   "fin": 30.57,
+   "quien": "humano",
+   "texto": "¿Quién gana?",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 30.57,
+   "fin": 34.04,
+   "quien": "claude",
+   "texto": "El que ya compró.\nY necesita compradores.",
+   "plano": "pantalla_completa",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 3.47,
+    "datos": {
+     "tipo": "esma"
+    }
+   }
+  },
+  {
+   "inicio": 34.04,
+   "fin": 36.08,
+   "quien": "humano",
+   "texto": "Qué mal pensado eres.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 36.08,
+   "fin": 40,
+   "quien": "claude",
+   "texto": "Bien pensado. Con datos.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

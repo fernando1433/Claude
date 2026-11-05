@@ -1,0 +1,104 @@
+{
+ "titulo": "Claude, hoy toca limpiar la casa",
+ "ambiente": "dia_casa",
+ "fps_animacion": 6,
+ "duracion": 34,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.54,
+   "quien": "humano",
+   "texto": "Claude, hoy toca limpiar\nla casa.",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "tareas",
+    "duracion": 35.79,
+    "datos": {
+     "titulo": "Limpieza del domingo",
+     "tareas": [
+      "Quitar el polvo",
+      "Barrer",
+      "Fregar el suelo",
+      "Ordenar un cajón (y perderme)",
+      "Reorganizar los cables",
+      "Sentarme a descansar"
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.54,
+   "fin": 6.15,
+   "quien": "claude",
+   "texto": "Empieza por un rincón.",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.15,
+   "fin": 9.69,
+   "quien": "humano",
+   "texto": "He empezado por\nordenar un cajón.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 9.69,
+   "fin": 13.41,
+   "quien": "claude",
+   "texto": "Eso no es un rincón.\nEs una excusa.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 13.41,
+   "fin": 15.84,
+   "quien": "humano",
+   "texto": "Es que había cables.",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 15.84,
+   "fin": 21.14,
+   "quien": "claude",
+   "texto": "Hay cables en cada casa.\nNo los resuelvas todos hoy.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 21.14,
+   "fin": 23.38,
+   "quien": "humano",
+   "texto": "¿Y por dónde sigo?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 23.38,
+   "fin": 27.66,
+   "quien": "claude",
+   "texto": "Polvo, suelo, y luego\nel premio: un café.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 27.66,
+   "fin": 29.91,
+   "quien": "humano",
+   "texto": "¡Me gusta el plan!",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 29.91,
+   "fin": 34,
+   "quien": "claude",
+   "texto": "Y menos cajones.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

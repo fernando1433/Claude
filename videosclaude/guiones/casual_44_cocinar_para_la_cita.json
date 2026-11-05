@@ -1,0 +1,161 @@
+{
+ "titulo": "Claude, voy a cocinar para mi cita",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 38,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.41,
+   "quien": "humano",
+   "texto": "Claude, voy a cocinar para mi cita.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 38.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, voy a cocinar para mi cita."
+      ],
+      [
+       "otro",
+       "¿Y sabes cocinar?"
+      ],
+      [
+       "yo",
+       "Sé hacer huevos. A veces."
+      ],
+      [
+       "otro",
+       "«A veces» es un riesgo de primera cita."
+      ],
+      [
+       "yo",
+       "¿Qué hago entonces?"
+      ],
+      [
+       "otro",
+       "Algo sencillo que ya hayas hecho tres veces y salió bien."
+      ],
+      [
+       "yo",
+       "Solo he hecho huevos."
+      ],
+      [
+       "otro",
+       "Pasta con una salsa buena. Y una vela. Con vela cuela."
+      ],
+      [
+       "yo",
+       "¿Y si se me quema?"
+      ],
+      [
+       "otro",
+       "Tienes el número de la pizzería. Siempre."
+      ],
+      [
+       "yo",
+       "Qué listo eres."
+      ],
+      [
+       "otro",
+       "Es experiencia contigo. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.41,
+   "fin": 5.34,
+   "quien": "claude",
+   "texto": "¿Y sabes cocinar?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 5.34,
+   "fin": 7.93,
+   "quien": "humano",
+   "texto": "Sé hacer huevos. A veces.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.93,
+   "fin": 11.59,
+   "quien": "claude",
+   "texto": "«A veces» es un riesgo\nde primera cita.",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 11.59,
+   "fin": 13.68,
+   "quien": "humano",
+   "texto": "¿Qué hago entonces?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 13.68,
+   "fin": 18.83,
+   "quien": "claude",
+   "texto": "Algo sencillo que ya hayas\nhecho tres veces y salió bien.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 18.83,
+   "fin": 21.09,
+   "quien": "humano",
+   "texto": "Solo he hecho huevos.",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 21.09,
+   "fin": 25.99,
+   "quien": "claude",
+   "texto": "Pasta con una salsa buena.\nY una vela. Con vela cuela.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 25.99,
+   "fin": 28.0,
+   "quien": "humano",
+   "texto": "¿Y si se me quema?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 28.0,
+   "fin": 31.83,
+   "quien": "claude",
+   "texto": "Tienes el número de la\npizzería. Siempre.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 31.83,
+   "fin": 33.76,
+   "quien": "humano",
+   "texto": "Qué listo eres.",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 33.76,
+   "fin": 38,
+   "quien": "claude",
+   "texto": "Es experiencia contigo.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

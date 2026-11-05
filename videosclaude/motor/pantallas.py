@@ -832,10 +832,29 @@ def p_comisiones(p, datos):
     if p > 0.9: rr(d, (400, 560, 880, 626), (50, 38, 36), 12, OR, 2); d.text((640, 593), f'Diferencia: {fmt(va - vb, 0, "", " €")}', font=F(30, True), fill=OR, anchor='mm')
     return im
 
+
+def p_martingala(p, datos):
+    base_ = datos.get('apuesta', 10); n = datos.get('rondas', 7); im, d = base(datos.get('titulo', 'Doblar para recuperar — la cuenta')); tarjeta(d, (40, 60, 820, 650))
+    d.text((70, 84), f'Apuesta inicial: {base_} €. Si pierdes, doblas.', font=F(22, True), fill=DIM)
+    cab = ['Ronda', 'Apuestas', 'Perdido en total']; xs = [90, 260, 560]
+    for x, c in zip(xs, cab): d.text((x, 130), c, font=F(18, True), fill=OR)
+    for i in range(n):
+        a = tramo(p, i * 0.1, i * 0.1 + 0.12)
+        if a <= 0: continue
+        ap = base_ * 2 ** i; tot = base_ * (2 ** (i + 1) - 1); y = 164 + i * 62
+        rr(d, (66, y, 794, y + 52), (28, 32, 58) if i < n - 1 else (70, 25, 35), 10, LINE if i < n - 1 else RD)
+        d.text((100, y + 12), str(i + 1), font=F(26, True), fill=TXT); d.text((260, y + 12), fmt(ap * a, 0, '', ' €'), font=F(26, True, True), fill=CY); d.text((560, y + 12), fmt(tot * a, 0, '', ' €'), font=F(26, True, True), fill=RD)
+    tarjeta(d, (850, 60, W - 40, 650), 'LA TRAMPA')
+    tot = base_ * (2 ** n - 1); ap = base_ * 2 ** (n - 1)
+    d.text((880, 120), f'{n} pérdidas seguidas', font=F(22, True), fill=TXT); d.text((880, 170), fmt(tot * ease(p / 0.8), 0, '', ' €'), font=F(58, True), fill=RD); d.text((880, 242), 'perdidos', font=F(18), fill=DIM)
+    if p > 0.5: d.text((880, 310), f'Para ganar {base_} €', font=F(24, True), fill=GR); d.text((880, 350), f'la siguiente: {fmt(ap * 2, 0, "", " €")}', font=F(24, True), fill=TXT)
+    if p > 0.75: d.text((880, 450), 'Y necesitas ese dinero.', font=F(20, True), fill=YE); d.text((880, 490), 'Y que el broker te deje.', font=F(20, True), fill=YE); rr(d, (880, 560, W - 64, 626), (70, 25, 35), 12, RD); d.text((1060, 593), 'Así se arruina la gente', font=F(18, True), fill=(255, 220, 220), anchor='mm')
+    return im
+
 # recorte automatico (zona 1280x720) para el plano `pantalla_completa` en video VERTICAL: ampliar lo importante
 ZOOM_AUTO = {'mensajes': (300, 54, 980, 652), 'phishing': (60, 60, 1240, 650), 'checkout': (330, 60, 950, 650), 'apalanc': (40, 60, 1240, 650), 'verdad': (100, 70, 1180, 640), 'cliente': (40, 60, 1240, 650), 'ley': (40, 60, 1240, 650), 'cartera': (40, 64, W - 40, 650), 'orden': (300, 64, 980, 650), 'chat': (40, 60, 900, 650), 'dashboard': (40, 64, 830, 650), 'tienda': (40, 64, 830, 650), 'tareas': (40, 64, 830, 650), 'email': (490, 64, 1240, 650)}
 
-PANTALLAS = {'inflacion': p_inflacion, 'etf': p_etf, 'comisiones': p_comisiones, 'tienda_falsa': p_tienda_falsa, 'llamada': p_llamada, 'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
+PANTALLAS = {'martingala': p_martingala, 'inflacion': p_inflacion, 'etf': p_etf, 'comisiones': p_comisiones, 'tienda_falsa': p_tienda_falsa, 'llamada': p_llamada, 'wifi': p_wifi, 'bizum': p_bizum, 'mensajes': p_mensajes, 'menu': p_menu, 'recordatorios': p_recordatorios, 'contrasenas': p_contrasenas, 'phishing': p_phishing, 'presupuesto': p_presupuesto, 'interes': p_interes, 'anuncios': p_anuncios, 'curso': p_curso, 'checkout': p_checkout, 'telegram': p_telegram, 'apalanc': p_apalanc, 'verdad': p_verdad,
              'catalogo': p_catalogo, 'proveedor': p_proveedor, 'margen': p_margen, 'producto': p_producto, 'pedido': p_pedido, 'tracking': p_tracking, 'cliente': p_cliente, 'ley': p_ley,
              'chat': p_chat, 'dashboard': p_dashboard, 'tienda': p_tienda, 'calendario': p_calendario, 'email': p_email,
              'analitica': p_analitica, 'trading': p_trading, 'cartera': p_cartera, 'orden': p_orden, 'resultado': p_resultado, 'tareas': p_tareas, 'hoja': p_hoja}

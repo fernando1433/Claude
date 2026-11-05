@@ -1,0 +1,140 @@
+{
+ "titulo": "Claude, si pierdo, ¿lo recupero doblando la apuesta?",
+ "ambiente": "noche_trading",
+ "fps_animacion": 6,
+ "duracion": 42,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.81,
+   "quien": "humano",
+   "texto": "Claude, si pierdo, ¿lo recupero\ndoblando la apuesta?",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "martingala",
+    "duracion": 22.38
+   }
+  },
+  {
+   "inicio": 3.81,
+   "fin": 6.08,
+   "quien": "claude",
+   "texto": "Hmm. ¿Y si pierdes otra vez?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.08,
+   "fin": 7.69,
+   "quien": "humano",
+   "texto": "La doblo otra vez.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.69,
+   "fin": 9.24,
+   "quien": "claude",
+   "texto": "¿Y otra?",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 9.24,
+   "fin": 11.31,
+   "quien": "humano",
+   "texto": "Otra vez. Hasta que gane.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 11.31,
+   "fin": 14.32,
+   "quien": "claude",
+   "texto": "Haz la cuenta conmigo.\n10, 20, 40, 80...",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 14.32,
+   "fin": 15.87,
+   "quien": "humano",
+   "texto": "...160, 320, 640.",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 15.87,
+   "fin": 20.14,
+   "quien": "claude",
+   "texto": "Siete pérdidas: has perdido 1.270 €\npara intentar ganar 10.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 20.14,
+   "fin": 22.21,
+   "quien": "humano",
+   "texto": "¿¡1.270 € para ganar 10!?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 22.21,
+   "fin": 25.95,
+   "quien": "claude",
+   "texto": "Y la siguiente apuesta sería\nde 1.280 €. Si tienes.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 25.95,
+   "fin": 28.23,
+   "quien": "humano",
+   "texto": "Pero siete seguidas es raro.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 28.23,
+   "fin": 31.77,
+   "quien": "claude",
+   "texto": "Raro no es imposible.\nY solo hace falta una vez.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 31.77,
+   "fin": 33.78,
+   "quien": "humano",
+   "texto": "¿Entonces cómo recupero?",
+   "plano": "humano",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 33.78,
+   "fin": 37.12,
+   "quien": "claude",
+   "texto": "Pierdes poco, con stop,\ny aceptas la pérdida.",
+   "plano": "monitor",
+   "claude_estado": "mira_arriba"
+  },
+  {
+   "inicio": 37.12,
+   "fin": 39.19,
+   "quien": "humano",
+   "texto": "Eso es perder con estilo.",
+   "plano": "dos",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 39.19,
+   "fin": 42,
+   "quien": "claude",
+   "texto": "Es sobrevivir.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}
