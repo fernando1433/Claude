@@ -81,6 +81,139 @@
     "mira:neutral_abierta": "humano_mira_neutral_abierta.png"
    },
    "claude": {}
+  },
+  "dos": {
+   "camara": [
+    [
+     -0.4,
+     -2.6,
+     0.9
+    ],
+    [
+     -0.7,
+     0.6,
+     0.7
+    ],
+    40
+   ],
+   "descripcion": "Plano de los dos: humano y Clawd en el escritorio",
+   "pantalla_quad": [
+    [
+     662.8,
+     302.3
+    ],
+    [
+     1777.1,
+     116.6
+    ],
+    [
+     1714.6,
+     706.3
+    ],
+    [
+     654.6,
+     662.1
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "humano": "sombra_humano.png",
+    "claude": "sombra_claude.png"
+   },
+   "humano": {
+    "neutral_cerrada": "humano_neutral_cerrada.png",
+    "neutral_media": "humano_neutral_media.png",
+    "neutral_abierta": "humano_neutral_abierta.png",
+    "feliz_cerrada": "humano_feliz_cerrada.png",
+    "feliz_media": "humano_feliz_media.png",
+    "feliz_abierta": "humano_feliz_abierta.png",
+    "preocupado_cerrada": "humano_preocupado_cerrada.png",
+    "preocupado_media": "humano_preocupado_media.png",
+    "preocupado_abierta": "humano_preocupado_abierta.png",
+    "burlon_cerrada": "humano_burlon_cerrada.png",
+    "burlon_media": "humano_burlon_media.png",
+    "burlon_abierta": "humano_burlon_abierta.png",
+    "bobo_cerrada": "humano_bobo_cerrada.png",
+    "bobo_media": "humano_bobo_media.png",
+    "bobo_abierta": "humano_bobo_abierta.png",
+    "ilusionado_cerrada": "humano_ilusionado_cerrada.png",
+    "ilusionado_media": "humano_ilusionado_media.png",
+    "ilusionado_abierta": "humano_ilusionado_abierta.png",
+    "confundido_cerrada": "humano_confundido_cerrada.png",
+    "confundido_media": "humano_confundido_media.png",
+    "confundido_abierta": "humano_confundido_abierta.png",
+    "neutral_parpadeo": "humano_neutral_parpadeo.png",
+    "pensar:neutral_cerrada": "humano_pensar_neutral_cerrada.png",
+    "pensar:neutral_media": "humano_pensar_neutral_media.png",
+    "pensar:neutral_abierta": "humano_pensar_neutral_abierta.png",
+    "senalar:neutral_cerrada": "humano_senalar_neutral_cerrada.png",
+    "senalar:neutral_media": "humano_senalar_neutral_media.png",
+    "senalar:neutral_abierta": "humano_senalar_neutral_abierta.png",
+    "senalar:feliz_cerrada": "humano_senalar_feliz_cerrada.png",
+    "senalar:feliz_media": "humano_senalar_feliz_media.png",
+    "senalar:feliz_abierta": "humano_senalar_feliz_abierta.png",
+    "hombros:neutral_cerrada": "humano_hombros_neutral_cerrada.png",
+    "hombros:neutral_media": "humano_hombros_neutral_media.png",
+    "hombros:neutral_abierta": "humano_hombros_neutral_abierta.png",
+    "mira:neutral_cerrada": "humano_mira_neutral_cerrada.png",
+    "mira:neutral_media": "humano_mira_neutral_media.png",
+    "mira:neutral_abierta": "humano_mira_neutral_abierta.png"
+   },
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
+   }
+  },
+  "monitor": {
+   "camara": [
+    [
+     -0.01,
+     -3.83,
+     1.1
+    ],
+    [
+     2.02,
+     0.74,
+     1.1
+    ],
+    55
+   ],
+   "descripcion": "Monitor centrado y de frente; Clawd pequeno al pie mirando a camara",
+   "pantalla_quad": [
+    [
+     30.9,
+     388.3
+    ],
+    [
+     690.6,
+     388.2
+    ],
+    [
+     690.6,
+     759.9
+    ],
+    [
+     30.9,
+     759.8
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png",
+    "mira_izq": "claude_mira_izq.png",
+    "mira_der": "claude_mira_der.png",
+    "mira_arriba": "claude_mira_arriba.png"
+   }
   }
  }
 }
