@@ -1,0 +1,59 @@
+# Control de calidad de los vídeos
+
+53 vídeos revisados · 0 con problemas.
+
+| Vídeo | Guion (s) | Real (s) | Estado |
+|---|---|---|---|
+| `casual_01_me_quieres` | 40 | 40.0 | OK |
+| `casual_02_que_cenamos` | 38 | 38.0 | OK |
+| `casual_03_grupo_equivocado` | 40 | 40.0 | OK |
+| `casual_04_visto` | 38 | 38.0 | OK |
+| `casual_05_dieta_lunes` | 36 | 36.0 | OK |
+| `casual_06_vecino` | 38 | 38.0 | OK |
+| `casual_07_cansado_o_vago` | 36 | 36.0 | OK |
+| `casual_08_cinco_minutos` | 36 | 36.0 | OK |
+| `casual_09_los_lunes` | 36 | 36.0 | OK |
+| `casual_10_la_cita` | 40 | 40.0 | OK |
+| `casual_11_cumple_mama` | 38 | 38.0 | OK |
+| `casual_12_sin_internet` | 36 | 36.0 | OK |
+| `casual_13_gimnasio` | 38 | 38.0 | OK |
+| `casual_14_quien_friega` | 36 | 36.0 | OK |
+| `casual_15_escribir_al_ex` | 40 | 40.0 | OK |
+| `casual_16_no_puedo_dormir` | 38 | 38.0 | OK |
+| `casual_17_arroz_quemado` | 36 | 36.0 | OK |
+| `casual_18_mi_perro` | 36 | 36.0 | OK |
+| `casual_20_lista_compra` | 38 | 38.0 | OK |
+| `casual_21_va_a_llover` | 28 | 28.0 | OK |
+| `casual_22_las_llaves` | 28 | 28.0 | OK |
+| `casual_23_demasiado_cafe` | 36 | 36.0 | OK |
+| `casual_24_nada_que_ponerme` | 36 | 36.0 | OK |
+| `casual_25_ascensor` | 36 | 36.0 | OK |
+| `casual_26_cola_del_super` | 36 | 36.0 | OK |
+| `casual_27_reunion_correo` | 38 | 38.0 | OK |
+| `casual_28_domingo_noche` | 36 | 36.0 | OK |
+| `casual_29_un_cumplido` | 36 | 36.0 | OK |
+| `casual_30_no_hacer_nada` | 36 | 36.0 | OK |
+| `casual_31_que_foto_subo` | 36 | 36.0 | OK |
+| `casual_32_la_mudanza` | 38 | 38.0 | OK |
+| `drop_01_que_es_dropshipping` | 45.0 | 45.0 | OK |
+| `drop_02_producto_ganador` | 45.0 | 45.0 | OK |
+| `drop_03_primer_pedido` | 45.0 | 45.0 | OK |
+| `drop_04_devoluciones` | 45 | 45.0 | OK |
+| `drop_05_proveedor_barato` | 45 | 45.0 | OK |
+| `extra_01_presupuesto` | 45.0 | 45.0 | OK |
+| `extra_02_un_dia_con_claude` | 45.0 | 45.0 | OK |
+| `extra_03_anuncios_que_no_venden` | 45.0 | 45.0 | OK |
+| `extra_04_pedir_aumento` | 40 | 40.0 | OK |
+| `extra_05_entrevista` | 38 | 38.0 | OK |
+| `trading_01_curso_milagro` | 45.0 | 45.0 | OK |
+| `trading_02_senales_vip` | 45.0 | 45.0 | OK |
+| `trading_03_apalancamiento_x100` | 45.0 | 45.0 | OK |
+| `trading_04_el_cunado` | 44 | 44.0 | OK |
+| `trading_05_el_guru_del_yate` | 44 | 44.0 | OK |
+| `trading_06_dejar_el_trabajo` | 45 | 45.0 | OK |
+| `trading_07_miedo_a_quedarse_fuera` | 44 | 44.0 | OK |
+| `trading_30s_sarcastico` | 30.0 | 30.0 | OK |
+| `util_01_contrasenas` | 42 | 42.0 | OK |
+| `util_02_estafa_banco` | 42 | 42.0 | OK |
+| `util_03_wifi_publica` | 40 | 40.0 | OK |
+| `util_04_bizum_inverso` | 40 | 40.0 | OK |
