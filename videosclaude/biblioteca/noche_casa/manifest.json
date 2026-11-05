@@ -412,6 +412,50 @@
     "mira_der": "claude_mira_der.png",
     "mira_arriba": "claude_mira_arriba.png"
    }
+  },
+  "monitor_lateral": {
+   "camara": [
+    [
+     3.4,
+     -2.2,
+     1.5
+    ],
+    [
+     1.9,
+     0.7,
+     1.2
+    ],
+    42
+   ],
+   "descripcion": "Monitor en tres cuartos desde la derecha, Clawd al pie",
+   "pantalla_quad": [
+    [
+     203.1,
+     417.6
+    ],
+    [
+     808.3,
+     248.0
+    ],
+    [
+     776.1,
+     933.5
+    ],
+    [
+     208.5,
+     740.6
+    ]
+   ],
+   "fondo": "fondo.png",
+   "sombra": {
+    "claude": "sombra_claude.png"
+   },
+   "humano": {},
+   "claude": {
+    "idle": "claude_idle.png",
+    "parpadeo": "claude_parpadeo.png",
+    "feliz": "claude_feliz.png"
+   }
   }
  }
 }
