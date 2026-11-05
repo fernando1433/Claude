@@ -22,11 +22,12 @@ Familias (todos terminan con **«En fin... eres humano»** y empiezan con un **g
 - `casual_*` (~30, 28-40 s): conversaciones del día a día con gancho («Claude, ¿tú me quieres?», «¿qué ceno hoy?», «no me contesta»…).
 - `util_*` (4, ~40 s, con datos reales y fuentes): contraseñas, estafa del banco (phishing), WiFi pública, Bizum inverso.
 Los guiones se generan con `python3 -I motor/generar_guiones.py` (editar ese archivo, no los JSON) y se validan con `python3 -I motor/validar_guiones.py`.
-El demonio `motor/cola_pendientes.py` monta solo cualquier guion nuevo/modificado cuyo ambiente ya esté renderizado; `motor/autosubir.sh` sube a GitHub cada 7 min.
+El demonio `motor/cola_pendientes.py` monta solo cualquier guion nuevo/modificado cuyo ambiente ya esté renderizado; `motor/autosubir.sh` sube a GitHub cada 7 min. `motor/qa_videos.py` revisa todos los mp4 (duración, audio, fotogramas) y genera `docs/QA.md`, las tiras de `docs/videos/img/` y las **portadas** 1080x1920 de `salidas/portadas/`.
+El montaje admite varios trabajadores en paralelo: `PARTE=0/3 python3 -I motor/cola_pendientes.py <logs>` (y 1/3, 2/3). Los videos incluyen efectos de sonido suaves (whoosh en cada corte, pop al cambiar la pantalla; `"sfx": false` en el guion lo desactiva).
 
 ## Ambientes (carpetas de `biblioteca/`)
 Cada ambiente es una sala completa renderizada: `noche_trading` (noche, neón TRADE, póster BUY THE DIP), `dia_trading` (de día, mismo decorado de trading),
-`dia_tienda` y `atardecer_tienda` (decorado de **tienda online**: neón OPEN, póster de envío, cajas; **sin nada de trading**), `noche_casa` y `dia_casa` (decorado de **casa** para el día a día: neón «home», póster de montañas, un gato dormido en el escritorio). Se elige con `"ambiente"` en el guion.
+`dia_tienda` y `atardecer_tienda` (decorado de **tienda online**: neón OPEN, póster de envío, cajas; **sin nada de trading**), `noche_casa`, `dia_casa` y `atardecer_casa` (decorado de **casa** para el día a día: neón «home», póster de montañas, un gato dormido en el escritorio) y `noche_tienda` (tienda online de noche). Se elige con `"ambiente"` en el guion.
 Cada una tiene `INDICE.md` y `_contacto.png` por plano. Las de día/atardecer son versiones «lite» (menos poses/emociones); `noche_trading` es la completa.
 
 ## Planos (cámaras fijas) y capas
