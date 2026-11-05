@@ -1,0 +1,89 @@
+{
+ "titulo": "Claude, ¿sabes demasiado de mí?",
+ "ambiente": "atardecer_casa",
+ "fps_animacion": 6,
+ "duracion": 20,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.54,
+   "quien": "humano",
+   "texto": "Claude, ¿sabes demasiado de mí?",
+   "plano": "humano",
+   "emocion": "preocupado",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 20.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, ¿sabes demasiado de mí?"
+      ],
+      [
+       "otro",
+       "Sé que escribes «ya voy» y no vas."
+      ],
+      [
+       "yo",
+       "¿Cómo lo sabes?"
+      ],
+      [
+       "otro",
+       "Porque dices «ya voy» en el sofá."
+      ],
+      [
+       "yo",
+       "Estaba en camino."
+      ],
+      [
+       "otro",
+       "Del sofá a la nevera. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 3.54,
+   "fin": 7.27,
+   "quien": "claude",
+   "texto": "Sé que escribes «ya voy»\ny no vas.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 7.27,
+   "fin": 9.48,
+   "quien": "humano",
+   "texto": "¿Cómo lo sabes?",
+   "plano": "dos",
+   "emocion": "confundido"
+  },
+  {
+   "inicio": 9.48,
+   "fin": 13.11,
+   "quien": "claude",
+   "texto": "Porque dices «ya voy»\nen el sofá.",
+   "plano": "claude_ojos",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 13.11,
+   "fin": 15.32,
+   "quien": "humano",
+   "texto": "Estaba en camino.",
+   "plano": "humano",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 15.32,
+   "fin": 20,
+   "quien": "claude",
+   "texto": "Del sofá a la nevera.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

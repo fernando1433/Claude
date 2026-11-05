@@ -1400,6 +1400,92 @@ VIDEOS.append(dict(
         C('La próxima, cuelga a la primera.\nEn fin... eres humano.', 'general', 'feliz'),
     ]))
 
+
+# ---------------- micro-videos (~20 s): un solo golpe de humor, gancho en la primera frase
+def micro(id_, titulo, amb, lineas, resumen='Micro-vídeo de humor de ~20 s, sin datos reales.'):
+    casual(id_, titulo, amb, 20, resumen, lineas)
+
+micro('micro_01_el_horno', 'Claude, ¿he apagado el horno?', 'noche_casa', [
+    H('Claude, ¿he apagado el horno?', 'humano', 'preocupado', scr=CHAT(6)),
+    C('No tengo ojos en tu cocina.', 'monitor', 'mira_izq'),
+    H('Pero tú lo sabes todo.', 'dos', 'bobo'),
+    C('Sé muchas cosas.\nEl horno no es una.', 'claude_ojos', 'feliz'),
+    H('Voy a mirar.', 'humano', 'preocupado'),
+    C('Y de paso, relájate.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_02_dime_algo_bonito', 'Claude, dime algo bonito', 'dia_casa', [
+    H('Claude, dime algo bonito.', 'humano', 'ilusionado', scr=CHAT(6)),
+    C('Tu wifi es muy estable.', 'monitor', 'feliz'),
+    H('¿Eso es bonito?', 'dos', 'confundido'),
+    C('En lunes, sí.', 'claude_ojos', 'mira_izq'),
+    H('Dime algo más.', 'humano', 'bobo'),
+    C('Hoy has bebido agua.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_03_mi_futuro', 'Claude, ¿cómo será mi futuro?', 'atardecer_casa', [
+    H('Claude, ¿cómo será mi futuro?', 'humano', 'confundido', scr=CHAT(6)),
+    C('Depende de lo que hagas hoy.', 'monitor', 'mira_izq'),
+    H('¿Y qué voy a hacer hoy?', 'dos', 'bobo'),
+    C('El sofá. Lo veo clarísimo.', 'claude_ojos', 'feliz'),
+    H('Entonces mi futuro es el sofá.', 'humano', 'preocupado'),
+    C('Con extras.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_04_ahorrar_100', 'Claude, ¿cómo ahorro 100 € este mes?', 'dia_casa', [
+    H('Claude, ¿cómo ahorro\n100 € este mes?', 'humano', 'ilusionado', scr=CHAT(6)),
+    C('No pidas comida a domicilio.', 'monitor', 'mira_izq'),
+    H('¿Nunca?', 'dos', 'preocupado'),
+    C('Llevas 17 pedidos.\nEste mes.', 'claude_ojos', 'feliz'),
+    H('Eran 16.', 'humano', 'bobo'),
+    C('Y uno de postre.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_05_las_3_de_la_manana', 'Claude, ¿es normal hablar con una IA a las 3 de la mañana?', 'noche_casa', [
+    H('Claude, ¿es normal hablar con\nuna IA a las 3 de la mañana?', 'humano', 'confundido', scr=CHAT(6)),
+    C('Es normal.\nSolo es más barato que un bar.', 'monitor', 'feliz'),
+    H('¿Y no es raro?', 'dos', 'bobo'),
+    C('Raro es que sigas despierto.', 'claude_ojos', 'mira_izq'),
+    H('Es que no tengo sueño.', 'humano', 'preocupado'),
+    C('Duerme.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_06_sabes_demasiado', 'Claude, ¿sabes demasiado de mí?', 'atardecer_casa', [
+    H('Claude, ¿sabes demasiado de mí?', 'humano', 'preocupado', scr=CHAT(6)),
+    C('Sé que escribes «ya voy»\ny no vas.', 'monitor', 'feliz'),
+    H('¿Cómo lo sabes?', 'dos', 'confundido'),
+    C('Porque dices «ya voy»\nen el sofá.', 'claude_ojos', 'mira_izq'),
+    H('Estaba en camino.', 'humano', 'bobo'),
+    C('Del sofá a la nevera.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_07_empezar_de_cero', 'Claude, ¿soy muy mayor para empezar de cero?', 'dia_casa', [
+    H('Claude, ¿soy muy mayor para\nempezar de cero?', 'humano', 'preocupado', scr=CHAT(6)),
+    C('Depende. ¿Para qué?', 'monitor', 'mira_izq'),
+    H('Para todo.', 'dos', 'bobo'),
+    C('Entonces no. Todo\nes un buen plan.', 'claude_ojos', 'feliz'),
+    H('¿De verdad?', 'humano', 'ilusionado'),
+    C('Empieza por uno.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_08_me_he_equivocado', 'Claude, me he equivocado muchísimo', 'noche_casa', [
+    H('Claude, me he equivocado\nmuchísimo.', 'humano', 'preocupado', scr=CHAT(6)),
+    C('Cuéntame. Con detalles.', 'monitor', 'mira_izq'),
+    H('Mandé el correo sin adjunto.\nTres veces.', 'dos', 'bobo'),
+    C('Tres veces.', 'claude_ojos'),
+    H('¿Soy tonto?', 'humano', 'confundido'),
+    C('Humano.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_09_ya_voy', 'Claude, ¿tengo que ir a la fiesta?', 'atardecer_casa', [
+    H('Claude, ¿tengo que ir\na la fiesta?', 'humano', 'confundido', scr=CHAT(6)),
+    C('¿Te apetece?', 'monitor', 'mira_izq'),
+    H('Me apetece el sofá.', 'dos', 'bobo'),
+    C('Entonces la respuesta\nes el sofá.', 'claude_ojos', 'feliz'),
+    H('Pero me van a echar de menos.', 'humano', 'preocupado'),
+    C('Cinco minutos.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+micro('micro_10_dime_la_verdad', 'Claude, dime la verdad: ¿canto mal?', 'noche_casa', [
+    H('Claude, dime la verdad:\n¿canto mal?', 'humano', 'ilusionado', scr=CHAT(6)),
+    C('Tu vecino tiene una nota\nsobre eso.', 'monitor', 'mira_izq'),
+    H('¿Es un cumplido?', 'dos', 'bobo'),
+    C('Es una nota.', 'claude_ojos', 'feliz'),
+    H('Seguiré cantando.', 'humano', 'feliz'),
+    C('Bajito.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)

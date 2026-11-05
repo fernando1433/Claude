@@ -72,5 +72,15 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_39_audio_de_4_minutos` | Claude, me han mandado un audio de 4 minutos | `atardecer_casa` | [docs](casual_39_audio_de_4_minutos.md) | [json](../../guiones/casual_39_audio_de_4_minutos.json) | [mp4](../../salidas/casual_39_audio_de_4_minutos.mp4) |
 | `util_05_chollo_falso` | Claude, he visto un móvil a 90 € en una web que no conozco | `dia_casa` | [docs](util_05_chollo_falso.md) | [json](../../guiones/util_05_chollo_falso.json) | [mp4](../../salidas/util_05_chollo_falso.mp4) |
 | `util_06_falso_tecnico` | Claude, me ha llamado Microsoft: dice que mi PC tiene un virus | `noche_casa` | [docs](util_06_falso_tecnico.md) | [json](../../guiones/util_06_falso_tecnico.json) | [mp4](../../salidas/util_06_falso_tecnico.mp4) |
+| `micro_01_el_horno` | Claude, ¿he apagado el horno? | `noche_casa` | [docs](micro_01_el_horno.md) | [json](../../guiones/micro_01_el_horno.json) | [mp4](../../salidas/micro_01_el_horno.mp4) |
+| `micro_02_dime_algo_bonito` | Claude, dime algo bonito | `dia_casa` | [docs](micro_02_dime_algo_bonito.md) | [json](../../guiones/micro_02_dime_algo_bonito.json) | [mp4](../../salidas/micro_02_dime_algo_bonito.mp4) |
+| `micro_03_mi_futuro` | Claude, ¿cómo será mi futuro? | `atardecer_casa` | [docs](micro_03_mi_futuro.md) | [json](../../guiones/micro_03_mi_futuro.json) | [mp4](../../salidas/micro_03_mi_futuro.mp4) |
+| `micro_04_ahorrar_100` | Claude, ¿cómo ahorro 100 € este mes? | `dia_casa` | [docs](micro_04_ahorrar_100.md) | [json](../../guiones/micro_04_ahorrar_100.json) | [mp4](../../salidas/micro_04_ahorrar_100.mp4) |
+| `micro_05_las_3_de_la_manana` | Claude, ¿es normal hablar con una IA a las 3 de la mañana? | `noche_casa` | [docs](micro_05_las_3_de_la_manana.md) | [json](../../guiones/micro_05_las_3_de_la_manana.json) | [mp4](../../salidas/micro_05_las_3_de_la_manana.mp4) |
+| `micro_06_sabes_demasiado` | Claude, ¿sabes demasiado de mí? | `atardecer_casa` | [docs](micro_06_sabes_demasiado.md) | [json](../../guiones/micro_06_sabes_demasiado.json) | [mp4](../../salidas/micro_06_sabes_demasiado.mp4) |
+| `micro_07_empezar_de_cero` | Claude, ¿soy muy mayor para empezar de cero? | `dia_casa` | [docs](micro_07_empezar_de_cero.md) | [json](../../guiones/micro_07_empezar_de_cero.json) | [mp4](../../salidas/micro_07_empezar_de_cero.mp4) |
+| `micro_08_me_he_equivocado` | Claude, me he equivocado muchísimo | `noche_casa` | [docs](micro_08_me_he_equivocado.md) | [json](../../guiones/micro_08_me_he_equivocado.json) | [mp4](../../salidas/micro_08_me_he_equivocado.mp4) |
+| `micro_09_ya_voy` | Claude, ¿tengo que ir a la fiesta? | `atardecer_casa` | [docs](micro_09_ya_voy.md) | [json](../../guiones/micro_09_ya_voy.json) | [mp4](../../salidas/micro_09_ya_voy.mp4) |
+| `micro_10_dime_la_verdad` | Claude, dime la verdad: ¿canto mal? | `noche_casa` | [docs](micro_10_dime_la_verdad.md) | [json](../../guiones/micro_10_dime_la_verdad.json) | [mp4](../../salidas/micro_10_dime_la_verdad.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.
