@@ -1,6 +1,6 @@
 # Control de calidad de los vídeos
 
-99 vídeos revisados · 0 con problemas.
+105 vídeos revisados · 0 con problemas.
 
 | Vídeo | Guion (s) | Real (s) | Estado |
 |---|---|---|---|
@@ -47,6 +47,12 @@
 | `casual_43_fiesta_sorpresa` | 38 | 38.0 | OK |
 | `casual_44_cocinar_para_la_cita` | 38 | 38.0 | OK |
 | `casual_45_domingo_de_limpieza` | 34 | 34.0 | OK |
+| `casual_46_la_ventana` | 34 | 34.0 | OK |
+| `casual_47_el_tupper` | 32 | 32.0 | OK |
+| `casual_48_el_cargador` | 34 | 34.0 | OK |
+| `casual_49_nombre_en_la_cafeteria` | 32 | 32.0 | OK |
+| `casual_51_mi_gato_me_ignora` | 34 | 34.0 | OK |
+| `casual_52_el_calcetin` | 36 | 36.0 | OK |
 | `drop_01_que_es_dropshipping` | 45.0 | 45.0 | OK |
 | `drop_02_producto_ganador` | 45.0 | 45.0 | OK |
 | `drop_03_primer_pedido` | 45.0 | 45.0 | OK |
