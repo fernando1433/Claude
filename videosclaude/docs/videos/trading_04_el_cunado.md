@@ -1,5 +1,7 @@
 # Mi cuñado dice que compre esta moneda
 
+![vista previa](img/trading_04_el_cunado.jpg)
+
 **Archivo de guion:** `guiones/trading_04_el_cunado.json` · **Ambiente:** `dia_trading` · **Duración:** 44 s (264 frames de animación a 6 fps)
 
 El «cuñado experto» recomienda una criptomoneda que nadie conoce. Claude le hace las preguntas que el cuñado no responde y le enseña una regla simple: no inviertas en lo que no entiendes ni dinero que no puedas perder.

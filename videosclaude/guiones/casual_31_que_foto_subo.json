@@ -1,0 +1,161 @@
+{
+ "titulo": "Claude, ¿qué foto subo?",
+ "ambiente": "noche_casa",
+ "fps_animacion": 6,
+ "duracion": 36,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 2.42,
+   "quien": "humano",
+   "texto": "Claude, ¿qué foto subo?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "mensajes",
+    "duracion": 36.0,
+    "datos": {
+     "mensajes": [
+      [
+       "yo",
+       "Claude, ¿qué foto subo?"
+      ],
+      [
+       "otro",
+       "¿Cuántas tienes?"
+      ],
+      [
+       "yo",
+       "247."
+      ],
+      [
+       "otro",
+       "¿Y cuántas son distintas?"
+      ],
+      [
+       "yo",
+       "Tres. Salgo igual en todas."
+      ],
+      [
+       "otro",
+       "Entonces sube cualquiera. Salgo yo no, pero tú sí."
+      ],
+      [
+       "yo",
+       "Es que en esta tengo cara de pensar."
+      ],
+      [
+       "otro",
+       "Cara de pensar es cara de «¿qué hay de cena?»."
+      ],
+      [
+       "yo",
+       "Subo esa."
+      ],
+      [
+       "otro",
+       "Perfecto. Y no la mires cada 4 minutos."
+      ],
+      [
+       "yo",
+       "¿Y si no tiene likes?"
+      ],
+      [
+       "otro",
+       "Tendrá los de tu madre. En fin... eres humano."
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "inicio": 2.42,
+   "fin": 4.36,
+   "quien": "claude",
+   "texto": "¿Cuántas tienes?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 4.36,
+   "fin": 6.29,
+   "quien": "humano",
+   "texto": "247.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 6.29,
+   "fin": 8.88,
+   "quien": "claude",
+   "texto": "¿Y cuántas son distintas?",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 8.88,
+   "fin": 11.63,
+   "quien": "humano",
+   "texto": "Tres. Salgo igual en todas.",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 11.63,
+   "fin": 16.22,
+   "quien": "claude",
+   "texto": "Entonces sube cualquiera.\nSalgo yo no, pero tú sí.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 16.22,
+   "fin": 19.64,
+   "quien": "humano",
+   "texto": "Es que en esta tengo cara\nde pensar.",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 19.64,
+   "fin": 23.89,
+   "quien": "claude",
+   "texto": "Cara de pensar es cara\nde «¿qué hay de cena?».",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 23.89,
+   "fin": 25.82,
+   "quien": "humano",
+   "texto": "Subo esa.",
+   "plano": "humano",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 25.82,
+   "fin": 29.49,
+   "quien": "claude",
+   "texto": "Perfecto. Y no la mires\ncada 4 minutos.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 29.49,
+   "fin": 31.75,
+   "quien": "humano",
+   "texto": "¿Y si no tiene likes?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 31.75,
+   "fin": 36,
+   "quien": "claude",
+   "texto": "Tendrá los de tu madre.\nEn fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

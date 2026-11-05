@@ -52,5 +52,9 @@ Cada vídeo tiene su guion plano a plano, las pantallas usadas y los datos reale
 | `casual_28_domingo_noche` | Claude, ya es domingo por la noche | `noche_casa` | [docs](casual_28_domingo_noche.md) | [json](../../guiones/casual_28_domingo_noche.json) | [mp4](../../salidas/casual_28_domingo_noche.mp4) |
 | `casual_29_un_cumplido` | Claude, me han hecho un cumplido y no sé qué contestar | `dia_casa` | [docs](casual_29_un_cumplido.md) | [json](../../guiones/casual_29_un_cumplido.json) | [mp4](../../salidas/casual_29_un_cumplido.mp4) |
 | `casual_30_no_hacer_nada` | Claude, si no hago nada, ¿es meditar? | `noche_casa` | [docs](casual_30_no_hacer_nada.md) | [json](../../guiones/casual_30_no_hacer_nada.json) | [mp4](../../salidas/casual_30_no_hacer_nada.mp4) |
+| `trading_06_dejar_el_trabajo` | Voy a dejar mi trabajo para ser day trader | `noche_trading` | [docs](trading_06_dejar_el_trabajo.md) | [json](../../guiones/trading_06_dejar_el_trabajo.json) | [mp4](../../salidas/trading_06_dejar_el_trabajo.mp4) |
+| `trading_07_miedo_a_quedarse_fuera` | Todo el mundo compra esta moneda. ¡No me puedo quedar fuera! | `dia_trading` | [docs](trading_07_miedo_a_quedarse_fuera.md) | [json](../../guiones/trading_07_miedo_a_quedarse_fuera.json) | [mp4](../../salidas/trading_07_miedo_a_quedarse_fuera.mp4) |
+| `casual_31_que_foto_subo` | Claude, ¿qué foto subo? | `noche_casa` | [docs](casual_31_que_foto_subo.md) | [json](../../guiones/casual_31_que_foto_subo.json) | [mp4](../../salidas/casual_31_que_foto_subo.mp4) |
+| `casual_32_la_mudanza` | Claude, me mudo mañana y no he empaquetado nada | `dia_casa` | [docs](casual_32_la_mudanza.md) | [json](../../guiones/casual_32_la_mudanza.json) | [mp4](../../salidas/casual_32_la_mudanza.mp4) |
 
 Ver `README_SESION.md` (raíz) para el funcionamiento general del proyecto.

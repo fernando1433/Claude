@@ -1,5 +1,7 @@
 # Un proveedor que vende todo a 1 €
 
+![vista previa](img/drop_05_proveedor_barato.jpg)
+
 **Archivo de guion:** `guiones/drop_05_proveedor_barato.json` · **Ambiente:** `atardecer_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El tonto encuentra un proveedor «demasiado barato». Claude le enseña a desconfiar: leer las opiniones malas, pedir muestra y revisar plazos y marcado CE.

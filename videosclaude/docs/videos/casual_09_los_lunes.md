@@ -1,5 +1,7 @@
 # Claude, ¿por qué existen los lunes?
 
+![vista previa](img/casual_09_los_lunes.jpg)
+
 **Archivo de guion:** `guiones/casual_09_los_lunes.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 Queja filosófica del lunes por la mañana, con respuestas secas de Claude.

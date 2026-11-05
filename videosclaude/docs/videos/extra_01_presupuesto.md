@@ -1,5 +1,7 @@
 # ¿A dónde se va tu sueldo?
 
+![vista previa](img/extra_01_presupuesto.jpg)
+
 **Archivo de guion:** `guiones/extra_01_presupuesto.json` · **Ambiente:** `atardecer_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El tonto cobra 2.100 € y se siente rico. Claude le enseña a dónde se van: cafés, nueve suscripciones (usa dos), ahorro del 4 %. Y le enseña el interés compuesto con una cuenta de ejemplo.

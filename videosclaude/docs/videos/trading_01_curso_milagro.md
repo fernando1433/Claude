@@ -1,5 +1,7 @@
 # El curso milagro
 
+![vista previa](img/trading_01_curso_milagro.jpg)
+
 **Archivo de guion:** `guiones/trading_01_curso_milagro.json` · **Ambiente:** `noche_trading` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El trader quiere ser millonario en 7 días con un curso de 997 €. Claude le va desmontando el anuncio (contador falso, testimonios de stock, «garantizado») y, cuando el tonto va a pagar, le bloquea el pago.

@@ -1,5 +1,7 @@
 # Claude, ¿cinco minutos más?
 
+![vista previa](img/casual_08_cinco_minutos.jpg)
+
 **Archivo de guion:** `guiones/casual_08_cinco_minutos.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 El despertador y el «cinco minutos más»: Claude lleva la cuenta de las veces que se ha pospuesto.

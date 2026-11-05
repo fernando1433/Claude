@@ -1,5 +1,7 @@
 # ¡Se me olvidó el cumpleaños de mamá!
 
+![vista previa](img/casual_11_cumple_mama.jpg)
+
 **Archivo de guion:** `guiones/casual_11_cumple_mama.json` · **Ambiente:** `dia_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 El olvido del cumpleaños: Claude organiza el control de daños con una llamada, una excusa digna y un regalo.

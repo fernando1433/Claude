@@ -1,5 +1,7 @@
 # ¿Qué es el dropshipping? (spoiler: 3,44 €)
 
+![vista previa](img/drop_01_que_es_dropshipping.jpg)
+
 **Archivo de guion:** `guiones/drop_01_que_es_dropshipping.json` · **Ambiente:** `dia_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El tonto cree que el dropshipping es «vender sin tener nada, magia». Claude le explica cómo funciona, le enseña el envío de 18-35 días y, con una calculadora, que de 29,90 € le quedan 3,44 €. Y el ROAS mínimo para no perder.

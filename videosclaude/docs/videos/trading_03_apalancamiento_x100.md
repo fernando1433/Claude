@@ -1,5 +1,7 @@
 # Apalancamiento x100
 
+![vista previa](img/trading_03_apalancamiento_x100.jpg)
+
 **Archivo de guion:** `guiones/trading_03_apalancamiento_x100.json` · **Ambiente:** `dia_trading` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El trader quiere meter 500 € a x100 «porque si sube un 1 % gana 500 €». Claude le enseña la otra cara: si baja un 1 %, liquidado. Y le explica los límites de la UE y la regla de arriesgar poco por operación.

@@ -1,5 +1,7 @@
 # Un cliente quiere devolver la lámpara… ¡a los 3 meses!
 
+![vista previa](img/drop_04_devoluciones.jpg)
+
 **Archivo de guion:** `guiones/drop_04_devoluciones.json` · **Ambiente:** `dia_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 Devolución fuera de plazo: Claude separa el desistimiento (14 días) de la garantía legal (3 años en España para bienes nuevos) y le enseña qué cubre cada uno.

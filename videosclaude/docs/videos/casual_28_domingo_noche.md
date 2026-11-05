@@ -1,5 +1,7 @@
 # Claude, ya es domingo por la noche
 
+![vista previa](img/casual_28_domingo_noche.jpg)
+
 **Archivo de guion:** `guiones/casual_28_domingo_noche.json` · **Ambiente:** `noche_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La tristeza del domingo por la noche: mañana es lunes. Claude ofrece consuelo práctico.

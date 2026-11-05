@@ -1,5 +1,7 @@
 # Claude, esta reunión podía ser un correo
 
+![vista previa](img/casual_27_reunion_correo.jpg)
+
 **Archivo de guion:** `guiones/casual_27_reunion_correo.json` · **Ambiente:** `dia_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 La reunión eterna que podía ser un correo, con la agenda y un Claude que cuenta las veces que dicen «sinergias».

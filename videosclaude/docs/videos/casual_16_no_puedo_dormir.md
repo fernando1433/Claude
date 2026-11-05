@@ -1,5 +1,7 @@
 # Claude, no puedo dormir
 
+![vista previa](img/casual_16_no_puedo_dormir.jpg)
+
 **Archivo de guion:** `guiones/casual_16_no_puedo_dormir.json` · **Ambiente:** `noche_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 Insomnio de madrugada: pensamientos absurdos, contar ovejas y un Claude que por una vez te dice que cierres los ojos.

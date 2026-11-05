@@ -1,5 +1,7 @@
 # He mandado un audio al grupo equivocado
 
+![vista previa](img/casual_03_grupo_equivocado.jpg)
+
 **Archivo de guion:** `guiones/casual_03_grupo_equivocado.json` · **Ambiente:** `dia_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 Desastre cotidiano: un audio sobre el jefe enviado al grupo del trabajo. Claude hace control de daños con dignidad.

@@ -1,5 +1,7 @@
 # Claude, me han hecho un cumplido y no sé qué contestar
 
+![vista previa](img/casual_29_un_cumplido.jpg)
+
 **Archivo de guion:** `guiones/casual_29_un_cumplido.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 El pánico de recibir un cumplido. Claude resume la respuesta correcta en dos palabras.

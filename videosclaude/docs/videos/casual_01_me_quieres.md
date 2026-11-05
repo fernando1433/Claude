@@ -1,5 +1,7 @@
 # Claude, ¿tú me quieres?
 
+![vista previa](img/casual_01_me_quieres.jpg)
+
 **Archivo de guion:** `guiones/casual_01_me_quieres.json` · **Ambiente:** `noche_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 Conversación de madrugada: el humano busca cariño y Claude responde con ternura seca. El chat de la pantalla se va escribiendo con el propio diálogo.

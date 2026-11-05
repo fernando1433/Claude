@@ -1,5 +1,7 @@
 # Claude, mi perro me mira raro
 
+![vista previa](img/casual_18_mi_perro.jpg)
+
 **Archivo de guion:** `guiones/casual_18_mi_perro.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 El perro que te mira «como si supiera algo». Claude interpreta la mirada con cero rigor y mucho cariño.

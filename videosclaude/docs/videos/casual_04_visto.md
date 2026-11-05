@@ -1,5 +1,7 @@
 # Claude, ¿por qué no me contesta?
 
+![vista previa](img/casual_04_visto.jpg)
+
 **Archivo de guion:** `guiones/casual_04_visto.json` · **Ambiente:** `noche_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 El clásico del «visto»: tres horas sin respuesta y el humano escribiendo y borrando. Claude da el consejo más sensato: lava los platos.

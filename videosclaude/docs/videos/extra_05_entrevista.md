@@ -1,5 +1,7 @@
 # Claude, mañana tengo una entrevista de trabajo
 
+![vista previa](img/extra_05_entrevista.jpg)
+
 **Archivo de guion:** `guiones/extra_05_entrevista.json` · **Ambiente:** `dia_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 Simulacro de entrevista: «háblame de ti», el defecto «perfeccionista» y el logro de llegar a tiempo cuatro días seguidos.

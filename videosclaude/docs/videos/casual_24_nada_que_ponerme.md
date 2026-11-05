@@ -1,5 +1,7 @@
 # Claude, no tengo nada que ponerme
 
+![vista previa](img/casual_24_nada_que_ponerme.jpg)
+
 **Archivo de guion:** `guiones/casual_24_nada_que_ponerme.json` · **Ambiente:** `noche_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 El armario lleno y la ropa que «no combina con pereza».

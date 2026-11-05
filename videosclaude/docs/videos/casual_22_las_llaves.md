@@ -1,5 +1,7 @@
 # Claude, ¡no encuentro las llaves!
 
+![vista previa](img/casual_22_las_llaves.jpg)
+
 **Archivo de guion:** `guiones/casual_22_las_llaves.json` · **Ambiente:** `dia_casa` · **Duración:** 28 s (168 frames de animación a 6 fps)
 
 La búsqueda desesperada de las llaves… que están en la mano.

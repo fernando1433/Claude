@@ -1,5 +1,7 @@
 # Un día con Claude (te lleva la vida entera)
 
+![vista previa](img/extra_02_un_dia_con_claude.jpg)
+
 **Archivo de guion:** `guiones/extra_02_un_dia_con_claude.json` · **Ambiente:** `dia_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 «Claude, hazme el día». Agenda con 3 reuniones menos, 214 correos sin leer, tareas hechas… y la madre del tonto. Humor de oficina, sin datos reales.

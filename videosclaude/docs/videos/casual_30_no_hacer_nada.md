@@ -1,5 +1,7 @@
 # Claude, si no hago nada, ¿es meditar?
 
+![vista previa](img/casual_30_no_hacer_nada.jpg)
+
 **Archivo de guion:** `guiones/casual_30_no_hacer_nada.json` · **Ambiente:** `noche_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 Filosofía de sofá: ¿mirar el techo es meditación? Claude responde con más cariño que rigor.

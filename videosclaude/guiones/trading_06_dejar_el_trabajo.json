@@ -1,0 +1,172 @@
+{
+ "titulo": "Voy a dejar mi trabajo para ser day trader",
+ "ambiente": "noche_trading",
+ "fps_animacion": 6,
+ "duracion": 45,
+ "pantalla_inicial": "vacia",
+ "lineas": [
+  {
+   "inicio": 0.0,
+   "fin": 3.57,
+   "quien": "humano",
+   "texto": "Claude, voy a dejar mi trabajo\npara ser day trader.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "trading",
+    "duracion": 9.21,
+    "datos": {
+     "tendencia": "sube"
+    }
+   }
+  },
+  {
+   "inicio": 3.57,
+   "fin": 6.19,
+   "quien": "claude",
+   "texto": "Qué valiente.\n¿Y de qué vas a vivir?",
+   "plano": "monitor",
+   "claude_estado": "mira_izq"
+  },
+  {
+   "inicio": 6.19,
+   "fin": 7.67,
+   "quien": "humano",
+   "texto": "De las ganancias.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 7.67,
+   "fin": 9.21,
+   "quien": "claude",
+   "texto": "Ya. ¿Y cuáles son?",
+   "plano": "claude_ojos",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 9.21,
+   "fin": 10.87,
+   "quien": "humano",
+   "texto": "Las que voy a tener.",
+   "plano": "humano",
+   "emocion": "ilusionado",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 6.13,
+    "datos": {
+     "tipo": "brasil"
+    }
+   }
+  },
+  {
+   "inicio": 10.87,
+   "fin": 15.34,
+   "quien": "claude",
+   "texto": "Dato real: 97 % de los day traders\nque insisten +300 días pierde.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 15.34,
+   "fin": 17.07,
+   "quien": "humano",
+   "texto": "Pero yo soy especial.",
+   "plano": "dos",
+   "emocion": "bobo"
+  },
+  {
+   "inicio": 17.07,
+   "fin": 20.13,
+   "quien": "claude",
+   "texto": "Todos son especiales.\nLos otros 97 también.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 20.13,
+   "fin": 21.61,
+   "quien": "humano",
+   "texto": "¿Y el 3 %?",
+   "plano": "humano",
+   "emocion": "confundido",
+   "pantalla": {
+    "tipo": "verdad",
+    "duracion": 5.24,
+    "datos": {
+     "tipo": "brasil2"
+    }
+   }
+  },
+  {
+   "inicio": 21.61,
+   "fin": 25.37,
+   "quien": "claude",
+   "texto": "El 0,5 % ganó más que un\nsueldo básico. Ocho personas.",
+   "plano": "pantalla_completa"
+  },
+  {
+   "inicio": 25.37,
+   "fin": 26.85,
+   "quien": "humano",
+   "texto": "¿Ocho de cuántas?",
+   "plano": "dos",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 26.85,
+   "fin": 29.21,
+   "quien": "claude",
+   "texto": "Mil quinientas cincuenta y una.",
+   "plano": "claude_ojos",
+   "empuje": true
+  },
+  {
+   "inicio": 29.21,
+   "fin": 30.88,
+   "quien": "humano",
+   "texto": "Vale... ¿y qué hago?",
+   "plano": "humano",
+   "emocion": "preocupado"
+  },
+  {
+   "inicio": 30.88,
+   "fin": 34.64,
+   "quien": "claude",
+   "texto": "Prueba con poco, sin dejar\nel sueldo y apuntando todo.",
+   "plano": "monitor",
+   "claude_estado": "feliz"
+  },
+  {
+   "inicio": 34.64,
+   "fin": 36.12,
+   "quien": "humano",
+   "texto": "¿Y si me va bien?",
+   "plano": "dos",
+   "emocion": "ilusionado"
+  },
+  {
+   "inicio": 36.12,
+   "fin": 39.63,
+   "quien": "claude",
+   "texto": "Entonces lo celebraremos\ncon un sueldo de reserva.",
+   "plano": "cenital",
+   "claude_estado": "mira_der"
+  },
+  {
+   "inicio": 39.63,
+   "fin": 41.11,
+   "quien": "humano",
+   "texto": "Qué aburrido.",
+   "plano": "humano",
+   "emocion": "feliz"
+  },
+  {
+   "inicio": 41.11,
+   "fin": 45,
+   "quien": "claude",
+   "texto": "Aburrido es no perder\nel trabajo. En fin... eres humano.",
+   "plano": "general",
+   "claude_estado": "feliz"
+  }
+ ]
+}

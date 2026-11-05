@@ -1,5 +1,7 @@
 # «Te pago el sofá por Bizum»
 
+![vista previa](img/util_04_bizum_inverso.jpg)
+
 **Archivo de guion:** `guiones/util_04_bizum_inverso.json` · **Ambiente:** `dia_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 El humano vende un sofá y el «comprador» le envía una solicitud para que PAGUE él. Claude le explica el Bizum inverso y cómo no caer.

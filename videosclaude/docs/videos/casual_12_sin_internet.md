@@ -1,5 +1,7 @@
 # Claude, no hay internet
 
+![vista previa](img/casual_12_sin_internet.jpg)
+
 **Archivo de guion:** `guiones/casual_12_sin_internet.json` · **Ambiente:** `noche_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La paradoja de preguntarle a Claude cómo arreglar internet sin internet. Tareas de «soporte técnico» con humor.

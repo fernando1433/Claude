@@ -1,5 +1,7 @@
 # Claude, he quemado el arroz
 
+![vista previa](img/casual_17_arroz_quemado.jpg)
+
 **Archivo de guion:** `guiones/casual_17_arroz_quemado.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 Un desastre culinario cotidiano: arroz quemado, olor a humo y Claude como chef de emergencia.

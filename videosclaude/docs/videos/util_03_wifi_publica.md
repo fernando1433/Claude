@@ -1,5 +1,7 @@
 # Claude, ¿me conecto al WiFi gratis del aeropuerto?
 
+![vista previa](img/util_03_wifi_publica.jpg)
+
 **Archivo de guion:** `guiones/util_03_wifi_publica.json` · **Ambiente:** `noche_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 El humano quiere conectarse al WiFi gratis del aeropuerto para mirar el banco. Claude le enseña el riesgo de las redes abiertas, la red «gemela» falsa y qué hacer en su lugar.

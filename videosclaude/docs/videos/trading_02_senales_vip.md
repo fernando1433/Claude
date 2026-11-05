@@ -1,5 +1,7 @@
 # Las señales VIP de Telegram
 
+![vista previa](img/trading_02_senales_vip.jpg)
+
 **Archivo de guion:** `guiones/trading_02_senales_vip.json` · **Ambiente:** `dia_trading` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El trader paga 49 €/mes por un canal de señales. Claude le enseña cómo funciona un «pump & dump»: el admin compra antes, anuncia, el precio sube, él vende y tú te quedas con la pérdida. Claude le salva 380 € a tiempo.

@@ -1,5 +1,7 @@
 # El producto ganador
 
+![vista previa](img/drop_02_producto_ganador.jpg)
+
 **Archivo de guion:** `guiones/drop_02_producto_ganador.json` · **Ambiente:** `dia_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El tonto ha visto en TikTok «el producto ganador» (una lámpara de cactus). Claude lo analiza con datos: 214 tiendas vendiendo lo mismo, moda pasajera… y le avisa de que la electrónica necesita marcado CE y que el vendedor responde. Veredicto: pruébalo con 50 €, no con 5.000 €.

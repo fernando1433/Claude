@@ -1,5 +1,7 @@
 # Anuncios que no venden
 
+![vista previa](img/extra_03_anuncios_que_no_venden.jpg)
+
 **Archivo de guion:** `guiones/extra_03_anuncios_que_no_venden.json` · **Ambiente:** `dia_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 El tonto gastó 124 € en anuncios y consiguió 3 ventas. Claude le enseña el embudo, el ROAS (0,75) y qué probar antes de «subir el presupuesto».

@@ -1,5 +1,7 @@
 # Claude, ¿me pido un aumento?
 
+![vista previa](img/extra_04_pedir_aumento.jpg)
+
 **Archivo de guion:** `guiones/extra_04_pedir_aumento.json` · **Ambiente:** `atardecer_tienda` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 Preparar la petición de un aumento de sueldo: argumentos buenos (logros, datos de mercado, una cifra real) y malos («mi gato lo merece»).

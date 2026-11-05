@@ -1,5 +1,7 @@
 # Claude, creo que mi vecino me odia
 
+![vista previa](img/casual_06_vecino.jpg)
+
 **Archivo de guion:** `guiones/casual_06_vecino.json` · **Ambiente:** `noche_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 El humano cree que su vecino le odia; la nota del vecino lo desmiente: es el humano quien canta y taladra a las 3 de la madrugada. Giro de guion cotidiano.

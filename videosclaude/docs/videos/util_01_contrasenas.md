@@ -1,5 +1,7 @@
 # Mi contraseña es 123456
 
+![vista previa](img/util_01_contrasenas.jpg)
+
 **Archivo de guion:** `guiones/util_01_contrasenas.json` · **Ambiente:** `dia_casa` · **Duración:** 42 s (252 frames de animación a 6 fps)
 
 El humano presume de una contraseña «popular». Claude le enseña el dato real: es la más usada del mundo y se descifra en menos de un segundo; y qué hacer en su lugar.

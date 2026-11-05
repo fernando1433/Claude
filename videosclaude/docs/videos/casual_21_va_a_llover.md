@@ -1,5 +1,7 @@
 # Claude, ¿va a llover?
 
+![vista previa](img/casual_21_va_a_llover.jpg)
+
 **Archivo de guion:** `guiones/casual_21_va_a_llover.json` · **Ambiente:** `dia_casa` · **Duración:** 28 s (168 frames de animación a 6 fps)
 
 Preguntarle a Claude por la lluvia cuando tienes ventana. Un clásico.

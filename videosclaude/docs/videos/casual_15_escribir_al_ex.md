@@ -1,5 +1,7 @@
 # Claude, ¿le escribo a mi ex?
 
+![vista previa](img/casual_15_escribir_al_ex.jpg)
+
 **Archivo de guion:** `guiones/casual_15_escribir_al_ex.json` · **Ambiente:** `noche_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 Las 2 de la madrugada y el dedo sobre el chat de la ex. Claude intenta evitarlo con lógica, ternura y mucha paciencia.

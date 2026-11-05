@@ -1,5 +1,7 @@
 # Claude, ¿qué ceno hoy?
 
+![vista previa](img/casual_02_que_cenamos.jpg)
+
 **Archivo de guion:** `guiones/casual_02_que_cenamos.json` · **Ambiente:** `noche_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 El bucle eterno de «¿qué ceno?»: Claude propone, el humano rechaza todo, y acaba pidiendo la pizza de siempre 43 minutos después.

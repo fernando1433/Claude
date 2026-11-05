@@ -1,5 +1,7 @@
 # Claude, mañana empiezo la dieta
 
+![vista previa](img/casual_05_dieta_lunes.jpg)
+
 **Archivo de guion:** `guiones/casual_05_dieta_lunes.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La dieta que se aplaza cada semana. Claude saca los recordatorios y las veces que se ha aplazado. Humor de promesas incumplidas.

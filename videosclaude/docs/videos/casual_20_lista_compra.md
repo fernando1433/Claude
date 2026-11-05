@@ -1,5 +1,7 @@
 # Claude, ¿hago la lista de la compra?
 
+![vista previa](img/casual_20_lista_compra.jpg)
+
 **Archivo de guion:** `guiones/casual_20_lista_compra.json` · **Ambiente:** `noche_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 La lista de la compra y el consejo clásico: no vayas con hambre. Resultado: 14 helados y sin pan.

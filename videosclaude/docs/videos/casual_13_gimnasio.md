@@ -1,5 +1,7 @@
 # Me he apuntado al gimnasio (todo el año)
 
+![vista previa](img/casual_13_gimnasio.jpg)
+
 **Archivo de guion:** `guiones/casual_13_gimnasio.json` · **Ambiente:** `dia_casa` · **Duración:** 38 s (228 frames de animación a 6 fps)
 
 La matrícula anual del gimnasio y el plan de ir «mañana». Claude propone un trato realista.

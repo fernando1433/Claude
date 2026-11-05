@@ -1,5 +1,7 @@
 # Claude, ¿a quién le toca fregar?
 
+![vista previa](img/casual_14_quien_friega.jpg)
+
 **Archivo de guion:** `guiones/casual_14_quien_friega.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La discusión doméstica de siempre. Claude hace de árbitro con una tabla de turnos y mucha ironía.

@@ -1,5 +1,7 @@
 # Claude, hoy compartí ascensor 6 pisos en silencio
 
+![vista previa](img/casual_25_ascensor.jpg)
+
 **Archivo de guion:** `guiones/casual_25_ascensor.json` · **Ambiente:** `noche_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La incomodidad del ascensor con el vecino: seis pisos sin decir nada. Claude analiza el protocolo social.

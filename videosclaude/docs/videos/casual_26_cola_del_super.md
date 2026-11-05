@@ -1,5 +1,7 @@
 # Claude, la señora de delante tiene 40 cupones
 
+![vista previa](img/casual_26_cola_del_super.jpg)
+
 **Archivo de guion:** `guiones/casual_26_cola_del_super.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La cola del súper con la señora de los cupones, vivida como una carrera de resistencia.

@@ -1,5 +1,7 @@
 # Claude, ¿cuántos cafés son demasiados?
 
+![vista previa](img/casual_23_demasiado_cafe.jpg)
+
 **Archivo de guion:** `guiones/casual_23_demasiado_cafe.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 La pregunta que nadie quiere responder: ya vas por el sexto café.

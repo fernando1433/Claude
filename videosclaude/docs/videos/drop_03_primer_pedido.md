@@ -1,5 +1,7 @@
 # Tu primer pedido (y la realidad)
 
+![vista previa](img/drop_03_primer_pedido.jpg)
+
 **Archivo de guion:** `guiones/drop_03_primer_pedido.json` · **Ambiente:** `atardecer_tienda` · **Duración:** 45 s (270 frames de animación a 6 fps)
 
 ¡Primer pedido! El tonto se cree rico… hasta que el cliente espera 25 días y escribe en mayúsculas. Claude le enseña a contestar, el derecho de desistimiento de 14 días, el contracargo y el IVA de importación. Humor y datos reales.

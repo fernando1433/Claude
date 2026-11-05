@@ -1,5 +1,7 @@
 # Claude, mañana tengo una cita. ¿Qué digo?
 
+![vista previa](img/casual_10_la_cita.jpg)
+
 **Archivo de guion:** `guiones/casual_10_la_cita.json` · **Ambiente:** `noche_casa` · **Duración:** 40 s (240 frames de animación a 6 fps)
 
 Consejos para una primera cita, con humor: qué no decir (el ex, el dinero y que tu mejor amigo es una IA).

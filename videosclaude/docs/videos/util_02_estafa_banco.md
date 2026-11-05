@@ -1,5 +1,7 @@
 # «Tu banco te va a bloquear la cuenta»
 
+![vista previa](img/util_02_estafa_banco.jpg)
+
 **Archivo de guion:** `guiones/util_02_estafa_banco.json` · **Ambiente:** `dia_casa` · **Duración:** 42 s (252 frames de animación a 6 fps)
 
 Un SMS «URGENTE» de un falso banco. Claude enseña a reconocer el phishing (remitente, urgencia, enlace, petición de claves) y qué hacer si ya has picado.

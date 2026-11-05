@@ -4,6 +4,7 @@ Uso: python3 -I motor/cola_pendientes.py <logdir>      (parar: crear <logdir>/PA
 import os, sys, json, time, subprocess, glob
 RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')); LOG = sys.argv[1]
 FALLIDOS = set()
+PARTE = os.environ.get('PARTE', '0/1'); PN, PM = [int(x) for x in PARTE.split('/')]      # reparto entre varios trabajadores: PARTE=0/3, 1/3, 2/3
 def pendientes():
     out = []
     for f in sorted(glob.glob(f'{RAIZ}/guiones/*.json')):
@@ -14,6 +15,7 @@ def pendientes():
         mp4 = f'{RAIZ}/salidas/{vid}.mp4'
         if not os.path.exists(f'{LOG}/LISTO_{amb}'): continue
         if os.path.exists(mp4) and os.path.getmtime(mp4) >= os.path.getmtime(f): continue
+        if (sum(map(ord, vid)) % PM) != PN: continue
         out.append((os.path.exists(mp4), vid, f, mp4))     # primero los que NO existen, luego los desactualizados
     return sorted(out)
 

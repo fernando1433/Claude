@@ -1,5 +1,7 @@
 # Claude, ¿estoy cansado o soy vago?
 
+![vista previa](img/casual_07_cansado_o_vago.jpg)
+
 **Archivo de guion:** `guiones/casual_07_cansado_o_vago.json` · **Ambiente:** `dia_casa` · **Duración:** 36 s (216 frames de animación a 6 fps)
 
 Domingo por la tarde: nueve horas dormidas, pijama a las tres y el sofá que le saluda. Claude dicta sentencia con cariño.

@@ -1,5 +1,7 @@
 # Este tío tiene un yate y dice que me hace rico
 
+![vista previa](img/trading_05_el_guru_del_yate.jpg)
+
 **Archivo de guion:** `guiones/trading_05_el_guru_del_yate.json` · **Ambiente:** `noche_trading` · **Duración:** 44 s (264 frames de animación a 6 fps)
 
 El gurú de Instagram con yate, coches y seguidores comprados. Claude le baja los humos con sarcasmo y el dato de ESMA.

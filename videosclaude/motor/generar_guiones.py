@@ -1037,6 +1037,87 @@ casual('casual_30_no_hacer_nada', 'Claude, si no hago nada, ¿es meditar?', 'noc
     C('Y apaga el horno.\nEn fin... eres humano.', 'general', 'feliz'),
 ])
 
+
+# ---------------- tanda 7
+VIDEOS.append(dict(
+    id='trading_06_dejar_el_trabajo', titulo='Voy a dejar mi trabajo para ser day trader', ambiente='noche_trading', total=45,
+    resumen='El tonto quiere dejar su empleo para hacer day trading. Claude le enseña con datos reales qué pasa con quienes lo intentan de forma persistente y qué hacer en su lugar (probar a pequeña escala sin dejar el sueldo).',
+    datos=[('97 % de los day traders brasileños que persistieron más de 300 días perdió dinero; solo el 0,5 % (8 de 1.551) ganó más que un sueldo básico de banca (estudio con datos de la CVM brasileña, 2013-2015).', [BRASIL, BRASIL2]),
+           ('Recomendación de sentido común (no asesoramiento financiero): no abandones una fuente de ingresos estable para operar y no arriesgues dinero que no puedas perder.', [])],
+    lineas=[
+        H('Claude, voy a dejar mi trabajo\npara ser day trader.', 'humano', 'ilusionado', scr=S('trading', {'tendencia': 'sube'}, sync=('ini', 5, 1.0, 0.0))),
+        C('Qué valiente.\n¿Y de qué vas a vivir?', 'monitor', 'mira_izq'),
+        H('De las ganancias.', 'dos', 'bobo'),
+        C('Ya. ¿Y cuáles son?', 'claude_ojos', 'feliz'),
+        H('Las que voy a tener.', 'humano', 'ilusionado', scr=S('verdad', {'tipo': 'brasil'}, sync=('fin', 6, 1.0, 0.0))),
+        C('Dato real: 97 % de los day traders\nque insisten +300 días pierde.', 'pantalla_completa'),
+        H('Pero yo soy especial.', 'dos', 'bobo'),
+        C('Todos son especiales.\nLos otros 97 también.', 'cenital', 'mira_der'),
+        H('¿Y el 3 %?', 'humano', 'confundido', scr=S('verdad', {'tipo': 'brasil2'}, sync=('fin', 10, 1.0, 0.0))),
+        C('El 0,5 % ganó más que un\nsueldo básico. Ocho personas.', 'pantalla_completa'),
+        H('¿Ocho de cuántas?', 'dos', 'preocupado'),
+        C('Mil quinientas cincuenta y una.', 'claude_ojos', emp=True),
+        H('Vale... ¿y qué hago?', 'humano', 'preocupado'),
+        C('Prueba con poco, sin dejar\nel sueldo y apuntando todo.', 'monitor', 'feliz'),
+        H('¿Y si me va bien?', 'dos', 'ilusionado'),
+        C('Entonces lo celebraremos\ncon un sueldo de reserva.', 'cenital', 'mira_der'),
+        H('Qué aburrido.', 'humano', 'feliz'),
+        C('Aburrido es no perder\nel trabajo. En fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+VIDEOS.append(dict(
+    id='trading_07_miedo_a_quedarse_fuera', titulo='Todo el mundo compra esta moneda. ¡No me puedo quedar fuera!', ambiente='dia_trading', total=44,
+    resumen='El FOMO: todos compran, el precio sube y el tonto quiere entrar al máximo. Claude le enseña que quien entra por miedo a quedarse fuera suele comprar caro, y que el stop loss existe por algo.',
+    datos=[('FOMO (miedo a quedarse fuera): comprar después de una gran subida por presión social suele implicar entrar a precios altos. Explicación general, sin garantías ni asesoramiento.', []), ('Referencia citada: 74–89 % de cuentas minoristas de CFD pierde dinero (ESMA, 2018).', [ESMA, ESMA_R])],
+    lineas=[
+        H('Claude, todo el mundo compra esta\nmoneda. ¡No me puedo quedar fuera!', 'humano', 'ilusionado', scr=S('telegram', {'modo': 'chat'}, sync=('ini', 5, 1.0, 0.0))),
+        C('¿Cuánto ha subido?', 'monitor', 'mira_izq'),
+        H('Un 400 % esta semana.', 'dos', 'bobo'),
+        C('Y quieres entrar ahora.', 'claude_ojos', 'feliz'),
+        H('Es que si no, me la pierdo.', 'humano', 'preocupado', scr=S('trading', {'tendencia': 'sube'}, sync=('ini', 7, 0.7, 0.0))),
+        C('¿Quién te dijo que subiría?', 'cenital', 'mira_der'),
+        H('Mi grupo. Todos la compraron.', 'dos', 'ilusionado'),
+        C('Entonces ya han comprado.\n¿Quién queda para subirla?', 'monitor', 'mira_arriba'),
+        H('...Yo.', 'humano', 'confundido'),
+        C('Exacto. Tú eres\nel que la sube... y la baja.', 'pantalla_completa', scr=S('trading', {'tendencia': 'cae'}, sync=('ini', 10, 0.5, 0.0))),
+        H('¿Y si espero?', 'dos', 'bobo'),
+        C('Entonces no te pierdes nada.\nHabrá otra. Siempre hay otra.', 'claude_ojos', emp=True),
+        H('¿Y si entro con poco?', 'humano', 'ilusionado'),
+        C('Poco y con stop loss.\nEs el trato de los valientes.', 'monitor', 'feliz'),
+        H('Voy con 20 € y stop.', 'dos', 'feliz'),
+        C('Qué madurez.\nEn fin... eres humano.', 'general', 'feliz'),
+    ]))
+
+casual('casual_31_que_foto_subo', 'Claude, ¿qué foto subo?', 'noche_casa', 36, 'Elegir foto para las redes entre 247 casi idénticas. Claude ayuda con criterio nulo y mucho cariño.', [
+    H('Claude, ¿qué foto subo?', 'humano', 'confundido', scr=CHAT(12)),
+    C('¿Cuántas tienes?', 'monitor', 'mira_izq'),
+    H('247.', 'dos', 'bobo'),
+    C('¿Y cuántas son distintas?', 'claude_ojos', 'feliz'),
+    H('Tres. Salgo igual en todas.', 'humano', 'preocupado'),
+    C('Entonces sube cualquiera.\nSalgo yo no, pero tú sí.', 'cenital', 'mira_der'),
+    H('Es que en esta tengo cara\nde pensar.', 'dos', 'ilusionado'),
+    C('Cara de pensar es cara\nde «¿qué hay de cena?».', 'monitor', 'feliz'),
+    H('Subo esa.', 'humano', 'ilusionado'),
+    C('Perfecto. Y no la mires\ncada 4 minutos.', 'claude_ojos', emp=True),
+    H('¿Y si no tiene likes?', 'dos', 'preocupado'),
+    C('Tendrá los de tu madre.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
+casual('casual_32_la_mudanza', 'Claude, me mudo mañana y no he empaquetado nada', 'dia_casa', 38, 'La mudanza que empieza la víspera: Claude hace de organizador de emergencia.', [
+    H('Claude, me mudo mañana\ny no he empaquetado nada.', 'humano', 'preocupado', scr=S('tareas', {'titulo': 'Mudanza — plan de emergencia', 'tareas': ['Cajas (conseguir cajas)', 'Cocina (todo)', 'Libros (no leerlos)', 'Ropa (la verde primero)', 'Lo que no sé qué es', 'Pedir ayuda a amigos']}, sync=('fin', 10, 0.95, 0.0))),
+    C('¿Cuántas horas tienes?', 'monitor', 'mira_izq'),
+    H('Doce. Y una siesta pendiente.', 'dos', 'bobo'),
+    C('Quita la siesta.', 'claude_ojos'),
+    H('Me da pena.', 'humano', 'preocupado'),
+    C('Empieza por lo que menos usas.\nLo demás, mañana.', 'cenital', 'mira_der'),
+    H('Todo lo uso.', 'dos', 'confundido'),
+    C('Tu mesa tiene 14 tazas.\nNo todo lo usas.', 'monitor', 'feliz'),
+    H('Cada taza tiene historia.', 'humano', 'ilusionado'),
+    C('Empaquétalas con historia.\nPero empaqueta.', 'pantalla_completa'),
+    H('¿Y si lo dejo todo?', 'dos', 'bobo'),
+    C('Pide ayuda a tus amigos.\nEn fin... eres humano.', 'general', 'feliz'),
+])
+
 # ------------------------------------------------------------------------------------------------ construccion
 def calcular(v):
     T = v.get('total', TOTAL); L = v['lineas']; raw = [max(1.5, 0.4 + len(x['t'].replace('\n', '')) / 15.5) for x in L]; k = T / sum(raw)
@@ -1086,7 +1167,7 @@ def escribir(v):
     G = {'titulo': v['titulo'], 'ambiente': v['ambiente'], 'fps_animacion': 6, 'duracion': T, 'pantalla_inicial': 'vacia', 'lineas': lineas}
     escribir_si_cambia(os.path.join(RAIZ, 'guiones', v['id'] + '.json'), json.dumps(G, ensure_ascii=False, indent=1) + '\n')
     # ---- documentacion
-    md = [f"# {v['titulo']}", '', f"**Archivo de guion:** `guiones/{v['id']}.json` · **Ambiente:** `{v['ambiente']}` · **Duración:** {T:.0f} s ({int(T * 6)} frames de animación a 6 fps)", '', v['resumen'], '', *(([f"**Gancho (primera frase):** «{L[0]['t'].replace(chr(10), ' ')}»", ''] if v.get('gancho', True) else [])),
+    md = [f"# {v['titulo']}", '', f"![vista previa](img/{v['id']}.jpg)", '', f"**Archivo de guion:** `guiones/{v['id']}.json` · **Ambiente:** `{v['ambiente']}` · **Duración:** {T:.0f} s ({int(T * 6)} frames de animación a 6 fps)", '', v['resumen'], '', *(([f"**Gancho (primera frase):** «{L[0]['t'].replace(chr(10), ' ')}»", ''] if v.get('gancho', True) else [])),
           '## Cómo se genera el vídeo', '```bash', f"python3 -I motor/montar_video.py guiones/{v['id']}.json salidas/{v['id']}.mp4", '```',
           f"El guion se creó con `motor/generar_guiones.py` (tiempos automáticos según la longitud de cada frase y pantallas sincronizadas con el diálogo). Biblioteca usada: `biblioteca/{v['ambiente']}/`.", '',
           '## Guion plano a plano', '', '| # | Tiempo | Quién | Texto | Plano | Emoción / pose / estado | Pantalla del monitor |', '|---|---|---|---|---|---|---|']
