@@ -1,6 +1,6 @@
 # Control de calidad de los vídeos
 
-79 vídeos revisados · 0 con problemas.
+92 vídeos revisados · 0 con problemas.
 
 | Vídeo | Guion (s) | Real (s) | Estado |
 |---|---|---|---|
@@ -42,6 +42,9 @@
 | `casual_37_la_nevera` | 34 | 34.0 | OK |
 | `casual_38_un_por_ciento` | 32 | 32.0 | OK |
 | `casual_39_audio_de_4_minutos` | 36 | 36.0 | OK |
+| `casual_40_un_capitulo_mas` | 34 | 34.0 | OK |
+| `casual_42_el_dentista` | 36 | 36.0 | OK |
+| `casual_43_fiesta_sorpresa` | 38 | 38.0 | OK |
 | `drop_01_que_es_dropshipping` | 45.0 | 45.0 | OK |
 | `drop_02_producto_ganador` | 45.0 | 45.0 | OK |
 | `drop_03_primer_pedido` | 45.0 | 45.0 | OK |
@@ -50,6 +53,7 @@
 | `drop_06_cambio_el_logo` | 44 | 44.0 | OK |
 | `drop_07_venta_a_las_3` | 40 | 40.0 | OK |
 | `drop_08_beneficio_negativo` | 44 | 44.0 | OK |
+| `drop_09_cliente_14_mensajes` | 40 | 40.0 | OK |
 | `extra_01_presupuesto` | 45.0 | 45.0 | OK |
 | `extra_02_un_dia_con_claude` | 45.0 | 45.0 | OK |
 | `extra_03_anuncios_que_no_venden` | 45.0 | 45.0 | OK |
@@ -57,6 +61,12 @@
 | `extra_05_entrevista` | 38 | 38.0 | OK |
 | `extra_06_marca_personal` | 38 | 38.0 | OK |
 | `extra_07_idea_millonaria` | 38 | 38.0 | OK |
+| `extra_08_trabajar_desde_casa` | 38 | 38.0 | OK |
+| `fin_01_que_es_la_inflacion` | 42 | 42.0 | OK |
+| `fin_02_que_es_un_etf` | 42 | 42.0 | OK |
+| `fin_03_las_comisiones` | 42 | 42.0 | OK |
+| `fin_04_no_todos_los_huevos` | 40 | 40.0 | OK |
+| `fin_05_fondo_de_emergencia` | 38 | 38.0 | OK |
 | `micro_01_el_horno` | 20 | 20.0 | OK |
 | `micro_02_dime_algo_bonito` | 20 | 20.0 | OK |
 | `micro_03_mi_futuro` | 20 | 20.0 | OK |
@@ -76,6 +86,8 @@
 | `trading_07_miedo_a_quedarse_fuera` | 44 | 44.0 | OK |
 | `trading_08_ahorros_en_cripto` | 44 | 44.0 | OK |
 | `trading_09_hacerse_rico_rapido` | 40 | 40.0 | OK |
+| `trading_10_que_es_un_stop_loss` | 40 | 40.0 | OK |
+| `trading_11_cuenta_demo` | 40 | 40.0 | OK |
 | `trading_30s_sarcastico` | 30.0 | 30.0 | OK |
 | `util_01_contrasenas` | 42 | 42.0 | OK |
 | `util_02_estafa_banco` | 42 | 42.0 | OK |
@@ -83,3 +95,4 @@
 | `util_04_bizum_inverso` | 40 | 40.0 | OK |
 | `util_05_chollo_falso` | 42 | 42.0 | OK |
 | `util_06_falso_tecnico` | 42 | 42.0 | OK |
+| `util_07_codigo_whatsapp` | 40 | 40.0 | OK |
