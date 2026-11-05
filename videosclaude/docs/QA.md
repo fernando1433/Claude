@@ -1,6 +1,6 @@
 # Control de calidad de los vídeos
 
-92 vídeos revisados · 0 con problemas.
+99 vídeos revisados · 0 con problemas.
 
 | Vídeo | Guion (s) | Real (s) | Estado |
 |---|---|---|---|
@@ -45,6 +45,8 @@
 | `casual_40_un_capitulo_mas` | 34 | 34.0 | OK |
 | `casual_42_el_dentista` | 36 | 36.0 | OK |
 | `casual_43_fiesta_sorpresa` | 38 | 38.0 | OK |
+| `casual_44_cocinar_para_la_cita` | 38 | 38.0 | OK |
+| `casual_45_domingo_de_limpieza` | 34 | 34.0 | OK |
 | `drop_01_que_es_dropshipping` | 45.0 | 45.0 | OK |
 | `drop_02_producto_ganador` | 45.0 | 45.0 | OK |
 | `drop_03_primer_pedido` | 45.0 | 45.0 | OK |
@@ -54,6 +56,7 @@
 | `drop_07_venta_a_las_3` | 40 | 40.0 | OK |
 | `drop_08_beneficio_negativo` | 44 | 44.0 | OK |
 | `drop_09_cliente_14_mensajes` | 40 | 40.0 | OK |
+| `drop_10_fotos_del_producto` | 38 | 38.0 | OK |
 | `extra_01_presupuesto` | 45.0 | 45.0 | OK |
 | `extra_02_un_dia_con_claude` | 45.0 | 45.0 | OK |
 | `extra_03_anuncios_que_no_venden` | 45.0 | 45.0 | OK |
@@ -88,6 +91,8 @@
 | `trading_09_hacerse_rico_rapido` | 40 | 40.0 | OK |
 | `trading_10_que_es_un_stop_loss` | 40 | 40.0 | OK |
 | `trading_11_cuenta_demo` | 40 | 40.0 | OK |
+| `trading_12_noticia_falsa` | 40 | 40.0 | OK |
+| `trading_13_doblar_para_recuperar` | 42 | 42.0 | OK |
 | `trading_30s_sarcastico` | 30.0 | 30.0 | OK |
 | `util_01_contrasenas` | 42 | 42.0 | OK |
 | `util_02_estafa_banco` | 42 | 42.0 | OK |
@@ -96,3 +101,5 @@
 | `util_05_chollo_falso` | 42 | 42.0 | OK |
 | `util_06_falso_tecnico` | 42 | 42.0 | OK |
 | `util_07_codigo_whatsapp` | 40 | 40.0 | OK |
+| `util_08_actualizaciones` | 36 | 36.0 | OK |
+| `util_09_copia_de_seguridad` | 38 | 38.0 | OK |

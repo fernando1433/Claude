@@ -2,6 +2,21 @@
 
 98 vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.
 
+## Empieza por estos 10
+
+| Portada | Vídeo | Por qué |
+|---|---|---|
+| <img src="../salidas/portadas/casual_01_me_quieres.jpg" width="90"> | **Claude, ¿tú me quieres?**<br>[`casual_01_me_quieres`](videos/casual_01_me_quieres.md) | el gancho más fuerte: «Claude, ¿tú me quieres?» |
+| <img src="../salidas/portadas/trading_01_curso_milagro.jpg" width="90"> | **El curso milagro**<br>[`trading_01_curso_milagro`](videos/trading_01_curso_milagro.md) | el trader tonto y el curso milagro (con dato real de ESMA) |
+| <img src="../salidas/portadas/trading_13_doblar_para_recuperar.jpg" width="90"> | **Claude, si pierdo, ¿lo recupero doblando la apuesta?**<br>[`trading_13_doblar_para_recuperar`](videos/trading_13_doblar_para_recuperar.md) | la cuenta exacta de por qué doblar la apuesta arruina |
+| <img src="../salidas/portadas/util_02_estafa_banco.jpg" width="90"> | **«Tu banco te va a bloquear la cuenta»**<br>[`util_02_estafa_banco`](videos/util_02_estafa_banco.md) | phishing explicado con humor (fuentes de INCIBE) |
+| <img src="../salidas/portadas/drop_01_que_es_dropshipping.jpg" width="90"> | **¿Qué es el dropshipping? (spoiler: 3,44 €)**<br>[`drop_01_que_es_dropshipping`](videos/drop_01_que_es_dropshipping.md) | de 29,90 € solo quedan 3,44 € |
+| <img src="../salidas/portadas/casual_02_que_cenamos.jpg" width="90"> | **Claude, ¿qué ceno hoy?**<br>[`casual_02_que_cenamos`](videos/casual_02_que_cenamos.md) | el bucle eterno del «¿qué ceno?» |
+| <img src="../salidas/portadas/fin_03_las_comisiones.jpg" width="90"> | **Claude, mi fondo solo cobra un 2 %**<br>[`fin_03_las_comisiones`](videos/fin_03_las_comisiones.md) | el 2 % que se come 33.000 € |
+| <img src="../salidas/portadas/util_01_contrasenas.jpg" width="90"> | **Mi contraseña es 123456**<br>[`util_01_contrasenas`](videos/util_01_contrasenas.md) | 123456 se descifra en menos de un segundo |
+| <img src="../salidas/portadas/casual_10_la_cita.jpg" width="90"> | **Claude, mañana tengo una cita. ¿Qué digo?**<br>[`casual_10_la_cita`](videos/casual_10_la_cita.md) | consejos de primera cita |
+| <img src="../salidas/portadas/trading_03_apalancamiento_x100.jpg" width="90"> | **Apalancamiento x100**<br>[`trading_03_apalancamiento_x100`](videos/trading_03_apalancamiento_x100.md) | del x100 al «LIQUIDADO» |
+
 ## Trading (Claude salva al trader) (13)
 
 | Portada | Vídeo | Duración | Sala |

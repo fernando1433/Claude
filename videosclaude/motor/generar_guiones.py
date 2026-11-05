@@ -1950,6 +1950,14 @@ def escribir(v):
 FAMILIAS = [('trading', 'Trading (Claude salva al trader)'), ('fin', 'Finanzas básicas (con fuentes oficiales)'), ('util', 'Útiles: estafas y seguridad (con fuentes)'), ('drop', 'Dropshipping'), ('extra', 'Extras: negocio y vida'), ('casual', 'Día a día (conversaciones con gancho)'), ('micro', 'Micro-vídeos de ~20 s')]
 def catalogo():
     md = ['# Catálogo de vídeos', '', f'{len(VIDEOS)} vídeos. Cada uno: portada, título (el gancho), duración, sala y enlace a su documentación. Montaje: `python3 -I motor/montar_video.py guiones/<id>.json salidas/<id>.mp4`.', '']
+    destacados = [('casual_01_me_quieres', 'el gancho más fuerte: «Claude, ¿tú me quieres?»'), ('trading_01_curso_milagro', 'el trader tonto y el curso milagro (con dato real de ESMA)'), ('trading_13_doblar_para_recuperar', 'la cuenta exacta de por qué doblar la apuesta arruina'),
+                  ('util_02_estafa_banco', 'phishing explicado con humor (fuentes de INCIBE)'), ('drop_01_que_es_dropshipping', 'de 29,90 € solo quedan 3,44 €'), ('casual_02_que_cenamos', 'el bucle eterno del «¿qué ceno?»'),
+                  ('fin_03_las_comisiones', 'el 2 % que se come 33.000 €'), ('util_01_contrasenas', '123456 se descifra en menos de un segundo'), ('casual_10_la_cita', 'consejos de primera cita'), ('trading_03_apalancamiento_x100', 'del x100 al «LIQUIDADO»')]
+    md += ['## Empieza por estos 10', '', '| Portada | Vídeo | Por qué |', '|---|---|---|']
+    for id_, por in destacados:
+        v = next((x for x in VIDEOS if x['id'] == id_), None)
+        if v: md.append(f"| <img src=\"../salidas/portadas/{id_}.jpg\" width=\"90\"> | **{v['titulo']}**<br>[`{id_}`](videos/{id_}.md) | {por} |")
+    md.append('')
     for pref, nombre in FAMILIAS:
         vs = [v for v in VIDEOS if v['id'].startswith(pref + '_')]
         if not vs: continue
